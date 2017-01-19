@@ -3,17 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Willow's blog
-subtitle: Writing
+title: Willow's space
+subtitle: Willow's blogs
 description: 捉虫子的人
 author: Willow Yang
 language: en
-timezone:
+timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+#url: http://revolyw.github.io
 url: http://revolyw.github.io
 root: /
+personal_website: http://willowspace.cn
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 

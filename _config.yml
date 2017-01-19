@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Willow's space
-subtitle: Willow's blogs
+title: Willow's blog
+subtitle: Writing
 description: 捉虫子的人
 author: Willow Yang
 language: en
@@ -15,7 +15,7 @@ timezone: UTC
 #url: http://revolyw.github.io
 url: http://revolyw.github.io
 root: /
-personal_website: http://willowspace.cn
+brand_site: http://revolyw.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 

@@ -39,6 +39,18 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 
 
-> 以下是hexo填坑记录
+> 一些特定的使用场景
 
-# 
+## 自定义新建文章的默认基本信息
+
+例如默认的categories几tags信息
+
+可以修改{hexo}/scaffolds/post.md文件
+
+## 自定义domain来访问博客
+
+为达成这样的效果须要在对应git仓库下新建CNAME文件，而没有配置的情况下CNAME是会在新的发布中被删除的。
+
+可以在{hexo}/source目录下简历CNAME文件（文件中写入你的domain），这样CNAME也会被发布
+
+其他须要发布的东西理同上

@@ -13,11 +13,18 @@ timezone: UTC
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 #url: http://revolyw.github.io
-url: http://revolyw.github.io
+url: http://blog.willowspace.cn
 root: /
-brand_site: http://revolyw.github.io
+brand_site: http://blog.willowspace.cn
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+
+# Search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
 # Directory
 source_dir: source

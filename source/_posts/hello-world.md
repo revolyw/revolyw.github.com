@@ -43,6 +43,8 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 > 一些特定的使用场景
 
+我使用的主题是[next](https://github.com/iissnan/hexo-theme-next)，关于next的基本配置及用法可以参考[文档](http://theme-next.iissnan.com/),以下是我在使用hexo及next过程中碰到的特殊(文档中未找到描述)使用场景
+
 ## 自定义新建文章的默认基本信息
 
 例如默认的categories几tags信息
@@ -62,3 +64,9 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 在next主题的目录下有一个layout目录，这是主题的模板文件。这些文件都是以swig结尾，[SWIG](http://www.swig.org/translations/chinese/index.html)是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。
 
 如果需要修改主题的样式布局结构等，修改这些swig模板文件即可达到目的
+
+## 在文章底部添加licence信息
+
+我使用的是
+
+![](http://img.willowspace.cn/willowspace_2016/1484984139980.png)

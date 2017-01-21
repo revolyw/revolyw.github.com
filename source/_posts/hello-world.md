@@ -69,7 +69,7 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 我使用的是[Creative Commons 知识共享许可协议](https://creativecommons.org/licenses/by-nc-nd/3.0/)，协议内容详见[这里](https://creativecommons.org/licenses/by-nc-nd/3.0/cn/legalcode)
 
-![](http://img.willowspace.cn/willowspace_2016/1484984139980.png)
+找到${next}/layout/_macro/post.swig，将许可证官网复制的相关代码粘贴至文章指定位置即可
 
 ## 使用next与hexo的内置标签来书写markdown
 

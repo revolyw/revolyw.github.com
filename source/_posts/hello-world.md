@@ -56,3 +56,9 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 可以在{hexo}/source目录下简历CNAME文件（文件中写入你的domain），这样CNAME也会被发布
 
 其他须要发布的东西理同上
+
+##  修改主题layout中的模板文件
+
+在next主题的目录下有一个layout目录，这是主题的模板文件。这些文件都是以swig结尾，[SWIG](http://www.swig.org/translations/chinese/index.html)是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。
+
+如果需要修改主题的样式布局结构等，修改这些swig模板文件即可达到目的

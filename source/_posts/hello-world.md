@@ -67,6 +67,10 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 ## 在文章底部添加licence信息
 
-我使用的是
+我使用的是[Creative Commons 知识共享许可协议](https://creativecommons.org/licenses/by-nc-nd/3.0/)，协议内容详见[这里](https://creativecommons.org/licenses/by-nc-nd/3.0/cn/legalcode)
 
 ![](http://img.willowspace.cn/willowspace_2016/1484984139980.png)
+
+## 使用next与hexo的内置标签来书写markdown
+
+[next文档中的内置标签](http://theme-next.iissnan.com/tag-plugins.html)，更多内置标签参照[hexo内置标签](https://hexo.io/docs/tag-plugins.html)

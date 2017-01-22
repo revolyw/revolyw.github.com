@@ -14,3 +14,10 @@ date: 2017-01-21 14:35:40
 
 ## spring-rmi
 
+### 1. Exposing services using RMI
+
+#### 1.1 Exporting the service using the RmiServiceExporter
+
+
+
+瞎鸡巴做了一通之后发现，要保持一个原则：在application.xml中只配置rmi远程调用的接口和接口实现，本地的接口和接口实现全部本地注入，不要写入application.xml中

@@ -75,6 +75,10 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 [next文档中的内置标签](http://theme-next.iissnan.com/tag-plugins.html)，更多内置标签参照[hexo内置标签](https://hexo.io/docs/tag-plugins.html)
 
+## 开启首页的文章摘要
+
+在主题配置中找到excerpt相关配置
+
 ## 处理摘要中的代码块
 
 首页一般都会显示文章摘要，而摘要中如果包含一部分markdown的代码块，则可能出现一长串编码超出容器

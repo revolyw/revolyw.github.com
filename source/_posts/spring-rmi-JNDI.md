@@ -1,7 +1,7 @@
 ---
 title: spring-rmi & JNDI
 categories: technology
-tags: java
+tags: [java,spring]
 date: 2017-01-21 14:35:40
 ---
 

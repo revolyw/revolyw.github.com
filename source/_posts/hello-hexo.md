@@ -91,7 +91,7 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 ## 开启多说评论的邮件提醒
 
-参照多说评论官方文档 data-author-key 可以设置主动邮件提醒
+参考这篇[博客](http://www.tuicool.com/articles/iEN7riZ)
 
 
 

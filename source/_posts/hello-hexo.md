@@ -89,6 +89,10 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 </div>
 ```
 
+## 开启多说评论的邮件提醒
+
+参照多说评论官方文档 data-author-key 可以设置主动邮件提醒
+
 
 
 > 关于next主题及hexo相关的问题，欢迎大家给我留言，一起讨论。

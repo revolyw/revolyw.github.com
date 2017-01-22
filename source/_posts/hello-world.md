@@ -74,3 +74,21 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 ## 使用next与hexo的内置标签来书写markdown
 
 [next文档中的内置标签](http://theme-next.iissnan.com/tag-plugins.html)，更多内置标签参照[hexo内置标签](https://hexo.io/docs/tag-plugins.html)
+
+## 处理摘要中的代码块
+
+首页一般都会显示文章摘要，而摘要中如果包含一部分markdown的代码块，则可能出现一长串编码超出容器
+
+![](http://img.willowspace.cn/willowspace_2016/1485056475711.png)
+
+这时可以修改swig模板，添加css的word-break属性来处理这种情况。
+
+```html
+<div style="word-break:break-all;word-break:break-word;">
+    {{ content.substring(0, theme.auto_excerpt.length) }}
+</div>
+```
+
+
+
+> 关于next主题及hexo相关的问题，欢迎大家给我留言，一起讨论。

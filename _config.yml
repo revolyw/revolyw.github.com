@@ -15,7 +15,7 @@ timezone: UTC
 #url: http://revolyw.github.io
 url: http://blog.willowspace.cn
 root: /
-brand_site: http://blog.willowspace.cn
+brand_site: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 

@@ -97,6 +97,12 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 参考这篇[博客](http://www.tuicool.com/articles/iEN7riZ)
 
+## 修改文章字体相关属性
+
+1. 正文字体大小 __${next}/source/css/_common/scaffolding/base.styl__ 中的body标签
+
+
+
 
 
 > 关于next主题及hexo相关的问题，欢迎大家给我留言，一起讨论。

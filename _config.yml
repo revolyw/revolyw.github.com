@@ -8,6 +8,8 @@ subtitle: Writing
 description: 捉虫子的人
 author: 杨威
 language: en
+#- zh
+#- en
 timezone: UTC
 
 # URL
@@ -16,8 +18,9 @@ timezone: UTC
 url: http://blog.willowspace.cn
 root: /
 brand_site: /
-permalink: :year/:month/:day/:title/
-permalink_defaults:
+permalink: :category/:year/:month/:title/
+permalink_defaults: 
+  lang: en
 
 # Search
 search:

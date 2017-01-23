@@ -101,7 +101,19 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 1. 正文字体大小 __${next}/source/css/_common/scaffolding/base.styl__ 中的body标签
 
+## 页内链接
 
+1. 制作一个hash链接
+
+   ```html
+   <span id="hash">content</span>
+   ```
+
+2. 在需要的地方链接到hash链
+
+   ```markdown
+   [hash](#hash)
+   ```
 
 
 

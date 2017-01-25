@@ -11,6 +11,11 @@ date: 2017-01-25 14:15:09
 
 ![](http://img.willowspace.cn/willowspace_2016/1485234708330.png)
 
+## Gradle准备
+
+- 安装jdk或者jre，且版本至少是6以上
+- 从[官网](https://gradle.org/)安装gradle
+
 ## 配置文件与构建脚本
 
 使用gradle构建项目，项目根目录下会有build.gradle和settings.gradle两个文件(如上图)
@@ -71,3 +76,5 @@ dependencies {
 ```
 
 有了上述两个文件，我们项目之间的依赖以及第三方依赖就都可以通过gradle建立起来。
+
+更多gradle相关的用法，参考[Gradle User Guide 中文版](https://www.gitbook.com/book/dongchuan/gradle-user-guide-/details)

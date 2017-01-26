@@ -24,57 +24,75 @@ __settings.gradle__ 配置文件
 
 ```groovy
 //多项目（或多modules）管理
-rootProject.name = 'spring-boot-rmi' // 项目名
-include('oldwang','greenqiang','laowang','xiaoming') //包含子项目(modules)
+//rootProject.name = "spring-boot-rmi" //根项目
+include "old-wang", "green-qiang"
 ```
 
 __build.gradle__ 构建脚本
 
+- 根目录下的构建脚本 /build.gradle
+
 ```groovy
 //项目基本信息
-project 'spring-boot-rmi'
 group 'cn.willowspace'
 version '1.0-SNAPSHOT'
 
-//应用插件
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'maven'
-
-//指定编译级别
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-//指定源码及资源文件目录
-sourceSets {
-    main{
-        java {
-            srcDir 'oldwang/src/main/java'
-            srcDir 'greenqiang/src/main/java'
-        }
-        resources{
-            srcDir 'oldwang/src/main/resources'
-            srcDir 'greenqiang/src/main/resources'
+//allprojects or subprojects
+allprojects {
+  	//应用插件
+    apply plugin: 'java'
+	//指定编译级别
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+	//指定依赖仓库
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'http://repo.spring.io/libs-milestone/'
         }
     }
-}
-
-//指定maven仓库位置
-repositories {
-    mavenCentral()
-    maven {
-        url 'http://repo.spring.io/libs-milestone/'
+	//依赖管理
+    dependencies {
+        //spring-boot-starter-parent
+        compile group: 'org.springframework.boot', name: 'spring-boot', version: '1.2.8.RELEASE'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.2.8.RELEASE'
     }
-}
-
-//依赖管理
-dependencies {
-  	//jar依赖
-    compile group: 'org.springframework.boot', name: 'spring-boot', version: '1.2.8.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.2.8.RELEASE'
 }
 ```
 
-有了上述两个文件，我们项目之间的依赖以及第三方依赖就都可以通过gradle建立起来。
+- old-wang子项目的构建脚本 old-wang/build.gradle
+
+```groovy
+//指定项目的源码及资源文件路径
+sourceSets {
+    main {
+        java {
+            srcDir 'old-wang/src/main/java'
+        }
+        resources {
+            srcDir 'old-wang/src/main/resources'
+        }
+    }
+}
+```
+
+- green-qiang子项目的构建脚本 green-qiang/build.gradle
+
+```groovy
+//指定项目的源码及资源文件路径
+sourceSets {
+    main {
+        java {
+            srcDir 'green-qiang/src/main/java'
+        }
+        resources {
+            srcDir 'green-qiang/src/main/resources'
+        }
+    }
+}
+```
+
+通过settings.gradle及build.gradle两类文件，我们就可以建立起项目之间的依赖及第三方依赖，一个java项目的基本构建就完成了。
 
 更多gradle相关的用法，参考[Gradle User Guide 中文版](https://www.gitbook.com/book/dongchuan/gradle-user-guide-/details)

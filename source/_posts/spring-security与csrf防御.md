@@ -118,7 +118,7 @@ public class HttpSessionCsrfTokenRepository implements CsrfTokenRepository {
 </http>
   
 <!--注入CsrfFilter-->
-<beans:bean id="csrfFilter" class="com.linkmed.jobmd.security.CsrfFilter">
+<beans:bean id="csrfFilter" class="com.willowspace.security.CsrfFilter">
   <beans:constructor-arg ref="csrfTokenRepository"/>
 </beans:bean>
   

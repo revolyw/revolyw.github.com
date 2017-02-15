@@ -101,7 +101,7 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 1. 正文字体大小 __${next}/source/css/_common/scaffolding/base.styl__ 中的body标签
 
-## 页内链接
+## 添加页内链接
 
 1. 制作一个hash链接
 
@@ -115,6 +115,12 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
    [hash](#hash)
    ```
 
-[这里](http://blog.willowspace.cn/technology/2017/01/spring-security%E4%B8%8Ecsrf%E9%98%B2%E5%BE%A1/)
+## 添加网易云音乐播放器
+
+如果只是加入单曲，只需要搜索歌曲，点开歌曲名，点击生成外链播放器，复制html代码（可以选择是否自动播放），将html代码无需任何修改放入markdown文章里就OK了。
+
+如果想要加入歌单，就需要自己创建歌单，然后分享歌单，找到自己的分享动态，点进去可以看到有“生成外链播放器”这些字眼，其余操作就和上面一样了。不过，你的歌单有变化的话，这个外链的歌曲同样跟着变，这一点挺棒的。
+
+
 
 > 关于next主题及hexo相关的问题，欢迎大家给我留言，一起讨论。

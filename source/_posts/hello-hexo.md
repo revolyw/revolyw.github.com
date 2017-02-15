@@ -121,6 +121,40 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 如果想要加入歌单，就需要自己创建歌单，然后分享歌单，找到自己的分享动态，点进去可以看到有“生成外链播放器”这些字眼，其余操作就和上面一样了。不过，你的歌单有变化的话，这个外链的歌曲同样跟着变，这一点挺棒的。
 
+## 添加打赏功能
 
+[生成微信及支付宝付款二维码](http://www.duwenzhang.com/down/zanshang_jiaocheng.html)
+
+主题配置文件中添加如下代码
+
+```powershell
+# 打赏
+wechatpay: http://img.willowspace.cn/hexo_reward_qrcode_img/wechatpay.jpeg
+alipay: http://img.willowspace.cn/hexo_reward_qrcode_img/alipay.jpeg
+```
+
+打赏相关的模板为
+
+{next}/layout/_macro/post.swig
+
+```html
+<!-- 文章详情中打赏部分 -->
+...
+<div>
+  {% if not is_index %}
+    {% include 'reward.swig' %}
+  {% endif %}
+</div>
+...
+```
+
+{next}/layout/_macro/reward.swig
+
+```html
+<!-- 打赏 -->
+{% if theme.alipay or theme.wechatpay %}
+...
+{% endif %}
+```
 
 > 关于next主题及hexo相关的问题，欢迎大家给我留言，一起讨论。

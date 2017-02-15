@@ -9,11 +9,9 @@ date: 2017-02-15 17:12:23
 
 ## Spring IoC容器
 
-根据[官方文档的说法](http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/beans.html#beans-basics)，
+Spring IoC容器其实就是一个应用程序的上下文，根据[官方文档的说法](http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/beans.html#beans-basics)，
 
 > `org.springframework.beans`和`org.sprinframework.context`包是Spring框架的基础IoC容器。`BeanFactory`接口提供了高级的配置机制来管理任意对象。`ApplicationContext`是`BeanFactory`的一个子接口,它增加了更易于集成的Spring AOP特性；消息资源处理(用于国际化),事件发布以及特定的应用层上下文，例如,用于Web应用的`WebApplicationContext`
-
-Spring IoC容器其实就是一个应用程序的上下文
 
 在Spring Web应用中， 我们常用到两种IoC容器，它们以不同的配置初始化。一个是`Application Context`，另一个是`Web Application Context`
 

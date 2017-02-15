@@ -121,6 +121,10 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 如果想要加入歌单，就需要自己创建歌单，然后分享歌单，找到自己的分享动态，点进去可以看到有“生成外链播放器”这些字眼，其余操作就和上面一样了。不过，你的歌单有变化的话，这个外链的歌曲同样跟着变，这一点挺棒的。
 
+```html
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=578557134&auto=1&height=90"></iframe>
+```
+
 ## 添加打赏功能
 
 [生成微信及支付宝付款二维码](http://www.duwenzhang.com/down/zanshang_jiaocheng.html)

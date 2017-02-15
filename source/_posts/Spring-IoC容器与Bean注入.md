@@ -22,18 +22,18 @@ Spring IoC容器其实就是一个应用程序的上下文
 > 接口`org.springframework.context.ApplicationContext`提供了一个Spring IoC容器，它代表了beans可靠的实例化、配置化以及组件化。 容器通过读取配置元数据（xml或annotation或Java Code）来实例化、配置或组装对象。
 >
 > `Application Context`这个容器，由定义在web.xml中的`ContextLoaderListener`或`ContextLoaderServlet`初始化，其配置一般如下
->
-> ```xml
-> <listener>
->      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-> </listener>
->
-> <context-param>
->      <param-name>contextConfigLocation</param-name>
->      <param-value>classpath:*-context.xml</param-value>
-> </context-param>
-> ```
->
+
+```xml
+<listener>
+     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
+<context-param>
+     <param-name>contextConfigLocation</param-name>
+     <param-value>classpath:*-context.xml</param-value>
+</context-param>
+```
+
 > 上面的配置中，我们让spring去加载所有classpath中的-context.xml结尾的文件并且用它们创建了一个应用程序上下文.   这些文件常常包含的是一些在应用中将被用到的中间层事务服务、数据访问或其它对象。基于这个配置，对于每个应用都会有这样一个应用程序上下文。
 
 ### WebApplicationContext
@@ -41,20 +41,20 @@ Spring IoC容器其实就是一个应用程序的上下文
 > 在Spring MVC框架中，每个`DispatcherServlet`有它自己的`WebApplicationContext`，它继承了所有已经定义在根WebApplicationContext中的beans。那些继承的beans可以在具体的servlet作用域中被重载，而且在这个Servlet实例中你可以定义一些有特定作用域的beans
 >
 > `WebApplicationContext`是一个应用程序上下文的子上下文。每个在Spring Web应用中定义的`DispatcherServlet`都有一个关联的`WebApplicationContext`,其一般配置如下
->
-> ```xml
-> <servlet>
->       <servlet-name>platform-services</servlet-name>
->       <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
->       <init-param>
->             <param-name>contextConfigLocation</param-name>
->             <param-value>classpath:platform-services-servlet.xml</param-value>
->       </init-param>
->       <load-on-startup>1</load-on-startup>
-> </servlet>
-> ```
->
-> 你需要提供spring配置文件(xml)的名字作为servlet的初始化参数。值得注意的是，这个xml的名字必须是`*-servlet.xml`的格式。拿上面的配置为例来说，servlet的名字为platform-services，因此xml的名字必须为platform-service-servlet.xml。不论`ApplicationContext`中定义的beans是否可用，它们都将被每个`WebApplicationContext`所引用。最佳实践是，保持一个清晰的分层，中间层服务作为业务逻辑组件，而数据访问层（通畅定义在`ApplicationContext`）和web相关组件作为控制器和视图解析器（通常定义在每个Dispatcher Servlet的`WebApplicationContext`中）。
+
+```xml
+<servlet>
+      <servlet-name>platform-services</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:platform-services-servlet.xml</param-value>
+      </init-param>
+      <load-on-startup>1</load-on-startup>
+</servlet> 
+```
+
+> 你需要提供spring配置文件(xml)的名字作为servlet的初始化参数。值得注意的是，这个xml的名字必须是`*-servlet.xml`的格式。拿上面的配置为例来说，servlet的名字为platform-services，因此xml的名字必须为platform-service-servlet.xml。不论`ApplicationContext`中定义的beans是否可用，它们都将被每个`WebApplicationContext`所引用。最佳实践是，保持一个清晰的分层，中间层服务作为业务逻辑组件，而数据访问层（通畅定义在`ApplicationContext`）和web相关组件作为控制器和视图解析器（通常定义在每个Dispatcher Servlet的`WebApplicationContext`中）
 
 ## 被注入Bean的作用域
 

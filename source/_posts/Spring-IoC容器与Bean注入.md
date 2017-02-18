@@ -5,7 +5,7 @@ tags: [java,spring,设计模式,编程思想]
 date: 2017-02-15 17:12:23
 ---
 
-为了重构web项目中注入众多的Bean，我们有必要搞清楚__Spring IoC容器、被注入Bean的作用域__以及__如何注入Bean__的问题
+为了重构web项目中注入众多的Bean，我们有必要搞清楚项目中的__Spring IoC容器、被注入Bean的作用域__以及__如何注入Bean__的问题
 
 ## Spring IoC容器
 

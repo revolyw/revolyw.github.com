@@ -163,6 +163,7 @@ public class CsrfFilter implements Filter {
 ```
 ## 参考文档
 
-1. [spring security中文文档](https://springcloud.cc/spring-security-zhcn.html)
+1. [Using Spring Security CSRF Protection](https://springcloud.cc/spring-security-zhcn.html#csrf-using)
 2. [Cross Site Request Forgery (CSRF)](https://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html)
+
 

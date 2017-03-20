@@ -54,7 +54,7 @@ Spring IoC容器其实就是一个应用程序的上下文，根据[官方文档
 
 > 你需要提供spring配置文件(xml)的名字作为servlet的初始化参数。值得注意的是，这个xml的名字必须是`*-servlet.xml`的格式。拿上面的配置为例来说，servlet的名字为platform-services，因此xml的名字必须为platform-service-servlet.xml。不论`ApplicationContext`中定义的beans是否可用，它们都将被每个`WebApplicationContext`所引用。最佳实践是，保持一个清晰的分层，中间层服务作为业务逻辑组件，而数据访问层（通畅定义在`ApplicationContext`）和web相关组件作为控制器和视图解析器（通常定义在每个Dispatcher Servlet的`WebApplicationContext`中）
 
-参考: [understand Spring MVC's ApplicationContext hierarchy](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-servlet) and [basic components and lifecycles in a servlet container](http://download.oracle.com/javaee/6/tutorial/doc/bnafd.html)
+参考: [understand Spring MVC's ApplicationContext hierarchy](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-servlet) and [basic components and lifecycles in a servlet container](http://download.oracle.com/javaee/6/tutorial/doc/bnafd.html) and [application initialization](http://stackoverflow.com/questions/7746633/declaring-spring-bean-in-parent-context-vs-child-context)
 
 
 

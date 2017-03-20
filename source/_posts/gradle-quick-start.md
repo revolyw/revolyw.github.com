@@ -96,3 +96,7 @@ sourceSets {
 通过settings.gradle及build.gradle两类文件，我们就可以建立起项目之间的依赖及第三方依赖，一个java项目的基本构建就完成了。
 
 更多gradle相关的用法，参考[Gradle User Guide 中文版](https://www.gitbook.com/book/dongchuan/gradle-user-guide-/details)
+
+[IDEA中Gradle的设置](http://www.jetbrains.com/help/idea/2016.3/gradle-2.html) ,特别注意：不要在IDEA里开启offline work选项，否则你可能经常找不到你要的dependencies
+
+> - Offline work - use this check box to work with Gradle in the offline mode. In this case Gradle will use dependencies from the cache. Gradle will not attempt to access the network to perform dependency resolution. If required dependencies are not present in the dependencies' cache, a build execution will fail.

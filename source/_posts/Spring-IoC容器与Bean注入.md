@@ -1,5 +1,5 @@
 ---
-title: Spring IoC容器与Bean注入
+title: Spring IoC容器与Spring DI
 categories: technology
 tags: [java,spring,设计模式,编程思想]
 date: 2017-02-15 17:12:23
@@ -58,7 +58,11 @@ Spring IoC容器其实就是一个应用程序的上下文，根据[官方文档
 
 
 
-## 被注入Bean的作用域
+## Spring DI(依赖注入)
+
+依赖注入的对象是bean，也就是各种java对象
+
+### 被注入Bean的作用域
 
 Spring中使用scope属性来声明bean的作用域
 
@@ -76,7 +80,7 @@ scope取值如下
 | session        | 在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。 |
 | global session | 在一个全局的HTTP Session中，一个bean定义对应一个实例。典型情况下，仅在使用portlet context的时候有效。该作用域仅在基于web的Spring ApplicationContext情形下有效。 |
 
-## 集中注入
+### 集中注入
 
 对于1控制层、2中间业务层、3数据访问层对象。往往是3注入2，2注入1，如果系统或业务庞杂，那么注入配置会很臃肿，注入关系不清晰，如果你的不是按3->2->1这样注入，那可能情况会更糟糕。
 

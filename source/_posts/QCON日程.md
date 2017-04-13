@@ -1,0 +1,90 @@
+---
+title: QCON日程
+categories: technology
+tags: [QCON,Conference]
+date: 2017-04-14 02:49:13
+---
+
+> QCON全球软件开发大会 北京·国家会议中心 2017.4.16~18
+>
+> 日程如下
+
+# 第一天
+
+## 主题演讲 大会堂A
+
+- 09:00 开场致辞&[持续集成之 Why、What & How](http://2017.qconbeijing.com/presentation/803) CloudBees CTO，Jenkins 创始人和主要开发者 Kohsuke Kawaguchi（川口耕介）
+
+## [微服务与 DevOps 最佳实践（厂商共建）](http://2017.qconbeijing.com/track/128) 306A
+
+- 09:00  [基于 OpenResty 和 Node.js 的微服务架构实践](http://2017.qconbeijing.com/presentation/843) 个推平台研发部总监 俞锋锋
+
+## [Google、Uber 的分布式系统设计](http://2017.qconbeijing.com/track/139) 311A
+
+- 10:30  [Maglev 网络负载平衡系统](http://2017.qconbeijing.com/presentation/640) Google 高级工程师，网络负载均衡技术 Maglev 主要作者 易成
+- 11:30 [使用一致协议来实现数据复制](http://2017.qconbeijing.com/presentation/810) Uber Senior Software Engineer 王盟
+
+## [互联网新挑战 甲骨文黑科技（厂商专场）](http://2017.qconbeijing.com/track/138) 306B
+
+- 14:00  [Java 9 新特性介绍及 Jigsaw 一览](http://2017.qconbeijing.com/presentation/862) 甲骨文首席工程师 杨晓峰
+- 16:00 [甲骨文新一代移动开发体验](http://2017.qconbeijing.com/presentation/864) 甲骨文架构师 邢红
+- 16:55 [如何用 MySQL 构建全方位高可用应用](http://2017.qconbeijing.com/presentation/865) 甲骨文 MySQL 全球事业部资深技术顾问 杜修文
+
+## [人工智能与深度学习](http://2017.qconbeijing.com/track/69) 311A
+
+- 14:55 311A [经典算法与人工智能在外卖物流调度中的应用](http://2017.qconbeijing.com/presentation/624) 百度外卖资深策略架构师 徐明泉
+
+## 晚场活动 308
+
+- 18:30  [“五云出岫，私人订制” UCloud UCan技术之夜，等你来约](https://jinshuju.net/f/xXLq32) 
+
+# 第二天
+
+## 主题演讲 大会堂A
+
+- 09:00 [人工智能驱动智慧零售](http://2017.qconbeijing.com/presentation/877) 京东集团副总裁、京东商城研发体系负责人 马松
+
+## [业务架构那些事](http://2017.qconbeijing.com/track/62) 310
+
+- 09:55 [趣店（前趣分期）风控业务那些事](http://2017.qconbeijing.com/presentation/505) 趣店集团（前趣分期）架构师 & 风控技术负责人 黄浩天
+- 10:50 [菜鸟末端业务技术架构治理实践](http://2017.qconbeijing.com/presentation/508) 阿里巴巴资深技术专家 章天锋（大通）
+- 14:00 [微信红包后台系统可用性设计实践](http://2017.qconbeijing.com/presentation/759) 腾讯高级工程师 方乐明
+- 14:55 [QQ 空间平台百亿级流量的社交广告系统海量实践](http://2017.qconbeijing.com/presentation/660) 腾讯 QQ 空间营收功能后台技术负责人 冯启航
+- 16:00 [高速发展业务的架构应对实践](http://2017.qconbeijing.com/presentation/507) 百度外卖基础架构部资深架构师 陈霖
+
+## [推荐系统架构演进](http://2017.qconbeijing.com/track/126) 307A
+
+- 11:45 [今日头条推荐系统架构设计实践](http://2017.qconbeijing.com/presentation/725) 今日头条资深研发工程师 金敬亭
+
+## [大规模网关系统](http://2017.qconbeijing.com/track/55) 311A
+
+- 16:55 [API 平台的安全实践](http://2017.qconbeijing.com/presentation/735) 甲骨文资深解决方案架构师 张梁
+
+## 晚场活动（308）
+
+- 18:30 编程语言杂谈
+
+# 第三天
+
+## [容器应用与工程效率提升（厂商共建）](http://2017.qconbeijing.com/track/130) 大会堂A
+
+- 09:30 [基于 Docker 的全自动化性能测试平台](http://2017.qconbeijing.com/presentation/851) 秦苍科技高级测试工程师 于国庆
+
+## [网络信息安全建设最佳实践](http://2017.qconbeijing.com/track/74) 307A
+
+- 10:30 [代码未写，漏洞已出——谈谈设计不当导致的安全问题](http://2017.qconbeijing.com/presentation/720) 腾讯玄武实验室总监 于旸（TK）
+- 11:25 [甲方安全从 0 到 1](http://2017.qconbeijing.com/presentation/618) bilibili 安全团队负责人 吴文灏
+
+## [工程效率提升](http://2017.qconbeijing.com/track/68) 311B
+
+- 11:25 [百度万人研发团队 Git 工具链建设的挑战与思考](http://2017.qconbeijing.com/presentation/526) 百度工程效率部研发工具产品经理 杨扬
+
+## [大规模分布式系统架构与实践](http://2017.qconbeijing.com/track/76) 310
+
+- 13:30 [PaxosStore：微信跨数据中心强一致存储系统](http://2017.qconbeijing.com/presentation/745) 微信存储系统主要负责人 曾楚伟
+- 14:25 [从百度文件系统看大型分布式系统设计中的定式与创新](http://2017.qconbeijing.com/presentation/663) 百度搜索架构师 颜世光
+- 15:30 [大规模分布式系统架构下调测能力构建之道](http://2017.qconbeijing.com/presentation/739) 天弘基金（余额宝）高级架构师 李鑫
+
+
+
+## 17:10 演讲结束

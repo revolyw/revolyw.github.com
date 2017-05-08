@@ -13,8 +13,6 @@ date: 2017-04-21 00:14:39
 
 ## zookeeper简单使用
 
-
-
 1. 下载zookeeper，例如：[zookeeper-3.4.10](http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.10/)
 
 2. 解压zookeeper-3.4.10.tar.gz，并进入解压后的目录(以下用{zookeeper}代替解压后的目录)

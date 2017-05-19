@@ -1,5 +1,5 @@
 ---
-title: 通过远程命令执行反弹shell
+title: 通过远程命令反弹shell
 categories: technology
 tags: [web安全,shell,远程命令执行,nc,linux]
 date: 2017-05-19 10:40:33

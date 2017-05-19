@@ -17,7 +17,7 @@ sudo service ssh start
 
 ```shell
 sudo ssh-keygen -t rsa -C "..."
-sudo ssh-copy-id user@server_ip
+sudo ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_ip
 sudo service ssh restart
 ```
 

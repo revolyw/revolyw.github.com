@@ -1,7 +1,7 @@
 ---
 title: JavaDoc常用注释
 categories: technology
-tags: [java,JavaDoc,奇淫巧技]
+tags: [java,JavaDoc,奇淫巧技,代码规范]
 date: 2017-05-28 12:53:12
 ---
 

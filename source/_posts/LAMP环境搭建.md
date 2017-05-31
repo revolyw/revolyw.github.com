@@ -1,0 +1,121 @@
+---
+title: LAMP环境搭建
+categories: technology
+tags: [apache,httpd,php,ops,虚拟内存]
+date: 2017-06-01 04:20:50
+---
+
+linux+apache+mysql+php，linux及mysql略，本文介绍apache上部署php。
+
+### 部署apache服务
+
+__下载apache相关资源__
+
+[httpd(apache)](http://httpd.apache.org/download.cgi)
+
+[apr(apache portable runtime)](http://apr.apache.org/download.cgi)
+
+[apr-util](http://archive.apache.org/dist/apr/apr-util-1.5.2.tar.gz)
+
+__apr及apr-util移至httpd的srclib目录下__
+
+```shell
+cp -rf apr-1.5.2 /srv/httpd-2.4.25/srclib/apr
+cp -rf apr-util-1.5.2 /srv/httpd-2.4.25/srclib/apr-util
+```
+
+__apache2.4中文文档__
+
+http://httpd.apache.org/docs/2.4/
+
+__编译安装启动__
+
+```shell
+#/opt/httpd-2.4.25
+./configure --prefix=/srv/apache2
+make
+make install
+#修改端口 /srv/apache2/conf/httpd.conf
+Listen 8000
+ServerName ${intranet_ip}:8000
+#启动apache服务器 /srv/apache2
+./bin/apachectl start
+#访问8000端口显示It works则说明成功
+```
+
+### 搭建php运行环境
+
+__下载php__
+
+https://secure.php.net/downloads.php
+
+__编译安装php__
+
+```shell
+#配置编译项
+./configure --prefix=/usr/local/php --with-apxs2=/srv/apache2/bin/apxs --with-config-file-path=/usr/local/php/etc --with-mysql --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
+#编译
+make && make install
+```
+
+> 如果出现libxml2找不到的情况，执行以下命令
+
+```shell
+sudo apt-get install libxml2-dev
+```
+
+> 如果编译时出现了virtual memory exhausted: Cannot allocate memory错误，这是因为服务器的内存不够
+>
+> 购买的Linux服务器，未分配虚拟内存，所以可以通过自行增加虚拟内存的方法予以解决，具体操作如下
+
+```shell
+#先看一下当前内分分布
+free -m 
+#开始分配虚拟内存
+mkdir /usr/img/ 
+rm -rf /usr/img/swap
+dd if=/dev/zero of=/usr/img/swap bs=1024 count=2048000
+mkswap /usr/img/swap
+#查看分配虚拟内存后的内存分布
+free -m
+#使用完干掉虚拟内存
+swapoff swap
+rm -f /usr/img/swap
+```
+
+__apache服务器支持php__
+
+修改${apache_path}/httpd.conf文件
+
+```xml
+<IfModule mime_module>
+	AddType application/x-httpd-php .php
+</IfModule>
+```
+
+__apache服务器运行php脚本__
+
+修改${apache_path}/httpd.conf文件,
+
+```xml
+DocumentRoot "/srv/${project_path}"
+<Directory "/srv/${project_path}">
+...
+</Directory>
+```
+
+在${project_path}下创建一个php文件测试
+
+```php
+<?php
+  phpinfo();
+?>
+```
+
+重新apache服务
+
+```shell
+${apache_path}/bin/apachectl restart
+```
+
+访问自定义配置的端口(此处为8000)，看到php相关信息的页面，成功了！

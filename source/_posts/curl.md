@@ -24,6 +24,9 @@ curl -X POST -H "Host:{hostName}" "http://{ip}/{uri}" -H "Cookie:{values}" -d "{
 ### 下载文件
 
 ```shell
+# 使用curl
 curl -o ${saved_filename} ${url}
+# 使用wget
+wget -O ${saved_filename} ${url}
 ```
 

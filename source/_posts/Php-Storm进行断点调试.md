@@ -1,3 +1,10 @@
+---
+title: Php Storm进行断点调试
+categories: technology
+tags: [php,Php-Storm]
+date: 2017-07-24 21:38:53
+---
+
 本文介绍使用在php storm上进行断点调试
 
 ### 安装xdebug

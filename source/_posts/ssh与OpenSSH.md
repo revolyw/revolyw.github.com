@@ -17,8 +17,13 @@ sudo service ssh start
 
 ```shell
 sudo ssh-keygen -t rsa -C "..."
-sudo ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_ip
 sudo service ssh restart
+```
+
+# 添加客户端ssh公钥到服务器授权访问列表
+
+```shell
+sudo ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_ip
 ```
 
 # 使用ssh进行免密登录

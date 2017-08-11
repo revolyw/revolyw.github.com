@@ -31,3 +31,20 @@ sudo ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_ip
 ```shell
 sudo ssh user@server_ip
 ```
+
+# Q&A
+
+## ssh-add报错
+
+- 报错信息如下
+
+  ```shell
+  Error connecting to agent: Connection refused
+  ```
+
+- 重启ssh-agent
+
+  ```shell
+  exec ssh-agent zsh
+  ```
+

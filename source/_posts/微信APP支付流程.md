@@ -7,6 +7,8 @@ date: 2017-08-14 02:00:47
 
 # 支付流程
 
+> 流程涉及微信公众平台、微信商户平台、微信开放平台三大平台
+
 ![](https://pay.weixin.qq.com/wiki/doc/api/img/chapter8_3_1.png)
 
 # 服务端需要开发三个接口

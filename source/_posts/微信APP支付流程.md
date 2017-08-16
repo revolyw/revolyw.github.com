@@ -25,6 +25,8 @@ date: 2017-08-14 02:00:47
 
 商户后台查询支付结果。api参见【[查询订单API](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_2)】
 
+>  参考github项目https://github.com/Seanid/wechatPay
+
 # APP端主要开发调起微信支付的接口
 
 商户APP调起微信支付。api参见本章节【[app端开发步骤说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_5)】

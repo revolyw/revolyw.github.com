@@ -28,11 +28,13 @@ java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGramma
 
 两者的`XMLSchemaLoader`类都有`loadGrammar`方法。__重点来了__，不同的是前者没有参数为`XMLInputSource`数组的`loadGrammar`方法，而后者有。这与报错堆栈完全吻合，可见这就是第一案发现场。
 
-# 寻找元凶
+# 寻找真凶
 
-有了上面的线索，很自然想要去[maven仓库](http://mvnrepository.com/)中看看是不是`xerces`包太老需要升级，搜索`xerces`后发现的确有问题，`xerces`已经建议使用`xercesImpl`替换了。
+有了上面的线索，很自然想要去[maven仓库](http://mvnrepository.com/)中看看是不是`xerces`包太老需要升级，搜索`xerces`后发现的确有问题，`xerces`已经建议使用`xercesImpl`替换了，看来真凶就是这个`xerces`包。
 
-![](http://img.willowspace.cn/willowspace_2016/1503062212136.png)于是回到项目中去掉`xerces:2.4.0`的依赖，重启启动项目，依旧报错。
+![](http://img.willowspace.cn/willowspace_2016/1503062212136.png)
+
+于是回到项目中去掉`xerces:2.4.0`的依赖，重启启动项目，依旧报错。
 
 这时考虑是不是有其他jar包也存在对该包的引用，去生成的依赖库中一看，果然，`xerces`的依赖版本从`2.4.0`变为了`2.0.2`依然存在于依赖之中
 
@@ -72,3 +74,4 @@ dependencies {
 	}
 }
 ```
+

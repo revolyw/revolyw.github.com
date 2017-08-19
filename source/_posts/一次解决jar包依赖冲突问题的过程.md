@@ -18,7 +18,9 @@ java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGramma
 
 # 寻找线索
 
-可以看到最后的`java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGrammar([Lorg/apache/xerces/xni/parser/XMLInputSource;)V`说明`XMLSchemaLoader`类的`loadGrammar`方法没有找到，这个方法的特征(L)是有一个数组`XMLInputSource`类型的数组参数。
+可以看到最后的一段日志`java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGrammar([Lorg/apache/xerces/xni/parser/XMLInputSource;)V`
+
+说明`XMLSchemaLoader`类的`loadGrammar`方法没有找到，这个方法的特征(L)是有一个数组`XMLInputSource`类型的数组参数。
 
 # 寻找第一案发现场
 

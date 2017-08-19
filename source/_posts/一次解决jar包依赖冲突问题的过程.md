@@ -7,7 +7,7 @@ date: 2017-08-18 19:01:58
 
 # 案发背景
 
-同时最近在对项目的hibernate框架进行升级，从`3.6.10.Final`升级至`5.2.10.Final`。升级期间出现了配置文件解析报错的报错。主要报错堆栈如下
+同事最近在对项目的hibernate框架进行升级，从`3.6.10.Final`升级至`5.2.10.Final`。升级期间出现了配置文件(xml)解析报错。主要报错堆栈如下
 
 ```verilog
 19:07:41 ERROR - Context initialization failed x org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'serviceManager' defined in class path resource [spring/applicationContext.xml]: Cannot resolve reference to bean 'xService' while setting bean property 'xSerivce'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xService' defined in class path resource [spring/dao.xml]: Cannot resolve reference to bean 'transactionManager' while setting bean property 'transactionManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' defined in class path resource [spring/dataSource-common.xml]: Cannot resolve reference to bean 'sessionFactory' while setting bean property 'sessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [spring/dataSource-common.xml]: Invocation of init method failed; nested exception is
@@ -18,7 +18,7 @@ java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGramma
 
 # 寻找线索
 
-可以看到最后段的`java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGrammar([Lorg/apache/xerces/xni/parser/XMLInputSource;)V`说明`XMLSchemaLoader`类的`loadGrammar`方法没有找到，这个方法的特征是有一个数组`XMLInputSource`类型的数组参数。
+可以看到最后的`java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGrammar([Lorg/apache/xerces/xni/parser/XMLInputSource;)V`说明`XMLSchemaLoader`类的`loadGrammar`方法没有找到，这个方法的特征(L)是有一个数组`XMLInputSource`类型的数组参数。
 
 # 寻找第一案发现场
 
@@ -40,7 +40,7 @@ java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGramma
 
 ![](http://img.willowspace.cn/willowspace_2016/1503062472355.png)
 
-这时开始查找罪魁祸首，使用`gradle`的命令可以很方便的达到目的
+这时基本可以断定就是其他包依赖了`xerces`，于是使用`gradle`的命令查看jar包依赖关系
 
 ```shell
 # 查看gradle依赖关系
@@ -51,13 +51,13 @@ gradle dependencies
 
 ![](http://img.willowspace.cn/willowspace_2016/1503063619467.png)
 
-从依赖关系从看到`commons-dbcp:1.2.1``commons-pool:1.2`这两个包依赖了`xerces:xerces:2.0.2`包，导致依旧引入了`xerces`依赖。去除`commons-dbcp:1.2.1`并升级`commons-pool:1.2`至`commons-pool:1.6`后刷新，`xerces`包依赖完全被去除。重启项目，一切顺畅。
+从依赖关系从看到`commons-dbcp:1.2.1``commons-pool:1.2`这两个包依赖了`xerces:xerces:2.0.2`包，导致依旧引入了`xerces`依赖。去除`commons-dbcp:1.2.1`并升级`commons-pool:1.2`至`commons-pool:1.6`后刷新，`xerces`包依赖完全被去除。重启项目，一切顺畅，问题得以解决。
 
 # 结案
 
 这次问题的本质就是jar包冲突，只不过冲突的jar包依赖关系藏得较为隐蔽。
 
-解决的手段其实较为简单，就是对冲突的jar包做调和（删除、升级、替换等）。
+解决的手段其实较为简单，就是调和冲突的jar包（删除、升级、替换等）。
 
 > 注意
 

@@ -15,7 +15,7 @@ date: 2017-08-20 04:53:02
 
 # 探究原因
 
-Google上找到同样的[问题描述](https://blogs.sourceallies.com/2013/04/java-method-breakpoints-are-evil/)，从其中找到了jetbrains team在jetbrains官网上给出的针对这个问题的回应参考[原链接](https://intellij-support.jetbrains.com/hc/en-us/articles/206544799-Java-slow-performance-or-hangups-when-starting-debugger-and-stepping) (链接加载略慢)
+Google上找到同样的[JAVA METHOD BREAKPOINTS ARE EVIL](https://blogs.sourceallies.com/2013/04/java-method-breakpoints-are-evil/)（借用了这篇文章的标题，因为这个标题太符合`Java Method Breakpoints`了，就是邪恶），从其中找到了jetbrains team在jetbrains官网上给出的针对这个问题的回应参考[原链接](https://intellij-support.jetbrains.com/hc/en-us/articles/206544799-Java-slow-performance-or-hangups-when-starting-debugger-and-stepping) (链接加载略慢)
 
 然后继续查了几个搜索结果发现各大IDE厂商的bug list里都有报类似问题，参考[NetBeans Bug](https://bugs.eclipse.org/bugs/show_bug.cgi?id=20869)、[Eclipse Bug](https://bugs.eclipse.org/bugs/show_bug.cgi?id=20869)
 

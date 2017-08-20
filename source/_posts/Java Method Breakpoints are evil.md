@@ -1,5 +1,5 @@
 ---
-title: spring web容器上下文加载慢的问题
+title: Java Method Breakpoints are evil
 categories: technology
 tags: [java,JPDA,JVM,IDE,debug]
 date: 2017-08-20 04:53:02

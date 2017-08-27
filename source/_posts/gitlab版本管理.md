@@ -71,5 +71,39 @@ git push -u origin --all
 git push -u origin --tags
 ```
 
+# 五、常规维护 
 
+## 启停
+
+```shell
+# 启动Gitlab所有组件
+sudo gitlab-ctl start
+
+# 停止Gitlab所有组件
+sudo gitlab-ctl stop
+
+# 重启Gitlab所有组件
+sudo gitlab-ctl restart
+```
+
+## 备份配置
+
+打包`/etc/gitlab/`下所有文件
+
+## 备份数据
+
+```shell
+sudo gitlab-rake gitlab:backup:create
+#产生的备份包名形如下
+1490183942_2017_03_22_gitlab_backup.tar
+```
+
+## 恢复数据
+
+```shell
+sudo gitlab-ctl stop unicorn
+sudo gitlab-ctl stop sidekiq
+sudo gitlab-ctl status
+sudo gitlab-rake gitlab:backup:restore BACKUP=1490183942_2017_03_22
+```
 

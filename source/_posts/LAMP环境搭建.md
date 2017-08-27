@@ -82,6 +82,10 @@ ServerName ${intranet_ip}:8000
 #访问8000端口显示It works则说明成功
 ```
 
+__安装遇到warning: setlocale: LC_CTYPE: cannot change locale (UTF-8)__
+
+参考[warning: setlocale: LC_CTYPE: cannot change locale](http://blog.csdn.net/aca_jingru/article/details/45557027)
+
 ### 搭建php运行环境
 
 __下载php__
@@ -92,7 +96,7 @@ __编译安装php__
 
 ```shell
 #配置编译项
-./configure --prefix=/usr/local/php --with-apxs2=/srv/apache2/bin/apxs --with-config-file-path=/usr/local/php/etc --with-mysql --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
+./configure --prefix=/opt/php --with-apxs2=/srv/apache2/bin/apxs --with-config-file-path=/usr/local/php/etc --with-mysql --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
 #编译
 make && make install
 ```

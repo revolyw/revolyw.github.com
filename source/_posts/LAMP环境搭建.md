@@ -24,15 +24,54 @@ cp -rf apr-1.5.2 /srv/httpd-2.4.25/srclib/apr
 cp -rf apr-util-1.5.2 /srv/httpd-2.4.25/srclib/apr-util
 ```
 
-__apache2.4中文文档__
+__apr编译安装__
+
+```shell
+cd /srv/httpd-2.4.25/srclib/apr
+./configure --prefix=/srv/httpd-2.4.25/srclib/apr
+make && make install
+```
+
+__apr-util编译安装__
+
+```shell
+cd /srv/httpd-2.4.25/srclib/apr-util
+./configure --prefix=/srv/httpd-2.4.25/srclib/apr-util --with-apr=/srv/httpd-2.4.25/srclib/apr
+make && make install
+```
+
+__libpcre安装__
+
+```shell
+sudo apt-get install libpcre3-dev
+```
+
+apache2.4中文文档__
 
 http://httpd.apache.org/docs/2.4/
+
+__httpd配置项__
+
+```shell
+--prefix=/usr/local/apache2 ：指定安装目标路径
+--sysconfdir=/etc/apache2/conf ：指定配置文件安装位置
+--enable-so ：支持动态共享模块，如果没有这个模块PHP将无法与apache结合工作
+--enable-rewirte ：支持URL重写
+--enable-ssl ：启用支持ssl
+--enable-cgi ：启用支持cgi
+--enable-cgid :启用支持带线状图形的CGI脚本 MPMs
+--enable-modules=most ：安装大多数模块
+--enable-modules-shared=most ：安装大多数共享模块
+--enable-mpms-shared=all ：支持全部多道处理方式
+--with-apr=/usr/local/apr ：指定apr路径
+--with-apr-util=/usr/local/apr-util ：指定apr-util路径
+```
 
 __编译安装启动__
 
 ```shell
 #/opt/httpd-2.4.25
-./configure --prefix=/srv/apache2
+./configure --prefix=/srv/apache2 --enable-so --enable-rewirte --with-apr=/srv/httpd-2.4.25/srclib/apr --with-apr-util=/srv/httpd-2.4.25/srclib/apr-util
 make
 make install
 #修改端口 /srv/apache2/conf/httpd.conf

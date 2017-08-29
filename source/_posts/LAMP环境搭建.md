@@ -7,7 +7,7 @@ date: 2017-06-01 04:20:50
 
 linux+apache+mysql+php，linux及mysql略，本文介绍apache上部署php。
 
-### 部署apache服务
+# 一、安装apache
 
 __下载apache相关资源__
 
@@ -86,7 +86,7 @@ __安装遇到warning: setlocale: LC_CTYPE: cannot change locale (UTF-8)__
 
 参考[warning: setlocale: LC_CTYPE: cannot change locale](http://blog.csdn.net/aca_jingru/article/details/45557027)
 
-### 搭建php运行环境
+# 二、搭建php运行环境
 
 __下载php__
 
@@ -163,3 +163,45 @@ ${apache_path}/bin/apachectl restart
 ```
 
 访问自定义配置的端口(此处为8000)，看到php相关信息的页面，成功了！
+
+# 三、apache2配置多个站点
+
+## 开启多站点配置
+
+```shell
+vim /srv/apche2/conf/httpd.conf
+## 打开对应配置项
+# Virtual hosts
+Include conf/extra/httpd-vhosts.conf  
+```
+
+## 配置多站点的根目录
+
+```xml
+<!-- vim /srv/apche2/conf/httpd.conf -->
+
+<!-- 设置多站点的根目录 -->
+DocumentRoot "/srv/apache2/htdocs"
+<Directory "/srv/apache2/htdocs">
+  ...
+</Directory>
+
+<!-- 需要配置的多个站点必须置于该目录之下，否则无权访问 -->
+```
+
+## 配置站点信息
+
+```xml
+<!-- vim /srv/apche2/conf/extra/httpd-vhosts.conf -->
+<!-- 一个VirtualHost节点即为一个站点 -->
+<VirtualHost *:8000>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot "/srv/apache2/htdocs/willowspace"
+    ServerName willowspace.cn
+    ServerAlias www.willowspace.cn
+    ErrorLog "logs/willowspace-error_log"
+    CustomLog "logs/willowspace-access_log" common
+</VirtualHost>
+...
+```
+

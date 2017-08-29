@@ -96,6 +96,7 @@ sudo gitlab-ctl restart
 sudo gitlab-rake gitlab:backup:create
 #产生的备份包名形如下
 1490183942_2017_03_22_gitlab_backup.tar
+#备份文件位于/var/opt/gitlab/backups路径下
 ```
 
 ## 恢复数据

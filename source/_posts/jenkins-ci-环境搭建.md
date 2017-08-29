@@ -86,13 +86,17 @@ tomcat部署启动完jenkins后，访问对应端口可以看到如下jenkins的
 
 ### Pipeline构建
 
-在`构建`中选择Execute shell script on remote host using ssh，可在构建前后执行脚本
+创建一个新任务，任务类型选择pipeline
 
-[Trigger Jenkins builds by pushing to Github](https://www.fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github)
+#### 拉取源码
+
+勾选`GitHub hook trigger for GITScm polling` 参考[Trigger Jenkins builds by pushing to Github](https://www.fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github)
 
 1. 在jenkins所在服务器上生成ssh key
 2. 在gitlab的Deploy Key中添加public key
 3. 在jenkins创建项目，添加gitlab的项目地址，选择添加Credential，填入private key
+
+#### 编写构建打包部署的pipeline脚本
 
 ```groovy
 node {

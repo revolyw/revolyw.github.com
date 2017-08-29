@@ -5,93 +5,90 @@ tags: [持续集成,CI,jenkins]
 date: 2017-08-13 21:56:47
 ---
 
-jenkins是一个持续集成工具，其使用java编写的web程序，使用时[下载war包](https://jenkins.io/index.html)部署即可
+> 简介
 
-### 名词解释(Terminology)
+jenkins是一个持续集成(CI)工具，使用java编写
 
 `CI` __continuous integration__ 持续集成
 
 `SCM` __source code management__ 源码管理
 
-### 下载安装jenkins
+# 下载jenkins
 
-#### 重启web服务器
+有多种安装方式，我们选择war包部署，war包下载地址 https://jenkins.io/download/
 
-远程调用重启脚本
+下载的war包为`jenkins.war`
 
+# 部署至tomcat
+
+这里采用一台单独的tomcat部署jenkins
+
+```shell
+# 因为此tomcat只用来部署jenkins，所以先删除webapps下其他应用
+rm -rf ${tomcat_path}/webapps/*
+# 部署jenkins的war包
+mv ${download_path}/jenkins.war ${tomcat_path}/webapps/ROOT.war
+# 查看jenkins的war包部署启动过程的日志
+tail -f ${tomcat_path}/logs/catalina.out
 ```
-ssh {user}@{ip} {path}/{restart_script_name}.sh
-```
 
-重启后，访问{host}:{port}/jenkins可以看到如下图的页面，然后打开远端的/root/.jenkins/secrets/initialAdminPassword文件可以获得管理员密码，输入后可以解锁Jenkins，开始使用。
+# 配置jenkins
+
+tomcat部署启动完jenkins后，访问对应端口可以看到如下jenkins的初始界面
 
 ![](http://img.willowspace.cn/willowspace_2016/1487009258517.png)
 
+查看`/root/.jenkins/secrets/initialAdminPassword`文件可以获得管理员密码，输入后可以解锁Jenkins，开始使用。
+
 ## 安装插件
 
-要使用Jenkins，我们一般会安装一些插件。
+初始化界面会提示我们安装插件，我们选择推荐插件
 
 ![](http://img.willowspace.cn/willowspace_2016/1487009586270.png)
 
 推荐的插件如下图所示
 
-![](http://img.willowspace.cn/willowspace_2016/1495456636599.png)
+![](http://img.willowspace.cn/willowspace_2016/1504010997582.png)
 
+我们主要需要`身份认证` `源码管理` `打包构建` `管道命令` 几个方面的插件
 
+### 身份认证
 
-1. Github plugin
+`ssh plugin` `SSH Slaves plugin` `Credentials Binding Plugin` 
 
-This plugin integrates Jenkins with [Github](http://github.com/) projects.
+### 源码管理
 
-1. Role-based Authorization Strategy
+`git plugin` `github plugin` `GitHub Branch Source Plugin` `gitlab plugin` `subversion Plug-in` 
 
-   基于角色的的用户权限控制
+### 打包构建
 
+`Gradle Plugin`
 
-1. Gitlab Plugin
+### 管道命令
 
-2. ssh plugin
+`Pipeline`   `Pipeline:State View Plugin`
 
-3. Post-Build Script Plug-in
+[pipeline构建参考](https://my.oschina.net/ghm7753/blog/371954?p=1)
 
-   脚本插件
+### 其它插件
 
+#### Role-based Authorization Strategy
 
-1. Pipeline
+基于角色的的用户权限控制
 
-   [pipeline构建](https://jenkins.io/solutions/pipeline/)
-
-2. Pipeline: Stage View Plugin
-
-   pipeline构建过程可视化
-
-3. pipeline plugin
-
-   [参考](https://my.oschina.net/ghm7753/blog/371954?p=1)
-
-## 配置
-
-### Jenkins内部shell UTF-8 编码设置
+## Jenkins内部shell UTF-8 编码设置
 
 ![](http://img.willowspace.cn/willowspace_2016/1487125834004.png)
 
-### 参数化构建
+## 参数化构建
 
 ![](http://img.willowspace.cn/willowspace_2016/1487126266497.png)
 
-### 构建脚本
+### Pipeline构建
 
 在`构建`中选择Execute shell script on remote host using ssh，可在构建前后执行脚本
 
-
-
-## 使用场景
-
-### Trigger Jenkins builds by pushing to Github
-
-### 拉取git代码并构建
-
-https://www.fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github
+[Trigger Jenkins builds by pushing to Github](https://www.fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github)
 
 1. 在jenkins所在服务器上生成ssh key
 2. 在gitlab的Deploy Key中添加public key

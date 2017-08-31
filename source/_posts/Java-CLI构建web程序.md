@@ -40,7 +40,7 @@ cd project
 # out存放所有需要被打进war包的文件；out/classes存放所有编译好的字节码文件
 mkdir -p out/classes
 # 开始编译源文件
-javac -cp "./lib/*" -d ./out/classes $(find ./src -name "*.java")
+javac -cp "./lib/*" -d ./out/classes -encoding UTF8 $(find ./src -name "*.java")
 ```
 
 javac为源文件的编译命令,其使用格式为：`javac <options> <source files>`

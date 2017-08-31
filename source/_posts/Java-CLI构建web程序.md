@@ -32,7 +32,7 @@ project
     └── index.html
 ```
 
-#二、编译源文件 
+# 二、编译源文件 
 
 ```shell
 cd project

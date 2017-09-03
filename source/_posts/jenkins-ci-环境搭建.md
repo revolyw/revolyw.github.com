@@ -72,9 +72,11 @@ tomcat部署启动完jenkins后，访问对应端口可以看到如下jenkins的
 
 ### 其它插件
 
-#### Role-based Authorization Strategy
+`Role-based Authorization Strategy`基于角色的的用户权限控制
 
-基于角色的的用户权限控制
+## 设置全局工具
+
+系统设置->Global Tool Configuration->JDK、Git、Maven
 
 ## Jenkins内部shell UTF-8 编码设置
 
@@ -115,7 +117,20 @@ node {
 }
 ```
 
+## 基于角色的任务访问控制
+
+1. 系统管理->管理插件->安装[Role-based Authorization Strategy](https://plugins.jenkins.io/role-strategy)插件
+2. 系统管理->`Configure Global Security`->访问控制->授权策略->Role-Based Strategy->保存
+3. 系统管理->Manage and Assign Roles->Manage Roles->Global roles->在admin角色外创建其他角色分配Overall/Read权限
+4. __指定角色访问特定项目__
+
+系统管理->Manage and Assign Roles->Manage Roles->Project roles->添加一个角色,然后指定项目Pattern(注意：patter不是正则表达式,其中`*`要用`.*`代替)
+
 ## FAQ
+
+### pipeline使用nohup命令启动后台进程无效
+
+[参考ProcessTreeKiller](https://wiki.jenkins.io/display/JENKINS/ProcessTreeKiller)
 
 ### 容器的编码问题
 

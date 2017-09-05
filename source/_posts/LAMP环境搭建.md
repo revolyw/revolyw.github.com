@@ -101,31 +101,15 @@ __编译安装php__
 make && make install
 ```
 
-> 如果出现libxml2找不到的情况，执行以下命令
+如果出现libxml2找不到的情况，执行以下命令
 
 ```shell
 sudo apt-get install libxml2-dev
 ```
 
-> 如果编译时出现了virtual memory exhausted: Cannot allocate memory错误，这是因为服务器的内存不够
->
-> 购买的Linux服务器，未分配虚拟内存，所以可以通过自行增加虚拟内存的方法予以解决，具体操作如下
+如果编译时出现了virtual memory exhausted: Cannot allocate memory错误，这是因为服务器的内存不够
 
-```shell
-#先看一下当前内分分布
-free -m 
-#开始分配虚拟内存
-mkdir /usr/img/ 
-rm -rf /usr/img/swap
-dd if=/dev/zero of=/usr/img/swap bs=1024 count=2048000
-mkswap /usr/img/swap
-swapon /usr/img/swap
-#查看分配虚拟内存后的内存分布
-free -m
-#使用完干掉虚拟内存
-swapoff swap
-rm -f /usr/img/swap
-```
+购买的Linux服务器，未分配虚拟内存，参考增加虚拟内存的方法
 
 __apache服务器支持php__
 

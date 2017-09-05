@@ -11,6 +11,19 @@ date: 2017-09-06 00:47:06
 
 ![](http://img.willowspace.cn/willowspace_2016/1504634741775.png)
 
-使用`mtr`命令显示链路传输状况
+# TIPS
+
+## 查看chrome客户端DNS
+
+```shell
+chrome://net-internals/#sdch
+```
+
+## 使用`mtr`命令显示链路传输状况
+
+```shell
+mtr $domain
+mtr $ip
+```
 
 ![](http://img.willowspace.cn/willowspace_2016/1504632218689.png)

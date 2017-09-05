@@ -45,9 +45,7 @@ javac -g -cp "./lib/*" -d ./out/classes -encoding UTF8 $(find ./src -name "*.jav
 
 javac为源文件的编译命令,其使用格式为：`javac <options> <source files>`
 
-`-g` 默认情况下 `javac` 只生成行号和源文件信息，添加`g`参数将生成所有的debug信息，其中包括本地变量。
-
-Generates all debugging information, including local variables. By default, only line number and source file information is generated.
+`-g` 默认情况下 `javac` 只生成行号和源文件信息，添加`g`参数将生成所有的debug信息，其中包括本地变量(spring参数注解等)。
 
 `-cp` 全拼是-classpath，可以指定源文件依赖的jar包或字节码文件
 

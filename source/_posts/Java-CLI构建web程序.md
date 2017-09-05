@@ -40,14 +40,18 @@ cd project
 # out存放所有需要被打进war包的文件；out/classes存放所有编译好的字节码文件
 mkdir -p out/classes
 # 开始编译源文件
-javac -cp "./lib/*" -d ./out/classes -encoding UTF8 $(find ./src -name "*.java")
+javac -g -cp "./lib/*" -d ./out/classes -encoding UTF8 $(find ./src -name "*.java")
 ```
 
 javac为源文件的编译命令,其使用格式为：`javac <options> <source files>`
 
--cp参数全拼是-classpath，可以指定源文件依赖的jar包或字节码文件
+`-g` 默认情况下 `javac` 只生成行号和源文件信息，添加`g`参数将生成所有的debug信息，其中包括本地变量。
 
--d参数可以指定字节码文件的输出目录
+Generates all debugging information, including local variables. By default, only line number and source file information is generated.
+
+`-cp` 全拼是-classpath，可以指定源文件依赖的jar包或字节码文件
+
+`-d` 可以指定字节码文件的输出目录
 
 `$(find ./src -name "*.java")` 指定的是待编译的源文件，这里使用了系统的find命令来进行通配src目录下的所有java文件
 
@@ -131,4 +135,26 @@ project
     └── package*
     	└── *.class	
 ```
+
+## spring注解的参数无法解析
+
+### 原因
+
+`javac`命令编译源文件的时候没有启了`g`参数，如果没有开启，spring的注解将被忽略
+
+参考[Spring annotations and Javac debug mode](https://salonegupta.wordpress.com/2014/04/01/spring-annotations-and-javac-debug-mode/#more-5)
+
+### 解决方案
+
+开启`g`参数来编译源文件
+
+```shell
+javac -g ...
+```
+
+
+
+
+
+
 

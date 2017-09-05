@@ -109,7 +109,7 @@ sudo apt-get install libxml2-dev
 
 如果编译时出现了virtual memory exhausted: Cannot allocate memory错误，这是因为服务器的内存不够
 
-购买的Linux服务器，未分配虚拟内存，参考增加虚拟内存的方法
+可临时通过增加虚拟内存来解决这个问题，参考[增加虚拟内存的方法](http://blog.willowspace.cn/technology/2017/09/Linux%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/)。
 
 __apache服务器支持php__
 

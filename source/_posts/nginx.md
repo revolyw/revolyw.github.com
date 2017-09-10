@@ -175,7 +175,7 @@ cp ./objs/nginx /usr/local/sbin/nginx
 /usr/local/sbin/nginx -t
 ```
 
-1. 配置健康检测
+2. 配置健康检测
 
 ```shell
 # 配置上游服务器健康检测
@@ -203,9 +203,11 @@ server{
 }
 ```
 
-1. 查看健康状态
+3. 查看健康状态
 
 按照如上配置，访问x.domain.cn/status可以看到健康状态![](http://img.willowspace.cn/willowspace_2016/1505020882341.png)
 
 其中`number`代表上游服务器节点个数，`generation`为健康检测本身load的次数(nginx重启或者reload都会导致`generation`增加)
+
+更多健康检测模块配置参考[配置文档](http://tengine.taobao.org/document_cn/http_upstream_check_cn.html)
 

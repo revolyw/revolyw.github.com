@@ -189,3 +189,23 @@ DocumentRoot "/srv/apache2/htdocs"
 ...
 ```
 
+## 配置目录访问控制
+
+```xml
+<!-- vim /srv/apche2/conf/extra/httpd-vhosts.conf -->
+<VirtualHost *:8000>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot "/srv/apache2/htdocs/assets"
+    ServerName assets.willowspace.cn
+    ErrorLog "logs/assets-error_log"
+    CustomLog "logs/assets-access_log" common
+    <!-- 目录访问控制 +Indexes表示允许显示文件索引列表 -->
+    <Directory /srv/apache2/htdocs/assets>
+        Options +Includes +Indexes
+        AllowOverride All
+        Order Deny,Allow
+        Allow from All
+    </Directory>
+</VirtualHost>
+```
+

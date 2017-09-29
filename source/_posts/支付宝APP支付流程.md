@@ -27,6 +27,8 @@ date: 2017-08-14 03:32:20
 
 3. __设置接口加签方式__ RSA2(SHA256)密钥(推荐)
 
+   ![](http://img.willowspace.cn/willowspace_2016/1506222807933.png?imageMogr2/thumbnail/800)
+
    > [MAC_OSX_RSA密钥生成工具](http://p.tb.cn/rmsportal_6680_secret_key_tools_RSA_macosx.zip) 
    >
    > [密钥生成工具使用方式](https://docs.open.alipay.com/291/105971)

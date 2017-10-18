@@ -23,6 +23,8 @@ gpasswd -a $user $group
 groups $userName
 # 把用户从组删除
 gpasswd -d $user $group
+# 删除用户
+userdel -r $user
 ```
 
 # 用户(组)权限管理

@@ -16,11 +16,15 @@ date: 2017-09-22 22:13:14
 
 #开始生产环境部署
 git clone https://github.com/DXY-F2E/api-mocker
-make install 
+
+# make install将启动mongodb
+make install
+
 vim client/config/index.js
 # 修改serverRoot: 'demo.domain.cn/mock-api'
 vim server/config/config.prod.js
 # 修改clientRoot: 'http://demo.domain.cn/mock'
+
 make prod_client
 make prod_server
 

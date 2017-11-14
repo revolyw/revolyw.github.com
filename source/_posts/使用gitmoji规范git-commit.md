@@ -17,11 +17,13 @@ date: 2017-11-07 10:43:02
 
 将语法写入commit任意位置，即可生成对应icon
 
-| icon | word       | explain                   | e.g.           |
-| ---- | ---------- | ------------------------- | -------------- |
-| ✨    | sparkles   | Introducing new features. | `:sparkles:`   |
-| 🐛   | bug        | Fixing a bug.             | `:bug:`        |
-| 🔨   | hammer     | Refactoring code.         | `:hammer:`     |
-| ⬆️   | arrow_up   | Upgrading dependencies.   | `:arrow_up:`   |
-| ⬇️   | arrow_down | Downgrading dependencies. | `:arrow_down:` |
-| ⚡️   | zap        | Improving performance.    | `:zap:`        |
+| icon     | word e.g.  | explain                           | e.g.           |
+| -------- | ---------- | --------------------------------- | -------------- |
+| ✨        | sparkles   | Introducing new features.         | `:sparkles:`   |
+| 🐛       | bug        | Fixing a bug.                     | `:bug:`        |
+| 🔨       | hammer     | Refactoring code.                 | `:hammer:`     |
+| ⬆️       | arrow_up   | Upgrading dependencies.           | `:arrow_up:`   |
+| ⬇️       | arrow_down | Downgrading dependencies.         | `:arrow_down:` |
+| ⚡️       | zap        | Improving performance.            | `:zap:`        |
+| :wrench: | wrench     | Changing configuration files. ... | `:wrench:`     |
+

@@ -30,3 +30,17 @@ curl -o ${saved_filename} ${url}
 wget -O ${saved_filename} ${url}
 ```
 
+###  测速
+
+```shell
+curl -o /dev/null -s -w '%{time_connect}:%{time_starttransfer}:%{time_total}\n' 'https://demo.cn'
+```
+
+| 计时器                | 描述                                       |
+| ------------------ | ---------------------------------------- |
+| time_connect       | 建立到服务器的 TCP 连接所用的时间                      |
+| time_starttransfer | 在发出请求之后,Web 服务器返回数据的第一个字节所用的时间           |
+| time_total         | 完成请求所用的时间                                |
+| time_namelookup    | DNS解析时间,从请求开始到DNS解析完毕所用时间(记得关掉 Linux 的 nscd 的服务测试) |
+| speed_download     | 下载速度，单位-字节每秒。                            |
+

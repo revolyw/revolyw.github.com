@@ -108,3 +108,12 @@ sudo gitlab-ctl status
 sudo gitlab-rake gitlab:backup:restore BACKUP=1490183942_2017_03_22
 ```
 
+# 卸载
+
+```shell
+sudo gitlab-ctl stop
+sudo gitlab-ctl uninstall
+# 删除所有gitlab文件，在根目录下find -name gitlab*，找到所有相关文件，然后执行删除。
+find -name gitlab*
+```
+

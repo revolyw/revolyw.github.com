@@ -16,7 +16,7 @@ sudo service ssh start
 # 客户端配置公私钥对
 
 ```shell
-sudo ssh-keygen -t rsa -C "..."
+sudo ssh-keygen -t rsa -f ~/.ssh/id_rsa_xxx -C "..."
 sudo service ssh restart
 ```
 
@@ -32,11 +32,15 @@ sudo ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_ip
 sudo ssh user@server_ip
 ```
 
+# 客户端配置n个Key访问n个服务
+
+https://appkfz.com/2015/06/18/git-ssh-key/
+
 # Q&A
 
 ## ssh-add报错
 
-- 报错信息如下
+- 报错1
 
   ```shell
   Error connecting to agent: Connection refused
@@ -46,6 +50,9 @@ sudo ssh user@server_ip
 
   ```shell
   exec ssh-agent zsh
+  eval `ssh-agent -s`
   ```
 
+# 多客户端SSH KEY
 
+配置了多个KEY，但是jenkins验证失败，尝试重启jenkins所在的web服务器

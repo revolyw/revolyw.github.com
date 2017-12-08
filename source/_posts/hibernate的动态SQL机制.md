@@ -79,13 +79,13 @@ class User{
 
 所以我们要想解决上述问题，目标很明确，在Controller中不会因为穿透了Service层而加载新的Session。
 
-Spring为我们提供了OpenSessionInViewFilter这个过滤器可以轻松的达到上述目的，它将开启一个Session绑定到当前请求线程，这个线程上的Session将会被TransactionManager利用，因此事务结束(Service层穿透)也不会关闭Session，而是在整个请求周期中复用同一个Session。具体参考_[Spring文档](https://docs.spring.io/spring/docs/4.3.0.RC1/javadoc-api//org/springframework/orm/hibernate3/support/OpenSessionInViewFilter.html)_，这里不展开。
+Spring为我们提供了`OpenSessionInViewFilter`这个过滤器可以轻松的达到上述目的，它将开启一个Session绑定到当前请求线程，这个线程上的Session将会被`TransactionManager`利用，因此事务结束(Service层穿透)也不会关闭Session，而是在整个请求周期中复用同一个Session。具体参考_[Spring文档](https://docs.spring.io/spring/docs/4.3.0.RC1/javadoc-api//org/springframework/orm/hibernate3/support/OpenSessionInViewFilter.html)_，这里不展开。
 
 至此，动态SQL在整个请求周期内可以正常运行。
 
 ## 性能！
 
-另外值得注意的是动态update对性能有一个重大的影响，就是打开了以后，不同的对象的sql语句会不一样，如果你一次更新多条记录，hibernate将不能使用 executeBatch进行批量更新，这样效率降低很多。同时，在这种情况下，多条sql意味着数据库要做多次sql语句编译。 
+另外值得注意的是动态SQL打开了以后，不同对象的sql语句会不一样，如果一次更新多条记录，hibernate将不能使用 executeBatch进行批量更新，这样效率将大打折扣。在这种情况下，多条sql意味着数据库要编译多次sql语句。 
 
 因此有批量更新的特殊场景时，建议单独使用hql或者sql进行操作。
 

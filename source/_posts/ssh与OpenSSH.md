@@ -36,6 +36,32 @@ sudo ssh user@server_ip
 
 https://appkfz.com/2015/06/18/git-ssh-key/
 
+多站点使用不同的ssh key
+
+```shell
+Host company
+  HostName company.com
+  User git
+  IdentityFile ~/.ssh/user1
+Host github
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/user2
+```
+
+同一站点使用不同的ssh key
+
+```shell
+Host gitcafe-site1
+  HostName gitcafe.com
+  User git
+  IdentityFile ~/.ssh/user1
+Host gitcafe-site2
+  HostName gitcafe.com
+  User git
+  IdentityFile ~/.ssh/user2
+```
+
 # Q&A
 
 ## ssh-add报错

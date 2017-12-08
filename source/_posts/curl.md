@@ -5,12 +5,10 @@ tags: [linux命令,ops]
 date: 2017-01-20 14:02:54
 ---
 
-### 使用curl调试dwr接口
-
--i参数可现实response的相关头信息
+### 文件上传
 
 ```shell
-curl -X POST -H "Host:{hostName}" "http://{ip}/{path}/{dwrClass}.{dwrMethod}.dwr" -H "Content-Type: text/plain" -d "{dwrUrlParameter}" -i -v
+curl -H "Cookie:SESSION_ID=122F2F097414B9B8DA06E01F0025A5FF" -F "file=@/var/data/image.jpeg" http://demo.cn/uploadFile
 ```
 
 ### 通过设置Cookie来模拟登陆调试接口
@@ -44,3 +42,12 @@ curl -o /dev/null -s -w '%{time_connect}:%{time_starttransfer}:%{time_total}\n' 
 | time_namelookup    | DNS解析时间,从请求开始到DNS解析完毕所用时间(记得关掉 Linux 的 nscd 的服务测试) |
 | speed_download     | 下载速度，单位-字节每秒。                            |
 
+### 使用curl调试dwr接口
+
+-i参数可现实response的相关头信息
+
+```shell
+curl -X POST -H "Host:{hostName}" "http://{ip}/{path}/{dwrClass}.{dwrMethod}.dwr" -H "Content-Type: text/plain" -d "{dwrUrlParameter}" -i -v
+```
+
+### 

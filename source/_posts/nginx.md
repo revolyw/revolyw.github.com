@@ -211,3 +211,14 @@ server{
 
 更多健康检测模块配置参考[配置文档](http://tengine.taobao.org/document_cn/http_upstream_check_cn.html)
 
+# 五、更多配置
+
+## 413 Request Entity Too Large Error 
+
+```nginx
+# http, server 或 location节点中添加
+client_max_body_size 10M;
+```
+
+
+

@@ -132,6 +132,14 @@ node {
 
 [参考ProcessTreeKiller](https://wiki.jenkins.io/display/JENKINS/ProcessTreeKiller)
 
+### 使用Boolean类型参数化构建时，参数逻辑判断总是true
+
+jenkins传入groovy的boolean parameter是对象类型，非null总是true，所以判断总为true，进行一次类型转换就好
+
+```groovy
+def booleanParameter = Boolean.valueOf(jenkinsBooleanParameter);
+```
+
 ### 容器的编码问题
 
 > Your container doesn't use UTF-8 to decode URLs. If you use non-ASCII characters as a job name etc, this will cause problems. See [Containers](http://wiki.jenkins-ci.org/display/JENKINS/Containers) and [Tomcat i18n](http://wiki.jenkins-ci.org/display/JENKINS/Tomcat#Tomcat-i18n) for more details.

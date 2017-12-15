@@ -28,8 +28,9 @@ jenkins是一个持续集成(CI)工具，使用java编写
 rm -rf ${tomcat_path}/webapps/*
 # 部署jenkins的war包
 mv ${download_path}/jenkins.war ${tomcat_path}/webapps/ROOT.war
-# 查看jenkins的war包部署启动过程的日志
-tail -f ${tomcat_path}/logs/catalina.out
+# 指定jenkins工作目录(如有必要)，默认为~/.jenkins
+vim ${download_path}/bin/catalina.sh
+CATALINA_OPTS="-DJENKINS_HOME=~/jenkins-cluster-1/"
 ```
 
 # 配置jenkins

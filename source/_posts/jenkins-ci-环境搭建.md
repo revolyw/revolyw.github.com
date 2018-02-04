@@ -31,6 +31,11 @@ mv ${download_path}/jenkins.war ${tomcat_path}/webapps/ROOT.war
 # 指定jenkins工作目录(如有必要)，默认为~/.jenkins
 vim ${download_path}/bin/catalina.sh
 CATALINA_OPTS="-DJENKINS_HOME=~/jenkins-cluster-1/"
+# 或
+vim ${download_path}/conf/context.xml
+<Context ...>
+  <Environment name="JENKINS_HOME" value="~/jenkins-cluster-1/" type="java.lang.String"/>
+</Context>
 ```
 
 # 配置jenkins
@@ -78,6 +83,8 @@ tomcat部署启动完jenkins后，访问对应端口可以看到如下jenkins的
 ## 设置全局工具
 
 系统设置->Global Tool Configuration->JDK、Git、Maven
+
+系统设置->Shell->Shell executable->`/bin/zsh`
 
 ## Jenkins内部shell UTF-8 编码设置
 

@@ -5,7 +5,28 @@ tags: [java,spring,设计模式,编程思想]
 date: 2017-02-15 17:12:23
 ---
 
-为了重构web项目中注入众多的Bean，我们有必要搞清楚项目中的__Spring IoC容器、被注入Bean的作用域__以及__如何注入Bean__的问题
+# DIP
+
+即`依赖倒置`，是一种依赖原则：
+
+> a.高层模块不应该依赖于底层模块，二者都应该依赖于抽象。
+> b.抽象不应该依赖于细节，细节应该依赖于抽象。
+
+# IoC
+
+即`控制反转`，是一种实现DIP的设计思想
+
+IoC也体现了好莱坞原则
+
+> The Hollywood principle
+>
+> don‘t call us, we‘ll call you
+
+IoC容器既是"好莱坞"
+
+# DI
+
+即`依赖注入`，是一种IoC的基本实现手段（除DI外还有DL（依赖查找）、DP（依赖拖拽）等）
 
 ## Spring IoC容器
 
@@ -91,3 +112,17 @@ scope取值如下
 ![](http://img.willowspace.cn/simple_injection.png)
 
 这里只有典型的三层的对象， 如果有更复杂的分层分块对象需要注入，则更需要集中管理注入。
+
+### 循环注入
+
+**Circular dependencies**
+
+If you use predominantly constructor injection, it is possible to create an unresolvable circular dependency scenario.
+
+For example: Class A requires an instance of class B through constructor injection, and class B requires an instance of class A through constructor injection. If you configure beans for classes A and B to be injected into each other, the Spring IoC container detects this circular reference at runtime, and throws a`BeanCurrentlyInCreationException`.
+
+One possible solution is to edit the source code of some classes to be configured by setters rather than constructors. Alternatively, avoid constructor injection and use setter injection only. In other words, although it is not recommended, you can configure circular dependencies with setter injection.
+
+Unlike the *typical* case (with no circular dependencies), a circular dependency between bean A and bean B forces one of the beans to be injected into the other prior to being fully initialized itself (a classic chicken/egg scenario).
+
+[link](https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/beans.html#beans-dependency-resolution)

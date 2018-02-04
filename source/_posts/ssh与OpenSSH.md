@@ -13,6 +13,14 @@ sudo apt-get install openssh-server
 sudo service ssh start
 ```
 
+# 服务端授权客户端访问
+
+```shell
+# 修改授权访问文件，若无此文件则新建
+vim ~/.ssh/authorized_keys
+# 按行输入须授权的客户端ssh公钥即可
+```
+
 # 客户端配置公私钥对
 
 ```shell

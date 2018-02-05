@@ -19,6 +19,7 @@ date: 2017-11-07 10:43:02
 
 | icon                        | word e.g.                      | explain                                  |
 | --------------------------- | ------------------------------ | ---------------------------------------- |
+| :recycle:                   | `:recycle:`                    | Refactoring code.                        |
 | ✨                           | `:sparkles:`                   | Introducing new features.                |
 | :construction:              | ` :construction:`              | Work in progress.                        |
 | 🐛                          | `:bug:`                        | Fixing a bug.                            |

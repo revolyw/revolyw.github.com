@@ -144,7 +144,7 @@ server {
 }
 ```
 
-# 四、nginx负载均衡
+# 四、nginx开源模块
 
 ## 上游节点健康检测
 
@@ -210,6 +210,12 @@ server{
 其中`number`代表上游服务器节点个数，`generation`为健康检测本身load的次数(nginx重启或者reload都会导致`generation`增加)
 
 更多健康检测模块配置参考[配置文档](http://tengine.taobao.org/document_cn/http_upstream_check_cn.html)
+
+## sticky
+
+官方收费版，参考[nginx stciky](http://nginx.org/en/docs/http/ngx_http_upstream_module.html#sticky)模块
+
+开源版，参考https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng
 
 # 五、更多配置
 

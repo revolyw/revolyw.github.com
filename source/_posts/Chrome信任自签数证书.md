@@ -9,13 +9,12 @@ date: 2018-09-30 17:17:17
 ## 如何自签一个CA证书和一个子证书
 
 1. 创建CA配置文件及扩展文件
-
 ```shell
 touch localhost_ca.cnf
 touch localhost_ca.ext
 ```  
-2. 创建CA证书私钥及CA证书
 
+2. 创建CA证书私钥及CA证书
 ```shell
 openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj "/CN=$CA_CER_NAME"
 ```
@@ -26,7 +25,6 @@ openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=
 ```
 
 4. 创建子证书
-
 ```shell
 openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111
 ```

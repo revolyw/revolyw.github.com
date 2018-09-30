@@ -7,12 +7,11 @@ date: 2018-09-30 17:17:17
 
 # Chrome信任自签数字证书
 ## 如何自签一个CA证书和一个子证书
-
 1. 创建CA配置文件及扩展文件
 ```shell
 touch localhost_ca.cnf
 touch localhost_ca.ext
-```  
+```
 
 2. 创建CA证书私钥及CA证书
 ```shell

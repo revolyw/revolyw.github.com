@@ -5,7 +5,7 @@ tags: [https,ca]
 date: 2018-09-30 17:17:17
 ---
 
-# Chrome信任自签数字证书
+# Chrome信任自签数字证书
 ## 如何自签一个CA证书和一个子证书
 1. 创建CA配置文件
 
@@ -52,13 +52,13 @@ date: 2018-09-30 17:17:17
   IP.2 = 127.0.0.1
   ```
 
-3. 创建CA证书私钥及CA证书
+3. 创建CA证书私钥及CA证书
 
   ```shell
   openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj "/CN=$CA_CER_NAME"
   ```
 
-4. 创建子证书私钥
+4. 创建子证书私钥
 
   ```shell
   openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes
@@ -70,7 +70,7 @@ date: 2018-09-30 17:17:17
   openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111
   ```
 
-> 可以做成脚本以便复用
+> 可以做成脚本以便复用
 
   ```shell
   #!/bin/zsh
@@ -92,9 +92,9 @@ date: 2018-09-30 17:17:17
 
 ## Chrome如何信任自签证书
 
-1. chrome://settings进入Chrome设置界面,搜索certificate,找到并点击Manage certificates将进入系统Keychain Access
-2. 将生成CA(.cer)证书导入
-3. 将导入后的CA证书设置成always trust
+1. chrome://settings进入Chrome设置界面,搜索certificate,找到并点击Manage certificates将进入系统Keychain Access
+2. 将生成CA(.cer)证书导入
+3. 将导入后的CA证书设置成always trust
 
 ## 一些证书使用场景
 

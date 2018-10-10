@@ -1,5 +1,5 @@
 ---
-title: Chrome信任自签数证书
+title: Chrome信任自签数字证书
 categories: technology
 tags: [https,ca]
 date: 2018-09-30 17:17:17

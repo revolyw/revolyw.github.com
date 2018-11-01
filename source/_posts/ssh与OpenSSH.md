@@ -74,18 +74,28 @@ Host gitcafe-site2
 
 ## ssh-add报错
 
-- 报错1
+### case1
 
   ```shell
   Error connecting to agent: Connection refused
   ```
 
-- 重启ssh-agent
+  重启ssh-agent
 
   ```shell
   exec ssh-agent zsh
   eval `ssh-agent -s`
   ```
+
+### case2
+
+  ```shell
+  No user exists for uid 501
+  ```
+
+  重启终端即可
+
+
 
 # 多客户端SSH KEY
 

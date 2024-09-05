@@ -1,38 +1,493 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="2019 年 11 月 15 日《海上钢琴师》 重映 4K 修复版，在重映的第二天我去电影院观看了这部电影，实际上这次是二刷。现在它在豆瓣上有 9.3 分，是绝对高分的好电影。但它在 1998 年首映后的很长一段时间内是伴随着两极评价的，很多人把它看作是二十世纪最好看的电影之一，但同时也有一部分人认为这是一部“烂片”，一部最好看的“烂片”。之所以如此，是因为它讲述了一个极具浪漫主义，或者说神秘色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="海上钢琴师">
+<meta property="og:url" content="http://blog.willowspace.cn/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="2019 年 11 月 15 日《海上钢琴师》 重映 4K 修复版，在重映的第二天我去电影院观看了这部电影，实际上这次是二刷。现在它在豆瓣上有 9.3 分，是绝对高分的好电影。但它在 1998 年首映后的很长一段时间内是伴随着两极评价的，很多人把它看作是二十世纪最好看的电影之一，但同时也有一部分人认为这是一部“烂片”，一部最好看的“烂片”。之所以如此，是因为它讲述了一个极具浪漫主义，或者说神秘色">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579794763916.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579794847732.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579794865497.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579794879895.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579794895994.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579794908367.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579794971792.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579794989532.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795069806.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795104518.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795129581.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795143195.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795155987.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795172656.png?imageMogr2/thumbnail/800">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795186991.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795211499.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795257780.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795276003.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795287913.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795304625.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795318472.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795348658.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795406507.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795417947.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795433902.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795447053.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795458672.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795471459.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795488050.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795503793.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795514885.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795525851.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795537195.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795563724.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795575765.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795587928.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795603813.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795614151.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795639754.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795603813.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795681753.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795693432.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795706695.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795716295.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795736604.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795747239.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795764496.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795777456.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795790903.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1579795807269.png">
+<meta property="article:published_time" content="2020-01-23T16:15:05.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.885Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="人生选择,影评">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.willowspace.cn/willowspace_2016/1579794763916.png?imageMogr2/thumbnail/800">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/","path":"film/2020/01/海上钢琴师/","title":"海上钢琴师"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>海上钢琴师 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E4%BA%BA%E7%94%9F%E6%80%81%E5%BA%A6%E4%B8%8E%E4%BA%BA%E7%94%9F%E9%80%89%E6%8B%A9"><span class="nav-number">1.</span> <span class="nav-text">关于人生态度与人生选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%96%E7%BA%AA%E5%9B%9E%E7%9C%B8"><span class="nav-number">2.</span> <span class="nav-text">世纪回眸</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="海上钢琴师 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          海上钢琴师
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-23 16:15:05" itemprop="dateCreated datePublished" datetime="2020-01-23T16:15:05Z">2020-01-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/film/" itemprop="url" rel="index"><span itemprop="name">film</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/" class="post-meta-item leancloud_visitors" data-flag-title="海上钢琴师" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><img src="http://img.willowspace.cn/willowspace_2016/1579794763916.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p>2019 年 11 月 15 日《海上钢琴师》 重映 4K 修复版，在重映的第二天我去电影院观看了这部电影，实际上这次是二刷。现在它在豆瓣上有 9.3 分，是绝对高分的好电影。但它在 1998 年首映后的很长一段时间内是伴随着两极评价的，很多人把它看作是二十世纪最好看的电影之一，但同时也有一部分人认为这是一部“烂片”，一部最好看的“烂片”。之所以如此，是因为它讲述了一个极具浪漫主义，或者说神秘色彩的故事，故事的主人公选取了一个浪漫主义的名字叫 1900， 他是一个不食人间烟火的，整个人生都与世隔绝的人。他的形象过于神秘，人生传奇到令人难以置信，人们很难走进他的内心世界，因此也无法对他的人生态度和追求感同身受。但也正是因为在世俗世界里的人们难以接受 1900 的人生观和价值观。才形成了当时观众对于《海上钢琴师》这部电影爱者爱之深，厌者厌之切的局面。就我个人而言，首刷是在大概六七年前的大学期间，当时我觉得这部电影乏味冗长，1900 的故事或人生实在是无法让我提起兴趣，对于只想找一部剧情跌宕起伏，下饭的电影的我来说，这绝对不能算是一部“好看的”电影。但现如今二刷，我毕业三年了，早已离开了学校进入职场，开启了人生的激流阶段，面临过了许多没有标准答案的选择，这个时候再度观看《海上钢琴师》，我开始理解 1900 的人生观和价值观，我这才发现这绝对是一部好看的、耐看的、极度丰富的电影，<strong>它既可以是关于 1900 这样一个传奇人物的绝对个人的，关于个人选择的，又可以是关于 20 世纪的历史和社会的；****它既可以是高度超越性的、永恒哲学的，又可以仅仅是形而下的一段精彩的故事。</strong></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794847732.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><strong>电影非常成功地借助一个讲故事的人来把故事限定在广义的电影的旁支叙事之上</strong>，也就是说，1900 的故事，仅仅是那些发生在号手马克斯眼前的部分才是真切的，于是我们真切地借助马克斯的眼睛看到了 1900 生命当中的那些极度浪漫、极度传奇的段落。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794865497.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794879895.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794895994.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794908367.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794971792.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p>比如说他们的相遇之夜，大风暴下之下打开轮锁的钢琴之舞，我们看到钢琴最终打破了那片美丽的彩镶玻璃墙壁，然后它在楼道中滑行，最终极端戏剧性地冲破了船长卧室的门，而滑稽的船长睡觉竟然穿着一件救生衣。</p>
+<p>再比如说影片当中极端戏剧性的钢琴决斗，当时的爵士大师杰利听闻 1900 能将十几种 jazz 风格的音乐融合在一起，因此来与 1900 斗琴。而 1900 只是在借由音乐展现他在人们的脸上和行为中体会到的东西，这不失为一种形而上和形而下的对比。由此形成了一个非常华彩的段落，因为旁白当中已经告诉我们，1900 演奏起来的时候，他的双手就像四手联弹，于是在那个段落当中我们不断地看到光影和影像的拖尾所造成的四手，不断地利用钢琴漆所形成的各种倒影形成了 1900 的双像，那么在这个时刻他魔术般地化身为双重身、三重身，他魔术般地化身为四手甚至更多手的联弹，来表现那个不可能的速度、节奏、准确，来完成一种只有在电影银幕上我们才可能遭遇到的钢琴演奏的炫技。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794989532.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795069806.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795104518.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795129581.png" alt="img"></p>
+<p>我们借助马克斯的眼睛，目击了那个叫做遭遇激情的时刻，很有意思的是，导演在影片当中设置的另外一个结构性的不断复沓出现的造型元素，就是船内与船外，而连接着船内与船外，又隔绝着船内与船外的是舷窗。我们一次一次地看到 1900 在窗内望向窗外的世界，包括最后他和叙事人马克斯的告别。在无尽的摩天大楼一般的游轮舷窗当中，我们的叙事人辨认出了 1900 所在的那个，而近景镜头构成了圆形的舷窗所突显的这样一种经典绘画的构图。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795143195.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795155987.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p>在影片当中，导演设置了一个现在进行时，即马克斯得知维吉尼亚号将要被毁掉，而后闯入这个已经被废弃了的战时的医护船，一次再一次地去寻找 1900，试图挽救他的生命，试图领他下船的这样一个寻找之旅。关于寻找，关于倒计时的老游轮的毁灭，构成了一个强烈的悬念效果，而且同时保持了影片的叙事张力和情感张力以及时间张力。这样的一个完整的顺时时间线串联起了一个由闪回镜头所完成的 1900 生命传奇故事的叙事线索。而在这样一个对照的叙事时间当中，一个时间蒙太奇当中，导演显然非常有意识地选择所有的现在时是处在一种灰暗的光照、一种单调的色彩基调当中，而所有的闪回段落也就是豪华游轮上的场景，导演有意识地采取了一种极端富丽的古典油画似的布光、设色、构图和视觉效果。所以记忆更加璀璨明亮，而现实极端灰暗和乏味，而这也是影片当中的一个非常重要的色彩基调。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795172656.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795186991.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795211499.png" alt="img"></p>
+<p><strong>电影最巧妙的地方在于他用浪漫主义的手法塑造了 1900 这个角色。</strong>电影故事发生在一艘巨型客轮弗吉尼亚号上，主人公 1900 他一生从未离开过弗吉尼亚号，踏足过陆地，他甚至都不存在于人类社会。在他还是个孩子时，一群警察曾试图上船将这个没有身份的人带走，但却始终找不到他，当 22 天之后这个脏兮兮的孩子再次出现的时候，他已经成为了一个钢琴王子，至于他在何处，他是如何学会了钢琴，**这是**一个浪漫主义的传奇故事所不屑于去讲述**的**。从他作为一个钢琴王子登场的那个时刻开始，就已经完全处在一个浪漫主义想象的层面上。而同时，旁支视点使我们回避了所有现实主义追问的可能，使我们不必去回答乏味的现实主义所必须回答的问题，比如说我们可以搁置年幼的 1900 如何在 22 天的漫长时间当中躲过了无所不在的搜索；在废墟、坟墓般的船体当中，1900如何还能那样的衣着整齐，或者说他以什么为生。这些都可以被搁置，因为这是被限定的视点当中的限定的视觉观察和见证。这是一个影片当中非常突出的也非常聪明的、非常巧妙的艺术选择。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795257780.png" alt="img"></p>
+<p>与之对应的是，影片采取了一个一以贯之的视觉处理，或者说一种视觉语言的修辞，就是在呈现 1900 的浪漫传奇性故事和他那个不可思议的天才奇迹的时候，影片大量采用了<strong>超浅焦的镜头</strong>呈现方式。当焦点范围是如此之浅的时候，它呈现的视觉效果就是如果 1900 是清晰的，他周围的人甚至他身边的人就都是含糊不清的；如果焦点是呈现在身边人身上，那么 1900 就是在焦点之外，而呈现成一个虚幻的，不能清晰分辨的影子，这样的一个视觉风格形成的表达是 1900 从未真实的和我们共处在一个时空，或者说我们永远无法触摸和到达 1900 的世界，就连故事的叙事人、1900 的朋友——马克斯，也无法真正的理解和抵达 1900 的世界。主人公作为一个对于人类社会而言不存在的生命。它形成了一个关于内外，关于存在与非存在，关于天才的奇迹式的世界和我们凡俗的日常生活的表述。电影一边告诉你说这是一个好故事，另外一边它告诉你主人公是不可被证明的，从未被记录的那么一个好故事，可能虚构了一个主人公。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795276003.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795287913.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795304625.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795318472.png" alt="img"></p>
+<h1 id="关于人生态度与人生选择"><a href="#关于人生态度与人生选择" class="headerlink" title="关于人生态度与人生选择"></a>关于人生态度与人生选择</h1><p><strong>《海上钢琴师》是一部关于人生态度与人生选择的电影。</strong>影片的配角，同时也是故事的讲述人马克斯不止一次问 1900：“为什么不下船？就一次，亲眼去看看外面的世界，凭你高超的高琴演奏技艺，人们一定会为你疯狂的”。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795348658.png" alt="img"></p>
+<p>“为什么，为什么，为什么，陆地上的人把时间都浪费在问为什么上了，冬天忧虑夏天晚到，夏天担心冬天将至，所以他们总是不停的寻找一个遥不可及，四季如夏的地方，那不适合我” 1900 回答道。</p>
+<p>他是如此的简单干净，如此的未经世俗污染，他的世界里只有钢琴和音乐。这与饱受世俗困扰的马克斯形成了鲜明对比。电影一开始，马克斯走进一家古董乐器店，作为一位热爱音乐的小号手，他依依不舍的卖掉了他的康恩牌小号，从他之后又要求老板让他再吹最后一次，从他脸上的窘迫，我们不难猜测他当时一定是迫不得已，左右为难，但他终究是卖掉了自己坚持和热爱了多年的小号&#x2F;音乐。而有趣的是，马克斯在整部电影中他的眼珠总是摇摆不定，左右晃动，似乎在暗示他就是那样一个为世间琐事抉择所左右，为世俗所困扰的人，这在豆瓣上也为诸多观众津津乐道，但事实证明，这是一个过度解读，马克斯的饰演者<a href="https://www.zhihu.com/question/22842319?sort=created">普路特·泰勒·文斯</a>患有<a href="https://baike.baidu.com/item/%E7%9C%BC%E7%90%83%E9%9C%87%E9%A2%A4/619921?fr=aladdin">眼球震颤 （pathologic nystaqumus）</a>这样一种病，眼珠的左右晃动并非演技，这在他出演的另一部精彩的电影《致命 ID》中也可以看到。但网友的第二个 “过度解读” 我却非常赞同。即 1900 其实只是马克斯臆想出来的一个人物，整个故事都是他自己虚构的，因为他不像 1900 一般坚定，却又十分渴望成为 1900 那样纯粹坚定的人。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795406507.png" alt="img"></p>
+<p>那么这里就不得不回顾一下故事当中的那个重要的解谜段落，就是在最后时刻，叙事人马克斯用那张破碎的唱片终于引出了如废墟一般的、如坟墓一般的弗吉尼亚号上面的 1900，然后，是第一次在整个影片当中出现了中规中距的构图，完全对称的双人中景，以及两个人之间对称的对切镜头，这一次 1900 向他陈述了他生命的选择，关于 88 个键的钢琴作为有限，而人作为无限、音乐作为无限的组合，<strong>关于无限对于有限的把控和有限对于无限的那种无力</strong>。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795417947.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795433902.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795447053.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795458672.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795471459.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795488050.png" alt="img"></p>
+<p>这个时候我们不得不提及那个戏剧性的段落 —— 关于爱情的奇遇。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795503793.png" alt="img"></p>
+<p>遭遇爱情的场景完全是一个舷窗内外的，由一个舷窗所突显、舷窗所框定的优美的肖像画的效果，而舷窗的磨玻璃更强化了梦中情人，恋爱中的 1900 眼中的女神所具有的那种朦胧、完美以及强大的召唤和诱惑。又是借助马克斯的眼睛，向我们呈现了 1900 生命当中的这些戏剧性的时刻，这样的一个令人回肠荡气的浪漫主义段落。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795514885.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795525851.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795537195.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795563724.png" alt="img"></p>
+<p>用叙事人的说法：“是姑娘，当然了，永远是因为姑娘。”。也就是在男人为主体的故事当中，一个美丽的姑娘，是永恒的主题和永恒的行为动力。为了这样的一个冲动，1900毕生中唯一一次决定下船，并且走上了通向陆地的旋梯的时候，大家一定会记得那个段落：首先是近景镜头，在这个近景镜头当中，前后景都是清晰的，1900 的脸上出现了张皇，出现了恐惧，出现了迷惘。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795575765.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795587928.png" alt="img"></p>
+<p>而后一个全景镜头拍摄 1900 的背影，他的背影置身在中景处，而后景当中是一望无际的纽约市中心著名的景观，导演非常准确地在这个有纵深的深焦镜头当中，把纽约城市当中的每一扇窗口都呈现得如此细腻和清晰，于是我们很强烈地从视觉上体验到了现代城市作为人类集装箱的这样一个基本特征，我们也同样强烈地在视觉上理解了此后 1900 将用语言告知我们的，<strong>关于城市没有尽头，世界没有尽头，那是一个无限的世界，是有限的个人，有限的生命，有限的选择所不能把控和确认的。****它表达了人类社会是上帝的钢琴，是一个需要无限的力量才可能掌控的，而个人的生命是如此微末的这样一个主题。</strong></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795603813.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795614151.png" alt="img"></p>
+<p>如果说船上是有限的孤独，那船外就是无限的孤独。我猜想，这部电影在今天以及今后的观众当中会越来越成功，因为我们在 1900 的故事当中可以无尽地投射，比如说关于宅男宅女的生存梦想，关于有限和无限，关于今天我们被命名为选择困难症的一种“心理疾患”，因为太丰富，因为太巨大，因为一切都是无限，以致我们对自己的渺小、自己的需求、自己的愿望如此难于把握。1900 的那个形而上的表述也许可以落实到我们形而下的生活经验当中，在无尽的选择当中，我如何才能决定某一个女人或者某一个男人，某一个家，某一种生活方式，某一个职业，某一条道路，我怎么才能知道它对我而言是正确的。换句话说，<strong>今天我们可以把我们无尽的选择安置在 1900 的宿命的限定以及 20 世纪的有限选择之上，我们可以重新在有限与无限，个人与社会，存在与虚无，选择与非选择当中去理解 1900 的传奇。</strong></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795639754.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795603813.png" alt="img"></p>
+<h1 id="世纪回眸"><a href="#世纪回眸" class="headerlink" title="世纪回眸"></a>世纪回眸</h1><p><img src="http://img.willowspace.cn/willowspace_2016/1579795681753.png" alt="img"></p>
+<p><strong>《海上钢琴师》是一个世纪回眸的故事。</strong>大家回过头去看，弗吉尼亚号第一幕进入我们眼睛的方式，就像是拉下了帷幕，拉下了 20 世纪的帷幕。于是我才想到去注意这部电影制作完成并且投放影院的时期是 1998 年，也就是 20 世纪的最后时刻。而这部电影，它给主人公选取了一个浪漫主义的姓叫 1900。事实上，在影片当中他那个超过 20 个字母的长长的不可能的名字 —— Danny Boodman T.D. Lemon Nineteen Hundred，也经常被人们缩写为 1900。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795693432.png" alt="img"></p>
+<p>1900 的名字的依据是说，主人公在 20 世纪的第一天被发现，他是豪华客舱当中的一个弃婴，这天肯定不是他的生日，却也只能是他的生日，标明了这是一个世纪回眸的故事，这是一个在 20 世纪即将终了的时刻，回首 20 世纪，而后讲述 20 世纪的故事。</p>
+<p>对我来说，它告诉了我很多关于20世纪终结和21世纪开启的故事。如果让我去做一种索引式的阅读，也许我的阅读接近于 1900 的选择，不是从那些我看见的东西开始，而是从那些我没有看见的东西开始，而影片所讲述的故事就凸显了它没有讲述的故事：关于两次世界大战，关于冷战，关于人类一分为二，关于生死关头的对决，关于无数的尸体、血污、肮脏叛卖，为信仰而战斗，为信仰而牺牲或者背叛信仰，太多太多的故事是这部影片当中我们不曾看到的，那是人类共同的 20 世纪，也是携带着 1900 这个名字的角色必须穿越的那个世纪。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795706695.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795716295.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795736604.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795747239.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795764496.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795777456.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795790903.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795807269.png" alt="img"></p>
+<p>在寻找 1900 的过程当中，叙事人发现了 1900 曾经居住的仓房，摄影机镜头似乎漫不经心地掠过那个布满了一面墙壁的肖像、照片、纪念品，我们会看到 1900 这个角色在这艘船上几乎遭遇了绝大多数 20 世纪的伟人，而每一个伟人标识着不同的时代，不同的变化，不同的思想，不同的潮流，以及这些思想潮流之间的你死我活的对决。所以说，20 世纪被承诺，20 世纪被回望，20 世纪被遮蔽，20 世纪被遗忘。这本身成为了一个故事之外的故事，成为了一个<strong>有限的电影世界之外无限的关于电影的关于社会的关于文化的问题</strong>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%BA%E7%94%9F%E9%80%89%E6%8B%A9-%E5%BD%B1%E8%AF%84/" rel="tag"># 人生选择,影评</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/photography/2019/07/%E6%91%84%E5%BD%B1%E6%9C%AF%E4%BC%A0%E5%85%A5%E8%87%B3%E4%BB%8A%E7%9A%84%E4%B8%AD%E5%9B%BD%E6%91%84%E5%BD%B1%E4%B9%A6%E5%86%991/" rel="prev" title="摄影术传入至今的中国摄影书写1">
+                  <i class="fa fa-angle-left"></i> 摄影术传入至今的中国摄影书写1
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/" rel="next" title="互联网产品可视化建模方法">
+                  互联网产品可视化建模方法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

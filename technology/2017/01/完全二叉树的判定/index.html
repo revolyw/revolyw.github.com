@@ -1,38 +1,376 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="树节点类1234public class Node &#123;  Object Data;  Node left,right,parent;&#125;  二叉树类 其中judge方法为判断是否是完全二叉树  12345678910111213141516171819202122232425262728293031public class BinTree &#123;  Node root;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="完全二叉树的判定">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2017/01/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%A4%E5%AE%9A/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="树节点类1234public class Node &#123;  Object Data;  Node left,right,parent;&#125;  二叉树类 其中judge方法为判断是否是完全二叉树  12345678910111213141516171819202122232425262728293031public class BinTree &#123;  Node root;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-01-20T13:32:38.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.883Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="数据结构与算法">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2017/01/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%A4%E5%AE%9A/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2017/01/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%A4%E5%AE%9A/","path":"technology/2017/01/完全二叉树的判定/","title":"完全二叉树的判定"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>完全二叉树的判定 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">树节点类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">二叉树类</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/01/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%A4%E5%AE%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="完全二叉树的判定 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          完全二叉树的判定
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-01-20 13:32:38" itemprop="dateCreated datePublished" datetime="2017-01-20T13:32:38Z">2017-01-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/01/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%A4%E5%AE%9A/" class="post-meta-item leancloud_visitors" data-flag-title="完全二叉树的判定" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="树节点类"><a href="#树节点类" class="headerlink" title="树节点类"></a>树节点类</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">  Object Data;</span><br><span class="line">  Node left,right,parent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二叉树类"><a href="#二叉树类" class="headerlink" title="二叉树类"></a>二叉树类</h1><blockquote>
+<p>其中judge方法为判断是否是完全二叉树</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BinTree</span> &#123;</span><br><span class="line">  Node root;</span><br><span class="line">  <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">judge</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">n0</span> <span class="operator">=</span> <span class="number">0</span>, n = <span class="number">0</span>, stage = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.root == <span class="literal">null</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    Queue&lt;Node&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    queue.offer(<span class="built_in">this</span>.root);</span><br><span class="line">    <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">      <span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">      n++;</span><br><span class="line">      <span class="comment">//三个必要条件之一</span></span><br><span class="line">      <span class="keyword">if</span> (node.left == <span class="literal">null</span> &amp;&amp; node.right != <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      <span class="comment">//三个必要条件之二</span></span><br><span class="line">      <span class="keyword">if</span> (stage == <span class="number">2</span> &amp;&amp; (node.left != <span class="literal">null</span> || node.right != <span class="literal">null</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      stage = (node.left != <span class="literal">null</span> &amp;&amp; node.right == <span class="literal">null</span>) ? <span class="number">2</span> : stage;</span><br><span class="line">      <span class="keyword">if</span> (node.left != <span class="literal">null</span>)</span><br><span class="line">        queue.offer(node.left);</span><br><span class="line">      <span class="keyword">if</span> (node.right != <span class="literal">null</span>)</span><br><span class="line">        queue.offer(node.right);</span><br><span class="line">      <span class="keyword">if</span> (node.left == <span class="literal">null</span> &amp;&amp; node.right == <span class="literal">null</span>) &#123;</span><br><span class="line">        n0++;</span><br><span class="line">        stage=<span class="number">2</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//三个必要条件之三：完全二叉树满足的公式n0=n/2，其中n0是度为0的节点，n是树总的节点数</span></span><br><span class="line">    <span class="keyword">return</span> (n0 == (<span class="type">int</span>) Math.ceil(n / <span class="number">2.0</span>)) ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag"># 数据结构与算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2017/01/spring-security%E4%B8%8Ecsrf%E9%98%B2%E5%BE%A1/" rel="prev" title="spring-security与csrf防御">
+                  <i class="fa fa-angle-left"></i> spring-security与csrf防御
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2017/01/%E5%8D%95%E9%93%BE%E8%A1%A8%E5%8E%9F%E5%9C%B0%E5%8F%8D%E5%BA%8F/" rel="next" title="单链表原地反序">
+                  单链表原地反序 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

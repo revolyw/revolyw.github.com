@@ -1,38 +1,421 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、建模概述 什么是建模？ 建模演变历程   二、结构化分析方法 数据建模——ER图 功能建模——DFD图 行为建模——STD图   三、面向对象分析方法 结构建模 行为建模 功能建模   四、结束语  需求分析师在需求调研分析工作中经常会用到各种分析方法，但对各种建模方法没有体系化的认识，经常讲概念混淆。本文从常用的结构化分析方法和面向对象分析方法着手，对各种建模方法进行梳理，帮助理解其含义及">
+<meta property="og:type" content="article">
+<meta property="og:title" content="互联网产品可视化建模方法">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="一、建模概述 什么是建模？ 建模演变历程   二、结构化分析方法 数据建模——ER图 功能建模——DFD图 行为建模——STD图   三、面向对象分析方法 结构建模 行为建模 功能建模   四、结束语  需求分析师在需求调研分析工作中经常会用到各种分析方法，但对各种建模方法没有体系化的认识，经常讲概念混淆。本文从常用的结构化分析方法和面向对象分析方法着手，对各种建模方法进行梳理，帮助理解其含义及">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646905704534.jpg">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646906154390.jpg">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646907611082.jpg">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646907537945.jpg">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646908426056.jpg">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646908600618.jpg">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646909685663.jpg">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646909609583.jpg">
+<meta property="og:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646910375734.jpg">
+<meta property="article:published_time" content="2020-01-24T01:44:56.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.883Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="互联网产品,建模,UML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646905704534.jpg">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/","path":"technology/2020/01/互联网产品可视化建模方法/","title":"互联网产品可视化建模方法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>互联网产品可视化建模方法 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%BB%BA%E6%A8%A1%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、建模概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BB%BA%E6%A8%A1%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什么是建模？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E6%A8%A1%E6%BC%94%E5%8F%98%E5%8E%86%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">建模演变历程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BB%93%E6%9E%84%E5%8C%96%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">二、结构化分析方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94ER%E5%9B%BE"><span class="nav-number">2.1.</span> <span class="nav-text">数据建模——ER图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94DFD%E5%9B%BE"><span class="nav-number">2.2.</span> <span class="nav-text">功能建模——DFD图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E4%B8%BA%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94STD%E5%9B%BE"><span class="nav-number">2.3.</span> <span class="nav-text">行为建模——STD图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">三、面向对象分析方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E5%BB%BA%E6%A8%A1"><span class="nav-number">3.1.</span> <span class="nav-text">结构建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E4%B8%BA%E5%BB%BA%E6%A8%A1"><span class="nav-number">3.2.</span> <span class="nav-text">行为建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E5%BB%BA%E6%A8%A1"><span class="nav-number">3.3.</span> <span class="nav-text">功能建模</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">四、结束语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="互联网产品可视化建模方法 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          互联网产品可视化建模方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-24 01:44:56" itemprop="dateCreated datePublished" datetime="2020-01-24T01:44:56Z">2020-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="互联网产品可视化建模方法" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><a href="#%E4%B8%80%E3%80%81%E5%BB%BA%E6%A8%A1%E6%A6%82%E8%BF%B0">一、建模概述</a><ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BB%BA%E6%A8%A1%EF%BC%9F">什么是建模？</a></li>
+<li><a href="#%E5%BB%BA%E6%A8%A1%E6%BC%94%E5%8F%98%E5%8E%86%E7%A8%8B">建模演变历程</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E3%80%81%E7%BB%93%E6%9E%84%E5%8C%96%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95">二、结构化分析方法</a><ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94ER%E5%9B%BE">数据建模——ER图</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94DFD%E5%9B%BE">功能建模——DFD图</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94STD%E5%9B%BE">行为建模——STD图</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95">三、面向对象分析方法</a><ul>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%BB%BA%E6%A8%A1">结构建模</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%BB%BA%E6%A8%A1">行为建模</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E5%BB%BA%E6%A8%A1">功能建模</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E3%80%81%E7%BB%93%E6%9D%9F%E8%AF%AD">四、结束语</a></li>
+</ul>
+<p>需求分析师在需求调研分析工作中经常会用到各种分析方法，但对各种建模方法没有体系化的认识，经常讲概念混淆。本文从常用的结构化分析方法和面向对象分析方法着手，对各种建模方法进行梳理，帮助理解其含义及作用。</p>
+<h1 id="一、建模概述"><a href="#一、建模概述" class="headerlink" title="一、建模概述"></a>一、建模概述</h1><h2 id="什么是建模？"><a href="#什么是建模？" class="headerlink" title="什么是建模？"></a>什么是建模？</h2><p>建模就是采用表格化、图形化、公式化的方式，将系统的构成及其构成间的关系呈现给人们的一种技术方法。[1]可能是因为软件本身的不可见，使得软件的建模也显得抽象，但在平常生活中，建模随处可见，比如盖房子，需要画图纸，画图纸就是建模的过程，而图纸就是建模产出的模型。在楼盘预售时，房子都还没建好，地产商会先做个缩小版的原型出来，甚至做个样板房让顾客有直观的感受，这个也是建模。当房子卖出去了，屋主需要装修了，找装修公司设计，设计师根据屋主需要设计一套图纸，甚至细到水电的走线，这些也是建模。因此将开发软件比作盖房子，其建模过程就相当于绘制图纸的过程。<br>可以说对软件系统进行建模的目的是帮助我们按照实际情况或按我们需求的样式对系统进行可视化；提供一种详细说明系统的结构或行为的方法；给出一个知道系统构造的模板；对我们所作出的决策进行文档化。</p>
+<h2 id="建模演变历程"><a href="#建模演变历程" class="headerlink" title="建模演变历程"></a>建模演变历程</h2><p>软件建模并不是从来就有的，而是随着软件工程的发展而不断演变。主要经过了三个阶段。<br>第一阶段：程序&#x3D;数据结构+算法<br>出现于20世纪50<del>60年代，软件开发主要解决的是科学计算问题，Fortran语言是其代表。其建模关键点是选择合适的数据结构和算法。<br>第二阶段：结构化分析方法<br>出现于20世纪60</del>70年代，将解决一些与数据处理相关的问题，例如计费等。COBOL、C语言是其代表。其建模关键点有两方面，一是确定有哪些数据，格式是什么，如何存储，主要通过E&#x2F;R模型表达；二是确定数据的加工、处理过程，主要通过DFD（数据流图）表达。<br>第三阶段：面向对象分析方法<br>出现于20世纪80~90年代，信息系统覆盖了更多业务过程，数据不再是唯一的视角，事（业务流程）、人的视角越来越重要，因此加入更多这方面的建模工具。<br>目前结构化分析方法和面向对象分析方法仍广泛应用。</p>
+<h1 id="二、结构化分析方法"><a href="#二、结构化分析方法" class="headerlink" title="二、结构化分析方法"></a>二、结构化分析方法</h1><p>结构化分析方法（Structured Analysis，简称SA）是将待解决的问题看做一个系统，从而用系统科学的思想方法（抽象、分解、模块化）来分析和解决问题，并基于功能分解设计系统结构，通过不断把复杂的处理逐层分解来简化问题，其最核心思想是自顶向下的分解。<br>结构化分析方法模型如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646905704534.jpg" alt="1.jpg"><br>数据字典是模型的核心，是关于数据的信息集合，也就是对数据流图中包含的所有元素定义的集合。对于数据流图中出现的所有被命名的图形元素加以定义，使得每个图形元素的名字都有确切的解释。<br>实体关系图（ER图）：描述数据对象间的关系，用于数据建模。<br>数据流图（DFD图）：描述了数据流在系统中流动的过程，以及对数据流进行变换的功能，用于功能建模。<br>状态迁移图（STD图）：描述了对外部事件的响应方式，表示了系统的各种行为模式（称为状态）以及在状态间进行变迁的方式，用于行为建模。<br>可见，结构化分析方法包含3层建模，数据建模、功能建模以及行为建模。</p>
+<h2 id="数据建模——ER图"><a href="#数据建模——ER图" class="headerlink" title="数据建模——ER图"></a>数据建模——ER图</h2><p>数据模型是为了把用户的数据要求清晰明确地表达出来所建立的一个概念性的模型，也称为概念模型，因此数据建模也称为概念建模。概念性模型是一种面向问题的数据模型，是按照用户的观点来对数据和信息进行建模。它描述了从用户角度看到的数据，也反映了用户的现实环境。<br>数据建模的目标是为了明确下列与数据处理相关的特定问题：</p>
+<ul>
+<li>系统处理哪些主要的数据对象？</li>
+<li>每个数据对象的组成如何？</li>
+<li>哪些属性描述了这些数据对象？</li>
+<li>这些数据对象当前位于何处？</li>
+<li>数据对象之间的关系？</li>
+<li>数据对象和变换它们的处理之间有哪些关系？<br>数据模型常用ER图表示，ER图也称实体关系图(Entity Relationship Diagram)，提供了表示实体类型、属性和联系的方法。用矩形表示实体型，矩形框内写明实体名；用椭圆表示实体的属性，并用无向边将其与相应的实体型连接起来；用菱形表示实体型之间的联系，在菱形框内写明联系名，并用无向边分别与有关实体型连接起来，同时在无向边旁标上联系的类型（1:1,1:n或m:n）。ER图示例如下图所示。<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646906154390.jpg" alt="2.jpg"><br>另外，对于设计方面的数据建模包括概念建模、逻辑建模和物理建模，而需求分析中的数据建模相当于设计中第一阶段的概念建模。由于是设计方面的建模方法，这里不再说明，详细信息可网上查找“详解数据建模的三个阶段”。</li>
+</ul>
+<h2 id="功能建模——DFD图"><a href="#功能建模——DFD图" class="headerlink" title="功能建模——DFD图"></a>功能建模——DFD图</h2><p>当数据或信息“流”过信息系统时将会被系统的功能所处理、加工活变换，再将处理或变换后的数据从系统中输出，DFD图从数据传递和加工角度，以图形方式来表达系统的逻辑功能、数据在系统内部的逻辑流向和逻辑变换过程。而功能建模正是通过DFD图将系统所需实现的功能绘制出来的过程。<br>DFD图的基本组成包括数据流、加工、数据存储和外部实体。通常用箭头标志数据流，用圆或椭圆表示加工，用双杠表示数据存储，用方框表示外部实体，即数据的源点或终点。DFD图示例如下图所示。<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646907611082.jpg" alt="3.jpg"></p>
+<h2 id="行为建模——STD图"><a href="#行为建模——STD图" class="headerlink" title="行为建模——STD图"></a>行为建模——STD图</h2><p>STD图（State Transition Diagram）用于描述系统或对象的状态，以及导致系统或对象状态发生改变的事件，从而描述系统的行为。它指明了作为特定事件的结果（状态），在状态中包含可能执行的行为。<br>STD图中，用圆圈表示可得到的系统状态，用箭头表示从一种状态向另一种状态的迁移，在箭头上要写上导致迁移的信号或事件的名称。STD图示例如下图所示。<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646907537945.jpg" alt="4.jpg"></p>
+<h1 id="三、面向对象分析方法"><a href="#三、面向对象分析方法" class="headerlink" title="三、面向对象分析方法"></a>三、面向对象分析方法</h1><p>面向对象方法是从内部结构上模拟客观世界 ,其基本思想认为对象是对现实世界客观实体的描述 ,均由其属性和相关操作组成 ,是系统描述的基本单位。面向对象方法更强调运用人类在日常的逻辑思维中经常采用的思想方法和原则 ,例如抽象、分类、继承、聚合、封装等 ,这使得软件开发者能更有效地思考问题 ,并以其他人也能看得懂的方式把自己的认识表达出来。<br>面向对象方法包括面向对象需求分析（OOA）、面向对象设计（OOD）、面向对象编程（OOP）。而面向对象分析方法主要经过3个建模过程，包括结构建模、行为建模和功能建模，3中建模均采用统一建模语言 UML (Unified Modeling Language)。<br>根据UML2.0标准，一共定义了13种不同的图，其功能各有不同，而OOA主要使用到其中的5种，分别是类图、活动图、用例图、构件图和部署图。</p>
+<h2 id="结构建模"><a href="#结构建模" class="headerlink" title="结构建模"></a>结构建模</h2><p>结构建模也叫领域建模或概念建模，是对业务或系统的某个时刻或某段时间内的状态进行系统化描述，一般使用结构型的UML图进行结构建模。结构建模所表示的内容一般是静态的，在一段时间内是不会变化的。如用类图表示业务及业务之间的关系，用部署图、构件图表示系统的部署及架构设计。<br>类图示例如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646908426056.jpg" alt="5.jpg"><br>构件图如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646908600618.jpg" alt="6.jpg"><br>部署图如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646909685663.jpg" alt="7.jpg"></p>
+<h2 id="行为建模"><a href="#行为建模" class="headerlink" title="行为建模"></a>行为建模</h2><p>行为建模是系统化地分析业务活动及业务流程的过程，一般使用行为型的UML图进行结构建模。行为建模表达的是某段时间内事情是如何发展的，这些发展最后会达到怎样的效果。<br>业务流程分为生产性流程、管理性流程和支持性流程。生产性流程是流程中最重要的部分，是企业&#x2F;组织价值体现的核心；管理性流程是对生产性流程的管控，通常是有管理层发现的，对一些质量、效率进行监督的控制性流程；支持性流程是对生产性流程的一种补充，通常是由协作部门、本部门员工执行的工作。如果拿软件开发过程来比喻的话，需求分析、软件设计、软件编码、软件测试是生产性流程；项目管理、质量保证是管理性流程；而文档配置等属于支持性流程。通常生产性流程是最容易标识的，而管理性流程和支持性流程比较容易忽略，因此在需求分析时要特别注意。[2]<br>活动图示例如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646909609583.jpg" alt="8.jpg"></p>
+<h2 id="功能建模"><a href="#功能建模" class="headerlink" title="功能建模"></a>功能建模</h2><p>功能建模是在结构建模和行为建模的基础上，识别出通过系统实现的部分，一般使用UML用例图表现，描述系统应具有的功能，用于实现用户的日常需要。<br>另外，在用例图的基础上通过原型工具制作出可视化原型也属于功能建模的范畴，通过原型用户能更直观地感知即将开发出来的系统的模样，更好地引出客户需求，同时避免后期需求变更。目前一般采用Axure原型工具制作系统或功能原型。<br>用例图示例如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646910375734.jpg" alt="9.jpg"></p>
+<h1 id="四、结束语"><a href="#四、结束语" class="headerlink" title="四、结束语"></a>四、结束语</h1><p>可以看出结构化分析方法和面向对象分析方法有相同的地方，那就是都需要先理清业务概念及其关系，虽然SA称为数据建模，而OOA称为结构建模，但本质是相同的。不同的地方在于SA更偏向对数据流的分析，而OOA更偏向对对象行为的分析，而且在现阶段OOA的应用更为广泛，但不得不说的是，无论SA还是OOA都只是需求分析的方法，关键还是在于使用它们的需求分析师。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81-%E5%BB%BA%E6%A8%A1-UML/" rel="tag"># 互联网产品,建模,UML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/" rel="prev" title="海上钢琴师">
+                  <i class="fa fa-angle-left"></i> 海上钢琴师
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/" rel="next" title="重大突发公共卫生事件一级响应意味着什么">
+                  重大突发公共卫生事件一级响应意味着什么 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

@@ -1,38 +1,414 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="案发背景同事最近在对项目的hibernate框架进行升级，从3.6.10.Final升级至5.2.10.Final。升级期间出现了配置文件(xml)解析报错。主要报错堆栈如下 123419:07:41 ERROR - Context initialization failed x org.springframework.beans.factory.BeanCreationException: Er">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一次解决jar包依赖冲突问题的过程">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="案发背景同事最近在对项目的hibernate框架进行升级，从3.6.10.Final升级至5.2.10.Final。升级期间出现了配置文件(xml)解析报错。主要报错堆栈如下 123419:07:41 ERROR - Context initialization failed x org.springframework.beans.factory.BeanCreationException: Er">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1503061978595.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1503062212136.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1503062472355.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1503062716227.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1503063619467.png">
+<meta property="article:published_time" content="2017-08-18T19:01:58.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.883Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="debug">
+<meta property="article:tag" content="gradle">
+<meta property="article:tag" content="maven">
+<meta property="article:tag" content="依赖冲突">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.willowspace.cn/willowspace_2016/1503061978595.png">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/","path":"technology/2017/08/一次解决jar包依赖冲突问题的过程/","title":"一次解决jar包依赖冲突问题的过程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一次解决jar包依赖冲突问题的过程 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A1%88%E5%8F%91%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">案发背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E7%BA%BF%E7%B4%A2"><span class="nav-number">2.</span> <span class="nav-text">寻找线索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E7%AC%AC%E4%B8%80%E6%A1%88%E5%8F%91%E7%8E%B0%E5%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">寻找第一案发现场</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E7%9C%9F%E5%87%B6"><span class="nav-number">4.</span> <span class="nav-text">寻找真凶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text">结案</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一次解决jar包依赖冲突问题的过程 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一次解决jar包依赖冲突问题的过程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-18 19:01:58" itemprop="dateCreated datePublished" datetime="2017-08-18T19:01:58Z">2017-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="一次解决jar包依赖冲突问题的过程" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="案发背景"><a href="#案发背景" class="headerlink" title="案发背景"></a>案发背景</h1><p>同事最近在对项目的hibernate框架进行升级，从<code>3.6.10.Final</code>升级至<code>5.2.10.Final</code>。升级期间出现了配置文件(xml)解析报错。主要报错堆栈如下</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">19</span>:<span class="number">07</span>:<span class="number">41</span> ERROR - Context initialization failed x org<span class="variable">.springframework</span><span class="variable">.beans</span><span class="variable">.factory</span><span class="variable">.BeanCreationException</span>: Error creating bean <span class="keyword">with</span> name &#x27;serviceManager&#x27; defined in <span class="keyword">class</span> path resource [spring/applicationContext<span class="variable">.xml</span>]: Cannot resolve reference to bean &#x27;xService&#x27; <span class="keyword">while</span> setting bean <span class="keyword">property</span> &#x27;xSerivce&#x27;; nested exception is org<span class="variable">.springframework</span><span class="variable">.beans</span><span class="variable">.factory</span><span class="variable">.BeanCreationException</span>: Error creating bean <span class="keyword">with</span> name &#x27;xService&#x27; defined in <span class="keyword">class</span> path resource [spring/dao<span class="variable">.xml</span>]: Cannot resolve reference to bean &#x27;transactionManager&#x27; <span class="keyword">while</span> setting bean <span class="keyword">property</span> &#x27;transactionManager&#x27;; nested exception is org<span class="variable">.springframework</span><span class="variable">.beans</span><span class="variable">.factory</span><span class="variable">.BeanCreationException</span>: Error creating bean <span class="keyword">with</span> name &#x27;transactionManager&#x27; defined in <span class="keyword">class</span> path resource [spring/dataSource-common<span class="variable">.xml</span>]: Cannot resolve reference to bean &#x27;sessionFactory&#x27; <span class="keyword">while</span> setting bean <span class="keyword">property</span> &#x27;sessionFactory&#x27;; nested exception is org<span class="variable">.springframework</span><span class="variable">.beans</span><span class="variable">.factory</span><span class="variable">.BeanCreationException</span>: Error creating bean <span class="keyword">with</span> name &#x27;sessionFactory&#x27; defined in <span class="keyword">class</span> path resource [spring/dataSource-common<span class="variable">.xml</span>]: Invocation of init method failed; nested exception is</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">java<span class="variable">.lang</span><span class="variable">.NoSuchMethodError</span>:org<span class="variable">.apache</span><span class="variable">.xerces</span><span class="variable">.impl</span><span class="variable">.xs</span><span class="variable">.XMLSchemaLoader</span><span class="variable">.loadGrammar</span>([Lorg/apache/xerces/xni/parser/XMLInputSource;)V</span><br></pre></td></tr></table></figure>
+
+<h1 id="寻找线索"><a href="#寻找线索" class="headerlink" title="寻找线索"></a>寻找线索</h1><p>可以看到最后的一段日志<code>java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGrammar([Lorg/apache/xerces/xni/parser/XMLInputSource;)V</code></p>
+<p>说明<code>XMLSchemaLoader</code>类的<code>loadGrammar</code>方法没有找到，这个方法的特征(L)是有一个数组<code>XMLInputSource</code>类型的数组参数。</p>
+<h1 id="寻找第一案发现场"><a href="#寻找第一案发现场" class="headerlink" title="寻找第一案发现场"></a>寻找第一案发现场</h1><p>顺着这个线索我们来看下找一下这个方法。</p>
+<p>搜索源文件发现有两个jar包(见下图)都包含<code>XMLSchemaLoader#loadGrammar</code><img src="http://img.willowspace.cn/willowspace_2016/1503061978595.png"></p>
+<p>两者的<code>XMLSchemaLoader</code>类都有<code>loadGrammar</code>方法。__重点来了__，不同的是前者没有参数为<code>XMLInputSource</code>数组的<code>loadGrammar</code>方法，而后者有。这与报错堆栈完全吻合，可见这就是第一案发现场。</p>
+<h1 id="寻找真凶"><a href="#寻找真凶" class="headerlink" title="寻找真凶"></a>寻找真凶</h1><p>有了上面的线索，很自然想要去<a href="http://mvnrepository.com/">maven仓库</a>中看看是不是<code>xerces</code>包太老需要升级，搜索<code>xerces</code>后发现的确有问题，<code>xerces</code>已经建议使用<code>xercesImpl</code>替换了，看来真凶就是这个<code>xerces</code>包。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1503062212136.png"></p>
+<p>于是回到项目中去掉<code>xerces:2.4.0</code>的依赖，重启启动项目，依旧报错。</p>
+<p>这时考虑是不是有其他jar包也存在对该包的引用，去生成的依赖库中一看，果然，<code>xerces</code>的依赖版本从<code>2.4.0</code>变为了<code>2.0.2</code>依然存在于依赖之中</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1503062472355.png"></p>
+<p>这时基本可以断定就是其他包依赖了<code>xerces</code>，于是使用<code>gradle</code>的命令查看jar包依赖关系</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看gradle依赖关系</span></span><br><span class="line">gradle dependencies</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1503062716227.png"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1503063619467.png"></p>
+<p>从依赖关系从看到<code>commons-dbcp:1.2.1``commons-pool:1.2</code>这两个包依赖了<code>xerces:xerces:2.0.2</code>包，导致依旧引入了<code>xerces</code>依赖。去除<code>commons-dbcp:1.2.1</code>并升级<code>commons-pool:1.2</code>至<code>commons-pool:1.6</code>后刷新，<code>xerces</code>包依赖完全被去除。重启项目，一切顺畅，问题得以解决。</p>
+<h1 id="结案"><a href="#结案" class="headerlink" title="结案"></a>结案</h1><p>这次问题的本质就是jar包冲突，只不过冲突的jar包依赖关系藏得较为隐蔽。</p>
+<p>解决的手段其实较为简单，就是调和冲突的jar包（删除、升级、替换等）。</p>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p>上面我们为了解决jar包冲突直接删除了<code>commons-dbcp</code>依赖，这是因为我的项目已经不需要用到这个包了，但如果这个依赖包不能删除，如何单独删除其中冲突的jar包依赖呢？</p>
+<p>这里提供一种<code>gradle</code>具体的调和手段</p>
+<p>可以使用<code>exclude</code>去除jar包对第三方jar包的依赖，从而达到解决冲突的目的，具体写法如下。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">	compile(<span class="string">&#x27;commons-dbcp:commons-dbcp:1.2.1&#x27;</span>) &#123;</span><br><span class="line">    	exclude <span class="attr">module:</span> <span class="string">&#x27;xerces&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/debug/" rel="tag"># debug</a>
+              <a href="/tags/gradle/" rel="tag"># gradle</a>
+              <a href="/tags/maven/" rel="tag"># maven</a>
+              <a href="/tags/%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81/" rel="tag"># 依赖冲突</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2017/08/%E6%94%AF%E4%BB%98%E5%AE%9DAPP%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/" rel="prev" title="支付宝APP支付流程">
+                  <i class="fa fa-angle-left"></i> 支付宝APP支付流程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/" rel="next" title="Java Method Breakpoints are evil">
+                  Java Method Breakpoints are evil <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

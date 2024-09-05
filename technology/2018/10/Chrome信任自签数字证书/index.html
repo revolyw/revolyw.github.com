@@ -1,38 +1,424 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Chrome信任自签数字证书如何自签一个CA证书和一个子证书 创建CA配置文件    1234567891011121314151617181920212223touch localhost_ca.cnf[ req ]distinguished_name  &#x3D; req_distinguished_namex509_extensions     &#x3D; root_ca[ req_distinguishe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chrome信任自签数字证书">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="Chrome信任自签数字证书如何自签一个CA证书和一个子证书 创建CA配置文件    1234567891011121314151617181920212223touch localhost_ca.cnf[ req ]distinguished_name  &#x3D; req_distinguished_namex509_extensions     &#x3D; root_ca[ req_distinguishe">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-09-30T17:17:17.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.879Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="https">
+<meta property="article:tag" content="ca">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/","path":"technology/2018/10/Chrome信任自签数字证书/","title":"Chrome信任自签数字证书"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Chrome信任自签数字证书 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6"><span class="nav-number">1.</span> <span class="nav-text">Chrome信任自签数字证书</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%87%AA%E7%AD%BE%E4%B8%80%E4%B8%AACA%E8%AF%81%E4%B9%A6%E5%92%8C%E4%B8%80%E4%B8%AA%E5%AD%90%E8%AF%81%E4%B9%A6"><span class="nav-number">1.1.</span> <span class="nav-text">如何自签一个CA证书和一个子证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome%E5%A6%82%E4%BD%95%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6"><span class="nav-number">1.2.</span> <span class="nav-text">Chrome如何信任自签证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E8%AF%81%E4%B9%A6%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.3.</span> <span class="nav-text">一些证书使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pem%E6%A0%BC%E5%BC%8F%E8%BD%ACcer%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">pem格式转cer格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bjdk%E8%AF%81%E4%B9%A6"><span class="nav-number">1.3.2.</span> <span class="nav-text">查看jdk证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jdk%E5%AF%86%E9%92%A5%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.3.</span> <span class="nav-text">jdk密钥库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cocos-creator%E4%B8%AD%E6%89%93%E5%8C%85%E5%8E%9F%E7%94%9Fandroid%E5%BA%94%E7%94%A8%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8android-studio%E4%B8%AD%E7%9A%84%E8%AF%81%E4%B9%A6"><span class="nav-number">1.3.4.</span> <span class="nav-text">cocos creator中打包原生android应用时，使用android studio中的证书</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Chrome信任自签数字证书 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Chrome信任自签数字证书
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-09-30 17:17:17" itemprop="dateCreated datePublished" datetime="2018-09-30T17:17:17Z">2018-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/" class="post-meta-item leancloud_visitors" data-flag-title="Chrome信任自签数字证书" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Chrome信任自签数字证书"><a href="#Chrome信任自签数字证书" class="headerlink" title="Chrome信任自签数字证书"></a>Chrome信任自签数字证书</h1><h2 id="如何自签一个CA证书和一个子证书"><a href="#如何自签一个CA证书和一个子证书" class="headerlink" title="如何自签一个CA证书和一个子证书"></a>如何自签一个CA证书和一个子证书</h2><ol>
+<li>创建CA配置文件</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">touch localhost_ca.cnf</span><br><span class="line"></span><br><span class="line">[ req ]</span><br><span class="line">distinguished_name  = req_distinguished_name</span><br><span class="line">x509_extensions     = root_ca</span><br><span class="line"></span><br><span class="line">[ req_distinguished_name ]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下内容可随意填写</span></span><br><span class="line">countryName             = CN (2 letter code)</span><br><span class="line">countryName_min         = 2</span><br><span class="line">countryName_max         = 2</span><br><span class="line">stateOrProvinceName     = ZheJiang</span><br><span class="line">localityName            = HangZhou</span><br><span class="line">organizationName        = Dxy</span><br><span class="line">organizationalUnitName  = technology</span><br><span class="line">commonName              = develop</span><br><span class="line">commonName_max          = 64</span><br><span class="line">emailAddress            = yangw@dxy.cn</span><br><span class="line">emailAddress_max        = 64</span><br><span class="line"></span><br><span class="line">[ root_ca ]</span><br><span class="line">basicConstraints        = critical, CA:true</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建扩展配置文件</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">touch localhost_ca.ext</span><br><span class="line"></span><br><span class="line">subjectAltName = @alt_names</span><br><span class="line">extendedKeyUsage = serverAuth</span><br><span class="line"></span><br><span class="line">[alt_names]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">域名，如有多个用DNS.2,DNS.3…来增加</span></span><br><span class="line">DNS.1 = a.domain.cn</span><br><span class="line">DNS.2 = b.domain.cn</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">IP地址</span></span><br><span class="line">IP.1 = 192.168.0.1</span><br><span class="line">IP.2 = 127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建CA证书私钥及CA证书</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj &quot;/CN=$CA_CER_NAME&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>创建子证书私钥</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>创建子证书</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以做成脚本以便复用</p>
+</blockquote>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line">CA_CER_NAME=localhost_ca</span><br><span class="line">CA_KEY_NAME=localhost_ca</span><br><span class="line">CA_CNF_FILE=./localhost_ca.cnf</span><br><span class="line">CA_EXT_FILE=./localhost_ca.ext</span><br><span class="line"></span><br><span class="line">CER_NAME=localhost</span><br><span class="line">KEY_NAME=localhost</span><br><span class="line"></span><br><span class="line">openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj &quot;/CN=$CA_CER_NAME&quot;</span><br><span class="line"></span><br><span class="line">openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes</span><br><span class="line"></span><br><span class="line">openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Chrome如何信任自签证书"><a href="#Chrome如何信任自签证书" class="headerlink" title="Chrome如何信任自签证书"></a>Chrome如何信任自签证书</h2><ol>
+<li>chrome:&#x2F;&#x2F;settings进入Chrome设置界面,搜索certificate,找到并点击Manage certificates将进入系统Keychain Access</li>
+<li>将生成CA(.cer)证书导入</li>
+<li>将导入后的CA证书设置成always trust</li>
+</ol>
+<h2 id="一些证书使用场景"><a href="#一些证书使用场景" class="headerlink" title="一些证书使用场景"></a>一些证书使用场景</h2><h3 id="pem格式转cer格式"><a href="#pem格式转cer格式" class="headerlink" title="pem格式转cer格式"></a>pem格式转cer格式</h3>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -inform PEM -in cacert.pem -outform DER -out certificate.cer</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看jdk证书"><a href="#查看jdk证书" class="headerlink" title="查看jdk证书"></a>查看jdk证书</h3>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -list -keystore &quot;%JAVA_HOME%/jre/lib/security/cacerts&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jdk密钥库操作"><a href="#jdk密钥库操作" class="headerlink" title="jdk密钥库操作"></a>jdk密钥库操作</h3><p><strong>修改密码</strong></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -storepasswd -keystore &quot;%JAVA_HOME%/jre/lib/security/cacerts&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>导入证书</strong></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -noprompt -trustcacerts -alias &lt;AliasName&gt; -file   &lt;certificate&gt; -keystore &lt;KeystoreFile&gt; -storepass &lt;Password&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除证书</strong></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -delete -alias &lt;keyAlias&gt; -keystore &lt;keystore-name&gt; -storepass &lt;password&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="cocos-creator中打包原生android应用时，使用android-studio中的证书"><a href="#cocos-creator中打包原生android应用时，使用android-studio中的证书" class="headerlink" title="cocos creator中打包原生android应用时，使用android studio中的证书"></a>cocos creator中打包原生android应用时，使用android studio中的证书</h3><p>找到构建好的原生android项目，修改其中gradle.properties文件，添加：</p>
+  <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">systemProp.javax.net.ssl.trustStore</span>=<span class="string">&#123;your-android-studio-directory&#125;\\jre\\jre\\lib\\security\\cacerts</span></span><br><span class="line"><span class="attr">systemProp.javax.net.ssl.trustStorePassword</span>=<span class="string">changeit</span></span><br></pre></td></tr></table></figure>
+<p>这将让cocos使用android studio的证书，然后在android studio中配置证书：Preference-&gt;Tools-&gt;Server Certification中添加证书</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/https/" rel="tag"># https</a>
+              <a href="/tags/ca/" rel="tag"># ca</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2018/07/ArchSummit%E6%97%A5%E7%A8%8B/" rel="prev" title="ArchSummit日程">
+                  <i class="fa fa-angle-left"></i> ArchSummit日程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/music/2018/12/%E7%88%B5%E5%A3%AB%E5%94%B1%E6%B3%95/" rel="next" title="爵士唱法">
+                  爵士唱法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

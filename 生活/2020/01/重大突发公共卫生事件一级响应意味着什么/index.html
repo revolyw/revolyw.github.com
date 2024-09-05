@@ -1,38 +1,415 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="“重大突发公共卫生事件一级响应”意味着什么？为防控新型冠状病毒感染的肺炎疫情，连日来截止目前，湖南、广东、浙江、湖北、江苏、河北等 25 个省份决定启动重大突发公共卫生事件一级响应。 那么，究竟什么是重大突发公共卫生事件一级响应？我国于 2006 年发布的《国家突发公共卫生事件应急预案》表明，该应急机制适用于突然发生，造成或者可能造成社会公众身心健康严重损害的重大传染病、群体性不明原因疾病、重大食">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重大突发公共卫生事件一级响应意味着什么">
+<meta property="og:url" content="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="“重大突发公共卫生事件一级响应”意味着什么？为防控新型冠状病毒感染的肺炎疫情，连日来截止目前，湖南、广东、浙江、湖北、江苏、河北等 25 个省份决定启动重大突发公共卫生事件一级响应。 那么，究竟什么是重大突发公共卫生事件一级响应？我国于 2006 年发布的《国家突发公共卫生事件应急预案》表明，该应急机制适用于突然发生，造成或者可能造成社会公众身心健康严重损害的重大传染病、群体性不明原因疾病、重大食">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-25T20:01:24.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.886Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="新型冠状病毒">
+<meta property="article:tag" content="武汉">
+<meta property="article:tag" content="肺炎">
+<meta property="article:tag" content="重大突发公共卫生事件">
+<meta property="article:tag" content="WHO">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/","path":"生活/2020/01/重大突发公共卫生事件一级响应意味着什么/","title":"重大突发公共卫生事件一级响应意味着什么"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>重大突发公共卫生事件一级响应意味着什么 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%80%9C%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E2%80%9D%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">“重大突发公共卫生事件一级响应”意味着什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%82%A3%E4%B9%88%EF%BC%8C%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">那么，究竟什么是重大突发公共卫生事件一级响应？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E5%90%8E%EF%BC%8C%E5%90%84%E9%83%A8%E9%97%A8%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">启动重大突发公共卫生事件一级响应后，各部门应该怎么做？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%BA%A7%E4%BA%BA%E6%B0%91%E6%94%BF%E5%BA%9C"><span class="nav-number">1.2.1.</span> <span class="nav-text">各级人民政府</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%AB%E7%94%9F%E8%A1%8C%E6%94%BF%E9%83%A8%E9%97%A8"><span class="nav-number">1.2.2.</span> <span class="nav-text">卫生行政部门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BB%E7%96%97%E6%9C%BA%E6%9E%84"><span class="nav-number">1.2.3.</span> <span class="nav-text">医疗机构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%9C%BA%E6%9E%84"><span class="nav-number">1.2.4.</span> <span class="nav-text">其他机构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%AF%B9%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%EF%BC%8C%E6%88%91%E4%BB%AC%E8%AF%A5%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">面对一级响应，我们该做什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%80%9C%E5%9B%BD%E9%99%85%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E2%80%9D-%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">“国际突发公共卫生事件” 意味着什么？</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="重大突发公共卫生事件一级响应意味着什么 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          重大突发公共卫生事件一级响应意味着什么
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-25 20:01:24" itemprop="dateCreated datePublished" datetime="2020-01-25T20:01:24Z">2020-01-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/" class="post-meta-item leancloud_visitors" data-flag-title="重大突发公共卫生事件一级响应意味着什么" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="“重大突发公共卫生事件一级响应”意味着什么？"><a href="#“重大突发公共卫生事件一级响应”意味着什么？" class="headerlink" title="“重大突发公共卫生事件一级响应”意味着什么？"></a><strong>“重大突发公共卫生事件一级响应”意味着什么？</strong></h1><p>为防控新型冠状病毒感染的肺炎疫情，连日来截止目前，湖南、广东、浙江、湖北、江苏、河北等 25 个省份决定启动重大突发公共卫生事件一级响应。</p>
+<h2 id="那么，究竟什么是重大突发公共卫生事件一级响应？"><a href="#那么，究竟什么是重大突发公共卫生事件一级响应？" class="headerlink" title="那么，究竟什么是重大突发公共卫生事件一级响应？"></a><strong>那么，究竟什么是重大突发公共卫生事件一级响应？</strong></h2><p>我国于 2006 年发布的《国家突发公共卫生事件应急预案》表明，该应急机制适用于突然发生，造成或者可能造成社会公众身心健康严重损害的重大传染病、群体性不明原因疾病、重大食物和职业中毒以及因自然灾害、事故灾难或社会安全等事件引起的严重影响公众身心健康的公共卫生事件的应急处理工作。根据突发公共卫生事件性质、危害程度、涉及范围，突发公共卫生事件划可分为特别重大（Ⅰ 级）、重大（Ⅱ 级）、较大（Ⅲ 级）和一般（Ⅳ 级）四级。</p>
+<p>其中，特别重大突发公共卫生事件主要包括：</p>
+<p>（1）肺鼠疫、肺炭疽在大、中城市发生并有扩散趋势，或肺鼠疫、肺炭疽疫情波及 2 个以上的省份，并有进一步扩散趋势。 </p>
+<p>（2）发生传染性非典型肺炎、人感染高致病性禽流感病例，并有扩散趋势。</p>
+<p>（3）涉及多个省份的群体性不明原因疾病，并有扩散趋势。</p>
+<p>（4）发生新传染病或我国尚未发现的传染病发生或传入，并有扩散趋势，或发现我国已消灭的传染病重新流行。</p>
+<p>（5）发生烈性病菌株、毒株、致病因子等丢失事件。</p>
+<p>（6）周边以及与我国通航的国家和地区发生特大传染病疫情，并出现输入性病例，严重危及我国公共卫生安全的事件。</p>
+<p>（7）国务院卫生行政部门认定的其他特别重大突发公共卫生事件。</p>
+<p>在一级响应下，省指挥部可以根据国务院的决策部署和统一指挥，组织协调本行政区域内应急处置工作。</p>
+<h2 id="启动重大突发公共卫生事件一级响应后，各部门应该怎么做？"><a href="#启动重大突发公共卫生事件一级响应后，各部门应该怎么做？" class="headerlink" title="启动重大突发公共卫生事件一级响应后，各部门应该怎么做？"></a>启动重大突发公共卫生事件一级响应后，各部门应该怎么做？</h2><h3 id="各级人民政府"><a href="#各级人民政府" class="headerlink" title="各级人民政府"></a><strong>各级人民政府</strong></h3><p>组织协调有关部门参与突发公共卫生事件的处理；划定控制区域；疫情控制措施，比如限制集市、集会等人群聚集活动；流动人口管理；实施交通卫生检疫等。</p>
+<h3 id="卫生行政部门"><a href="#卫生行政部门" class="headerlink" title="卫生行政部门"></a><strong>卫生行政部门</strong></h3><p>组织医疗机构、疾病预防控制机构和卫生监督机构开展突发公共卫生事件的调查与处理；采取应急控制措施；发布信息与通报；普及卫生知识等。</p>
+<h3 id="医疗机构"><a href="#医疗机构" class="headerlink" title="医疗机构"></a><strong>医疗机构</strong></h3><p>开展病人接诊、收治和转运工作，实行重症和普通病人分开管理，对疑似病人及时排除或确诊；</p>
+<p>做好医院内现场控制、消毒隔离、个人防护、医疗垃圾和污水处理工作，防止院内交叉感染和污染；做好传染病和中毒病人的报告等。</p>
+<h3 id="其他机构"><a href="#其他机构" class="headerlink" title="其他机构"></a><strong>其他机构</strong></h3><p>除上述机构外，疾病预防控制机构、卫生监督机构、出入境检验检疫机构也会开展相应的应急处理工作，非事件发生地区也有相应的应急反应措施。</p>
+<h2 id="面对一级响应，我们该做什么？"><a href="#面对一级响应，我们该做什么？" class="headerlink" title="面对一级响应，我们该做什么？"></a><strong>面对一级响应，我们该做什么？</strong></h2><p>面对一级响应，做好防护很重要。</p>
+<p>1.减少非必要接触。尽量减少外出，避免到封闭、空气不流通的公众场所和人员密集场所。外出请记得佩戴口罩，医用口罩尤其是外科口罩能挡住大部分含有病毒的飞沫。尽量减少与疫情城市回来人员接触，有湖北武汉等地外出计划的最好取消行程。</p>
+<p>2.注意个人卫生防护。养成良好的生活习惯，定时开窗通风，保持室内空气流通。咳嗽、饭前便后、接触或处理动物排泄物后，要用流水 + 肥皂&#x2F;洗手液洗手，或者使用含酒精成分的免洗洗手液，每次洗手至少 20 秒。咳嗽和打喷嚏时使用纸巾或衣袖遮掩口鼻，防止飞沫传播。</p>
+<p>3.保持安全饮食习惯。不要购买和食用野味，少去海鲜、活禽市场或农场，尽量避免接触野生或养殖动物。制作各种肉类和蛋类要确保煮熟，处理生食和熟食的切菜板及刀具要分开。</p>
+<p>4.主动实施居家隔离。有湖北武汉旅居史的人员请主动居家隔离 14 天，14 天内不要走亲访友，不与外人接触。居家隔离期间，一旦本人或家人出现有发热、乏力和干咳等呼吸系统症状，赶快戴上口罩去医院发热门诊及时就诊，主动告知最近是否到过武汉，并讲清近期直接接触情况，为医疗机构科学及时诊断治疗提供有效信息。</p>
+<p>5.开展爱国卫生运动。全民积极开展清洁扫除，铲除病毒滋生和传播土壤。同时各单位、各大集贸市场等开展卫生整治，营造干净整洁的生产、生活环境。</p>
+<p>6.加强联防联控预警。请大家互相监督，发现有来自湖北武汉的人员没有遵守居家隔离，及时给予劝诫或向当地卫生健康部门反映，群防群控、严防死守、共同努力保一方平安。</p>
+<p>7.应当服从当地政府、居民委员会、村民委员会或者所属单位的指挥和安排，配合当地政府采取的应急处置措施，协助做好疫情防控工作。</p>
+<h1 id="“国际突发公共卫生事件”-意味着什么？"><a href="#“国际突发公共卫生事件”-意味着什么？" class="headerlink" title="“国际突发公共卫生事件” 意味着什么？"></a>“国际突发公共卫生事件” 意味着什么？</h1><p>世界卫生组织 1 月 23 日宣布，新型冠状病毒疫情尚未构成国际关注的突发公共卫生事件。目前，世卫组织不建议任何涉及旅行或贸易的边境限制措施。可见国际突发公共卫生事件标准更高，那么它到底意味着什么呢？</p>
+<p>根据《国际卫生条例》，“国际关注的突发公共卫生事件” 是指 “通过<strong>疾病的国际传播</strong>构成对其它国家的公共卫生风险，并可能需要采取<strong>协调一致的国际应对措施</strong>的<strong>不同寻常的事件</strong>。</p>
+<p>该定义暗示出现了如下局面：严重、突然、不寻常、意外；对公共卫生的影响很可能超出受影响国国界；并且可能需要立即采取国际行动。</p>
+<p>《国际卫生条例》规定，世卫组织总干事可决定召集突发事件委员会会议，就事件是否构成国际关注的突发公共卫生事件听取意见；在此之前，世卫组织总干事应与本国领土上发生事件的缔约国进行磋商，就是否构成国际关注的突发公共卫生事件评估信息和依据。</p>
+<p>在某种疫情被宣布为 “国际关注的突发公共卫生事件” 后，WHO 总干事和各成员国需要根据委员会的建议，采取行动应对危机。根据 2005 年的《国际卫生条例》，各成员国均负有对 “国际关注的突发公共卫生事件” 作出迅速反应的法律责任。</p>
+<p>在这之后，WHO 总干事有权力向其他国家发布建议，例如敦促它们不要在疫情爆发时关闭边界，不要对疫情爆发国实施旅行和贸易限制。这一点非常重要，因为一旦其他国家实施这些限制，就<strong>形同实际意义上的经济制裁</strong>，这可能会使疫情爆发国隐瞒疫情的真实情况，对于疫情的全球应对非常不利。</p>
+<p>另外，宣布疫情为 “国际关注的突发公共卫生事件”，还有利于出现疫情的国家获得外部帮助，例如筹集外界援助资金等。</p>
+<p>2009 年以来，WHO 共宣布了五起 “国际关注的突发公共卫生事件”，分别为 2009 年的甲型 H1N1 流感、2014 年的脊髓灰质炎疫情、2014 年西非的埃博拉疫情、2015-16 年的 “寨卡” 疫情以及 2018 年开始的刚果（金）埃博拉疫情（于 2019 年 7 月宣布）。</p>
+<p><strong>参考：</strong></p>
+<p>各省针对新型冠状病毒感染的肺炎疫情启动重大突发公共卫生事件一级响应机制 <a href="http://www.gov.cn/xinwen/2020-01/24/content_5472050.htm">http://www.gov.cn/xinwen/2020-01/24/content_5472050.htm</a></p>
+<p>国家突发公共卫生事件应急预案 <a href="http://www.gov.cn/yjgl/2006-02/26/content_211654.htm">http://www.gov.cn/yjgl/2006-02/26/content_211654.htm</a></p>
+<p>国际卫生条例 <a href="https://en.wikipedia.org/wiki/International_Health_Regulations">https://en.wikipedia.org/wiki/International_Health_Regulations</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92/" rel="tag"># 新型冠状病毒</a>
+              <a href="/tags/%E6%AD%A6%E6%B1%89/" rel="tag"># 武汉</a>
+              <a href="/tags/%E8%82%BA%E7%82%8E/" rel="tag"># 肺炎</a>
+              <a href="/tags/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6/" rel="tag"># 重大突发公共卫生事件</a>
+              <a href="/tags/WHO/" rel="tag"># WHO</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/" rel="prev" title="互联网产品可视化建模方法">
+                  <i class="fa fa-angle-left"></i> 互联网产品可视化建模方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2024/06/Java-%E5%BA%94%E7%94%A8%E9%87%87%E7%94%A8-Docker-%E5%AE%B9%E5%99%A8%E5%8C%96%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="next" title="Java 应用采用 Docker 容器化的最佳实践">
+                  Java 应用采用 Docker 容器化的最佳实践 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

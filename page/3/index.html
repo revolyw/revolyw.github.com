@@ -1,23 +1,1050 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
-{% block title %} {{ config.title }} {% endblock %}
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
 
-{% block page_class %}
-  {% if is_home() %} page-home {% endif %}
-{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="捉虫子的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Willow&#39;s blog">
+<meta property="og:url" content="http://blog.willowspace.cn/page/3/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="捉虫子的人">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="杨威">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://blog.willowspace.cn/page/3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Willow's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/12/Ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8heirloom-mailx%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/12/Ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8heirloom-mailx%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" class="post-title-link" itemprop="url">Ubuntu下使用heirloom-mailx发送邮件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-09 13:11:46" itemprop="dateCreated datePublished" datetime="2017-12-09T13:11:46Z">2017-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/12/Ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8heirloom-mailx%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu下使用heirloom-mailx发送邮件" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">install</span></span><br><span class="line">sudo apt-get install heirloom-mailx</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">configure</span></span><br><span class="line">vim /etc/s-nail.rc</span><br><span class="line">set from=$&#123;demo@qq.com&#125;</span><br><span class="line">set smtp=smtps://smtp.qq.com:465</span><br><span class="line">set smtp-auth-user=$&#123;demo@qq.com&#125;</span><br><span class="line">set smtp-auth-password=$&#123;password&#125;</span><br><span class="line">set smtp-auth=login</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">send mail</span></span><br><span class="line">echo &quot;mail content&quot; | mail -vs &quot;mail subject&quot; $&#123;target@mail.com&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/12/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1crontab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/12/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1crontab/" class="post-title-link" itemprop="url">linux定时任务crontab</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-09 03:21:14" itemprop="dateCreated datePublished" datetime="2017-12-09T03:21:14Z">2017-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/12/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1crontab/" class="post-meta-item leancloud_visitors" data-flag-title="linux定时任务crontab" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>通过crontab 命令，我们可以在固定的间隔时间执行指定的系统指令或 shell script脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。这个命令非常适合周期性的日志分析或数据备份等工作。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab [-u user] file crontab [-u user][ -e | -l | -r ]</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li>-u user：用来设定某个用户的crontab服务；</li>
+<li>file：file是命令文件的名字,表示将file做为crontab的任务列表文件并载入crontab。如果在命令行中没有指定这个文件，crontab命令将接受标准输入（键盘）上键入的命令，并将它们载入crontab。</li>
+<li>-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前用户的crontab文件。</li>
+<li>-l：显示某个用户的crontab文件内容，如果不指定用户，则表示显示当前用户的crontab文件内容。</li>
+<li>-r：从&#x2F;var&#x2F;spool&#x2F;cron目录中删除某个用户的crontab文件，如果不指定用户，则默认删除当前用户的crontab文件。</li>
+<li>-i：在删除用户的crontab文件时给确认提示。</li>
+</ul>
+<h2 id="crontab的文件格式"><a href="#crontab的文件格式" class="headerlink" title="crontab的文件格式"></a>crontab的文件格式</h2><p>分 时 日 月 星期 要运行的命令</p>
+<ul>
+<li>第1列分钟0～59</li>
+<li>第2列小时0～23（0表示子夜）</li>
+<li>第3列日1～31</li>
+<li>第4列月1～12</li>
+<li>第5列星期0～7（0和7表示星期天）</li>
+<li>第6列要运行的命令</li>
+</ul>
+<h2 id="crontab文件惯例"><a href="#crontab文件惯例" class="headerlink" title="crontab文件惯例"></a>crontab文件惯例</h2><p>我个人惯例会把cron文件创建在<code>/opt/cron</code>目录下</p>
+<p>新创建的cron文件的副本会被放在<code>/var/spool/cron/crontabs</code>目录下，文件名为用户名</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建cron文件</span></span><br><span class="line">vim /opt/cron/cron_file</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">提交cron任务</span></span><br><span class="line">crontab /opt/cron/cron_file</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动</span></span><br><span class="line">/etc/init.d/cron start</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭</span></span><br><span class="line">/etc/init.d/cron stop</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启</span></span><br><span class="line">/etc/init.d/cron restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用注意事项"><a href="#使用注意事项" class="headerlink" title="使用注意事项"></a>使用注意事项</h2><p>新创建的cron job，不会马上执行，至少要过2分钟才执行。如果重启cron则马上执行。</p>
+<p>当crontab失效时，可以尝试&#x2F;etc&#x2F;init.d&#x2F;crond restart解决问题。或者查看日志看某个job有没有执行&#x2F;报错tail -f &#x2F;var&#x2F;log&#x2F;cron。</p>
+<p>千万别乱运行crontab -r。它从Crontab目录（&#x2F;var&#x2F;spool&#x2F;cron）中删除用户的Crontab文件。删除了该用户的所有crontab都没了。</p>
+<p>在crontab中%是有特殊含义的，表示换行的意思。如果要用的话必须进行转义%，如经常用的date ‘+%Y%m%d’在crontab里是不会执行的，应该换成date ‘+%Y%m%d’。&#96;</p>
+<h2 id="cron表达式"><a href="#cron表达式" class="headerlink" title="cron表达式"></a>cron表达式<img src="http://img.willowspace.cn/willowspace_2016/1504599291802.png"></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例1：每1分钟执行一次myCommand</span></span><br><span class="line">* * * * * myCommand</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例2：每小时的第3和第15分钟执行</span></span><br><span class="line">3,15 * * * * myCommand</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例3：在上午8点到11点的第3和第15分钟执行</span></span><br><span class="line">3,15 8-11 * * * myCommand</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例4：每隔两天的上午8点到11点的第3和第15分钟执行</span></span><br><span class="line">3,15 8-11 */2  *  * myCommand</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例5：每周一上午8点到11点的第3和第15分钟执行</span></span><br><span class="line">3,15 8-11 * * 1 myCommand</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例6：每晚的21:30重启smb</span></span><br><span class="line">30 21 * * * /etc/init.d/smb restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例7：每月1、10、22日的4 : 45重启smb</span></span><br><span class="line">45 4 1,10,22 * * /etc/init.d/smb restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例8：每周六、周日的1 : 10重启smb</span></span><br><span class="line">10 1 * * 6,0 /etc/init.d/smb restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例9：每天18 : 00至23 : 00之间每隔30分钟重启smb</span></span><br><span class="line">0,30 18-23 * * * /etc/init.d/smb restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例10：每星期六的晚上11 : 00 pm重启smb</span></span><br><span class="line">0 23 * * 6 /etc/init.d/smb restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例11：每一小时重启smb</span></span><br><span class="line">* */1 * * * /etc/init.d/smb restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">实例12：晚上11点到早上7点之间，每隔一小时重启smb</span></span><br><span class="line">0 23-7 * * * /etc/init.d/smb restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="定时备份"><a href="#定时备份" class="headerlink" title="定时备份"></a>定时备份</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建定时任务文件</span></span><br><span class="line">crontab $cron-file-name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">写入规则每天0点、12点备份一次</span></span><br><span class="line">vim $cron-file-name</span><br><span class="line">0 0,12 */1 * * $backup-shell</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动定时任务</span></span><br><span class="line">crontab $cron-file-name</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/12/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/12/mysql/" class="post-title-link" itemprop="url">mysql</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-09 03:17:36" itemprop="dateCreated datePublished" datetime="2017-12-09T03:17:36Z">2017-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/12/mysql/" class="post-meta-item leancloud_visitors" data-flag-title="mysql" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="mysql运维"><a href="#mysql运维" class="headerlink" title="mysql运维"></a>mysql运维</h1><h2 id="装卸"><a href="#装卸" class="headerlink" title="装卸"></a>装卸</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server-5.7</span><br><span class="line">service mysql start</span><br><span class="line">service mysql stop</span><br><span class="line">sudo apt-get remove mysql-server-5.7</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">数据存放目录 /var/lib/mysql</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置存放目录 /etc/mysql</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root用户登录</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切勿修改root用户和使用root用户进行生产</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/adding-users.html">Adding User Accounts</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># e.g.1</span><br><span class="line">CREATE USER &#x27;finley&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;password&#x27;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;finley&#x27;@&#x27;localhost&#x27; WITH GRANT OPTION;</span><br><span class="line">GRANT ALL PRIVILEGES ON database.table TO &#x27;finley&#x27;@&#x27;localhost&#x27; WITH GRANT OPTION;</span><br><span class="line"># e.g.2</span><br><span class="line">CREATE USER &#x27;finley&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;password&#x27;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;finley&#x27;@&#x27;%&#x27; WITH GRANT OPTION;</span><br><span class="line"># e.g.3</span><br><span class="line">CREATE USER &#x27;admin&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;password&#x27;;</span><br><span class="line">GRANT RELOAD,PROCESS ON *.* TO &#x27;admin&#x27;@&#x27;localhost&#x27;;</span><br><span class="line"># e.g.4</span><br><span class="line">CREATE USER &#x27;dummy&#x27;@&#x27;localhost&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/removing-users.html">Removing User Accounts</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP USER &#x27;jeffrey&#x27;@&#x27;localhost&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="授权管理"><a href="#授权管理" class="headerlink" title="授权管理"></a>授权管理</h2><p><a href="https://dev.mysql.com/doc/refman/5.7/en/privilege-system.html">The MySQL Access Privilege System</a></p>
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/privilege-changes.html">When Privilege Changes Take Effect</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># e.g.1</span><br><span class="line">GRANT ALL ON db1.* TO &#x27;jeffrey&#x27;@&#x27;localhost&#x27;;</span><br><span class="line"># e.g.2</span><br><span class="line">GRANT SELECT ON db2.invoice TO &#x27;jeffrey&#x27;@&#x27;localhost&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="授权用户远程连接"><a href="#授权用户远程连接" class="headerlink" title="授权用户远程连接"></a>授权用户远程连接</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 检查一下3个配置文件是否有host绑定</span><br><span class="line">/etc/mysql/mysql.cnf</span><br><span class="line">/etc/mysql/conf.d/mysql.cnf</span><br><span class="line">/etc/mysql/mysql.conf.d/mysql.cnf</span><br><span class="line"># 注释本地host绑定</span><br><span class="line">bind-address = 127.0.0.1</span><br><span class="line"># 授权用户可连接的host</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;user&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;password&#x27; WITH GRANT OPTION;</span><br><span class="line"># 刷新授权</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据编码"><a href="#数据编码" class="headerlink" title="数据编码"></a>数据编码</h2><p><a href="https://dev.mysql.com/doc/refman/5.7/en/charset-configuration.html">Character Set Configuration</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看编码设置</span><br><span class="line">show variables like &#x27;%character%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DDL、DML导入脚本"><a href="#DDL、DML导入脚本" class="headerlink" title="DDL、DML导入脚本"></a>DDL、DML导入脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u user -p</span><br><span class="line">use database</span><br><span class="line">source ~/script.sql</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据备份与恢复"><a href="#数据备份与恢复" class="headerlink" title="数据备份与恢复"></a>数据备份与恢复</h2><p><a href="https://dev.mysql.com/doc/refman/5.7/en/backup-and-recovery.html">Chapter 7 Backup and Recovery</a></p>
+<p>分为物理备份和逻辑备份两种</p>
+<p>物理备份是备份的数据元文件，备份恢复快，适合数据量大，压缩率低，占用空间多，需要快速恢复的场景。具体可参考 <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-enterprise-backup.html">MySQL Enterprise Backup Overview</a></p>
+<p>逻辑备份是备份DDL,DML语句，备份恢复慢，适合数据量小，压缩率高，占用空间少，恢复速度要求低的场景<img src="http://img.willowspace.cn/willowspace_2016/1512758006545.png?imageMogr2/thumbnail/800"></p>
+<p>具体选择的策略可参考<a href="http://cenalulu.github.io/mysql/how-we-do-mysql-backup-in-facebook/">MySQL Backup in Facebook</a></p>
+<p>逻辑备份具体可选用主从复制的方式，从slave节点上进行备份.</p>
+<p>贴个逻辑备份脚本</p>
+<h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><p><a href="https://dev.mysql.com/doc/refman/5.7/en/replication.html">Replication</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/12/hibernate%E7%9A%84%E5%8A%A8%E6%80%81SQL%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/12/hibernate%E7%9A%84%E5%8A%A8%E6%80%81SQL%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">hibernate的动态SQL机制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-09 01:29:52" itemprop="dateCreated datePublished" datetime="2017-12-09T01:29:52Z">2017-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/12/hibernate%E7%9A%84%E5%8A%A8%E6%80%81SQL%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="hibernate的动态SQL机制" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p>使用hibernate管理ORM时，如果某个映射实体字段为null保存时会报column ‘xx’ cannot be null之类的异常，导致存库失败，为解决这个问题，hibernate提供了动态SQL的机制。</p>
+<h1 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h1><p>在实体关系配置时，加入<code>dynamic-insert</code> &#x2F; <code>dynamic-update</code> （对应JPA中的<code>@DynamicInsert</code>&#x2F; <code>@DynamicUpdate</code>）会在执行插入或更新时动态判断字段是否为null（或是否有更新），如果为null（或没有更新）则不更新这类字段，也就不会产生异常。它的原理是在实体被加载到session中时会保存一份快照，如果在后续的更新操作检测到有更新，则动态生成更新部分涉及到的字段的sql。</p>
+<h1 id="三、Bonus"><a href="#三、Bonus" class="headerlink" title="三、Bonus"></a>三、Bonus</h1><h2 id="使用动态SQL的前提"><a href="#使用动态SQL的前提" class="headerlink" title="使用动态SQL的前提"></a>使用动态SQL的前提</h2><p>就算使用了动态SQL机制，但如果字段在DDL中没有声明默认值，那么当实体字段为null时进行更新，依然会由db层面报出异常。因此要规范DDL，并结合动态SQL机制来避免业务代码出现实体保存时的空值异常。 案例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># java code</span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">session.save(user);</span><br><span class="line"></span><br><span class="line"># exception</span><br><span class="line">org.hibernate.PropertyValueException: not-<span class="literal">null</span> property references a <span class="literal">null</span> or <span class="keyword">transient</span> value: User.avatar</span><br><span class="line"></span><br><span class="line"># hibernate mapping</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="title class_">name</span>=<span class="string">&quot;User&quot;</span> table=<span class="string">&quot;user&quot;</span> dynamic-insert=<span class="string">&quot;true&quot;</span> dynamic-update=<span class="string">&quot;true&quot;</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;avatarId&quot;</span> column=<span class="string">&quot;avatar_id&quot;</span> type=<span class="string">&quot;integer&quot;</span> not-<span class="literal">null</span>=<span class="string">&quot;true&quot;</span>&gt;</span><br><span class="line">&lt;/class&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># table DDL 没有设置默认值，如果实体值为<span class="literal">null</span>依然会由db报异常</span><br><span class="line">CREATE TABLE `user` (</span><br><span class="line">  `avatar_id` <span class="type">int</span>(<span class="number">11</span>) NOT NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="动态SQL的使用限制：同一个Session"><a href="#动态SQL的使用限制：同一个Session" class="headerlink" title="动态SQL的使用限制：同一个Session"></a>动态SQL的使用限制：同一个Session</h2><p>动态SQL的使用是有前提条件的：需要在同一个Session中操作实体才能生效。 前面提到动态SQL的原理是在实体加载到Session中时保留了一份快照，后续操作时比对快照生成正确的sql操作，那么如果一个实体加载和回写使用的Session是不同的，那么自然无法进行快照比对，那么动态SQL的机制也就无法实施，hibernate只好按照默认规则更新全字段。</p>
+<p>看个例子：如果我们在Controller层去写业务逻辑（__生产中请务必不要这么干！__）就极有可能会导致<code>@DynamicUpdate</code>失效，比如下面这段代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/queryAndUpdate&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">queryAndUpdate</span><span class="params">(Http http)</span> &#123;</span><br><span class="line">	<span class="comment">//Controller层写业务逻辑</span></span><br><span class="line">	<span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> <span class="number">1</span>; </span><br><span class="line">	<span class="comment">//using session1</span></span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> services.getDaos().getUserDao().findById(id);</span><br><span class="line">	<span class="comment">//using session2 user中加载有没有映射到的关联实体 更新时抛出异常</span></span><br><span class="line">    lecturer = services.getUserService().updateUser(user);</span><br><span class="line">    <span class="keyword">return</span> Result.success().setBean(user);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实体</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@DynamicInsert</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="meta">@Table(name = &quot;user&quot;)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@Column(name = &quot;id&quot;)</span></span><br><span class="line">	<span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@NotFound(action = NotFoundAction.IGNORE)</span></span><br><span class="line">	<span class="meta">@OneToOne(targetEntity = File.class,cascade = CascadeType.REFRESH)</span></span><br><span class="line">	<span class="meta">@JoinColumn(name = &quot;avatar_id&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> File avatar;  <span class="comment">//未加载的关联实体</span></span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原因是我们一般会把事务控制在Service层，那么在Controller层的业务逻辑加载完一个对象，当对象返回到Controller层其实就已经穿透了事务边界，事务结束，hibernate默认会关闭Session；那么下面再次进入Service层更新这个对象就会开启新的事务，由新的Session来进行执行。</p>
+<p>所以我们要想解决上述问题，目标很明确，在Controller中不会因为穿透了Service层而加载新的Session。</p>
+<p>Spring为我们提供了<code>OpenSessionInViewFilter</code>这个过滤器可以轻松的达到上述目的，它将开启一个Session绑定到当前请求线程，这个线程上的Session将会被<code>TransactionManager</code>利用，因此事务结束(Service层穿透)也不会关闭Session，而是在整个请求周期中复用同一个Session。具体参考_<a href="https://docs.spring.io/spring/docs/4.3.0.RC1/javadoc-api//org/springframework/orm/hibernate3/support/OpenSessionInViewFilter.html">Spring文档</a>_，这里不展开。</p>
+<p>至此，动态SQL在整个请求周期内可以正常运行。</p>
+<h2 id="性能！"><a href="#性能！" class="headerlink" title="性能！"></a>性能！</h2><p>另外值得注意的是动态SQL打开了以后，不同对象的sql语句会不一样，如果一次更新多条记录，hibernate将不能使用 executeBatch进行批量更新，这样效率将大打折扣。在这种情况下，多条sql意味着数据库要编译多次sql语句。 </p>
+<p>因此有批量更新的特殊场景时，建议单独使用hql或者sql进行操作。</p>
+<h2 id="文档参考："><a href="#文档参考：" class="headerlink" title="文档参考："></a>文档参考：</h2><p><em><a href="http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#annotations-hibernate-dynamicupdate">annotations-hibernate-dynamicupdate</a></em></p>
+<p><em><a href="http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#pc-managed-state-dynamic-update">pc-managed-state-dynamic-update</a></em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/11/%E4%BD%BF%E7%94%A8gitmoji%E8%A7%84%E8%8C%83git-commit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/11/%E4%BD%BF%E7%94%A8gitmoji%E8%A7%84%E8%8C%83git-commit/" class="post-title-link" itemprop="url">使用gitmoji规范git-commit</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-11-07 10:43:02" itemprop="dateCreated datePublished" datetime="2017-11-07T10:43:02Z">2017-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/11/%E4%BD%BF%E7%94%A8gitmoji%E8%A7%84%E8%8C%83git-commit/" class="post-meta-item leancloud_visitors" data-flag-title="使用gitmoji规范git-commit" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="gitmoji"><a href="#gitmoji" class="headerlink" title="gitmoji"></a>gitmoji</h1><blockquote>
+<p>一种增强git提交信息表达的图标</p>
+<p>官网 <a href="https://gitmoji.carloscuesta.me/">https://gitmoji.carloscuesta.me</a></p>
+<p>官方介绍：An emoji guide for your commit messages</p>
+</blockquote>
+<p>基本语法 <code>:word:</code>   </p>
+<p>将语法写入commit任意位置，即可生成对应icon</p>
+<table>
+<thead>
+<tr>
+<th>icon</th>
+<th>word e.g.</th>
+<th>explain</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:recycle:</td>
+<td><code>:recycle:</code></td>
+<td>Refactoring code.</td>
+</tr>
+<tr>
+<td>✨</td>
+<td><code>:sparkles:</code></td>
+<td>Introducing new features.</td>
+</tr>
+<tr>
+<td>:construction:</td>
+<td><code> :construction:</code></td>
+<td>Work in progress.</td>
+</tr>
+<tr>
+<td>🐛</td>
+<td><code>:bug:</code></td>
+<td>Fixing a bug.</td>
+</tr>
+<tr>
+<td>🔨</td>
+<td><code>:hammer:</code></td>
+<td>Refactoring code.</td>
+</tr>
+<tr>
+<td>⬆️</td>
+<td><code>:arrow_up:</code></td>
+<td>Upgrading dependencies.</td>
+</tr>
+<tr>
+<td>⬇️</td>
+<td><code>:arrow_down:</code></td>
+<td>Downgrading dependencies.</td>
+</tr>
+<tr>
+<td>:twisted_rightwards_arrows:</td>
+<td><code> :twisted_rightwards_arrows:</code></td>
+<td>Merging branches.</td>
+</tr>
+<tr>
+<td>:fire:</td>
+<td><code> :fire:</code></td>
+<td>Removing code or files.</td>
+</tr>
+<tr>
+<td>:white_check_mark:</td>
+<td><code> :white_check_mark:</code></td>
+<td>Adding tests.</td>
+</tr>
+<tr>
+<td>⚡</td>
+<td><code>:zap:</code></td>
+<td>Improving performance.</td>
+</tr>
+<tr>
+<td>:wrench:</td>
+<td><code>:wrench:</code></td>
+<td>Changing configuration files. …</td>
+</tr>
+<tr>
+<td>:tada:</td>
+<td><code>:tade:</code></td>
+<td>Initial commit.</td>
+</tr>
+<tr>
+<td>:art:</td>
+<td><code> :art:</code></td>
+<td>Improving structure &#x2F; format of the code.</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/09/Java8-Collections-sort%E5%BC%95%E8%B5%B7%E7%9A%84ConcurrentModificationException/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/09/Java8-Collections-sort%E5%BC%95%E8%B5%B7%E7%9A%84ConcurrentModificationException/" class="post-title-link" itemprop="url">Java8 Collections::sort引起的ConcurrentModificationException</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-09-25 01:48:03" itemprop="dateCreated datePublished" datetime="2017-09-25T01:48:03Z">2017-09-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/09/Java8-Collections-sort%E5%BC%95%E8%B5%B7%E7%9A%84ConcurrentModificationException/" class="post-meta-item leancloud_visitors" data-flag-title="Java8 Collections::sort引起的ConcurrentModificationException" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>生产环境(JDK8u144)中有部分公共数据存在xml中，使用时会将xml数据读取到内存，以 <code>ArrayList</code> 存储，多个用户(多线程)对同一个 <code>ArrayList</code>  使用了 <code>Collections</code> 的sort(List,Comparator)方法进行排序，从而触发了 <code>ConcurrentModificationException</code>。其本质就是一个并发问题。</p>
+<h1 id="问题复现"><a href="#问题复现" class="headerlink" title="问题复现"></a>问题复现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testConcurrentModificationException</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">  <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">  <span class="comment">//初始化ArrayList</span></span><br><span class="line">  List&lt;Integer&gt; dataList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">      dataList.add(random.nextInt(<span class="number">10</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  System.out.println(<span class="string">&quot;initialize &quot;</span> + dataList.stream().map(Objects::toString).collect(Collectors.joining(<span class="string">&quot;,&quot;</span>)));</span><br><span class="line">  <span class="comment">//初始化排序任务</span></span><br><span class="line">  <span class="type">Runnable</span> <span class="variable">runnable</span> <span class="operator">=</span> () -&gt; &#123;</span><br><span class="line">      Collections.sort(dataList, Integer::compareTo);</span><br><span class="line">      System.out.println(<span class="string">&quot;thread[&quot;</span> + Thread.currentThread().getId() + <span class="string">&quot;] &quot;</span> + dataList.stream().map(Objects::toString).collect(Collectors.joining(<span class="string">&quot;,&quot;</span>)));</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">//模拟多线程环境对同一个ArraList进行排序</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">      ThreadPool.execute(runnable);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上Test Case将复现 <code>ConcurrentModificationException</code> 异常</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1506285531798.png?imageMogr2/thumbnail/800"></p>
+<p>#ConcurrentModificationException</p>
+<p>顾名思义,<code>ConcurrentModificationException</code> 是并发修改引起的异常。追溯 <code>JDK8u144</code> 的 <code>Collections::sort</code> 实现可以发现，最终调用的是ArrayList的sort方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Collections::sort</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="keyword">void</span> <span class="title function_">sort</span><span class="params">(List&lt;T&gt; list, Comparator&lt;? <span class="built_in">super</span> T&gt; c)</span> &#123;</span><br><span class="line">    list.sort(c);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ArrayList::sort</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sort</span><span class="params">(Comparator&lt;? <span class="built_in">super</span> E&gt; c)</span> &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">expectedModCount</span> <span class="operator">=</span> modCount;</span><br><span class="line">    Arrays.sort((E[]) elementData, <span class="number">0</span>, size, c);</span><br><span class="line">    <span class="keyword">if</span> (modCount != expectedModCount) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ConcurrentModificationException</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    modCount++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而在 <code>JDK8u20</code> 之前</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="加锁"><a href="#加锁" class="headerlink" title="加锁"></a>加锁</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testConcurrentModificationException</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">    List&lt;Integer&gt; dataList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">        dataList.add(random.nextInt(<span class="number">10</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;initialize &#123;&#125;&quot;</span> + dataList.stream().map(Objects::toString).collect(Collectors.joining(<span class="string">&quot;,&quot;</span>)));</span><br><span class="line">    <span class="type">Runnable</span> <span class="variable">runnable</span> <span class="operator">=</span> () -&gt; &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (random) &#123;</span><br><span class="line">            Collections.sort(dataList, Integer::compareTo);</span><br><span class="line">            System.out.println(<span class="string">&quot;thread[&quot;</span> + Thread.currentThread().getId() + <span class="string">&quot;] &quot;</span> + dataList.stream().map(Objects::toString).collect(Collectors.joining(<span class="string">&quot;,&quot;</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        ThreadPool.execute(runnable);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-CopyOnWriteArrayList"><a href="#使用-CopyOnWriteArrayList" class="headerlink" title="使用 CopyOnWriteArrayList"></a>使用 <code>CopyOnWriteArrayList</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testConcurrentModificationException</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">    List&lt;Integer&gt; dataList = <span class="keyword">new</span> <span class="title class_">CopyOnWriteArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">        dataList.add(random.nextInt(<span class="number">10</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;initialize &#123;&#125;&quot;</span> + dataList.stream().map(Objects::toString).collect(Collectors.joining(<span class="string">&quot;,&quot;</span>)));</span><br><span class="line">    <span class="type">Runnable</span> <span class="variable">runnable</span> <span class="operator">=</span> () -&gt; &#123;</span><br><span class="line">            Collections.sort(dataList, Integer::compareTo);</span><br><span class="line">            System.out.println(<span class="string">&quot;thread[&quot;</span> + Thread.currentThread().getId() + <span class="string">&quot;] &quot;</span> + dataList.stream().map(Objects::toString).collect(Collectors.joining(<span class="string">&quot;,&quot;</span>)));</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        ThreadPool.execute(runnable);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/09/Api-Mocker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/09/Api-Mocker/" class="post-title-link" itemprop="url">Api-Mocker</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-09-22 22:13:14" itemprop="dateCreated datePublished" datetime="2017-09-22T22:13:14Z">2017-09-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/09/Api-Mocker/" class="post-meta-item leancloud_visitors" data-flag-title="Api-Mocker" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Api-Mocker"><a href="#Api-Mocker" class="headerlink" title="Api-Mocker"></a>Api-Mocker</h1><p><code>Api-Mocker</code>是 <a href="http://www.dxy.cn/"><code>丁香园</code></a> 前端团队开源的一款接口管理软件。集诸如阿里开源的Rap、Chrome的postman等接口相关工具的优点于一身。 <a href="https://github.com/DXY-F2E/api-mocker">github地址</a></p>
+<h1 id="生产环境部署"><a href="#生产环境部署" class="headerlink" title="生产环境部署"></a>生产环境部署</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">先安装好mongo(略)</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">开始生产环境部署</span></span><br><span class="line">git clone https://github.com/DXY-F2E/api-mocker</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install将启动mongodb</span></span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">vim client/config/index.js</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改serverRoot: <span class="string">&#x27;demo.domain.cn/mock-api&#x27;</span></span></span><br><span class="line">vim server/config/config.prod.js</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改clientRoot: <span class="string">&#x27;http://demo.domain.cn/mock&#x27;</span></span></span><br><span class="line"></span><br><span class="line">make prod_client</span><br><span class="line">make prod_server</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置密码加密加盐</span></span><br><span class="line">vim server/config/config.default.js</span><br><span class="line">md5Key: &#x27;demo-salt&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置找回密码邮件发送</span></span><br><span class="line">vim server/config/config.default.js</span><br><span class="line">transporter: &#123;</span><br><span class="line">  appName: &#x27;Api Mocker&#x27;,</span><br><span class="line">  host: &#x27;smtp.qq.com&#x27;,</span><br><span class="line">  secure: true,</span><br><span class="line">  port: 465,</span><br><span class="line">  auth: &#123;</span><br><span class="line">    user: &#x27;demo@qq.com&#x27;,</span><br><span class="line">    pass: &#x27;demo-auth-code&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">vim server/config/config.prod.js</span><br><span class="line">clientRoot: &#x27;http://demo.domain.cn/mock&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Mongodb数据备份方案"><a href="#Mongodb数据备份方案" class="headerlink" title="Mongodb数据备份方案"></a>Mongodb数据备份方案</h1><p>部署 <code>api-mocker</code> 后服务一直运行，没有备份过数据。一次服务器断电重启后发现mongo的数据全部丢失。因此整个简单的备份方案。</p>
+<p>有三种方案可以选择，参考<a href="https://www.mongodb.com/blog/post/mongodb-backup-strategies-compared">方案选择</a>。这里选用mongo自带的套装命令 <code>mongodump</code> <code>mongorestore</code></p>
+<h2 id="备份脚本"><a href="#备份脚本" class="headerlink" title="备份脚本"></a>备份脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line">MONGO_DATABASE=&quot;api-mock&quot;</span><br><span class="line">APP_NAME=&quot;mongo-bak&quot;</span><br><span class="line"></span><br><span class="line">MONGO_HOST=&quot;127.0.0.1&quot;</span><br><span class="line">MONGO_PORT=&quot;27017&quot;</span><br><span class="line">TIMESTAMP=`date +%F-%H%M`</span><br><span class="line">MONGO=&quot;/opt/mongodb-linux-x86_64-3.0.6/bin/mongo&quot;</span><br><span class="line">MONGODUMP=&quot;/opt/mongodb-linux-x86_64-3.0.6/bin/mongodump&quot;</span><br><span class="line">BACKUPS_DIR=&quot;/var/backups/$APP_NAME&quot;</span><br><span class="line">BACKUP_NAME=&quot;$APP_NAME-$TIMESTAMP&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">锁库</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">MONGO admin --<span class="built_in">eval</span> <span class="string">&quot;printjson(db.fsyncLock())&quot;</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">MONGODUMP -d <span class="variable">$MONGO_DATABASE</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">远程备份用下面注释的这条</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$MONGODUMP</span> -h <span class="variable">$MONGO_HOST</span>:<span class="variable">$MONGO_PORT</span> -d <span class="variable">$MONGO_DATABASE</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解锁</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">MONGO admin --<span class="built_in">eval</span> <span class="string">&quot;printjson(db.fsyncUnlock())&quot;</span></span></span><br><span class="line"></span><br><span class="line">mkdir -p $BACKUPS_DIR</span><br><span class="line">mv dump $BACKUP_NAME</span><br><span class="line">tar -zcvf $BACKUPS_DIR/$BACKUP_NAME.tgz $BACKUP_NAME</span><br><span class="line">rm -rf $BACKUP_NAME</span><br></pre></td></tr></table></figure>
+
+<h2 id="恢复数据"><a href="#恢复数据" class="headerlink" title="恢复数据"></a>恢复数据</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore $mongo-bak-dir</span><br></pre></td></tr></table></figure>
+
+<h2 id="mongo基本命令"><a href="#mongo基本命令" class="headerlink" title="mongo基本命令"></a>mongo基本命令</h2><p>用以下命令可以简单测试备份及数据恢复</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入mongo CLI</span></span><br><span class="line">mongo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查询所有库</span></span><br><span class="line">show dbs</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择库</span></span><br><span class="line">use $db-name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查询所有集合</span></span><br><span class="line">show collections</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查询集合中的所有文档</span></span><br><span class="line">db.$col-name.find().pretty()</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除集合中是所有文档</span></span><br><span class="line">db.$col-name.remove(&#123;&#125;)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除库</span></span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+
+<h2 id="定时备份"><a href="#定时备份" class="headerlink" title="定时备份"></a>定时备份</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建定时任务文件</span></span><br><span class="line">crontab $cron-file-name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">写入规则每天0点、12点备份一次</span></span><br><span class="line">vim $cron-file-name</span><br><span class="line">0 0,12 */1 * * $backup-shell</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动定时任务</span></span><br><span class="line">crontab $cron-file-name</span><br></pre></td></tr></table></figure>
+
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ol>
+<li>投入使用前最好先配置密码加密盐，以后配置用户密码迁移成本高</li>
+<li>接口文档重写很操蛋，务必备份mongo数据！！！</li>
+<li>太旧的备份文件最好也写个脚本定时清理一下</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

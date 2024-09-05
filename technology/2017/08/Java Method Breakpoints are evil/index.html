@@ -1,38 +1,394 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="问题以及解决方案今天使用Intellj IDEA部署web项目时，spring web容器上下文(ContextLoader)加载非常慢，慢到完全启动一个项目需要耗时20分钟左右。 打开debug日志发现不停的加载注入的各种类，并且还有打印类中方法的详细信息。 最终定位问题是因为打开了Java Method Breakpoints（如下图），将其取消即可快速启动项目。 探究原因Google上找到同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Method Breakpoints are evil">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="问题以及解决方案今天使用Intellj IDEA部署web项目时，spring web容器上下文(ContextLoader)加载非常慢，慢到完全启动一个项目需要耗时20分钟左右。 打开debug日志发现不停的加载注入的各种类，并且还有打印类中方法的详细信息。 最终定位问题是因为打开了Java Method Breakpoints（如下图），将其取消即可快速启动项目。 探究原因Google上找到同">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1503176081426.png?imageMogr2/thumbnail/400">
+<meta property="article:published_time" content="2017-08-20T04:53:02.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.879Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="JPDA">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="debug">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.willowspace.cn/willowspace_2016/1503176081426.png?imageMogr2/thumbnail/400">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/","path":"technology/2017/08/Java Method Breakpoints are evil/","title":"Java Method Breakpoints are evil"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java Method Breakpoints are evil | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.</span> <span class="nav-text">问题以及解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A2%E7%A9%B6%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">探究原因</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java Method Breakpoints are evil | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java Method Breakpoints are evil
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-20 04:53:02" itemprop="dateCreated datePublished" datetime="2017-08-20T04:53:02Z">2017-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/" class="post-meta-item leancloud_visitors" data-flag-title="Java Method Breakpoints are evil" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="问题以及解决方案"><a href="#问题以及解决方案" class="headerlink" title="问题以及解决方案"></a>问题以及解决方案</h1><p>今天使用Intellj IDEA部署web项目时，spring web容器上下文(ContextLoader)加载非常慢，慢到完全启动一个项目需要耗时20分钟左右。</p>
+<p>打开debug日志发现不停的加载注入的各种类，并且还有打印类中方法的详细信息。</p>
+<p>最终定位问题是因为打开了<code>Java Method Breakpoints</code>（如下图），将其取消即可快速启动项目。<img src="http://img.willowspace.cn/willowspace_2016/1503176081426.png?imageMogr2/thumbnail/400" alt="img"></p>
+<h1 id="探究原因"><a href="#探究原因" class="headerlink" title="探究原因"></a>探究原因</h1><p>Google上找到同样的<a href="https://blogs.sourceallies.com/2013/04/java-method-breakpoints-are-evil/">JAVA METHOD BREAKPOINTS ARE EVIL</a>（借用了这篇文章的标题，因为这个标题太符合<code>Java Method Breakpoints</code>了，就是邪恶），从其中找到了jetbrains team在jetbrains官网上给出的针对这个问题的回应参考<a href="https://intellij-support.jetbrains.com/hc/en-us/articles/206544799-Java-slow-performance-or-hangups-when-starting-debugger-and-stepping">原链接</a> (链接加载略慢)</p>
+<p>然后继续查了几个搜索结果发现各大IDE厂商的bug list里都有报类似问题，参考<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=20869">NetBeans Bug</a>、<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=20869">Eclipse Bug</a></p>
+<p>他们基本都说明了一点：这个问题的产生和<strong>JVM的设计</strong>有关系。</p>
+<p>具体是指的JVM规定了虚拟机必须支持一组标准的调试API，这组标准的调试API指的是<a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jpda/">JPDA</a> (Java Platform Debugger Architecture)，JDPA是一组精心设计的接口与协议，所有的IDE基于JPDA进行封装，提供友好的用户调试接口。</p>
+<p>当你设置断点时，IDE告诉<em>JVM’s Tool Interface</em>（JDPA的一部分）断点所属的源文件和行号，JVM找到这个断点在源文件中位置对应的编译后class文件中的位置，当JVM运行到一个断点，它将会中断当前执行的线程并且告诉IDE这个断点的源文件和行号，然后由IDE呈现定位给用户。</p>
+<p>这是基本的行断点调试的机制，而<code>Java Method Breakpoints</code>是方法断点调试，它的机制与行断点调试略有不同，它将给方法注册进入&#x2F;退出事件，需要用到<code>MethodEntryRequest</code>这个类来进行注册。</p>
+<p>然后我在JAVA官方找到了关于<a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6176614">JPDA性能问题的BUG清单</a>，其中有如下这样一段描述涉及到了<code>MethodEntryRequest</code>及其带来的性能问题</p>
+<p><em>MethodEntryRequest and MethodExitRequest unreasonably slow down whole</em><br><em>performance. We use them to track calls to method in a particular class</em><br><em>or to any overriding methods. But it seems the performance slows down</em><br><em>for any method calls, not even to that particular class.</em></p>
+<p>大致的意思就是说当用<code>MethodEntryRequest</code>来追踪方法调用时(可以理解为方法断点调试)，它将会让任何方法的调用性能都下降，而不只是特定的类(打了方法断点的那个类)。</p>
+<p>找到这里基本上明了了，因为我打了一个方法断点没有放开，spring web context在进行依赖注入时构造各种各样的类需要调用大量的方法(构造方法、静态方法、解析方法等等)，每个方法的调用性能都下降了，所以整个项目加载起来自然就非常慢了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/JPDA/" rel="tag"># JPDA</a>
+              <a href="/tags/JVM/" rel="tag"># JVM</a>
+              <a href="/tags/IDE/" rel="tag"># IDE</a>
+              <a href="/tags/debug/" rel="tag"># debug</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/" rel="prev" title="一次解决jar包依赖冲突问题的过程">
+                  <i class="fa fa-angle-left"></i> 一次解决jar包依赖冲突问题的过程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2017/08/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E4%B8%9A%E5%8A%A1/" rel="next" title="短信验证码业务">
+                  短信验证码业务 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

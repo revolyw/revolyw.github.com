@@ -1,23 +1,2052 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
-{% block title %} {{ config.title }} {% endblock %}
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
 
-{% block page_class %}
-  {% if is_home() %} page-home {% endif %}
-{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="捉虫子的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Willow&#39;s blog">
+<meta property="og:url" content="http://blog.willowspace.cn/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="捉虫子的人">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="杨威">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://blog.willowspace.cn/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Willow's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2024/06/Java-%E5%BA%94%E7%94%A8%E9%87%87%E7%94%A8-Docker-%E5%AE%B9%E5%99%A8%E5%8C%96%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2024/06/Java-%E5%BA%94%E7%94%A8%E9%87%87%E7%94%A8-Docker-%E5%AE%B9%E5%99%A8%E5%8C%96%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">Java 应用采用 Docker 容器化的最佳实践</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-06-17 00:12:59" itemprop="dateCreated datePublished" datetime="2024-06-17T00:12:59Z">2024-06-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2024/06/Java-%E5%BA%94%E7%94%A8%E9%87%87%E7%94%A8-Docker-%E5%AE%B9%E5%99%A8%E5%8C%96%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-meta-item leancloud_visitors" data-flag-title="Java 应用采用 Docker 容器化的最佳实践" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">重大突发公共卫生事件一级响应意味着什么</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-25 20:01:24" itemprop="dateCreated datePublished" datetime="2020-01-25T20:01:24Z">2020-01-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E7%94%9F%E6%B4%BB/2020/01/%E9%87%8D%E5%A4%A7%E7%AA%81%E5%8F%91%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%80%E7%BA%A7%E5%93%8D%E5%BA%94%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88/" class="post-meta-item leancloud_visitors" data-flag-title="重大突发公共卫生事件一级响应意味着什么" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="“重大突发公共卫生事件一级响应”意味着什么？"><a href="#“重大突发公共卫生事件一级响应”意味着什么？" class="headerlink" title="“重大突发公共卫生事件一级响应”意味着什么？"></a><strong>“重大突发公共卫生事件一级响应”意味着什么？</strong></h1><p>为防控新型冠状病毒感染的肺炎疫情，连日来截止目前，湖南、广东、浙江、湖北、江苏、河北等 25 个省份决定启动重大突发公共卫生事件一级响应。</p>
+<h2 id="那么，究竟什么是重大突发公共卫生事件一级响应？"><a href="#那么，究竟什么是重大突发公共卫生事件一级响应？" class="headerlink" title="那么，究竟什么是重大突发公共卫生事件一级响应？"></a><strong>那么，究竟什么是重大突发公共卫生事件一级响应？</strong></h2><p>我国于 2006 年发布的《国家突发公共卫生事件应急预案》表明，该应急机制适用于突然发生，造成或者可能造成社会公众身心健康严重损害的重大传染病、群体性不明原因疾病、重大食物和职业中毒以及因自然灾害、事故灾难或社会安全等事件引起的严重影响公众身心健康的公共卫生事件的应急处理工作。根据突发公共卫生事件性质、危害程度、涉及范围，突发公共卫生事件划可分为特别重大（Ⅰ 级）、重大（Ⅱ 级）、较大（Ⅲ 级）和一般（Ⅳ 级）四级。</p>
+<p>其中，特别重大突发公共卫生事件主要包括：</p>
+<p>（1）肺鼠疫、肺炭疽在大、中城市发生并有扩散趋势，或肺鼠疫、肺炭疽疫情波及 2 个以上的省份，并有进一步扩散趋势。 </p>
+<p>（2）发生传染性非典型肺炎、人感染高致病性禽流感病例，并有扩散趋势。</p>
+<p>（3）涉及多个省份的群体性不明原因疾病，并有扩散趋势。</p>
+<p>（4）发生新传染病或我国尚未发现的传染病发生或传入，并有扩散趋势，或发现我国已消灭的传染病重新流行。</p>
+<p>（5）发生烈性病菌株、毒株、致病因子等丢失事件。</p>
+<p>（6）周边以及与我国通航的国家和地区发生特大传染病疫情，并出现输入性病例，严重危及我国公共卫生安全的事件。</p>
+<p>（7）国务院卫生行政部门认定的其他特别重大突发公共卫生事件。</p>
+<p>在一级响应下，省指挥部可以根据国务院的决策部署和统一指挥，组织协调本行政区域内应急处置工作。</p>
+<h2 id="启动重大突发公共卫生事件一级响应后，各部门应该怎么做？"><a href="#启动重大突发公共卫生事件一级响应后，各部门应该怎么做？" class="headerlink" title="启动重大突发公共卫生事件一级响应后，各部门应该怎么做？"></a>启动重大突发公共卫生事件一级响应后，各部门应该怎么做？</h2><h3 id="各级人民政府"><a href="#各级人民政府" class="headerlink" title="各级人民政府"></a><strong>各级人民政府</strong></h3><p>组织协调有关部门参与突发公共卫生事件的处理；划定控制区域；疫情控制措施，比如限制集市、集会等人群聚集活动；流动人口管理；实施交通卫生检疫等。</p>
+<h3 id="卫生行政部门"><a href="#卫生行政部门" class="headerlink" title="卫生行政部门"></a><strong>卫生行政部门</strong></h3><p>组织医疗机构、疾病预防控制机构和卫生监督机构开展突发公共卫生事件的调查与处理；采取应急控制措施；发布信息与通报；普及卫生知识等。</p>
+<h3 id="医疗机构"><a href="#医疗机构" class="headerlink" title="医疗机构"></a><strong>医疗机构</strong></h3><p>开展病人接诊、收治和转运工作，实行重症和普通病人分开管理，对疑似病人及时排除或确诊；</p>
+<p>做好医院内现场控制、消毒隔离、个人防护、医疗垃圾和污水处理工作，防止院内交叉感染和污染；做好传染病和中毒病人的报告等。</p>
+<h3 id="其他机构"><a href="#其他机构" class="headerlink" title="其他机构"></a><strong>其他机构</strong></h3><p>除上述机构外，疾病预防控制机构、卫生监督机构、出入境检验检疫机构也会开展相应的应急处理工作，非事件发生地区也有相应的应急反应措施。</p>
+<h2 id="面对一级响应，我们该做什么？"><a href="#面对一级响应，我们该做什么？" class="headerlink" title="面对一级响应，我们该做什么？"></a><strong>面对一级响应，我们该做什么？</strong></h2><p>面对一级响应，做好防护很重要。</p>
+<p>1.减少非必要接触。尽量减少外出，避免到封闭、空气不流通的公众场所和人员密集场所。外出请记得佩戴口罩，医用口罩尤其是外科口罩能挡住大部分含有病毒的飞沫。尽量减少与疫情城市回来人员接触，有湖北武汉等地外出计划的最好取消行程。</p>
+<p>2.注意个人卫生防护。养成良好的生活习惯，定时开窗通风，保持室内空气流通。咳嗽、饭前便后、接触或处理动物排泄物后，要用流水 + 肥皂&#x2F;洗手液洗手，或者使用含酒精成分的免洗洗手液，每次洗手至少 20 秒。咳嗽和打喷嚏时使用纸巾或衣袖遮掩口鼻，防止飞沫传播。</p>
+<p>3.保持安全饮食习惯。不要购买和食用野味，少去海鲜、活禽市场或农场，尽量避免接触野生或养殖动物。制作各种肉类和蛋类要确保煮熟，处理生食和熟食的切菜板及刀具要分开。</p>
+<p>4.主动实施居家隔离。有湖北武汉旅居史的人员请主动居家隔离 14 天，14 天内不要走亲访友，不与外人接触。居家隔离期间，一旦本人或家人出现有发热、乏力和干咳等呼吸系统症状，赶快戴上口罩去医院发热门诊及时就诊，主动告知最近是否到过武汉，并讲清近期直接接触情况，为医疗机构科学及时诊断治疗提供有效信息。</p>
+<p>5.开展爱国卫生运动。全民积极开展清洁扫除，铲除病毒滋生和传播土壤。同时各单位、各大集贸市场等开展卫生整治，营造干净整洁的生产、生活环境。</p>
+<p>6.加强联防联控预警。请大家互相监督，发现有来自湖北武汉的人员没有遵守居家隔离，及时给予劝诫或向当地卫生健康部门反映，群防群控、严防死守、共同努力保一方平安。</p>
+<p>7.应当服从当地政府、居民委员会、村民委员会或者所属单位的指挥和安排，配合当地政府采取的应急处置措施，协助做好疫情防控工作。</p>
+<h1 id="“国际突发公共卫生事件”-意味着什么？"><a href="#“国际突发公共卫生事件”-意味着什么？" class="headerlink" title="“国际突发公共卫生事件” 意味着什么？"></a>“国际突发公共卫生事件” 意味着什么？</h1><p>世界卫生组织 1 月 23 日宣布，新型冠状病毒疫情尚未构成国际关注的突发公共卫生事件。目前，世卫组织不建议任何涉及旅行或贸易的边境限制措施。可见国际突发公共卫生事件标准更高，那么它到底意味着什么呢？</p>
+<p>根据《国际卫生条例》，“国际关注的突发公共卫生事件” 是指 “通过<strong>疾病的国际传播</strong>构成对其它国家的公共卫生风险，并可能需要采取<strong>协调一致的国际应对措施</strong>的<strong>不同寻常的事件</strong>。</p>
+<p>该定义暗示出现了如下局面：严重、突然、不寻常、意外；对公共卫生的影响很可能超出受影响国国界；并且可能需要立即采取国际行动。</p>
+<p>《国际卫生条例》规定，世卫组织总干事可决定召集突发事件委员会会议，就事件是否构成国际关注的突发公共卫生事件听取意见；在此之前，世卫组织总干事应与本国领土上发生事件的缔约国进行磋商，就是否构成国际关注的突发公共卫生事件评估信息和依据。</p>
+<p>在某种疫情被宣布为 “国际关注的突发公共卫生事件” 后，WHO 总干事和各成员国需要根据委员会的建议，采取行动应对危机。根据 2005 年的《国际卫生条例》，各成员国均负有对 “国际关注的突发公共卫生事件” 作出迅速反应的法律责任。</p>
+<p>在这之后，WHO 总干事有权力向其他国家发布建议，例如敦促它们不要在疫情爆发时关闭边界，不要对疫情爆发国实施旅行和贸易限制。这一点非常重要，因为一旦其他国家实施这些限制，就<strong>形同实际意义上的经济制裁</strong>，这可能会使疫情爆发国隐瞒疫情的真实情况，对于疫情的全球应对非常不利。</p>
+<p>另外，宣布疫情为 “国际关注的突发公共卫生事件”，还有利于出现疫情的国家获得外部帮助，例如筹集外界援助资金等。</p>
+<p>2009 年以来，WHO 共宣布了五起 “国际关注的突发公共卫生事件”，分别为 2009 年的甲型 H1N1 流感、2014 年的脊髓灰质炎疫情、2014 年西非的埃博拉疫情、2015-16 年的 “寨卡” 疫情以及 2018 年开始的刚果（金）埃博拉疫情（于 2019 年 7 月宣布）。</p>
+<p><strong>参考：</strong></p>
+<p>各省针对新型冠状病毒感染的肺炎疫情启动重大突发公共卫生事件一级响应机制 <a href="http://www.gov.cn/xinwen/2020-01/24/content_5472050.htm">http://www.gov.cn/xinwen/2020-01/24/content_5472050.htm</a></p>
+<p>国家突发公共卫生事件应急预案 <a href="http://www.gov.cn/yjgl/2006-02/26/content_211654.htm">http://www.gov.cn/yjgl/2006-02/26/content_211654.htm</a></p>
+<p>国际卫生条例 <a href="https://en.wikipedia.org/wiki/International_Health_Regulations">https://en.wikipedia.org/wiki/International_Health_Regulations</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">互联网产品可视化建模方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-24 01:44:56" itemprop="dateCreated datePublished" datetime="2020-01-24T01:44:56Z">2020-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2020/01/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="互联网产品可视化建模方法" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><a href="#%E4%B8%80%E3%80%81%E5%BB%BA%E6%A8%A1%E6%A6%82%E8%BF%B0">一、建模概述</a><ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BB%BA%E6%A8%A1%EF%BC%9F">什么是建模？</a></li>
+<li><a href="#%E5%BB%BA%E6%A8%A1%E6%BC%94%E5%8F%98%E5%8E%86%E7%A8%8B">建模演变历程</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E3%80%81%E7%BB%93%E6%9E%84%E5%8C%96%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95">二、结构化分析方法</a><ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94ER%E5%9B%BE">数据建模——ER图</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94DFD%E5%9B%BE">功能建模——DFD图</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%BB%BA%E6%A8%A1%E2%80%94%E2%80%94STD%E5%9B%BE">行为建模——STD图</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95">三、面向对象分析方法</a><ul>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%BB%BA%E6%A8%A1">结构建模</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%BB%BA%E6%A8%A1">行为建模</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E5%BB%BA%E6%A8%A1">功能建模</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E3%80%81%E7%BB%93%E6%9D%9F%E8%AF%AD">四、结束语</a></li>
+</ul>
+<p>需求分析师在需求调研分析工作中经常会用到各种分析方法，但对各种建模方法没有体系化的认识，经常讲概念混淆。本文从常用的结构化分析方法和面向对象分析方法着手，对各种建模方法进行梳理，帮助理解其含义及作用。</p>
+<h1 id="一、建模概述"><a href="#一、建模概述" class="headerlink" title="一、建模概述"></a>一、建模概述</h1><h2 id="什么是建模？"><a href="#什么是建模？" class="headerlink" title="什么是建模？"></a>什么是建模？</h2><p>建模就是采用表格化、图形化、公式化的方式，将系统的构成及其构成间的关系呈现给人们的一种技术方法。[1]可能是因为软件本身的不可见，使得软件的建模也显得抽象，但在平常生活中，建模随处可见，比如盖房子，需要画图纸，画图纸就是建模的过程，而图纸就是建模产出的模型。在楼盘预售时，房子都还没建好，地产商会先做个缩小版的原型出来，甚至做个样板房让顾客有直观的感受，这个也是建模。当房子卖出去了，屋主需要装修了，找装修公司设计，设计师根据屋主需要设计一套图纸，甚至细到水电的走线，这些也是建模。因此将开发软件比作盖房子，其建模过程就相当于绘制图纸的过程。<br>可以说对软件系统进行建模的目的是帮助我们按照实际情况或按我们需求的样式对系统进行可视化；提供一种详细说明系统的结构或行为的方法；给出一个知道系统构造的模板；对我们所作出的决策进行文档化。</p>
+<h2 id="建模演变历程"><a href="#建模演变历程" class="headerlink" title="建模演变历程"></a>建模演变历程</h2><p>软件建模并不是从来就有的，而是随着软件工程的发展而不断演变。主要经过了三个阶段。<br>第一阶段：程序&#x3D;数据结构+算法<br>出现于20世纪50<del>60年代，软件开发主要解决的是科学计算问题，Fortran语言是其代表。其建模关键点是选择合适的数据结构和算法。<br>第二阶段：结构化分析方法<br>出现于20世纪60</del>70年代，将解决一些与数据处理相关的问题，例如计费等。COBOL、C语言是其代表。其建模关键点有两方面，一是确定有哪些数据，格式是什么，如何存储，主要通过E&#x2F;R模型表达；二是确定数据的加工、处理过程，主要通过DFD（数据流图）表达。<br>第三阶段：面向对象分析方法<br>出现于20世纪80~90年代，信息系统覆盖了更多业务过程，数据不再是唯一的视角，事（业务流程）、人的视角越来越重要，因此加入更多这方面的建模工具。<br>目前结构化分析方法和面向对象分析方法仍广泛应用。</p>
+<h1 id="二、结构化分析方法"><a href="#二、结构化分析方法" class="headerlink" title="二、结构化分析方法"></a>二、结构化分析方法</h1><p>结构化分析方法（Structured Analysis，简称SA）是将待解决的问题看做一个系统，从而用系统科学的思想方法（抽象、分解、模块化）来分析和解决问题，并基于功能分解设计系统结构，通过不断把复杂的处理逐层分解来简化问题，其最核心思想是自顶向下的分解。<br>结构化分析方法模型如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646905704534.jpg" alt="1.jpg"><br>数据字典是模型的核心，是关于数据的信息集合，也就是对数据流图中包含的所有元素定义的集合。对于数据流图中出现的所有被命名的图形元素加以定义，使得每个图形元素的名字都有确切的解释。<br>实体关系图（ER图）：描述数据对象间的关系，用于数据建模。<br>数据流图（DFD图）：描述了数据流在系统中流动的过程，以及对数据流进行变换的功能，用于功能建模。<br>状态迁移图（STD图）：描述了对外部事件的响应方式，表示了系统的各种行为模式（称为状态）以及在状态间进行变迁的方式，用于行为建模。<br>可见，结构化分析方法包含3层建模，数据建模、功能建模以及行为建模。</p>
+<h2 id="数据建模——ER图"><a href="#数据建模——ER图" class="headerlink" title="数据建模——ER图"></a>数据建模——ER图</h2><p>数据模型是为了把用户的数据要求清晰明确地表达出来所建立的一个概念性的模型，也称为概念模型，因此数据建模也称为概念建模。概念性模型是一种面向问题的数据模型，是按照用户的观点来对数据和信息进行建模。它描述了从用户角度看到的数据，也反映了用户的现实环境。<br>数据建模的目标是为了明确下列与数据处理相关的特定问题：</p>
+<ul>
+<li>系统处理哪些主要的数据对象？</li>
+<li>每个数据对象的组成如何？</li>
+<li>哪些属性描述了这些数据对象？</li>
+<li>这些数据对象当前位于何处？</li>
+<li>数据对象之间的关系？</li>
+<li>数据对象和变换它们的处理之间有哪些关系？<br>数据模型常用ER图表示，ER图也称实体关系图(Entity Relationship Diagram)，提供了表示实体类型、属性和联系的方法。用矩形表示实体型，矩形框内写明实体名；用椭圆表示实体的属性，并用无向边将其与相应的实体型连接起来；用菱形表示实体型之间的联系，在菱形框内写明联系名，并用无向边分别与有关实体型连接起来，同时在无向边旁标上联系的类型（1:1,1:n或m:n）。ER图示例如下图所示。<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646906154390.jpg" alt="2.jpg"><br>另外，对于设计方面的数据建模包括概念建模、逻辑建模和物理建模，而需求分析中的数据建模相当于设计中第一阶段的概念建模。由于是设计方面的建模方法，这里不再说明，详细信息可网上查找“详解数据建模的三个阶段”。</li>
+</ul>
+<h2 id="功能建模——DFD图"><a href="#功能建模——DFD图" class="headerlink" title="功能建模——DFD图"></a>功能建模——DFD图</h2><p>当数据或信息“流”过信息系统时将会被系统的功能所处理、加工活变换，再将处理或变换后的数据从系统中输出，DFD图从数据传递和加工角度，以图形方式来表达系统的逻辑功能、数据在系统内部的逻辑流向和逻辑变换过程。而功能建模正是通过DFD图将系统所需实现的功能绘制出来的过程。<br>DFD图的基本组成包括数据流、加工、数据存储和外部实体。通常用箭头标志数据流，用圆或椭圆表示加工，用双杠表示数据存储，用方框表示外部实体，即数据的源点或终点。DFD图示例如下图所示。<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646907611082.jpg" alt="3.jpg"></p>
+<h2 id="行为建模——STD图"><a href="#行为建模——STD图" class="headerlink" title="行为建模——STD图"></a>行为建模——STD图</h2><p>STD图（State Transition Diagram）用于描述系统或对象的状态，以及导致系统或对象状态发生改变的事件，从而描述系统的行为。它指明了作为特定事件的结果（状态），在状态中包含可能执行的行为。<br>STD图中，用圆圈表示可得到的系统状态，用箭头表示从一种状态向另一种状态的迁移，在箭头上要写上导致迁移的信号或事件的名称。STD图示例如下图所示。<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646907537945.jpg" alt="4.jpg"></p>
+<h1 id="三、面向对象分析方法"><a href="#三、面向对象分析方法" class="headerlink" title="三、面向对象分析方法"></a>三、面向对象分析方法</h1><p>面向对象方法是从内部结构上模拟客观世界 ,其基本思想认为对象是对现实世界客观实体的描述 ,均由其属性和相关操作组成 ,是系统描述的基本单位。面向对象方法更强调运用人类在日常的逻辑思维中经常采用的思想方法和原则 ,例如抽象、分类、继承、聚合、封装等 ,这使得软件开发者能更有效地思考问题 ,并以其他人也能看得懂的方式把自己的认识表达出来。<br>面向对象方法包括面向对象需求分析（OOA）、面向对象设计（OOD）、面向对象编程（OOP）。而面向对象分析方法主要经过3个建模过程，包括结构建模、行为建模和功能建模，3中建模均采用统一建模语言 UML (Unified Modeling Language)。<br>根据UML2.0标准，一共定义了13种不同的图，其功能各有不同，而OOA主要使用到其中的5种，分别是类图、活动图、用例图、构件图和部署图。</p>
+<h2 id="结构建模"><a href="#结构建模" class="headerlink" title="结构建模"></a>结构建模</h2><p>结构建模也叫领域建模或概念建模，是对业务或系统的某个时刻或某段时间内的状态进行系统化描述，一般使用结构型的UML图进行结构建模。结构建模所表示的内容一般是静态的，在一段时间内是不会变化的。如用类图表示业务及业务之间的关系，用部署图、构件图表示系统的部署及架构设计。<br>类图示例如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646908426056.jpg" alt="5.jpg"><br>构件图如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646908600618.jpg" alt="6.jpg"><br>部署图如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646909685663.jpg" alt="7.jpg"></p>
+<h2 id="行为建模"><a href="#行为建模" class="headerlink" title="行为建模"></a>行为建模</h2><p>行为建模是系统化地分析业务活动及业务流程的过程，一般使用行为型的UML图进行结构建模。行为建模表达的是某段时间内事情是如何发展的，这些发展最后会达到怎样的效果。<br>业务流程分为生产性流程、管理性流程和支持性流程。生产性流程是流程中最重要的部分，是企业&#x2F;组织价值体现的核心；管理性流程是对生产性流程的管控，通常是有管理层发现的，对一些质量、效率进行监督的控制性流程；支持性流程是对生产性流程的一种补充，通常是由协作部门、本部门员工执行的工作。如果拿软件开发过程来比喻的话，需求分析、软件设计、软件编码、软件测试是生产性流程；项目管理、质量保证是管理性流程；而文档配置等属于支持性流程。通常生产性流程是最容易标识的，而管理性流程和支持性流程比较容易忽略，因此在需求分析时要特别注意。[2]<br>活动图示例如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646909609583.jpg" alt="8.jpg"></p>
+<h2 id="功能建模"><a href="#功能建模" class="headerlink" title="功能建模"></a>功能建模</h2><p>功能建模是在结构建模和行为建模的基础上，识别出通过系统实现的部分，一般使用UML用例图表现，描述系统应具有的功能，用于实现用户的日常需要。<br>另外，在用例图的基础上通过原型工具制作出可视化原型也属于功能建模的范畴，通过原型用户能更直观地感知即将开发出来的系统的模样，更好地引出客户需求，同时避免后期需求变更。目前一般采用Axure原型工具制作系统或功能原型。<br>用例图示例如下图所示：<br><img src="http://www.hrealtech.com/public/uploads/ueditor/image/20190824/1566646910375734.jpg" alt="9.jpg"></p>
+<h1 id="四、结束语"><a href="#四、结束语" class="headerlink" title="四、结束语"></a>四、结束语</h1><p>可以看出结构化分析方法和面向对象分析方法有相同的地方，那就是都需要先理清业务概念及其关系，虽然SA称为数据建模，而OOA称为结构建模，但本质是相同的。不同的地方在于SA更偏向对数据流的分析，而OOA更偏向对对象行为的分析，而且在现阶段OOA的应用更为广泛，但不得不说的是，无论SA还是OOA都只是需求分析的方法，关键还是在于使用它们的需求分析师。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/" class="post-title-link" itemprop="url">海上钢琴师</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-23 16:15:05" itemprop="dateCreated datePublished" datetime="2020-01-23T16:15:05Z">2020-01-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/film/" itemprop="url" rel="index"><span itemprop="name">film</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/film/2020/01/%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88/" class="post-meta-item leancloud_visitors" data-flag-title="海上钢琴师" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="http://img.willowspace.cn/willowspace_2016/1579794763916.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p>2019 年 11 月 15 日《海上钢琴师》 重映 4K 修复版，在重映的第二天我去电影院观看了这部电影，实际上这次是二刷。现在它在豆瓣上有 9.3 分，是绝对高分的好电影。但它在 1998 年首映后的很长一段时间内是伴随着两极评价的，很多人把它看作是二十世纪最好看的电影之一，但同时也有一部分人认为这是一部“烂片”，一部最好看的“烂片”。之所以如此，是因为它讲述了一个极具浪漫主义，或者说神秘色彩的故事，故事的主人公选取了一个浪漫主义的名字叫 1900， 他是一个不食人间烟火的，整个人生都与世隔绝的人。他的形象过于神秘，人生传奇到令人难以置信，人们很难走进他的内心世界，因此也无法对他的人生态度和追求感同身受。但也正是因为在世俗世界里的人们难以接受 1900 的人生观和价值观。才形成了当时观众对于《海上钢琴师》这部电影爱者爱之深，厌者厌之切的局面。就我个人而言，首刷是在大概六七年前的大学期间，当时我觉得这部电影乏味冗长，1900 的故事或人生实在是无法让我提起兴趣，对于只想找一部剧情跌宕起伏，下饭的电影的我来说，这绝对不能算是一部“好看的”电影。但现如今二刷，我毕业三年了，早已离开了学校进入职场，开启了人生的激流阶段，面临过了许多没有标准答案的选择，这个时候再度观看《海上钢琴师》，我开始理解 1900 的人生观和价值观，我这才发现这绝对是一部好看的、耐看的、极度丰富的电影，<strong>它既可以是关于 1900 这样一个传奇人物的绝对个人的，关于个人选择的，又可以是关于 20 世纪的历史和社会的；****它既可以是高度超越性的、永恒哲学的，又可以仅仅是形而下的一段精彩的故事。</strong></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794847732.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><strong>电影非常成功地借助一个讲故事的人来把故事限定在广义的电影的旁支叙事之上</strong>，也就是说，1900 的故事，仅仅是那些发生在号手马克斯眼前的部分才是真切的，于是我们真切地借助马克斯的眼睛看到了 1900 生命当中的那些极度浪漫、极度传奇的段落。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794865497.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794879895.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794895994.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794908367.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794971792.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p>比如说他们的相遇之夜，大风暴下之下打开轮锁的钢琴之舞，我们看到钢琴最终打破了那片美丽的彩镶玻璃墙壁，然后它在楼道中滑行，最终极端戏剧性地冲破了船长卧室的门，而滑稽的船长睡觉竟然穿着一件救生衣。</p>
+<p>再比如说影片当中极端戏剧性的钢琴决斗，当时的爵士大师杰利听闻 1900 能将十几种 jazz 风格的音乐融合在一起，因此来与 1900 斗琴。而 1900 只是在借由音乐展现他在人们的脸上和行为中体会到的东西，这不失为一种形而上和形而下的对比。由此形成了一个非常华彩的段落，因为旁白当中已经告诉我们，1900 演奏起来的时候，他的双手就像四手联弹，于是在那个段落当中我们不断地看到光影和影像的拖尾所造成的四手，不断地利用钢琴漆所形成的各种倒影形成了 1900 的双像，那么在这个时刻他魔术般地化身为双重身、三重身，他魔术般地化身为四手甚至更多手的联弹，来表现那个不可能的速度、节奏、准确，来完成一种只有在电影银幕上我们才可能遭遇到的钢琴演奏的炫技。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579794989532.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795069806.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795104518.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795129581.png" alt="img"></p>
+<p>我们借助马克斯的眼睛，目击了那个叫做遭遇激情的时刻，很有意思的是，导演在影片当中设置的另外一个结构性的不断复沓出现的造型元素，就是船内与船外，而连接着船内与船外，又隔绝着船内与船外的是舷窗。我们一次一次地看到 1900 在窗内望向窗外的世界，包括最后他和叙事人马克斯的告别。在无尽的摩天大楼一般的游轮舷窗当中，我们的叙事人辨认出了 1900 所在的那个，而近景镜头构成了圆形的舷窗所突显的这样一种经典绘画的构图。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795143195.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795155987.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p>在影片当中，导演设置了一个现在进行时，即马克斯得知维吉尼亚号将要被毁掉，而后闯入这个已经被废弃了的战时的医护船，一次再一次地去寻找 1900，试图挽救他的生命，试图领他下船的这样一个寻找之旅。关于寻找，关于倒计时的老游轮的毁灭，构成了一个强烈的悬念效果，而且同时保持了影片的叙事张力和情感张力以及时间张力。这样的一个完整的顺时时间线串联起了一个由闪回镜头所完成的 1900 生命传奇故事的叙事线索。而在这样一个对照的叙事时间当中，一个时间蒙太奇当中，导演显然非常有意识地选择所有的现在时是处在一种灰暗的光照、一种单调的色彩基调当中，而所有的闪回段落也就是豪华游轮上的场景，导演有意识地采取了一种极端富丽的古典油画似的布光、设色、构图和视觉效果。所以记忆更加璀璨明亮，而现实极端灰暗和乏味，而这也是影片当中的一个非常重要的色彩基调。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795172656.png?imageMogr2/thumbnail/800" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795186991.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795211499.png" alt="img"></p>
+<p><strong>电影最巧妙的地方在于他用浪漫主义的手法塑造了 1900 这个角色。</strong>电影故事发生在一艘巨型客轮弗吉尼亚号上，主人公 1900 他一生从未离开过弗吉尼亚号，踏足过陆地，他甚至都不存在于人类社会。在他还是个孩子时，一群警察曾试图上船将这个没有身份的人带走，但却始终找不到他，当 22 天之后这个脏兮兮的孩子再次出现的时候，他已经成为了一个钢琴王子，至于他在何处，他是如何学会了钢琴，**这是**一个浪漫主义的传奇故事所不屑于去讲述**的**。从他作为一个钢琴王子登场的那个时刻开始，就已经完全处在一个浪漫主义想象的层面上。而同时，旁支视点使我们回避了所有现实主义追问的可能，使我们不必去回答乏味的现实主义所必须回答的问题，比如说我们可以搁置年幼的 1900 如何在 22 天的漫长时间当中躲过了无所不在的搜索；在废墟、坟墓般的船体当中，1900如何还能那样的衣着整齐，或者说他以什么为生。这些都可以被搁置，因为这是被限定的视点当中的限定的视觉观察和见证。这是一个影片当中非常突出的也非常聪明的、非常巧妙的艺术选择。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795257780.png" alt="img"></p>
+<p>与之对应的是，影片采取了一个一以贯之的视觉处理，或者说一种视觉语言的修辞，就是在呈现 1900 的浪漫传奇性故事和他那个不可思议的天才奇迹的时候，影片大量采用了<strong>超浅焦的镜头</strong>呈现方式。当焦点范围是如此之浅的时候，它呈现的视觉效果就是如果 1900 是清晰的，他周围的人甚至他身边的人就都是含糊不清的；如果焦点是呈现在身边人身上，那么 1900 就是在焦点之外，而呈现成一个虚幻的，不能清晰分辨的影子，这样的一个视觉风格形成的表达是 1900 从未真实的和我们共处在一个时空，或者说我们永远无法触摸和到达 1900 的世界，就连故事的叙事人、1900 的朋友——马克斯，也无法真正的理解和抵达 1900 的世界。主人公作为一个对于人类社会而言不存在的生命。它形成了一个关于内外，关于存在与非存在，关于天才的奇迹式的世界和我们凡俗的日常生活的表述。电影一边告诉你说这是一个好故事，另外一边它告诉你主人公是不可被证明的，从未被记录的那么一个好故事，可能虚构了一个主人公。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795276003.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795287913.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795304625.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795318472.png" alt="img"></p>
+<h1 id="关于人生态度与人生选择"><a href="#关于人生态度与人生选择" class="headerlink" title="关于人生态度与人生选择"></a>关于人生态度与人生选择</h1><p><strong>《海上钢琴师》是一部关于人生态度与人生选择的电影。</strong>影片的配角，同时也是故事的讲述人马克斯不止一次问 1900：“为什么不下船？就一次，亲眼去看看外面的世界，凭你高超的高琴演奏技艺，人们一定会为你疯狂的”。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795348658.png" alt="img"></p>
+<p>“为什么，为什么，为什么，陆地上的人把时间都浪费在问为什么上了，冬天忧虑夏天晚到，夏天担心冬天将至，所以他们总是不停的寻找一个遥不可及，四季如夏的地方，那不适合我” 1900 回答道。</p>
+<p>他是如此的简单干净，如此的未经世俗污染，他的世界里只有钢琴和音乐。这与饱受世俗困扰的马克斯形成了鲜明对比。电影一开始，马克斯走进一家古董乐器店，作为一位热爱音乐的小号手，他依依不舍的卖掉了他的康恩牌小号，从他之后又要求老板让他再吹最后一次，从他脸上的窘迫，我们不难猜测他当时一定是迫不得已，左右为难，但他终究是卖掉了自己坚持和热爱了多年的小号&#x2F;音乐。而有趣的是，马克斯在整部电影中他的眼珠总是摇摆不定，左右晃动，似乎在暗示他就是那样一个为世间琐事抉择所左右，为世俗所困扰的人，这在豆瓣上也为诸多观众津津乐道，但事实证明，这是一个过度解读，马克斯的饰演者<a href="https://www.zhihu.com/question/22842319?sort=created">普路特·泰勒·文斯</a>患有<a href="https://baike.baidu.com/item/%E7%9C%BC%E7%90%83%E9%9C%87%E9%A2%A4/619921?fr=aladdin">眼球震颤 （pathologic nystaqumus）</a>这样一种病，眼珠的左右晃动并非演技，这在他出演的另一部精彩的电影《致命 ID》中也可以看到。但网友的第二个 “过度解读” 我却非常赞同。即 1900 其实只是马克斯臆想出来的一个人物，整个故事都是他自己虚构的，因为他不像 1900 一般坚定，却又十分渴望成为 1900 那样纯粹坚定的人。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795406507.png" alt="img"></p>
+<p>那么这里就不得不回顾一下故事当中的那个重要的解谜段落，就是在最后时刻，叙事人马克斯用那张破碎的唱片终于引出了如废墟一般的、如坟墓一般的弗吉尼亚号上面的 1900，然后，是第一次在整个影片当中出现了中规中距的构图，完全对称的双人中景，以及两个人之间对称的对切镜头，这一次 1900 向他陈述了他生命的选择，关于 88 个键的钢琴作为有限，而人作为无限、音乐作为无限的组合，<strong>关于无限对于有限的把控和有限对于无限的那种无力</strong>。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795417947.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795433902.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795447053.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795458672.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795471459.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795488050.png" alt="img"></p>
+<p>这个时候我们不得不提及那个戏剧性的段落 —— 关于爱情的奇遇。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795503793.png" alt="img"></p>
+<p>遭遇爱情的场景完全是一个舷窗内外的，由一个舷窗所突显、舷窗所框定的优美的肖像画的效果，而舷窗的磨玻璃更强化了梦中情人，恋爱中的 1900 眼中的女神所具有的那种朦胧、完美以及强大的召唤和诱惑。又是借助马克斯的眼睛，向我们呈现了 1900 生命当中的这些戏剧性的时刻，这样的一个令人回肠荡气的浪漫主义段落。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795514885.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795525851.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795537195.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795563724.png" alt="img"></p>
+<p>用叙事人的说法：“是姑娘，当然了，永远是因为姑娘。”。也就是在男人为主体的故事当中，一个美丽的姑娘，是永恒的主题和永恒的行为动力。为了这样的一个冲动，1900毕生中唯一一次决定下船，并且走上了通向陆地的旋梯的时候，大家一定会记得那个段落：首先是近景镜头，在这个近景镜头当中，前后景都是清晰的，1900 的脸上出现了张皇，出现了恐惧，出现了迷惘。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795575765.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795587928.png" alt="img"></p>
+<p>而后一个全景镜头拍摄 1900 的背影，他的背影置身在中景处，而后景当中是一望无际的纽约市中心著名的景观，导演非常准确地在这个有纵深的深焦镜头当中，把纽约城市当中的每一扇窗口都呈现得如此细腻和清晰，于是我们很强烈地从视觉上体验到了现代城市作为人类集装箱的这样一个基本特征，我们也同样强烈地在视觉上理解了此后 1900 将用语言告知我们的，<strong>关于城市没有尽头，世界没有尽头，那是一个无限的世界，是有限的个人，有限的生命，有限的选择所不能把控和确认的。****它表达了人类社会是上帝的钢琴，是一个需要无限的力量才可能掌控的，而个人的生命是如此微末的这样一个主题。</strong></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795603813.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795614151.png" alt="img"></p>
+<p>如果说船上是有限的孤独，那船外就是无限的孤独。我猜想，这部电影在今天以及今后的观众当中会越来越成功，因为我们在 1900 的故事当中可以无尽地投射，比如说关于宅男宅女的生存梦想，关于有限和无限，关于今天我们被命名为选择困难症的一种“心理疾患”，因为太丰富，因为太巨大，因为一切都是无限，以致我们对自己的渺小、自己的需求、自己的愿望如此难于把握。1900 的那个形而上的表述也许可以落实到我们形而下的生活经验当中，在无尽的选择当中，我如何才能决定某一个女人或者某一个男人，某一个家，某一种生活方式，某一个职业，某一条道路，我怎么才能知道它对我而言是正确的。换句话说，<strong>今天我们可以把我们无尽的选择安置在 1900 的宿命的限定以及 20 世纪的有限选择之上，我们可以重新在有限与无限，个人与社会，存在与虚无，选择与非选择当中去理解 1900 的传奇。</strong></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795639754.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795603813.png" alt="img"></p>
+<h1 id="世纪回眸"><a href="#世纪回眸" class="headerlink" title="世纪回眸"></a>世纪回眸</h1><p><img src="http://img.willowspace.cn/willowspace_2016/1579795681753.png" alt="img"></p>
+<p><strong>《海上钢琴师》是一个世纪回眸的故事。</strong>大家回过头去看，弗吉尼亚号第一幕进入我们眼睛的方式，就像是拉下了帷幕，拉下了 20 世纪的帷幕。于是我才想到去注意这部电影制作完成并且投放影院的时期是 1998 年，也就是 20 世纪的最后时刻。而这部电影，它给主人公选取了一个浪漫主义的姓叫 1900。事实上，在影片当中他那个超过 20 个字母的长长的不可能的名字 —— Danny Boodman T.D. Lemon Nineteen Hundred，也经常被人们缩写为 1900。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795693432.png" alt="img"></p>
+<p>1900 的名字的依据是说，主人公在 20 世纪的第一天被发现，他是豪华客舱当中的一个弃婴，这天肯定不是他的生日，却也只能是他的生日，标明了这是一个世纪回眸的故事，这是一个在 20 世纪即将终了的时刻，回首 20 世纪，而后讲述 20 世纪的故事。</p>
+<p>对我来说，它告诉了我很多关于20世纪终结和21世纪开启的故事。如果让我去做一种索引式的阅读，也许我的阅读接近于 1900 的选择，不是从那些我看见的东西开始，而是从那些我没有看见的东西开始，而影片所讲述的故事就凸显了它没有讲述的故事：关于两次世界大战，关于冷战，关于人类一分为二，关于生死关头的对决，关于无数的尸体、血污、肮脏叛卖，为信仰而战斗，为信仰而牺牲或者背叛信仰，太多太多的故事是这部影片当中我们不曾看到的，那是人类共同的 20 世纪，也是携带着 1900 这个名字的角色必须穿越的那个世纪。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795706695.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795716295.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795736604.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795747239.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795764496.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795777456.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795790903.png" alt="img"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1579795807269.png" alt="img"></p>
+<p>在寻找 1900 的过程当中，叙事人发现了 1900 曾经居住的仓房，摄影机镜头似乎漫不经心地掠过那个布满了一面墙壁的肖像、照片、纪念品，我们会看到 1900 这个角色在这艘船上几乎遭遇了绝大多数 20 世纪的伟人，而每一个伟人标识着不同的时代，不同的变化，不同的思想，不同的潮流，以及这些思想潮流之间的你死我活的对决。所以说，20 世纪被承诺，20 世纪被回望，20 世纪被遮蔽，20 世纪被遗忘。这本身成为了一个故事之外的故事，成为了一个<strong>有限的电影世界之外无限的关于电影的关于社会的关于文化的问题</strong>。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/photography/2019/07/%E6%91%84%E5%BD%B1%E6%9C%AF%E4%BC%A0%E5%85%A5%E8%87%B3%E4%BB%8A%E7%9A%84%E4%B8%AD%E5%9B%BD%E6%91%84%E5%BD%B1%E4%B9%A6%E5%86%991/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/photography/2019/07/%E6%91%84%E5%BD%B1%E6%9C%AF%E4%BC%A0%E5%85%A5%E8%87%B3%E4%BB%8A%E7%9A%84%E4%B8%AD%E5%9B%BD%E6%91%84%E5%BD%B1%E4%B9%A6%E5%86%991/" class="post-title-link" itemprop="url">摄影术传入至今的中国摄影书写1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-26 13:15:07" itemprop="dateCreated datePublished" datetime="2019-07-26T13:15:07Z">2019-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/photography/" itemprop="url" rel="index"><span itemprop="name">photography</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/photography/2019/07/%E6%91%84%E5%BD%B1%E6%9C%AF%E4%BC%A0%E5%85%A5%E8%87%B3%E4%BB%8A%E7%9A%84%E4%B8%AD%E5%9B%BD%E6%91%84%E5%BD%B1%E4%B9%A6%E5%86%991/" class="post-meta-item leancloud_visitors" data-flag-title="摄影术传入至今的中国摄影书写1" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2019-04-14 去看了由中国美术学院美术馆举办的摄影展 ——「摄影术传入至今的中国摄影书写」。断断续续花了 3 个月时间整理了看到的相关照片及文字，全篇共 36267 字，216 张照片，描绘了摄影在中国的发展脉络，展现了不同时期的摄影表现手法、内涵和意义，再现了爸妈、爷奶辈儿时期的往事旧景。同时深刻的文字评论或许能为在这个人手一台摄影机器的年代中喜爱摄影的人们提供别具一格的创作灵感。</p>
+<p>该展览为纪念中华人民共和国成立 70 周年，展出逾 600 件珍贵摄影作品，不仅是对于革命与复兴的历史性回望，还将围绕摄影师的人生历程和艺术创作的视角展开。展厅既向观众呈现了作为若干历史时刻的 1949 年，也试图讨论新中国时期摄影机制的生成。</p>
+<p>新中国图像的制造者，因处在当年不署名或集体署名的特定历史情况中，有时会成为谜团。然而，他们中有些人在民国的摄影活动中享有声誉；另一些从战争年代开始从事摄影，间接性地接受了民国摄影的视觉经验，还在战时摄影实践中增进了对摄影的理解与应用，成为新中国成立后为数不多的官方摄影师。</p>
+<p>展览按照不同的摄影题材分为多个主题，包括「文人、画意、都市与现代」、「文人与史诗」、「中国革命的视觉档案」、「1949：一个时刻和新中国摄影机制的生成」、「佚名照：二十世纪下半叶中国人的日常生活图像」、「早期中国影像原作展」、「中国当代摄影书作品：纸上的视觉叙事及其他」等。</p>
+<p><strong>文人与史诗</strong></p>
+<ul>
+<li>「文人、画意、都市与现代」</li>
+<li>「奔向战场：从边区到新中国」</li>
+</ul>
+<p><strong>文人、画意、都市与现代</strong></p>
+<p><strong>节选自《从东到西：中国艺术摄影启蒙时期》</strong></p>
+<p>文 &#x2F; 陈申 徐希景</p>
+<p>摄影术自 19 世纪 40 年代传入中国至 “五四” 运动时期已历七十多年的发展，但是，在 “学而优则仕” 的传统 “士大夫” 门第观念影响下，摄影一直被视为民间 “匠艺“，是有钱有闲的 “纨绔子弟” 的消遣娱乐，难登正统艺术的殿堂。再加上连年的列强侵略、军阀割据、战祸连连,中国社会长期处于民穷财尽、民生物资十分匮乏的时代，阻碍了中国摄影的正常发展，摄影沦为民间照相馆为 “生计” 的糊口职业。20 世纪二三十年代，是中国艺术摄影的启蒙时期。</p>
+<p>20 世纪初，随着摄影技术的发展，小型相机在中国的大量行销，《实用映相学》《新编摄影术》等摄影普及读物的出现，以及摄影图片被越来越多的报刊所采用，摄影得到一定的推广普及，涌现出了一批业余摄影家。他们摆脱了早期摄影局限于照相行业的纯商业的色彩，拍摄的题材比前期有了较大的扩展，表现出比较丰富的社会内容，某些作品逐渐呈现出艺术的特性。特别是 “五四” 运动之后，经过 “新文化运动” 洗礼的一批文人学者、有识之士加入到摄影队伍中来，以他们广博的学识、深厚的艺术素养和探索精神，在摄影艺术处女地上披荆斩棘，辛勤耕耘，才有了源自西方的新兴的摄影艺术在中国这一时期的繁荣和发展。在摄影表现形式的探索上，虽然大多数作品仍然沿袭传统绘画造型概念，但是，随着作品内容逐渐广泛和主题的不断深化，确实也出现一些具有创新精神的作品，反映了这一时期摄影师审美趣味的变化。20 世纪二三十年代成为中国现代意义上摄影的转型期，一些文艺界人士的思想倾向和艺术倾向，使摄影从机械复制的时代走向艺术创造的时代，为中国现代摄影创作方向定下了基调和范例。</p>
+<p>20 世纪二三十年代，是中国摄影艺术发展历史上第一个繁荣期，北京 “光社” 和上海的 “华社”（“中华摄影学社”）以及 “黑白社” 等文艺研究团体如雨后春笋般涌现出来。这里聚集着从事摄影创作和研究的高层知识分子，形成了影响深远的南北方摄影家艺术群体。这些摄影团体除举办展览外，还编辑出版了各种形式的摄影书刊，对摄影艺术和理论的研究也十分重视。此时，出版业也开始发展，一些职业或业余摄影者开始翻译、编译刊物。这一时期摄影艺术在中国出现了一片繁荣发展的景象，涌现出许多秉有传世作品而青史立传的摄影家，如陈万里、刘半农、郎静山、张印泉、潘达微、胡伯翔、舒新城、吴中行、蔡俊三、陈传霖等，他们的摄影创作对后来中国摄影艺术的发展影响深远。</p>
+<p>所以，这一时期的中国摄影走过了一条与西方摄影在 19 世纪后半叶的画意摄影很接近的发展历程也就不难理解。民国初年特别是 “五四” 新文化运动以来，以东西方美术交融为特征的新美术运动虽然结束了近千年来文人画一统天下的局面，但是中国传统绘画，特别是以山水、松竹、花鸟为主要题材的文人画在画坛还有深远影响，因此，许多摄影家就借鉴水墨画的表现题材和创作手法，拍摄题材以山水花草虫鸟为主，画面构图和空白处理都具有水墨画的意韵，作品题目也富有诗意，甚至还有一些摄影家直接在照片上题词落款。摄影艺术拓荒者之一的陈万里收入《大风集》中的 12 幅作品都处理成写意的效果，画面追求诗情画意。刘半农的许多作品也是融诗书画印为一体，“他以诗人的独特敏感摄下了一枝孤独的依依垂柳，又加上富有诗意的题款，‘春风不管人间恨，又送青青到柳梢。’ 就使画面显得生机勃勃。朋友们都称赞：’半农的摄影作品是画中有诗，诗中有画。’ ”当时的《大众画报》还开辟 “诗之影” 专栏，集中刊登张印泉、吴印咸、冯四知等许多摄影家模拟古诗词意境的摄影作品，并以整首诗词作为标题或填入作品之中。再如，20 世纪 30 年代郎静山的集锦摄影模拟中国画的意境，直接运用中国画的散点透视，把不同地方的景物运用暗房叠放技术等合成在一个画面上，摄影手段仅仅用于收集素材而已，而创作思想理念完全是中国传统绘画，用摄影手段表达出传统绘画的精神诉求。这在他第一次个展时出版的专刊上就有明确阐述，自己的摄影 “所采构图理法，亦多与吾国绘事相同…… 今有集锦之法，画之境地，随心所欲，于大自然景物中仿古人传模移写之诣构图，制成理想中之意境” 在同一文中他还说，“由此观之，东方艺术，可为摄影之助，摄影亦足证东方艺术，它早入于精妙之域也。”就在当时的中国摄影家借鉴中国传统绘画的表现题材和创作手法的同时，与之形成鲜明对比的一种有意味的现象是：民国时期文化界、美术界倡导的美术革命却在提倡学习西方油画的写实手法，文人画的价值观念被当时思想文化界具有相当感召力的改良派和革命派的领导人物所痛击。中国的知识精英（从康有为、梁启超到陈独秀等）在 “重形似” 的西方传统绘画的对照中，发现了传统绘画只尚 “写意” 不求写实的弊端。所以都把西洋画 “写形” 之特征看作是与中国画最大的区别，在呼唤 “民主” 与 “科学” 的 “五四” 新文化运动中，西方的写实绘画更是被看成是科学、进步的美术观和形态，而得到大力的倡扬。康有为在他的《万木草堂藏画目》序中，提倡以工笔写实见长的宋院画并主张仿效郎世宁，赞扬 “西画之精新妙肖至工”。梁启超在北京美术学校所做的《美术与科学》的讲演中，指出了西方的重商主义和写实的再现艺术实践内在的联系，提倡 “科学化的美术” 和 “美术化的科学”，表达了科学与艺术相结合的价值取向。陈独秀在《新青年》答吕微提出的问题时也提出采用西洋画写实的精神改良中国画的观点。而蔡元培则是民国初年新美术运动中引进西洋画和传播西方艺术思想的启蒙者和直接推动者，他所提出的 “以美育代宗教” 说和 “科学美术，同为新教育之要纲。” 整整影响了一代人。在 “新文化运动” 影响下，一批批走出故土的艺术学子大多数在日本、欧洲接受了学院写实主义绘画的训练，学成回国后,多以教学方式极力推行写实主义绘画，以至学院写实主义绘画成为当时影响最大，画坛主导地位的流派。</p>
+<p>而以写实为本体特征的摄影却反其道而行之，文人学者介入摄影，他们对西方油画了解不多，但是，他们都有着传统文化底蕴，又不满足于早期照相馆的机械摹写，就如刘半农所说的，“想在照相中找出一些 ‘美’ 来”，于是，借鉴文人画的写意手法，运用摄影来创造 “中国画意” 的特有韵味。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm3m7a10CteLrfMSrHe289o5d4MvwUicCTic3C0C72Fy5GkGe6S2OhiaIsg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>镜花</strong> </p>
+<p>Flowers in the mirror</p>
+<p>1927</p>
+<p>郭学群</p>
+<p>油渣 Bromoil Print</p>
+<p>原作由陈申收藏</p>
+<p> <img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmChVbdUBOvRoqiaCCd9E9ubqkicZPCkrMNDwTjrUAfRicHdBXN3WnG29CQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>黄山梦笔生花</strong> </p>
+<p>Paintbrush in dreamland</p>
+<p>1962</p>
+<p>金石声</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>原作由金华收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmkjdZZhDsrrqaMtuaCibKwF2mcpW5odYL0Sic258I8gXsaIZPhPnABKiaw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>利器</strong> </p>
+<p>Sharp Objects</p>
+<p>1927</p>
+<p>吴郁周</p>
+<p>树胶法 Gum Print</p>
+<p>原作由陈申收藏</p>
+<p><strong>奔向战场：从边区到新中国</strong></p>
+<p><strong>节选自《摄影的制造与传播：从边区到新中国》</strong></p>
+<p>文 &#x2F; 高初</p>
+<p><strong>民族危亡之际的摄影转向</strong></p>
+<p>在抗日战争爆发前一个星期，即 1937 年 6 月 24 日至 30 日，在北平曾举办过一次规模宏大的 “北平第一届摄影联合展览会”，许多当时的摄影名家如北京的张印泉、李黎轩、魏守忠、蒋汉澄、方大曾、魏南昌、上海的郎静山、刘旭沧，南京的叶浅予、高岭梅等都参加了这次展出，这些人当时大都还是为艺术而艺术或为兴趣而艺术的信奉者，他们展出的作品，其内容大都依然是风花雪月、名胜古迹等，和当时已经岌岌可危的北平形势并不很协调，但在展览会《致敬—参观诸君》中，也赫然写着：“有人生即有艺术，这是一种定律。可是它的趋势，常受着社会潮流推荡而变迁，摄影也不外此。我们当国难严重的关头，所需要新的艺术，当然是以发扬民族精神为前提。”</p>
+<p>自 1930 年代以来，中国摄影呈现出更为多元的面貌。其一是摄影者的来源更为广泛：职员和学生成为摄影活动的新兴力量。其二是伴随这一时期都市视觉媒介和画报的兴盛，摄影逐渐职业化。其三摄影书籍和杂志的刊行，社团的活跃已经为摄影的技术层面的讨论作出铺垫，各个门类的艺术也慢慢成为摄影得以汲取的养料。其四是对于外国猎奇的反思，以及对于民族文化的视觉语言的探索。随着 1931 年的九一八事变和 1932 年的一二八事变，自 “美化生活、陶冶情操” 的风景、花树、鸟兽、静物等呈现审美情趣的题材而进入表现劳动者的现实性的题材，进而在 1937 年的七七事变前后转向战场，转向士兵。摄影的传达对象，从社团内部的雅集交游，到参观展览的市民，进而到能被鼓呼而投入到民族救亡的一切国民。</p>
+<p>这一时期对于摄影的讨论，也是逐步推进的。1936 年冯四知写道：“仅只美啊，诗意画意的照片,不能算是摄影艺术，真正的艺术品，是能改变人的环境、生活、思想，有一种力的感动。” 1937 年 6 月出版的《飞鹰》杂志第 18 期明确地提出：“在目前，全中国到处可闻到大众不平的吼声，社会上任何角落里，可以看到大众为争取民族解放而汇流的斗争鲜血…… 因为现在中国最大的问题，人人所共的问题，是民族生存的问题，截取具有积极性的题材，固然可使一切不愿做奴隶的人们因此而奋起，反抗，战斗；但也暴露现实的丑恶为目标的取景,也同样可以因此引起被压迫者们的决心,挣扎,拼断所有加在他们头顶上的锁链。摄影研究者们跟着时代的进展，正需有新的开拓，但这开拓，决不是一二个人的能力所能达，要有前进的研究者的加倍努力；保守者们的移步向前。这，一方面，当然要从新的理论中去学习；一方面，当然也要由活的实践中去改进。</p>
+<p>这一 “积极性” 的题材和摄影在观看后产生的效用，蕴含着中国的摄影在战争爆发、民族危亡的特定的历史情况下，摄影的意义系统从拍摄者转向到观看者，摄影的评价效果也在于对于观看者的情绪的触动和行动的激发。这一拍摄者和观看者的主客体的转换，意味着摄影的主体与观念、题材与语言、媒介与现场都发生了意味深长的置转和重组。“作为仪式的拍照” 和 “革命时期的宣讲式的观看” 成为自战争时期至新中国，乃至今天我们讨论中国摄影的两个核心概念。进而言之,这一在抗战前后所发展的对于摄影的观念层面的认识和实践层面的操作，不但成为了新华社、各大画报社等为代表的新中国时期摄影的基本形态，而且影响持续至今。1980 年代摄影思潮与摄影批判正是对于这一现象的回应，但背离性的姿态仍无法摆脱这一话语的范畴。这是艺术史上颇为独特的一种社会和文化形态，在中国 “摄影” 反而成为问题汇集的一个焦灼点，这正是因为摄影在战争时期和新中国时期在国家能力和文化建构功能的发挥的巨大作用。从中国摄影史的分期而言，1936 年所开始的摄影争论和摄影实践，成为了一个意味深长的起点。</p>
+<p>这一时期的中国摄影，就其内部而言，发生着剧烈而迅速的变化。对于抗战时期的中国摄影的外部讨论也可以在两个结构里得到观察；其一是世界史的结构，其二是摄影史的结构。</p>
+<p>对于世界史的结构而言，中国和日本都迫切地需要建立民众动员的政治视觉机制、和对于敌对者的说服的文化视觉机制。可以说，中国摄影史的重要摄影师和日本摄影史的重要摄影师，此刻相聚在中国的战场上，为各自的现代国家和现代民族的目标进行着视觉性的文化构造。图像的生产与传播，以及围绕图像语义的生产与传播，是这一事业的核心和途径。艺术家不但放弃了自身的主体性，投入到这一工作中，艺术家也正是在这一过程中生成了自身的主体性；建立视觉经验和审美情态、探索个人的风格。</p>
+<p>对于摄影史的结构而言，战争时期和新中国时期的中国摄影史，是由摄影群体在战争时期和新中国时期的摄影生涯和个人的生命史构成他们对于摄影的 “效果论” 的理解，他们驾驭的题材，乃至他们所参与的民族解放和国家建立的情感上的撞击，逐渐地内化于他们的生命经验和艺术风格。而在他们的生涯的早期，对于摄影媒材和题材的现代主义探索也成为他们作品的重要底色。</p>
+<p>东西方文化碰撞的巨大能量，从殖民地状态到建立新中国的精神气质，赋予了这一代摄影者在视觉性的实践探索和理论重建中的历史使命，以及具体的摄影题材和表现方式。摄影不但是这场剧变的记载媒介，而且是这场重建的组成部分。史诗叙事和革命动员逐渐成为他们生涯中被显现的情感结构和艺术状态。以现代主义为主线的艺术家的个人探索贯穿他们的生涯始终，但是往往隐藏在具体的革命题材中。</p>
+<p>他们生涯的第一个特点是 “向下唤起”：而放弃艺术家的主体性，将个人的审美倾向替换为 “预设的观众” 的情感倾向。对于照片成功与否的评价，要看通过展览和画报出版的动员的效果。他们生涯的第二个特点是：“放弃制作作品”：如果说西方艺术史是将艺术家的艺术品作为写作的对象，作品是艺术家不断推进的艺术探索的生涯的坐标，是艺术界的流通品，也是艺术批评和艺术史写作的对象。但是这些摄影师的作品一般只蕴含在 “观看” 的现场。他们的真正的作品不在于展出之后留下来的相纸，而在于观者在这一现场 “心里燃起一股热力”，这些无形的，在革命构造中产生的动能，才是在历史语境中他们的生涯的真正评价。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm7GCB0ZiacvW51GQKiaQXsRqAm6WGpaaZ36WGGUPyfsuQVwz2v7ibcrUWw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1949 年 3 月 25 日，毛主席在西苑机场检阅部队</strong></p>
+<p>Chairman Mao reviewed troops at Xiyuan airport on March 25, 1949</p>
+<p>1949</p>
+<p>高帆</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmZA4VQseqiasBoB0kBQqKhkqMvsibHzqugHBl7J45AI7j8K5xNR4JqsMw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1949 年 3 月 25 日。毛泽东、朱德等乘车在西苑机场阅兵检阅高炮部队</strong></p>
+<p>Mao Zedong, Zhu De and others paraded at Xiyuan Airport to review the anti-aircraft artillery troops on March 25, 1949</p>
+<p>1949</p>
+<p>高帆</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmp8wTIHN8Jh4kJFM4U7CnH5fNTI4fnTTFSEzX14hcGND0pWMKeg5xow/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1948 年，临汾战役中，我军爆破手对敌实施大爆破</strong></p>
+<p>Our army’s blasters carried out large-scale blasting against enemy in the battle of Linfen in 1948</p>
+<p>1948</p>
+<p>高帆</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmYGDNkjsVzhlXuPNzs9Pib8sFg21o8818JK0cCl1qwTGeb7zjyU8tz6w/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmOTVdJibmZOOlumCMd15YHvwwhoISlTvvlICtyGv4dxkabxLsnLIsAqQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1946 年 9 月，定陶战役大杨湖战斗中，我军防空哨兵，山东</strong></p>
+<p>September 1946，Chinese ari defense sentry at Dayanghu Battle，Dingtao Campaign，Shandong</p>
+<p>1946</p>
+<p>高帆</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmArDm2E2bs6CicaNQVL1rnFDNg1koWsJAWYwTDic1CJcicLDRGr1bibdxzA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1942 年，太行山区涉县人民送郎参军</strong></p>
+<p>In 1942，woman of She County，Taihang Mountain Area，sent their husbands to join the army</p>
+<p>1942</p>
+<p>高帆</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4x1Bakczyh3tMUVJPrrZzRleEOib0MFfQVIG2vJ1pPq36iabALIbphSQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>出席太行山群英会的女劳模孟祥英同志，此幅作品制作与展览于 1987 年的太行山大别山喜马拉雅山（三山）展览，作品信息沿用当时展签说明。</strong></p>
+<p>Comrade Meng Xiangying, a female model worker attending the Taihang Qunying Meeting. This work was produced and exhibited at the Taihang Dabie Himalayas（Three Mountains）Exhibition 1987. The information of the works followed the instructions of the exhibition signs at the time.</p>
+<p>1987</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm5aQb1abEl24WiaBeNVl9Fiby6pHrmdlphljRJ78WM3XedWILKhibzpSzg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>朱德总司令、彭德怀总司令在山西省武乡县王家峪。此幅作品制作与展览于 1987 年的太行山大别山喜马拉雅山（三山）展览，作品信息沿用当时展签说明。</strong></p>
+<p>Commander Zhu De and Commander Peng Dehuai were in Wangjiayu, Wuxiang County, Shanxi Province. This work was produced and exhibited at the Taihang Dabie Himalayas（Three Mountains）Exhibition 1987. The information of the works followed the instructions of the exhibition signs at the time.</p>
+<p>1987</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmMRGLsOMpicThnHoWMHHMwtMx2ttzjo1oIibUzjQIRUG28Ga8xYyvmAoQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>我军向祁县开进，此幅作品制作与展览于 1987 年的太行山大别山喜马拉雅山（三山）展览，作品信息沿用当时展签说明。</strong></p>
+<p>Our army marched towards Qixian. This work was produced and exhibited at the Taihang Dabie Himalayas（Three Mountains）Exhibition 1987. The information of the works followed the instructions of the exhibition signs at the time.</p>
+<p>1987</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><strong>战事</strong></p>
+<p><strong>The Battlefield</strong></p>
+<p>“延安没有电灯，一切摄影工作都要靠自然光。…… 当时我们既没有放大机，也没有放大纸。…… 我们在屋顶上开了一个小小的天窗 …… 放大机就这样形成了。…… 解决放大纸的唯一方法，就是用印相纸来代替。那时所用的 ‘爱素’ 印相纸是一种感光较慢的材料，放大一张照片的曝光时间至少要10分钟，有的甚至长到一个小时以上。最困难的是具体掌握每一张底片的曝光时间。由于自然光变化很多，曝光时间又长久，很难准确。为了解决这个问题，不得不分配一位同志在暗房外面专管观察光线的变化。” “我们（自 1941 至 1946 年在延安的摄影工作）所用的胶片和印相纸有两个来源，一个是 1938 年我们到延安时带去的一批 …… 另一个来源是依靠前线，经过战斗从敌人手里缴获的战利品。这些感光材料不是过期很久，就是在长期行军中受到强烈的日光照射，或多或少变了质的。” “在晋察冀根据地的摄影工作者，曾经创造性地作出一种流动型的冲洗放大暗房。…… 随时有转移的可能，不可能有固定的暗房。这种流动暗房是用多层黑布缝制的，只要用几根竹竿把它支撑起来，或用绳索把它吊起，就可以在里面冲洗放大。没有冲洗胶卷用的红灯，他们就点一支香来代替，不仅与红灯起了同样的作用，在夏季还可以驱除蚊蝇。刚冲过胶卷就要行军，他们就把胶卷挂在竹竿上，等到达目的地，胶卷也就干了。至于显影盘、定影盘，也常用老乡们吃饭的大瓷碗代替。”</p>
+<p>—— 吴印咸《回忆抗战时期的摄影工作》，刊于《中国摄影》（1957 年第三期）</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmw17knDPRNkJQfvIzyTmWicKJXaFw1CNVgMTmQ0Y2DzKwjy1Ve683ryg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>可口可乐</strong></p>
+<p>Coca-cola</p>
+<p>1939</p>
+<p>金石声</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>原作由金华收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmlWfJT994RI7QJDXI2qMwldKzbRI7uh9oAHjfh2O6xIsdtpRQumqSLw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>自拍像</strong></p>
+<p>Self Portrait</p>
+<p>1937</p>
+<p>金石声</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>原作由金华收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmIV3ZeNQ91wfyVuJhBPj67T8fhC9YcOtC9oaDhP5rZwJfiaEs1OLr8AQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>金石声携第一架相机——柯达 3A 与扬州影楼摄影师切磋</strong></p>
+<p>Holding his first camera, a Kadak 3A, Jin Shisheng learns from a portrait studio photographer in Yangzhou.</p>
+<p>1926</p>
+<p>金石声</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>原作由金华收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmSIwXXhkypBnvC3b0kOAoJSjCrVh5MafaicTZlJq1FLlL1u7icmic6zFaA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>构图</strong></p>
+<p>Composition</p>
+<p>1933</p>
+<p>骆伯年</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>原作由金华收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPliaVtFrXic1qMOXhYy0Pa5GXb3k8IJLhN7CYibbe6Baiazymic1yYNY3V7ibBCuggaCUAMjq1qiaZA6dZ0QQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>西湖边</strong></p>
+<p>Along the West Lake</p>
+<p>1930 - 1940s</p>
+<p>骆伯年</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>原作由金华收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmzowHLE1TDGCWttwkdDatyVA7jzcaLsnmzMJYkDg5k7UtuOOib1yaiciaQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>伊索寓言</strong></p>
+<p>Aesop’s Fables</p>
+<p>1927</p>
+<p>老焱若</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>原作由陈申收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmB4Xh9PeU6dVCECsu4RbkRnpnX6jaP6Ul3m5xxaoPOpzaCiasIRkz9KA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>鹫峰晨曦</strong></p>
+<p>Dawn of Vulture Peak</p>
+<p>1920s</p>
+<p>汪孟舒</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>原作由陈申收藏</p>
+<p><strong>蔡元培对摄影艺术及其申美价值的肯定</strong></p>
+<p>蔡元培是中国美学、美育的倡导者、开拓者。他原是清末翰林，对传统学术有精深理解，又先后四次留学德、法两国，对欧洲哲学、美学及世界文化史深有造诣，由于他学贯中西、博古通今，使得他的美育思想并不仅仅是西方思想的简单译介，而是联结传统与现代、中国与西方文化，成为民国初年新艺术运动的启蒙者和推动者，对中国的审美教育作出了卓著的贡献。在他的《美学的研究方法》、为商务印书馆出版的《教育大辞书》中所撰写的《美育》条目释文、《三十五年来中国之新文化》《二十五年来中国之美育》《与时代画报记者谈话》中都直接或间接提及摄影，从理论上肯定了摄影艺术的社会地位，把摄影作为实施美育的重要内容之一，在摄影艺术发展的初期，它的观点有力地支持了年轻的摄影艺术。</p>
+<p>蔡元培在提倡和推行他的美育思想过程中，对年轻的摄影艺术予以极大的关注，特别是在他的两篇体现其美学教育思想的重要文献 —— 《三十五年来中国之文化》的美术部分和《二十五年来中国之美育》 中，都持摄影艺术与绘画艺术 “相等” 的观点。前文专论 35 年来中国美术 —— 艺术的发展脉络，包括美术学校、博物院与展览会、建筑术、摄影术、书画摹印、音乐、文学、演剧、影戏、留声机与无线电播音机、公园等11个章节。从中不难看出，蔡元培对艺术的分类受到了西方现代主义思想的影响，除了传统艺术之外，他把建立在现代科技基础之上的摄影、影戏（即电影）、留声机与无线电播音机等新兴的视听艺术，以及博物院与展览会、公园等公共艺术也纳入艺术行列，在艺术分类上体现出这位学贯中西的学者那 “兼容并包” 的多元化倾向和开明思想，与他的 “科学与美术同为新教育之要纲” 的精神一脉相承。在文章中，蔡元培肯定了摄影的艺术地位，并简述摄影艺术的发展：”摄影术本是一种应用的工艺，而一入美术家的手，选拔风景，调剂光影，与图画相等；欧洲此风渐盛，中国现亦有 “光杜” 、“华社” 等团体，为美术摄影家所组织。“光社” 设在北平，成立于十二年，初名 “艺术写真研究会”，十三年改名 “光社”。每年在中公园董事会开展览，观众在万人以上，十六年以来，已出年鉴两册。“华社” 设在上海，成立于十六年，曾开展览数次；印刷品有社员郎静山《摄影集》。上海又有天鹏艺术会，印有《天鹏》摄影杂志。”《二十五年来中国之美育》类似前文，文中分为造型艺术、音乐、文学、演剧、影戏、留声机与无线电播音机、公园七个部分，逐一详述。把摄影术和美术学校、博物院、展览会、美术品印本并列于 “造型艺术” 下的五个小节，对摄影的概述大致同前文。这两则对当时摄影的综述，都从文化史的角度肯定了摄影艺术。</p>
+<p>除了上述两文直接论述外，蔡元培在其《美学的研究方法》和他为商务印书馆《教育大辞典》所撰写的 “美育” 条目中，也间接提及摄影。在前文中，他在论述  “人的美感” 问题时，援引欧洲美学家 Witask 的话来证明 “统一” 的风景既可供审美主体摄影，也可 “入画”，这就肯定了摄影艺术的地位，龙熹祖先生认为 “这是中国美学史上第一次从理论上肯定并确立摄影艺术的性质。”在后文中，他写道：“各级学校，于（美育）课程之外，尚有种种美育之设备。例如，学校所在之环境有山水可赏者，校之周围，设清旷之园林。而校舍之建筑，器具之形成，造象摄影之点缀… ” 虽 “美的程度不同”，但皆 “含有美育之原素”，都有审美价值。所以说，蔡元培是较早明确地、直接地肯定了摄影的美学价值和探讨摄影艺术的学者。</p>
+<p>在《与时代画报记者谈话》中，蔡元培认为 “读文章总不如见到形状来得更可以感动。况且从文章力度来的和照片里看来的根本是两样东西，印象也不同。” 重视媒体中图片的价值。在这篇文章中蔡元培对科技、机器对人性的异化有一段精辟的论述，他认为，“现在的世界，一天天往科学路上跑，盲目地崇尚物质，似乎人活在世上的意义只为了吃面包。以致增进了贪欲的劣性，从竞争而变成抢夺，我们竟可以说大战的酿成，完全是物质的罪恶。现在外面谈起 ‘第二次世界大战’ 的议论很多，但是一大半只知裁兵与禁止制造军火；其实只仍不过是表面上的文章，根本办法仍在于人类的本身。要知科学与宗教是根本绝对相反的两件东西。科学崇尚的是物质，宗教注重的是感情。科学愈昌明，宗教愈没落；物质愈发达，情感愈衰颓；人类与人类便一天天隔膜起来，而且互相残杀。本是人类制造了机器，现在人类却变成了机器的奴隶，受了机器的指挥，不惜仇杀同类。” 在这里，蔡元培认识到了科学知识是一把双刃剑，唯科学主义将给个人、社会和人类带来灾难。所以，蔡元培提倡美育，“以美育代宗教”，用美育来消除片面发展科学所带来的危害。“便是使人类能在音乐、雕刻、图画、文学里又找见人类遗失了的情感。我们每每在听了一支歌，看了一张画、一件雕刻，或是读了一首诗、一篇文章以后，常会有一种说不出的感觉；四周的空气会变得更温柔，眼前的对象会变得更甜蜜，似乎觉到自身在这个世界上有一种伟大的使命。这种使命不仅仅是要使人人有饭吃、有衣裳穿、有房子住，他同时还要使人人能在保持生存以外，还能去享受人生。知道了享受人生的乐趣，同时便知道了人生的可爱，人与人的感情便不期然而然地更加浓厚起来。那么，虽然不能说战争可以完全消灭，至少可以毁除不少起衅的秧苗了。”在当今物欲横流的时代，蔡元培对机器和工具理性如此冷静而精辟的真知灼见，以及他的美育思想有很多借鉴意义。</p>
+<p><strong>战争与建国：</strong></p>
+<p><strong>1949 年的中国摄影</strong></p>
+<p>文 &#x2F; 高初</p>
+<p>新中国摄影话语的建构，是围绕着对于战争时期摄影话语的吸纳、转化和改造展开的。这不但是因为这两个时期有着趋同的革命视觉化的内在工作机理与拍摄题材，也同样和拍摄者在他们最重要的摄影时期所奠定的经验、方式乃至风格密切相关。</p>
+<p>新中国时期的摄影往往被认为是一种 “宣传摄影”，或者被一些研究者具体地称为 “社会主义现实主义摄影”。摄影作为伴随中国革命创造和嬗变的文化系统中的一类视觉呈现至今仍包围着我们的生活，天安门正中悬挂的毛泽东像就是最为平常的一则例子。甚至我们每天读到的新闻图片，我们看到的摄影展览，都能或多或少地找到过往的影子。这一摄影时期不但发展了一套政治新闻、工业、农业、经济、教育等方面的摄影拍摄方式，而且也建立了一种代代传递的审美习惯。</p>
+<p>新中国图像的制造者，按动照相机快门的人，是名字可查、数量有限的一个群体。他们中的有些人在民国时期的摄影活动中享有声誉；另一些，在战争年代开始摄影生涯的人，也间接性地接受了民国摄影的视觉经验。他们中的大部分人在战争时期的摄影实践中建立了一套新的摄影意义系统和视觉形式，并且在新中国成立后，因为受到信任和过往的摄影经验，成为新中国为数不多的官方摄影师。他们一般在 20 世纪 80 年代结束摄影创作，但仍通过在官方机构的任职，以及展览、著述和讲座的方式，在之后相当长的时期里对中国摄影师产生影响。无论如何，这个摄影群体制造了在半个世纪中能够被公众看到的绝大部分重要图像。那么在这一系列符合革命需要（战争时期与新中国时期）的历史性的图像产物之外，这个群体有没有个人化的艺术创作？这个问题也可以这样问：他们在通常被我们视为 “宣传员” 的身份之外，是否也是艺术家？是否也进行着晚清以来摄影领域的视觉现代性的探索？那些个人化的情感性的图像表达，那些对于摄影本体性的拓展，是压根不存在呢，还是被官方的审定和认可遮盖和压制，没有被我们看到？即使我们认为他们满怀真诚而热情地投入到一种现实主义的摄影美学系统和摄影模式的建构中，除了演变中的革命意识形态的表达性和功能性之外（本文涉及的延安图式正是这种摄影图像意识形态规范的源起和构成），他们的摄影是否也成为现代国家意义上的新中国的图像生产和传播的功能性组成部分？这种现代意义的图像建构，是否一方面继承了中国的悠久和坚固的视觉审美传统，一方面也是迈向现代中国的全新的文化结构在视觉表达层面的重建？</p>
+<p>对于他们生涯和创作的摄影史研究面相，是否和同一时期的文学史、绘画史乃至文化史是一致的？我们能否找到视觉现代性在革命时期的继承和发展或者说，在前文中并没有给出明确的新定义的 “视觉现代性“ 的概念，是否是一个来源于却又针对于西方对于中国视觉材料研究的学术传统，而带有我们自身问题意识的一系列学术对话的起点革命史视角的 “视觉现代性”，能否成为一种不同于西方的视觉现代性概念的新的观察？这种观察，起码能使我们重新反思当下对于西方艺术现代性的简单模仿，和在中国摄影与其两者间不假思索架设的继承关系。</p>
+<p>对于摄影生涯和革命话语有复杂的伴生关系的这一代摄影者，随着新史料的发现及个案研究的推进，也许可以促成就这一时期中国摄影的新的讨论。但这一讨论也同时面临着两个巨大的困难，一是类似于现代性范式和革命史范式研究框架对于我们所处理的近代图像史料的理解；二是一套有别于西方艺术史价值预设的对于近代中国剧变中摄影师生涯和摄影意义的新的解读途径。</p>
+<p>作为现代性的工具的摄影，在这一时期一方面集中地体现了中国抒情传统到西方史诗叙事的文化转型，一方面成为了国家能力和民族性建构的功能性载体，这都是西方摄影发展中没有遭遇的像近代中国这样激烈而有深刻影响的历史境遇。也正是在这一时期，东西方文化碰撞的巨大能量，体现了新中国的精神气质，赋予了这一代摄影者在视觉性的实践探索和理论重建中的历史使命。以及具体的摄影题材和表现方式。摄影不但是这场剧变的记载媒介，而且是这场重建的组成部分。</p>
+<p>也正是在战争摄影时期中，一套在新中国摄影时期起着决定性影响的 “形态规范” 初见萌发，这一规范在摄影实践层面体现为以 “宣传” 为表征的摄影的话语系统，摄影者对于这一规范的遵从程度也直接影响他们在新中国时期的摄影机会和人生境遇。摄影者的主体性消退和被压抑，我们需要在创作中艰难地寻找摄影者视觉探索和审美追求的痕迹。</p>
+<p>战争摄影时期可以被视为摄影者确立并发展着自身的摄影风格，建立一种革命历史中的个人主体性的摄影实践的探索过程。但总体来看，也正是在这一时期发展出两条在新中国时期纠缠、嬗变的摄影话语系统，并对今天的摄影仍有极大影响：<strong>晋察冀图式</strong>和<strong>延安图式</strong>。这两种图式并非有着迥异的视觉形式、功能机制和实践主体，而始终有着紧密的纠缠关系，并在相互作用中嬗变；但作者仍然认为明确提出这两种图式，并细致研究其各自演进的内在机制和相互影响，有助于一我们形成对战争时期中国摄影和新中国摄影在革命语境下更明确的理解。</p>
+<p>在晋察冀模范抗日根据地一方面发展出一种带有战地纪录和战争鼓动功能的摄影方式，一方面也发展出边区的报道摄影和新闻摄影模式。而在这一特定历史时期发展起来的报道摄影模式，被新中国的摄影机制在人员构成、工作方式和图像模式等方面有机承，同时也伴随着演变中的革命意识形态规范而嬗变。我们也观察到，战时晋察翼摄影系统，一方面提供了一套摄影者的培养系统和图片评价标准，一方面也提供了一套图片拍摄、传播和观看的现代意义的图像生产方式。这套系统从华北平原的晋察冀山区被移植到其他解放区并随着战争推进而广为扩散：如《东北画报》的前身翼热辽画报，如和《晋察翼画报》系统合井为《华北画报》的晋翼豫体系。但需要强调的是，晋察翼系统的图像，在过往的党史和军史的图像史中并没有突出的位置，但晋察翼的图式在艺术史层面的意义无疑是值得注意并重新讨论的。</p>
+<p>在抗战时期的延安，从 “整风运动” 至 “中共七大”，其文化系统也经历着巨大的变动。在此演变过程中意识形态规范对于摄影有着直接而巨大的影响，我们试图从延安图式这一概念的明确提出进入其内在。作为现代性工具的摄影，吴印咸和郑景康，在民国时期有着摄影实践的摄影师，在这一时期除了对这一革命圣地进行图像记录之外，也试图自觉地突破过往的视觉形式，使自身的摄影实践融入革命洪潮中。摄影的功能性和表现方式，基于他们过往的视觉经验系统，逐渐转变为 “深入群众”、“唤起群众” 和 “摄影的教化作用”。如果说这两位摄影者的早期摄影视觉形式可以和西方现代主义作比较研究，一方面，他们的摄影是这种转变中的革命意识的视觉呈现，一方面他们也试图建立一种革命意识的规范。而这一延安时期实践和理论上的成果，被新中国摄影继承和发展，在 20 世纪 50 年代后半期充分确立，并在 “文化大革命” 时期达到顶峰。这里需要强调的是，相对于新中国时期这种表现对于摄影师工作机会和人生境遇的决定性影响，延安时期对于摄影者的强制性并不明显，而是一种艺术家在国家危亡这一特定历史时期自发性的转向以及围绕《延安文艺座谈会讲话》精神的自我约束、服从和转型。在摄影的功能被强调的转变中，如何处理图像形式、表达手法等摄影本体和美学层面的话题，正是这一摄影话语转型中值得重视的经验。回顾摄影者在这一过程中所做的艺术本体性的艰难探索，是我们在今天的节点上重新讨论中国摄影的审美传统和社会功能的意义所在。</p>
+<p>1949</p>
+<p>一个时刻和新中国摄影机制的生成</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmX2FuLjcT0K7qkMXWySoonhSibb32yyXvxLd8WxZxs26vqPnUx5jSPdw/640?wx_fmt=jpeg" alt="img"></p>
+<p>1949 年 2 月 9 日，庆祝北平解放大会上，听北平市长叶剑英讲话的北平民众，北京。</p>
+<p>February 9, 1949, Peiping people listened to the speech given by Peiping mayor, Ye Jianying, on the celebration meeting of peiping liberation, Beijing. </p>
+<p>1949</p>
+<p>高帆</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmmJuuibrCNx4FEqF6hVNKsE4fuPwSGhF99wfc7lMe1mRwHlXz09jOepQ/640?wx_fmt=jpeg" alt="img"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmPHMUJRhQdut9XP9xk0UuhicuMTnHO2NFYQq0EFDVELIBNA2hywg6KWA/640?wx_fmt=jpeg" alt="img"></p>
+<p>在抗战初期摄影、木刻、绘画、实物等一并作为战绩展览的陈列，但因为摄影展览的效果好，逐渐成为了单独的展示媒介和集会场所。在 1939 年春节，沙飞和罗光达在晋察冀军区驻地冀西平山县蛟潭庄举办敌后第一个街头新闻照片展览。展出的内容，“有八路军光复城镇、缴获日军的枪炮、马匹、军用品以及群众参军、部队生活、据地群众生产等。照片基本上是沙飞拍的当地群众没有见过这样的新闻照片，参观的人像赶庙会一样的热闹，部队整队前往参观，附近村里的群众，包括六、七十岁的老头子、老太太和七、八岁的娃娃都争先恐后地去看。当地妇教会的青年妇女帮助照顾和讲解，人们对八路军的战绩和缴获极感兴趣，‘山沟里来了照相的’ 成了头号新闻。”</p>
+<p>与抗日战争初期曾在国统区广泛出版的围绕战争的通讯和都市画报不同，这时的摄影已经成为敌后解放区面对和克服物质的匮乏，重塑民族性的政治、社会和文化的功能载体，而且愈发成为 “宣传战和思想战的重要武器”。仅在 1941 年上半年，晋察冀边区政府新闻摄影科 “… 在军区各驻地、在街头、在部队俱乐部、在前线（利用战斗间歇时间）组织各种展览，到 1941 年上半年共举办 50 多次。”</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmKQ7IESvheltG1VvXic08ScjTzNhTWMJwgnDXibYFN6aVNiaNj1wQ3ia0wQ/640?wx_fmt=jpeg" alt="img"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmRVLiaAOnHYicRrO6YUWicZ8nHZYt9HjoDD5R7nm3Cq7s1IyR1WnWafGZw/640?wx_fmt=jpeg" alt="img"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm0FVHycMYTlSBheTzrxMEK7KwKiaicj37IC6TIErYw9qB1DMKMOaGwiaeg/640?wx_fmt=jpeg" alt="img"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmQxKF3RIDOJzXCibMcn8CaRq5iblp1u11vwmWc14UqEOcTZIXOae03gUQ/640?wx_fmt=jpeg" alt="img"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmOAz8gKUMgToYTh4LYYC9jRTPT6icLX1ibHDt6mkdth2tnh7VRkGZnKtQ/640?wx_fmt=jpeg" alt="img"></p>
+<p>也是在这一时期，前线的摄影工作不但需要建立 “摄影网”（紧密配合的工作网络），而且每一基层作战单位也要配备摄影工作者，解决照相物资，并且摄影工作的完成与否成为了政治工作是否合格的重要衡量，摄影成为在战争时期如此重要的一个环节，我们可以从留存的电报、通令、指示、通报、通知、守则等业务文件窥得一二。在笔者 2009 至 2014 年对于几十位战争时期的摄影者的口述采访中，也得到 “跟随作战部队的摄影者作战部队紧密配合”，“‘摄影战士甚至比政委更能鼓舞作战士气” 的强烈感受。</p>
+<p>在 1944 年 10 月 5 日，为加强新闻摄影工作，晋察冀军区政治部给各军分区发了一封业务电报。电文指出：</p>
+<p>“新闻照片对外宣传作用极大… 为加强这一工作，定各分区仍保留摄影干事，由三个干事中的一个兼任，团和支队增设一个摄影干事，如无摄影人才与器材，应积极设法逐渐解决。今后各军分区、团、支队政治首长应经常派出摄影员到前线拍摄照片，并对这一工作给予具体帮助和督促检查，使照片、底片能及时送晋察冀军区。”</p>
+<p>一周内，冀热辽军分区通令各团、区队:</p>
+<p>… 殊有加强我部队新闻摄影工作的必要，兹决定团设新闻摄影干事二人，独立区队设一人。……各团、队在执行战斗任务时，各级指导员须通知摄影干事参加，俾得摄取我军英勇的战斗成绩，必要时，在不影响执行战斗的原则下，各部队指战员，应适当掩护其收集材料。… 各团、队政治处很好地领导这项工作，并根据当时的中心任务，给予具体指导和检查，以充分发挥其作用，同时将这项工作列入政治工作计划和总结内，向军分区汇报。”</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmkOqqzWToOoUtetmWdWYYE6OuGZNXMicrg0wribdpbRVt1bCMw7ibOw9ew/640?wx_fmt=jpeg" alt="img"></p>
+<hr>
+<p><strong>入城</strong></p>
+<p>1949 年 1 月 22 日，国民党华北 “剿总” 司令傅作义接受中共 “和平解放北平” 的号召在《关于北平和平解决问题的协议书》上签字。1 月 31 日，中国人民解放军进入北平，古都北平宣告和平解放。高帆和齐观山在北平正式解放前已经随部队先行进入北平，并与高粮、杨振亚、孟昭瑞等参与了北平入城式的采访报道。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmk8p2CyusAicwW6BQCX4od026bPMVjuDoNkVTULYRg1CRBbkC5ia704OQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1949 年 9 月 30 日，全国第一届政治协商会议上，毛泽东当选中华人民共和国中央人民政府主席</strong></p>
+<p>September 30, 1949, Mao Zedong was elected as the chairman of the central people’s government of People’s Republic of China at the first national political consultative conference, Beijing</p>
+<p>1949</p>
+<p>林杨</p>
+<p>数字微喷 Inkjet Print </p>
+<p>作品由中国美术学院美术馆收藏</p>
+<hr>
+<p><strong>建国</strong></p>
+<p>中共中央宣传部对 1949 年全国政治协商会议和开国大典的新闻摄影报道工作十分重视。在八月中旬委托大会筹备会新闻处加以妥善地组织、积极地筹划，并拟定大会新闻摄影工作方案。新闻处于 8 月 19 日提出 “大会摄影工作计划”，决定 “新处原设的摄影科分成摄影、电影两科”。为加强摄影科的工作力量 “由华北军区政治部华北画报社、中央电影管理局北平电影制片厂照相科、东北局东北画报社三单位合作” 抽调干部组成，“并推定华北画报社主持“，“由吴群任科长…… 在会场内工作者六人为：陈正青、侯波、吴群、林扬、杨振亚、孟昭瑞。在会场外协助冲洗等工作者以十二人为原则。” 并规定 “大会摄影完全由新闻处摄影负责，举凡报纸、刊物及其他宣教机构需要的照片，由新闻处摄影科统一供给”，其他人员 “谢绝携带照相机入场”。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm921g3BLr1Phzp5n59eDfjYVoEL8b4iaRpkas8Eln2qYIfEMchnKuMnw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1949 年 10 月 1 日，开国大典，北京</strong></p>
+<p>October 1, 1949, the founding ceremony, Beijing</p>
+<p>1949</p>
+<p>陈正青</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmD28szhFwibmZc545P0icoWpKbXLjWSeCsS3lujDgd6bq583bDIN0RpvQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1949 年 10 月 1 日，天安门第一次升旗五星红旗，北京</strong></p>
+<p>Five-Star Red Flag was raised in Tian’anmen Square first time October 1, 1949, Beijing</p>
+<p>1949</p>
+<p>熊知行</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<hr>
+<p><strong>中国革命的视觉档案</strong></p>
+<p>研究 &#x2F; 策划：高初</p>
+<ol>
+<li><strong>革命理念的视觉化</strong></li>
+<li><strong>1938 年的武汉：画笔、刻刀、歌声与摄影机</strong></li>
+<li><strong>白求恩：从马德里到华北</strong></li>
+<li><strong>华北一个村庄的革命：柯鲁克档案</strong></li>
+</ol>
+<hr>
+<p><strong>革命理念的视觉化</strong></p>
+<p>齐生、舒宗侨、顾棣所编著的《中国摄影史 1937-1949》开篇写到：“1937 年 ‘七·七’ 抗日战争发后》…… 八军和新四军开赴敌后，在华北、华东、华中广大地区发动群众开展武装斗争，建立抗日根据地。随着抗日武装和抗日根据地的发展、巩图和壮大，逐步具备了建立摄影工作的条件。在中国共产党领导下的，为抗日战争和解放战争服务的摄影工作，才逐步建立和发展起来，并且成长为新中国摄影事业的基干力量。” 这段话是亲历者对于摄影工作的回顾，也折射出与党史叙事紧密关联的摄影史观。</p>
+<p>在抗日战争初期，来自上海、广东、浙江等地的摄影者，在从事前线采访和边区新闻摄影的同时，以报、展览和摄影训练班的方式，发展出一套旨在重新界定摄影的意义、目的、 题材和方式的战争时期的摄影话语。伴随着这一摄影者的群体在规模上发展、在风格上成熟，这一过程也涉及摄影师自身的民国时期摄影经验的转化，这其中不但包含他们投身战争摄影之前的地域性的摄影经验，也将包含他们这一时期从事摄影活动重新吸收转化的新的地域性视觉经验。但更易被观察到的，则是对两类摄影形态的吸纳和转化：民国报道摄影的传统，左翼文化对于摄影的影响。</p>
+<p>抗战后期到内战时期，随着军事进程的发展，解放区的摄影队伍的工作性质的发生了很大的改变，最显著的特点是共产党摄影工作的效用机制，从边区政府新闻摄影科演变为跟随部队快速转移、和部队紧密配合的摄影战士。</p>
+<p>1946 年，“为了加强摄影工作的新闻性、及时性，11 月 15 日军区野战政治部发出关于摄影工作的指示，要求纵队设摄影股，旅设摄影干事 1 至 2 人，深入、全面地报道爱国自卫战争的英勇斗争场面。画报社分成前后两部分，前方成立前线工作组，随野战军政治部活动，及时组织照片展览。为适应战争的需要，从 1946 年 12 月 30 日起，画报社定期出版《晋察冀画刊》……强调 画刊的新闻性和战斗性，要求争分秒，密切配合形势，照片的标题说明多用群众语言，要让战士看得懂，并有鼓动性和艺术性。……自第 29 期起，画刊移到前线随军出版……到 1948 年 5 月 2 日出版最后一期，在将近一年半的时间里共计出版 44 期，平均 12 天出版一期……每期发表 3 组照片共 20 幅左右，印刷一万份，主要发到野战部队，每个班 2 份。” 这一过程中，摄影者的身份从为画报社供稿的前线通讯员转变为鼓舞士气的 “摄影战士”。图像观看者从根据地的党政干部和根据地农民转换到摄影者所跟随的部队士兵的过程中，摄影不但成为部队政治学习、文化教育的常规环节、甚至转变为一种军事作战的仪式：“有组织的拍摄” 和 “集体观看与讨论” 成为被提倡的工作经验。1946 年 11 月 15 日《晋察冀军区野战政治部关于摄影工作的指示》中明确规定摄影股的任务:</p>
+<p>“<strong>在部队中进行照片展览、画报阅读。</strong>”</p>
+<p>摄影的战争鼓动的功能出现在抗战初期，石少华提出 “摄影工作者是激励士气的一支重要的战斗力量” 并举例 “百团大战的某连连长说：‘上级给我们拍照，让全国、全世界人民看，我们就要在战场上加油干。’ 他以此鼓舞全连完成任务，歼灭敌人。战士们都能感到能将自己的照片刊登在画报上是无上光荣的事情。” 而到了内战时期，士兵接受拍摄，刊载在画报上，成为立功嘉奖的方式。如 “解放军很多连队指导员把 ‘努力作战，争取上画报‘ 作为战斗动员的口号，并把《东北画报》作为奖品赠给有功人员。” “（东北画报）成为 ‘部队中第一种受欢迎的读物’ 和 ‘部队的主要教材之一‘, ‘能够经常配合政策任务，在战士整训中起推动和组织作用’。”</p>
+<p>吴群《为英雄模范及功臣拍照的体会》一文提到：</p>
+<p><strong>“拍照前要首先在营连进行宣传动员，说明当了英雄、模范、功臣，给他照像是一种无比光荣的奖励，拍照后像片在各处展览，印在画报上，哪都看见，连毛主席也知道。晋察冀部队的立功条例中，曾明确规定了 ’论功照像嘉奖‘ 一条，肯定了这一做法和功用。”又要注意“ 拍照前要依靠组织安排、尊重领导机关的意见……以免照时发生偏差，如给立小功的同志照了，而没有给立大功的同志照等。”，同时也要 “利用连队集合时候，事前和指导员商量好，由他向大家讲几句，说明上级为什么派人来，跟谁照像，他为什么值得照像表扬，希望大家向他学习等等，然后再把英模及立功同志一一叫到队前来照，这样影响大，效果好。……如有必要，亦可多给他晒上一张，让他寄回家去，使其家属也感到无限光荣。”</strong></p>
+<p>在笔者的口述史采访中，也得知摄影的仪式效果有时已经大于照片本身。对于冲锋的战士，拍照后因为照片很难及时洗印，牺牲的士兵再也看不到。在有的采访中，我们也得知，在胶片较为紧缺的时期，有时相机甚至没有条件装胶卷，摄影这一行为成为纯粹的仪式。</p>
+<p>基层作战单位有组织地观看照片也成为军事作战的一个环节：</p>
+<p><strong>“日常照片展览一次不宜太多，二三十张最好……展出的每张照片距离间隔不可太密，否则大伙挤在一起看不好……展出的照片标题说明，文字要写的大一些，不要写战士看不懂的字，要短小精悍，编成通俗的歌谣、快板更好，这样易念易懂又有趣……展览用的新闻照片，可一一贴在卡纸和布条上，再用绳子把它连接起来，平时折叠放在挎包内携带方便，当部队行军途中休息时，能很快取出张挂于树林或墙壁上让战士们观看，这是在野外举办流动照片展的好方式……战士很喜欢，值得介绍推广。”</strong></p>
+<p><strong>“在部队展览照片时，要注意倾听观众的反映，每次展出应写展览日志，将时间地点、单位、观众人数、展览内容、意见及反应等记录下来，以便总结经验，改进工作时作参考。”</strong></p>
+<p>在战争时期，通过摄影训练班的方式，摄影者的知识、经验和观念得以传递给学员。这不单是摄影作为现代性的表征逐渐渗透进闭塞的共产党所控制的乡村，而且革命的视觉生产机制也在这一过程中重新建立了一套程序、概念和规范，实质上是通过物质性的媒介生产和仪式性的拍摄现场建立的政治视觉机制和文化视觉机制，这一过程随着政治运动的不断展开而深入、明确。</p>
+<p>对于艺术家而言，从抗战 “救亡” 到内战 “动员”，他们的个人生涯和艺术探索和正在变动中 “革命视觉化” 实践紧密结合，同时也伴随现代国家和现代民族的文化视觉构造。艺术家不但放弃了自身的主体性投入到这一工作中，艺术家也正是在这一过程中生成了自身的主体性：建立视觉经验和审美情态、探索个人的风格。战争时期和新中国时期的中国摄影史，是由摄影群体在战争时期和新中国时期的摄影生涯和个人的生命史构成。他们对于摄影的 “效果论” 的理解，他们驾驭的题材，乃至他们所参与的民族解放和国家建立的情感上的撞击，逐渐地内化于他们的生命经验和艺术风格。东西方文化碰撞的巨大能量，从殖民地状态到建立新中国的精神气质，赋予了这一代摄影者在视觉性的实践探索和理论重建中的历史使命，以及具体的摄影题材和表现方式。摄影不但是这场剧变的记载媒介，而且是这场重建的组成部分。史诗叙事和革命动员逐渐成为他们生涯中被显现的情感结构和艺术状态。以现代主义为主线的艺术家的个人探索贯穿他们的生涯始终，但是往往隐藏在具体的革命题材中。</p>
+<p>从媒介的角度观察，摄影随着战争的推进，逐渐成为了常规性的作战环节，在这一转换中，相对于通常而言的摄影的结果（底片和画报），摄影的过程（拍照现场和拍照行为）成为核心要素。摄影在观看后产生的效用（ “心里燃起一股热力” ），蕴含着中国的摄影在战争的特定情况下，摄影的意义系统从拍摄者转向到观看者，摄影的评价效果也在于对于观看者的情绪的触动和行动的激发。这一拍摄者和观看者的主客体的转换，意味着摄影的主体与观念、题材与语言、媒介与现场都发生了意味深长的置转和重组。“作为仪式的拍照” 和 “革命时期的宣讲式的观看” 成为自战争时期至新中国，乃至今天我们讨论中国摄影的两个核心概念。这种摄影的经验，既转化为摄影者对于新闻摄影工作的认识和个人创作，也转化为新中国时期的摄影机制和新闻摄影理论。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm96sN1LicWibyxxUKfibY5zZ7XulIg1DQib7WABMIbHjvdlYb4KzFQpumoQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>保卫国土，保护家乡</strong></p>
+<p>War of Resistance, Defending the nation, defending one’s home</p>
+<p>沙飞</p>
+<p>中国美术学院美术馆藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmVTmiaiaZw8UTbRVujddVcBtWHqXYvX8bczyXOrKuIppcxXINJ29bX4Tg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1936 年 在前线瞭望的军人</strong></p>
+<p>1936 Soldier keeping a lookout on the frontline</p>
+<p>1936</p>
+<p>方大曾</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmmONgC1xGewBn6vTbNP36DwcUGIa9MyvtIyOE1kicV8PlkImtqEsUxMw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1940 年 8 月，百团大战前夕，聂荣臻召开主攻部队首长会议。（左起）舒同、聂荣臻、杨成武、聂鹤亭在平山吊儿庒</strong></p>
+<p>August 1949 On the eve of the Hundred Regiments Offensive Nie Rongzhen convened a meeting of the main military commanders (from left: Shu Tong, Nie Rongzhen, Yang Chengwu and Nie Heting) at Pingshan, Hebei.</p>
+<p>1940</p>
+<p>沙飞</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmhBhrArJpq2B3YInHgEzI50yE8iaJJ1QZEoia6UvdfNTDOibaWIpC6ibMgg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>战壕里的读报小组</strong></p>
+<p>Group of soldiers reading a newspaper in the trenches</p>
+<p>1939</p>
+<p>沙飞</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmQmYRaZcHn3uTpWQGCbeGZGQKicJTNx5zFAjqIhAY75nfpn209LXugibg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1940 年 8 月，百团大战前夕，聂荣臻召开主攻部队首长会议。（左起）舒同、聂荣臻、杨成武、聂鹤亭在平山吊儿庒</strong></p>
+<p>August 1949 On the eve of the Hundred Regiments Offensive Nie Rongzhen convened a meeting of the main military commanders (from left: Shu Tong, Nie Rongzhen, Yang Chengwu and Nie Heting) at Pingshan, Hebei.</p>
+<p>1940</p>
+<p>沙飞</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmWFhgrvFoVAcXP68ibSaFic5bVepkXQzpHiblJ0ol5ta0fmvdX0zb41PRQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>正太路前线，妇女担架队</strong></p>
+<p>Women stretcher team at the front line, Zhengding-Taiyuan railroad</p>
+<p>1940</p>
+<p>沙飞</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm3k5G1OUezMu3ricgugGMsQGUJbY9zuUpYZRsv6JAIl3Tia6UUoibqNcGQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>哨兵 1938 年 延安</strong></p>
+<p>1938, On sentry duty, Yan’an</p>
+<p>1938</p>
+<p>吴印咸</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmKRW38GZzkPibico8d3Ru7SQnFtDU39RUhcNCGEEqgcEwwEqN99nRmm8g/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1939 年 5 月八路军一二 0 师三五九旅五台战斗后遣返俘虏，日俘唱歌表示感谢</strong></p>
+<p>May 1939 Japanese prisoner sings to the 359th Brigade from the 120th Division of the Eighth Route Army to express his gratitude for being returned to the Japanese after the Battle of Wutai</p>
+<p>1939</p>
+<p>沙飞</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmIAIIF41AxtW5DU9BMmt2I2pTmA4FZtbfJFpQdVkP8TZzeTekgOicMog/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1940 年冬 北岳区反“扫荡”战斗之一</strong></p>
+<p>1940</p>
+<p>沙飞</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmcUNkCgslGFx9K8SlXlNEWc9WicwkrMzIsm7Y6Zatc4AB9gvu6HsmOuQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1942 年晋察冀军区无线电技术高级训练班听林迈可讲课</strong></p>
+<p>1942 Advanced radio training taught by Michael Lindsay in the Shanxi-Chahar-Hebei border region</p>
+<p>1942</p>
+<p>沙飞</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmMDkLA8d9rparcYn8UexmJBb29YbibGBsCFxC1LRLNvuBicNzpdmTDfaA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1943 年 开门战术</strong></p>
+<p>1943 Open door tactic</p>
+<p>1943</p>
+<p>流萤</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmV5tQdhuXjHC9kXYgXG88ickfoSzR416o4L3Zdzz9db3CuHkVDC1x3Dw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1939 年 黄土岭 英勇卫士</strong></p>
+<p>1939 Heroic defender at Huangtu Valley</p>
+<p>1939</p>
+<p>罗光达</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmBEZxmKmB2XN8vKquAxhjRZROkYS4mx7fNe1y5lA8saZ9yjJv37nmng/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1941 年 5 月 联大与抗大举行男子篮球比赛之二</strong></p>
+<p>May 1941 Race at the first students’ sports competition in the Shanxi-Chahar-Hebei border region held on the banks of the Hutuo River, Pingshan County, Northern Hebei province</p>
+<p>1941</p>
+<p>沙飞</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmr3xgcDnMWjh8xic5ENtH1y5a7b5BI6feByqgFnPIkbu6rAJoNIuHK5w/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1939 年 5 月 陈波儿为军事操练的妇女自卫队拍照</strong></p>
+<p>May 1939 Chen Boer taking photos of military exercises by the women’s self-defense troops 1939</p>
+<p>1939</p>
+<p>沙飞</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmvH2ageTS0mV1KGzKF0lKCNGXTibASggibPFT2SVUDHW60CKibxGYibjbew/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1940 年北岳民兵东调。平一区民兵射击训练，抗先队长社德贵在指点</strong></p>
+<p>1940 Beiyue militia shooting practice overseen by vanguard leader Du Degui</p>
+<p>1940</p>
+<p>罗光达</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmBHhLGBXiaqUOoTwhrCeNeWiawSY441rGYdSy8R5Kw70o1Y0qkQib7xQhg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>小机枪手在战斗中成长</strong></p>
+<p>Young riflemen in the making</p>
+<p>年代未知</p>
+<p>沙飞</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm9Z0QIyrygUftbTb9GRUBt2kzAdTynn33EEt4UyhVSicnS8Iwo0BNRiaQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1940 年 百团大战，二团一连连长李永生在涞源三甲村战斗中，一人缴获敌人轻机枪 1 挺，三八式步枪 3 支</strong></p>
+<p>1940 Hundred Regiments Offensive: Company commander Li Yongsheng during the battle for Sanjia Village with rifles seized from the enemy</p>
+<p>1940</p>
+<p>杨国治</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmJyWHfuS8KzqXdGAZEXuTMb2e31iajI0ib6B03leibJ7jO61FEMu2ZcUrg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1943 年 滹沱河之夏：儿童团村口站岗</strong></p>
+<p>1943 Hutuo River in summer: Children’s Corps Village guard</p>
+<p>1943</p>
+<p>李途</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmwhMOJL6KwX6XTIbHeEuZuFXGHsKaOibMnQofbdLBNuK1zfcvTLEjK0w/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1945 年 为八路军赶制军衣的张家口新华毛织厂女工</strong></p>
+<p>1945 Female worker holding military uniforms made by the Xinhua Wool factory for the Eighth Route Army</p>
+<p>1945</p>
+<p>流萤</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4T3qnxtLvlWo8TX7CYqbWHcnibOCzofZ0jSmiaaRoKtdusBc2ZqpjLyA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>街头剧《放下你的鞭子》，抗敌剧社游击区宣传演出，由郑红羽、胡朋饰演</strong></p>
+<p>1941, Street theater titled “Put Down Your Wip” performed by Zheng Hongyu and Hu Peng for guerilla fighters</p>
+<p>1941</p>
+<p>赵烈</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmwoQ29xjXGrz2SZXRI22SQMOfC6NgP40ep7tncRHegGLZJtibmXumwRA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>八路军护士 延安</strong></p>
+<p>Yan’an (China), Eighth Route Army nurses</p>
+<p>1944</p>
+<p>哈里森·福尔曼</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p>购于威斯康星大学密尔沃基图书馆</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmOicMibs1AvL1Uq6kIiauQdZYzNDFxRcM7aekhicSQUibSicEFdJRw0eZoGuA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>手拿地雷的民兵. 延安</strong></p>
+<p>Yan’an (China). People’s Militia member holding land mines</p>
+<p>1944</p>
+<p>哈里森·福尔曼</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p>购于威斯康星大学密尔沃基图书馆</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmeetZjmhPtREOABp9esE5mWGicTNw9SacZXLEtE2U0C0cN4U7FksWkkg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>妇女将一碗水递给八路军. 延安</strong></p>
+<p>Yan’an (China), woman handing bowl of water to Eighth Route Army soldier</p>
+<p>1944</p>
+<p>哈里森·福尔曼</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p>购于威斯康星大学密尔沃基图书馆</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmm4lpQ3xK6SX7BLOicSc71yaQaWrBTePK94TVE69XKqGkGboe2x6CiaXw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>民兵武装分子. 延安</strong></p>
+<p>Yan’an (China), armed People’s Militia members</p>
+<p>1944</p>
+<p>哈里森·福尔曼</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p>购于威斯康星大学密尔沃基图书馆</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmk7ux7tLqn6k6OsIcmIcJnZ2rj0sAmgH3IZS4KGp6N3yJjPYSk6oxIw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>《东方红》系列——第四幕埋葬蒋家王朝——欢庆解散，北京</strong></p>
+<p>The East is Red series —— the fourth scene. The Burial of the Chiangs —— celebrating liberation. Beijing</p>
+<p>1965</p>
+<p>牛畏予</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm3Dqch7AlBtLR27XapScyhEEsbI8YzJAtM5zkmibwApMz44c6mzglmDQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>“跟我走”，新疆</strong></p>
+<p>“Follow me”，Xinjiang</p>
+<p>1960</p>
+<p>牛畏予</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmZpIXESYIlP03xLicvvHesFQ7hCvGyNAHEetIYxNCOL1XnN3JqWsXlTw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>藏民与孩子，四川</strong></p>
+<p>A Tibetan woman and her child, Sichuan</p>
+<p>1960s</p>
+<p>牛畏予</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxms3tjmYCHB4LoVBePW16kvUFscgoJ0R5ZrXNeiaYm2dDHkFdf3SLAGBw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>西藏山南乃东县克松人民公社打麦场上</strong></p>
+<p>In the wheat field of people’s commune  at Kesong, Naidong county, Shannan, Xizang</p>
+<p>1975</p>
+<p>牛畏予</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmHEaO9pkKNC5I5r6ZhCulV5JLc3NM5icXcvDfYcxzuuvkJcdyUmibHJiaA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>女性 11：我国第一个女跳伞员</strong></p>
+<p>Woman 11：China’s first female parachutist</p>
+<p>1950s</p>
+<p>牛畏予</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4iaKTRlibls56C77LicSWuOaTA6mll8Fic5EE7ckiaWmtuTgPZumcYqrWjA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>女性 15：壮族女民兵</strong></p>
+<p>Woman 15：Zhuang militia women</p>
+<p>1956</p>
+<p>吴印咸</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmibOy5OXNzqzGoCUOS3rO6hvPW1gvXWOaarEcibYSU30SHlaYOxvyaUxA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>女性 9：红塔公社的女社员</strong></p>
+<p>Woman 9：female members of Hongta Commune，Sichuan</p>
+<p>1963</p>
+<p>牛畏予</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmkyJNCZiaMDwpRmkYnuhoqZLDTKk895heXic8VSkOdz3voeZ6yic390Wqg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>边疆 18：姐弟</strong></p>
+<p>Border 18：sister and brother，Yunnan</p>
+<p>1957</p>
+<p>牛畏予</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmQEZ4J5NyOwLiauWE6jOYhVCgVK57hAj9VxtiaAFibDyuibGu9juyvsVfvw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>边疆 19：打麦场上</strong></p>
+<p>Border 19：on the threshing field，“Tawa”，Aba，Sichuan</p>
+<p>1963</p>
+<p>牛畏予</p>
+<p>作品由中国美学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmMBmRnFT4XP2esnWeHE5S34WsGZ1JkGgwEMFOTbUBnIX5YJG8NXB7uA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>中共七大会场</strong></p>
+<p>The 7th CPC National Congress</p>
+<p>1945</p>
+<p>吴印咸</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmmgAWOkkoibeVOSqdiapUgFy1e94XcrQAlNCwTZxMHcFU3p4MZdxeicxRw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>毛主席和朱总司令在中共七大会议上</strong></p>
+<p>April 1945, Communist Party Chairman Mao Zedong and Commander-in-Chief Zhu De at the 7th CPC National Congress</p>
+<p>1945 年 4 月</p>
+<p>徐肖冰</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmVxdHPoZWicUPYSaFbbPa9qOu5yIH3iaNH4UdUIFib570Px5ZpH2Xeh4Zg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1944 年 毛泽东在延安</strong></p>
+<p>1944 Mao Zedong in Yan’an</p>
+<p>1944</p>
+<p>郑景康</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmOpOgIVJXRlKp634BeoNx2PkiaRia4Oah5ReJYyVia0pOhqplvaXZdSNiaw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>切断敌人通讯联络，此幅作品与展览于 1987 年的太行山大别山喜马拉雅山（三山）展览，作品信息沿用当时展签说明</strong></p>
+<p>Cut off the enemy’s communication. This work was produced and exhibited at the Taihang Dabie Himalayas (Three Mountains) Exhibition 1987. The information of the works followed the instructions of the exhibition signs at that time.</p>
+<p>1987</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmvprmJEJibxw1L2ELxz6Tic9cemaiaxOFEa9FIeLZJSXJxWG4xFzP41GDQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1949 年 10 月 1 日，开国大典上，人民解放军装甲部队通过天安门接收检阅</strong></p>
+<p>October 1, 1949, On the founding ceremony, panzer divisions of the people’s liberation army received inspection</p>
+<p>1949</p>
+<p>杨振亚</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmtAzEBSCh0icTmbTML1evKQmECs9BiaET749f8kW642CIz2TIpdAbceMg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>“国民党一团糟”</strong></p>
+<p>“Kuomintang in a mess”</p>
+<p>1949</p>
+<p>高帆</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmp8icmfT4ich2topjUjIwVOZTmBiaUmliaobwwNxtPnAiaZ1jicK9VpQ09maQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>北平市民在东长安街三座门看解放军战争形势图</strong></p>
+<p>January 1949, Peiping citizens looked at the war situation map in Sanzuomen, East Changan Street</p>
+<p>1949</p>
+<p>高帆</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmFs5JZqibrrRJtdoGLPNYicuiaUg6Uo4GlLSiayxdSgcdyasUic4Wn4mPoUg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>毛泽东投票</strong></p>
+<p>Mao Zedong voted，Beijing</p>
+<p>1950s </p>
+<p>牛畏予</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmoBE9axxTIIjlvtXicZgTsAg0icSpw1icPf0CkKONYhqTkATth40qia9NDw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>唐克农场.四川阿贝若尔盖</strong></p>
+<p>Tangke farm at Aba Ruoergai，Sichuan</p>
+<p>1986</p>
+<p>高帆</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmm2GusXYmKLFLMwNGZppwROPAqBYick0u6pI0xjZ2gn5ZMIAP2nA2YSQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>丹江口水利枢纽大坝 1</strong></p>
+<p>Danjiangkou hydraulic dam（1），Hubei</p>
+<p>1976 年，湖北</p>
+<p>牛畏予</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4MxafC1ODjqMVpeGCCQUibluykCib8g9ty4XL8Jy9BuK8ibqaEVqBheZA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>毛泽东和亚非拉朋友在一起 2</strong></p>
+<p>Mao Zedong with friends from Asia，Africa and Latin Ameriaca，Beijing</p>
+<p>1959</p>
+<p>牛畏予</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm6WgyovBJmvVw5YWpKZ8b9ibmqlx9z794DibX4vyh5hRRPBCekkRQ51qA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>《东方红》系列——指挥：秋里</strong></p>
+<p>“The East is Red” series——conductor：Qiu Li，Beijing</p>
+<p>1965</p>
+<p>牛畏予</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmquGfqodM3JB1jON25KAic4KIxlrGk4CXEoZ5g3mtvFPtZuXnIryx0xA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>国庆游行</strong></p>
+<p>1950-60s，Parade at the National Day，Beijing</p>
+<p>1950-60 年代，北京</p>
+<p>吴印咸</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4n2fjm0tBlmIesOylDeHDAOdNfrcaEhSrcnF6vLsPaRBMsKjicaQuEQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmsX5ibuvGu3iaAEecDuzDzibj7M21p4rsAo6xGF11218rr3JH9AqwIrE1Q/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1965 年国庆节，刘少奇主席在天安门主席台上</strong></p>
+<p>October 1965，President Liu Shaoqi stood on the Tiananmen rostrum on the National day in 1965</p>
+<p>1965 年 10 月 北京</p>
+<p>袁苓</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmeEkvM7mfVibWeLVdEALibyiaNiazMCibLH554eRaS8U1pbflibHTIY3VqibKw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>“毛主席最新指示宣传组”</strong></p>
+<p>“Chairman Mao‘s latest propaganda group”</p>
+<p>1960-70s</p>
+<p>刘峰 Liu Feng</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmBS3fqR22hQCJsxBR6SF2TaWI5ia3MgFTSXOTlz0NnbLpM27BuZBEWuQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>宝塔山下</strong></p>
+<p>Under Baota mountain</p>
+<p>新中国时期 the New China period</p>
+<p>吴印咸</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmHfu4HrNqZznU6Fa0RLxa9y6R6hZ23NrAOcWnpbBCjRnc6Gr7G1iaviaA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>出席军事活动的邓小平</strong></p>
+<p>Deng Xiaoping at a military event</p>
+<p>1984</p>
+<p>高帆</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmmnKqJribV51ThdIuicHia33RMm28MYHAQVRSXBwoIc834YvbwI7icsr2oQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>厦门鼓浪屿，拉小提琴的男孩</strong></p>
+<p>Boy playing the violin on Gulangyu Island</p>
+<p>1973</p>
+<p>牛畏予</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm0JxR90MWAtUFy1FVVEnuibXCNgUdwvm1ibVibEQcXpOuWiacSrDJHrDCwA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>勘探队队员在雪山里做早操</strong></p>
+<p>Exploration team doing morning exercise on snow mountains</p>
+<p>1975</p>
+<p>牛畏予</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmcyvSsymIcE85b7H3gk6L425p8HEiauMkoa9PaeTdTl0Bbo5R4PUL2rA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>国庆十周年，北京</strong></p>
+<p>The decennial of National Day，Beijing</p>
+<p>1959</p>
+<p>牛畏予</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm0k3047UvTIa7FvGJkC1Nnzen8LhwTe37dic9QribetpXBLMkVapqVGPg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1959，北京，新建成的人民大会堂</strong></p>
+<p>Newly-build Great Hall of People，Beijing</p>
+<p>1959</p>
+<p>牛畏予</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><strong>1938 年的武汉：画笔、刻刀、歌声与摄影机</strong></p>
+<p>文 &#x2F; 高初</p>
+<p>这是一个围绕 1938 年的武汉的五年的研究和展览计划，是一份策展的提案。第一幕 “交错的世界，未完结的二十世纪”，讲述伴随难民而来到战时的武汉的艺术家的故事。第二幕将讨论艺术家们转移的方向，同时也折射着人生的不同境遇，走向延安的艺术家们与新中国美术史的开端，以及转移至重庆、香港的艺术家的于民国时期美术史的回响。第三幕是一部双城记，同时在武汉和马德里讨论 20 世纪的历史结构，艺术创造、国际主义和革命理想。</p>
+<p><strong>离散 &#x2F; 码头 &#x2F; 双城</strong></p>
+<p>大半个中国已经沦陷。数以千万的难民迁移而途经武汉。青年学生和艺术家在这一次大迁徙中，通过歌声和一个城市的展览场化解着绝望。这是在一个绝望的城市的一群人，在必败的迁徙中焕发新生的时刻。也是一个国家，一个民族重新凝聚的时刻。</p>
+<p>曾在 1936 年聚集马德里的人，在 1938 年来到武汉，使得这座被称为 “东方马德里” 的城市，和前者共同写就这一时期历史的风暴眼和文化创作现场的双城记。“从马德里到武汉” 的征途上，尤里斯·伊文思继反映西班牙内战的《西班牙的土地》后拍摄了反映中国抗日战争的纪录片《四万万人民》，罗伯特·卡帕在西班牙前线拍出成名作《共和军战士之死》后将武汉一名 “保卫中国的战士送上了《生活》杂志的封面。除此之外，参加过西班牙内战的大卫·柯鲁克和诺尔曼·白求恩，以及包括安娜·路易斯·斯特朗、访问过延安的史沫特莱《纽约时报》记者蒂尔曼·德丁、《伦敦新闻纪事》记者阿特丽等人在内的众多国外记者，都于此时汇集于中国或武汉。国际人士的在场和参与，不但使得 1938 年的武汉成为了世界史研究中的重要节点，也在上述知名国际人士的生命史中留下了印记，“1938 年的中国 &#x2F; 武汉经历” 对这些自外部而来、此后又向外部四散开来的生命有着怎样的影响，“1938 年的中国&#x2F; 武汉” 是否经由对这些人的影响而在国际范围内散发着更加持久而深远的魅力，亦是值得探讨的问题。</p>
+<p><strong>中国电影史和摄影史的关键篇章</strong></p>
+<p>经周恩来的安排，荷兰导演尤里斯·伊文思在 1938 年武汉的某个夜晚将两台摄影机秘密地交给吴印咸，黑暗中看不清彼此的面孔，两人握了握手。这两台摄影机由吴印咸带到了延安，就是延安电影团的开始。与此同时，国民政府的官方通讯社中央社的重要记者俞创硕在武汉拍摄武汉会战，国民政府国际宣传处摄影室主任郑景康亦在武汉留下了大量作品，并因渐渐不满于国民党对于摄影的利用方式，而最终觉得前往延安。周恩来秘书的童小鹏 1938 年于武汉也拍摄的八路军办事处的不少照片。而抗战时期边区最为重要的几位摄影者，如石少华、高帆、吴群均是经由武汉前往延安，又到了战场前线从事摄影。</p>
+<p><strong>均无留存</strong></p>
+<p>如丁正献先生的女儿所回忆：“1938 年春，父亲刚从上海美专毕业，应恩师倪贻德之邀，赴武汉参加周恩来、郭沫若领导的政治部第三厅，从事抗日美术宣传工作。作了大量宣传画与油画。但均无留存。”</p>
+<p>“均无留存”，正如黄鹤楼壁画一样，如何通过文献和这只言片语重新打开这一段美术史？或者说，倘若艺术家放下画笔，先去和市民们唱歌。他们的这段经历如何内化于之后创作之中？而1938 年的艺术家的构造能力，是否正在艺术创造之外，而恰在整体展演的媒介场之中。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmqnsvT78u2jq6Yf5OQnf2VL4O90ibsBnRbUbH7RibvCibu9AIuc3EnD0Mg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1943 年 丰收</strong></p>
+<p>1943 Bumper harvest</p>
+<p>1943</p>
+<p>郑景康</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmLSTicmpLAnWlibLSFotm2LzuxrRN89l2luLPFnwYKCofMMLvlkXjGwRg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1943 年 打谷场上</strong></p>
+<p>1943 Threshing floor</p>
+<p>1943</p>
+<p>郑景康</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmGAjSSBecG5D0ibv4aZt7K6Y2C9piccKMBb1X4XiaYWeSRuaRr3V9T3uwQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>1938 年，毛泽东在抗日军政大学做《论持久战》报告</strong></p>
+<p>Mao Zedong delivering a report titled “On Protracted War” at he Chinese People’s Anti-Japanese military and Political University. Yan’an.</p>
+<p>1938</p>
+<p>徐肖冰</p>
+<p>数字微喷 Inkjet Print</p>
+<p>作品由中国美术学院美术馆收藏</p>
+<hr>
+<p><strong>白求恩：从马德里到华北</strong></p>
+<p><strong>三个中国摄影师所拍摄的白求恩</strong></p>
+<p>文 &#x2F; 高初</p>
+<p>本文刊于北京塞万提斯学院-西班牙文化中心和中国摄影文献联合主办的展览《白求恩：从西班牙到中国》（2018.12.13 - 2019.2.28）的前言。此次展览是白求恩三部曲中的开篇，聚焦于白求恩的生命史。</p>
+<p>白求恩三部曲的第二幕是即将在中国美术学院美术馆举办的展览《白求恩：战士、医生与艺术家》。</p>
+<p><strong>双城记：从 1936 年的马德里到 1938 年的武汉</strong></p>
+<p>发生在欧洲的事件：政治与艺术，战争与伤痛，激荡的争论与个人的命运交织在一起。而在亚洲，苦难也早已成为艺术家最本能的经验。</p>
+<p>1938 年，作为交通中转站的武汉，无论搭乘火车轮船还是步行，亿万的难民从这里经过。青年学生和艺术家们在这一次大迁徙中，通过歌声和一个城市的展览场化解着绝望。在这情感饱满的时刻，民众在必败的迁徙中焕发新的斗志。城市的歌声伴随着前方战场无休无止的枪炮声，而放下画笔和刻刀，带领市民唱歌的年轻艺术家们，因战争而重新建立起对于艺术的理解。</p>
+<p>时代的声音和无名者的私语交织在一起。</p>
+<p>诺尔曼·白求恩就是这时，抵达被称为 “东方马德里” 的武汉。和他有相似经历，从西班牙战场转到中国战场的人还有：尤里斯·伊文思、罗伯特·卡帕、罗曼·卡尔曼、奥登、朱利安·贝尔、安娜·路易·斯特朗…</p>
+<p>在这次以摄影为主要文献的展览中，拍摄了白求恩最著名的那张照片的摄影家吴印咸，在武汉的桥洞下接过了<strong>伊文思</strong>的摄影机和胶片，开创了中共电影史的新篇章。而另一位不那么引人注意的摄影家、更多作为艺术干部而被了解的罗光达，正如千千万万的有爱国心的青年一样，也经由武汉前往延安。</p>
+<p>命运如此交织。信念与行动相伴。</p>
+<p><strong>白求恩：和毛泽东的碰面，去华北前线</strong></p>
+<p>或许如白求恩的助手琼尤恩所回忆的，“… 毛泽东与白求恩像兄弟似地拥抱在一起了”。但无论如何，在一张他们的合影中我们可以观察到微妙的情绪。而此外，则是在白求恩去世一个多月后，毛泽东所撰写的著名的《纪念白求恩》一文的巨大影响力。</p>
+<p>他们交谈的一幕，被几位油画家所描绘，又通过宣传画的大量印刷，和被诵读的文本一同成为中国人的深刻记忆，并使得加拿大在那个时期成为少有的被普通中国人所知晓的西方国家。作为新中国时期重要的艺术创作题材的白求恩，他的英雄故事的视觉建构和政治形态始终紧密纠葛。</p>
+<p>白求恩认为他应该在前线工作，作为一名经验丰富的外科医生，他曾经在 49 个小时内连续为 71 位受伤的战士进行手术。这是他的自我期许。</p>
+<p>从某种意义上，白求恩是一名医生，但也是一名患者。正如他的书信所提及，献祭自己才能在欢愉的毁灭里重生。焦躁、自毁、写着没有回音的信，大量的战场前线的手术。在这一非凡的，令人尊重的行医经历中，职业化和革命化弥合。治病救人，对于白求恩而言，这不仅自我圣化的过程，也是革命的隐喻。无论如何，这是他人生中的一段特殊的时光。</p>
+<p><strong>葬礼、隆重的悼念：战时摄影机制的生成</strong></p>
+<p>白求恩在去世之后，以一种前所未有的方式和规模被塑造成一个英雄。美术、摄影、雕塑等方式的艺术创作，伴随着政治仪式而被充分激发。1939 年，正是边区的中共政权逐步理解并大量运用作为现代性工具的摄影的关键时期。抗战初期，中共方面只有不多的几位摄影者，其中就包括拍摄过白求恩的沙飞、吴印咸、罗光达。很快，这个队伍迅速扩大，一名摄影者能够培养上百名随军摄影战士。摄影训练班的开展提供了一套摄影者的培育系统和图片评价标准，也提供了一套图片拍摄、传播和观看的现代意义的图像生产方式。</p>
+<p>战争时期摄影正是新中国摄影史的序篇。新中国摄影话语的建构，是围绕着对于战争时期摄影话语的吸纳、转化和改造展开的。这不但是因为革命时期产生的图像政治意识形态,以及作为核心题材的战争和生产共同蕴含着“劳动”、“超越”和“新人”,也和拍摄者在他们最重要的摄影时期所奠定的经验、方式乃至风格密切相关。</p>
+<p>白求恩正是一个英雄的故事的讲述。这个故事的内容成为事件、传记、历史与神话，而这个故事被讲述的方式，随着时间的推移与累进，变成了一整套行之有效的图像制造与传播的模式，即战时摄影机制的生成。</p>
+<p><strong>作为历史的图像</strong></p>
+<p>在整理战争时期的摄影档案时，我发现了一些白求恩的新的图像，并且意识到，这不仅是三个摄影家生涯中的一组有交集的专题，而且也是正在生成中的战时摄影工作机制的一个标志性事件。</p>
+<p>这些材料不但成为 2015 年出版的图录的一个章节，也随后和几位同仁合作了另一个展览和研讨。在之后的三年里，关于白求恩的阅读讨论和对于北美档案馆和图书馆存留白求恩的文献的整理研究始终持续，如今这些工作终于有机会展览出版。</p>
+<p>被英雄叙事所遮蔽而被试图重新打开的白求恩，他到底是谁呢？医生，战士，英雄，业余艺术家，抑或其他。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmV1uWa1LRZ5mnZuuiclEzSrcqm4HTClMyRbz49jobxN2iaFUfa3Ty95fw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>白求恩在山西五台松岩口模范病室动手术</strong> </p>
+<p>Norman Bethune operating on a wounded soldier in a model ward in the village of Songyankou, Wutai Mountain, Shanxi Province</p>
+<p>1938</p>
+<p>沙飞</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>沙飞家属保存，这张原始底片一共印放过三幅照片，这是其中的一幅，另两幅分别藏于国家博物馆和广东美术馆。</p>
+<p>Preserved by Sha Fei’s family, One of the three photographs developed from this negative film. the other two collected by the National museum of China and Guangdong Museum of Art respectively.</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4J9Y7j2icfYG4vz0pgria7xABodl31g9h6xsb1u324d4XUPC06MN0qcw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>白求恩在游泳</strong></p>
+<p>Norman Bethune swimming in the river</p>
+<p>1939</p>
+<p>沙飞</p>
+<p>数字微喷 Inkjet Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm2ibQep7ocqzt3etJXib0BIL6biazI6G0nsASUp88U4EDZlOBKtT6JYN2w/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>白求恩在河北涞源孙家庄小庙给伤员做手术</strong></p>
+<p>Norman Bethune operating on a wounded man in a samll temple in Sunjiazhuang, Laiyuan District, Hebei Province</p>
+<p>1939</p>
+<p>吴印咸</p>
+<p>数字微喷 Inkjet Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmOLtRth95ePULljJMNibO9PlzyiaDicjpibqiau4Za2Bhic7TG5NpzTbBl5ew/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>白求恩穿着加拿大救援制服在写作</strong></p>
+<p>Bethune is writing, he is wearing the uniform of the Canadian rescue</p>
+<p>1937</p>
+<p>Hazen Sise</p>
+<p>数字微喷 Inkjet Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmGATphBoW9WZcJR8Szbu0yqWKQDxTd8P60dVeuohX95VA0X9grib7cNA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>诺尔曼 · 白求恩</strong></p>
+<p>Norman Bethune, Madrid</p>
+<p>1937</p>
+<p>Hazen Sise</p>
+<p>数字微喷 Inkjet Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmWCRhuCT6JSXDCiayo2dkHCianUlFAZBk6S2up3UkFTsic30gVfHRUtBUA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>这是迄今为止所能看到的唯一一张毛泽东与白求恩的合影，拍摄于 1938 年，延安。</strong></p>
+<p>This is so far the only known photo in which Ma Zedong and Norman Bethune appeared together, taken in Yan’an in 1938.</p>
+<p>1938</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p>此照片由白求恩朋友莉莲的儿子比尔先生提供</p>
+<p>The photo was provided by Bill, son of Bethune’s friend, Lilian.</p>
+<p><strong>纪念白求恩</strong></p>
+<p>毛泽东 1939 年 12 月 21 日</p>
+<p>白求恩同志是加拿大共产党员，五十多岁了，为了帮助中国的抗日战争，受加拿大共产党和美国共产党的派遣，不远万里，来到中国，去年春上到延安，后来到五台山工作，不幸以身殉职，一个外国人，毫无利己的动机，把中国人民的解放事业当作他自己的事业，这是什么精神？这是国际主义的精神，这是共产主义的精神，每一个中国共产党员都要学习这种精神。列宁主义认为：资本主义国家的无产阶级要拥护殖民地半殖民地人民的解放斗争，殖民地半殖民地的无产阶级要拥护资本主义国家的无产阶级的解放斗争，世界革命才能胜利。白求恩同志是实践了这一条列宁主义路线的。我们中国共产党员也要实践这一条路线。<strong>我们要和一切资本主义国家的无产阶级联合起来，要和日本的、英国的、美国的、德国的、意大利的以及一切资本主义国家的无产阶级联合起来，才能打倒帝国主义，解放我们的民族和人民，解放世界的民族和人民。这就是我们的国际主义，这就是我们用以反对狭隘民族主义和狭隘爱国主义的国际主义。</strong></p>
+<p>白求恩同志毫不利己专门利人的精神，表现在他对工作的极端的负责任，对同志对人民的极端的热忱。每个共产党员都要学习他。不少的人对工作不负责任，拈轻怕重，把重担于推给人家，自己挑轻的。事当前，先替自己打算，然后再替别人打算。出了点力就觉得了不起，喜欢自吹，生怕人家不知道。对同志对人民不是满腔热忱，而是冷冷清清，漠不关心，麻木不仁。这种人其实不是共产党员，至少不能算一个纯粹的共产党员。从前线回来的人说到白求恩，没有一个不佩服，没有一个不为他的精神所感动。晋察冀边区的军民，凡亲身受过白求恩医生的治疗和亲眼看过白求恩医生的工作的，无不为之感动。每一个共产党员，一定要学习白求恩同志的这种真正共产主义者的精神。</p>
+<p>白求恩同志是个医生，他以医疗为职业，对技术精益求精；在整个八路军医务系统中，他的医术是很高明的。这对于一班见异思迁的人，对于一班鄙薄技术工作以为不足道、以为无出路的人，也是一个极好的教训。</p>
+<p>我和白求恩同志只见过一面。后来他给我来过许多信。可是因为忙，仅回过他一封信，还不知他收到没有。对于他的死，我是很悲痛的。现在大家纪念他，可见他的精神感人之深。我们大家要学习他<strong>毫无自私自利之心的精神。从这点出发，就可以变为大有利于人民的人。一个人能力有大小，但只要有这点精神，就是一个高尚的人，一个纯粹的人，一个有道德的人，一个脱离了低级趣味的人，一个有益于人民的人。</strong></p>
+<hr>
+<p>历史上，总有人慷慨无私、舍己为人，他们超越了特有的意识形态、宗教信仰或政治倾向，为一个信念奉献一生。他们的信念决定了其人生道路，并引导他们不断帮助他人。所有渴望改变世界的年轻人都应该以他们为榜样。</p>
+<p>白求恩便是其中之一。他毕生致力于为弱势群体服务，先后在祖国加拿大、西班牙和中国行医，最终于中国去世。</p>
+<p>他出身医学专业，是北美地区当时著名的结核病医生。他尤其关注底层人民，并首次向政府提议了公共医疗卫生计划，几年后该计划在加拿大得以推行。</p>
+<p>1936 年 7 月，由希特勒与墨索里尼支持的西班牙弗朗哥将军挑起了反对共和国政府的内战。  全世界的目光都聚焦在了西班牙，这被认为是法西斯主义愈发猖獗后民主政府的首次抵抗。白求恩放弃了优越的职业环境与社会地位于同年 11 月抵达西班牙，开始为共和国提供医疗服务，还组建了将血液输送至前线的先锋小队 “加拿大输血队”。  1937 年 2 月，法西斯军队围攻西班牙南部城市马拉加。民众由于害怕法西斯势力的反扑而纷纷逃散。整整一个星期里，全城十五万人经受着来自地面和空中的袭击，还有由德国和意大利军队援助的反动军队投来的海上炸弹袭击。白求恩和他的加拿大同事们第一个站出来救助逃亡的居民。</p>
+<p>5月底,白求恩返回加拿大为西班牙共和国筹集资金…</p>
+<p>为了筹措资金支持在西班牙的项目，他在加拿大与美国各地竭力奔走呼告。然而，1937 年 7 月日本侵略中国时，白求恩明白中国更加需要他作为医生的帮助 “西班牙和中国参加的是同一场战争。我要去中国，我觉得那里的需求更为迫切，在那里我会更加有用。”</p>
+<p>在纽约筹集资金后，他于 1938 年 1 月抵达香港，并在艰难漫长的跋涉后于 6 月抵达了八路军的总部……</p>
+<hr>
+<p>今晚这依旧苍白的月亮，那么宁静、清澈而高远，映照着我们黯然而焦虑的目光啊，这挂在加拿大上空的凄冷的圆月</p>
+<p>支离破碎的西班牙的山峦上，昨夜，挂着一轮炙热耀眼的月亮,在明亮的外壳下,隐着亡者满是血污的面颊</p>
+<p>仰望这轮圆盘，我们攥紧了拳头，对着众多无名的死者，我们重新起誓，“战友们，为自由和未来而战，为人类福祉而亡，将永远被铭记”</p>
+<p>​                                                        —— 西班牙局势恶化，1936 年 10 月 17 日，佛朗哥军队向伊列斯卡斯发动了攻势。白求恩写了这首《红月亮》表达自己的感受。</p>
+<p>And this same pallid moon tonight, Which rides so quietly, clear and high, The mirror of our pale and troubled gaze, Raised to a cool Canadian sky.</p>
+<p>Above the shattered mountain tops, Last night, rose low and wild and red Reflecting back from her illumined shield, The blood bespattered faces of the dead.</p>
+<p>To that pale disc, we raise our clenched fists, And to those nameless dead our vows renew, “Comrades, who fought for freedom and the future world, Who died for us, we will remember you.</p>
+<p>​                                                             —— The situation of Spain got worse, on October 17, 1936, Francos army launched an offensive attack against Illescas. Norman Bethune wrote down “The red moon”to express his feelings.</p>
+<hr>
+<p><strong>华北一个村庄的革命：柯鲁克档案</strong></p>
+<p>文 &#x2F; 高初 王烁</p>
+<p>柯鲁克档案作为一个章节,有其特别的意义。</p>
+<p>围绕革命史研究的视觉材料的收集是一项艰难的工作。如果侥幸得知档案的线索，并且恰逢好的机会，或许得以在档案馆调取案宗。如莫斯科的俄罗斯国家与社会政治历史档案馆所存中共红军时期和工人运动档案、胡佛档案馆所存 Alexander Hochman 和托派档案、台湾国民党党史委员档案馆存国共两党的图像档案等。但围绕革命的视觉材料的研究，尤为需要通过生命史或是家族史的方式进行。而档案的汇集、整理和研究，往往也和口述史的方式密切相关这种借助私人留存的文献（民间档案 &#x2F; 浮游档案）进行研究的过程不仅是史料的收集方式，也是以研究者的情感的积累过程。在和王烁女士的共同努力下柯鲁克的家族档案已陆续结集 40 余卷。而这些工作要回溯到 2011 年 2 月高初和柯鲁克家长子柯鲁先生的一封通信：</p>
+<p>“我在等待春暖花开的工作重新开始的第一日，给您写了这封信”，“今年我最重要的时间和精力的安排已经安排给您的母亲伊莎贝尔柯鲁克，我期待她宝贵的记忆能够保留下来。”… “从 3 月到年底的时间里，我但愿每隔几天（或是连续几周）都能有 1 个小时的时间和您的母亲谈谈她的经历，以及这些图片。我期待我们见面并谈及下一阶段的计划。”</p>
+<p>在 2011 年秋到 2012 年初夏，每周一和周四上午十点，我们会来到伊莎白·柯鲁克家里，请她一张张地观看已故去的大卫·柯鲁克六七十年前在中国拍摄的照片，并讲出每一张照片能勾连起的任何回忆。1947 年底，柯鲁克夫妇带着英国共产党的介绍信，从利物浦乘船到达天津，以国际救济署工作人员的身份进入华北村庄十里店，考察中国共产党正在进行的土地改革。人类学在读博士伊莎白和想成为记者的大卫在十里店住了大半年，在此期间，大卫拍摄了近千张照片，细腻地记录了这个传统而典型的华北村庄所经历的重大变革，以及变动中的日常生活。作为土地改革这一历史事件的另一亲历者，伊莎白在六十多年后重新观看、审视当年留下的照片，除了凭强大记忆力而唤回的当时情形，还讲述了自己半个多世纪以来对土地改革乃至中国革命的不断思考和未曾停滞的重新认识。</p>
+<p>大卫·柯鲁克 1947 年底至 1948 年夏天在十里店拍摄的照片是我们进入这位英国共产党员留下的影像资料的起点，其实他在更早的 1938 年就到了上海，1940 年夏又去了成都，因此，日据时期的上海、国民政府时期的西南、共产党统治下的华北构成了大卫摄影生涯的主体。1938 年，当时正在西班牙执行特工任务的大卫被派往上海继续监视托洛斯基派，而在此之前，这位出生于伦敦犹太家庭、毕业于哥伦比亚大学、被学生运动和有关苏联 “工人天堂” 的读物改变了 “当百万富翁” 梦想的年轻共产主义者已参加了国际纵队，在西班牙内战中负过伤。他在上海伪装成圣约  翰大学的一名教师，一边执行特工任务一边观察这座城市，在西班牙做特工时的伪装身份——记者——使他善于用镜头记录下对他有所触动的人和事。1940 年，当和克格勃上级失去联系后，他决定前往 “大后方” 去看看内陆中国，于是长途跋涉到了成都，并在那里遇到了今后的妻子、出生在成都的传教士家庭女儿伊莎白。在成都及其周边地区的一年左右时间里，大卫拍摄了那里的耕作、寺庙、街道、人群，并特别注意战争对人们生活的影响：大量关于 “漫漫长夏中几乎每个晴天都会发生的空袭的照片，还有摄影师自己制作的 “空袭”、“战争状况下的农业中国”、“战争影响下的食物状况” 的专题小册子，黑卡纸上贴上照片，写下摄影师对这类问题的观察与理解——“粮食是限量供应的吗？”</p>
+<p>随着访谈和研究的深入，我们发现照片只是围绕着大卫及其家庭的档案资料的冰山一角。柯鲁克一家与中国和中国革命紧密相连而且很多家庭成员都有写信、写日记或做笔记的习惯,因此在不同时期留下了大量与当时社会状况相关的珍贵记录。单就大卫的摄影作品而言，除了照片之外，还有他当年用打字机为每张照片做的文字说明，底片的冲印小样及各种注释，用卡纸制作的针对不同专题的图文并茂的小册子，有关照片的各种手稿，拍摄发生的日子里留下的日记、书信，以及和本书华北农村卷紧密相关的《十里店》一书的未曾发表的原始书稿。这个形式丰富、时间跨度长达七十年的原始资料体系，若能被很好地整理发掘，不但可以理解一位国际共产主义者、一对后半生在中国度过的英国共产党夫妇眼中的中国革命，也可以从中窥见国际共产主义运动和从上世纪初至今社会变革的线索。</p>
+<p>直至今年的柯鲁克自传的翻译出版和文献集的整理结集，这项工作已做了将近七年。我们与这个家庭素昧平生，一个偶然的机会使双方彼此了解，之后全家人给予了我们巨大的信任与支持，才使得这个项目得以延续至今，稍有成果。时隔六七十年，当年留下的手稿有的已开始涣漫不清，纸张也面临着支离破碎的危险，为了更好地保存信息和进一步利用这批资料，我们经常要将部分资料原件借出，带回工作室进行整理和扫描。柯鲁克一家以无比的信任和分享珍宝的宽广胸怀将一箱箱原始资料交到我们手上，从未催促归还。与伊莎白·柯鲁克的访谈和交往伴随我们度过了 26 岁到 30 岁的时光，而这四年是她 96 岁到 100 岁的四年，集中进行口述访谈的大半年里，她将一周两天里精神最好的上午留给了我们，热情地回顾自己早年的经历，以及近年来对中国社会的思考。在一些问题上，我们展开了认真、坦诚、深入的讨论，即使最终未能说服彼此，也觉得收获颇多。除伊莎白外，我们还与柯鲁克夫妇的三个孩子柯鲁、马凯、鸿冈围绕这批材料进行过多次讨论会，获得了各种帮助，也被他们参与社会事业的热情所鼓舞。</p>
+<p>自 2012 年至 2014 年，围绕十里店的档案考证高初也在村庄里断断续续地住了八个月。这些照片成为敲开每一家门的钥匙，外国革命者曾经历和观察的激荡中的华北农村的笔记和图像，逐渐在采访中转化为村民的生命史、家史、宗族史和村史。藉由这些档案，自下而上地重新理解和写作传统中国、革命中国和现代中国在一九四零年代末的丰富状态成为了可能。对于每一位村民而言，或是对于这个不起眼的北方的小村庄作为整体，“关于未来的正义” 的概念，如何转化为政策及其执行，如何被理解和接受、应对和修正，也许折射着更为复杂的面相。“革命” 这个语词在村民那里毫无意义，他们怎么理解突然间来的这些人，理解他们做的事，理解一种不一样的观念；甚至他们自己不理解的时候，他们的后代是否能突然间对于已经发生了的生活的巨大变动，有一个追认的理解，这些是我所关心的问题。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmEYUzg2VwHicNNWnMByPIX4OgRKZMmqwhOvblNo0fZeJsZqwr308bkUw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>陈永贵</strong></p>
+<p>Chen Yonggui</p>
+<p>1960s</p>
+<p>高帆</p>
+<p>明胶银盐 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmLRCXapiaEJd4VTyafs6ibUxLSFwZVZjzoVZJiczJ3bnU1t9FpaNVFmLrg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmZ32c4Pu8oFkOQiakbYJXicAQricCO2Vwia5IOUrJVa70q0icEjYzuMbxlKw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmgQSszJSlY3mKdHaXYUAiaOPM0InlIicibMz5ZOwuntA2APXQj9uaFwpGA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmiauBvibBQMGiboebnicDlibib8I8q9vQsRfDBTMqkcib9OmkyEwCicqkjkQ69w/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmWwz47SBTjjAHG8hKP9n55yKftbIJ17AMiaVmoiaTEKHaJHBNOx4YEicXQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm5Z36bgTxYNkXQekXicozv1UMScw1wX3CCNhFWeohNibh8HEQMwia0flgQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmrBPibFVcVuCG93SraaKDYSJbM77ibfAuajZOZd5eD2Wz0tA5cMayCBCw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm5Dneck1P4e05VFwwA7YukkGEjRlQC2M2TApzosXOOafia4x17Qndhyw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmSxjN5JXvqanqF3D7tnaxkwwlCW5zq9EfIsmfBD0HrnJDaQqOLBSibfQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmxjQHJwAMtXMlGQa0v4lWIQkKpGSFVnxdSfg9tKcUiaWN9IS6c4ILpxw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm9bF1q2WjK3GYmJLYut0AXA3pyyhJdtktGFyLb3ZUicZMfU3ku9kINsQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmj96BOYG4bS6ENyia52IpZ0PAgPdk8WXNux6ZMGuy7P6MjOIiaic1fu3Gw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmNhp5HmwvotTqLicpU2KZjfBXFJWxk6zFFiad0V1Qm7Mjbj6oU3X4A1VA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm8WjhLbOCwFUgR6zIB1B81WKJduu5SvsASz753DlLdd4LLgBlnnOMsw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmnSnic6525nFBiarsRucichvsBeZPvwfKuKUBPoV6PTtzetMQoGE2LmC3g/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmuvOS9SCIxGKKZZKibgibHTrImeRBhbibGUZdsp3zYToOgWVSL3cfTSTYw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmbPY4mnaY5SqGicvqKysDTOobQmexC0YqvUUfBsXVSVrLKWE6D9BYKhw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmbToIiazXYnupnAjrwRPMvABMiaw2fpZbRD6e9YWVeic08hv5yFg0lZpTA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmyyIzL4YDSzC4gWTgfypgLLwtibwQSdcE4HibKQaejPwAibMljhZP9gPiag/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmQEpboib15Iz8MACfVZMHvlOa3rR1QnD7htIVMKmAxMOfICEdXYWpcYw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmpEnEk6JzVW988iapd682jHzypEVYE7IPqzE4ZXIxRPHy08gAfUaJbVA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmsnh4KRdzngg2OgNPAUAJC5oWtmCSHa4ElAcicBE1x1GNKP7h2JwQTjg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmO63icspviaG4Ry7yyAZuuxkYaPQ5IQkAibAbqL13HVhxtaVTR2YibBLWFA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm8GYSw7nphMDauKS2I5HM4RCPpAzYIwtwib6mdVcVdc8afqDic7jFogwQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm6XeZWqPYLGCqMwse1XfQHcjYCpCQRHUl8LTNEI8L3wCTLSbibFub7Ug/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm3p3KffeJLBIa4qB5360ibzAgYEeSLxXkh6BwbEx3zBVATDAGVrdlV9w/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmVghpdCdMbMxPGwNtjYWQOPFspGX7AIiaxiaoQXLdiahI7H0j7Bnpug95g/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmE6dZltq6wkGjiazTmEBOG3jcnXNzgvodueJLN8lg3WVvEqibt1KgsCzA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmMHFcMiaZZiaD21hksua6eA5FwrmZUJP7WLDictQjXiamTMMazQG5OoP01g/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmlqpUM75NFnpx2meBZEdyABsXIRFDQl2gkyPfEwFu7CucLhputh80kg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmiabsX80aBQCWDSkNxsvrD3asr963ibmOCG9V2yQercumlULXxHDJZsCQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmXdTl3TcTOeygEMQLXHtXJoSha4drn43ysYS5Swv4dfS8kP7mVXbbzw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmqxibUCDLMWff9cTSCS8lvZ4VVicYlNQT0MibA9AR1pPvlH2elPNcEwWew/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmWo1cDdEnZ5JkXib9aJwibcycbFDYF4m5XxMORn9A77eBYTeTtdXep6Yg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmA16cuicGL5Tft5LRxr1HunR8RE4iaRWEhkaojkiaevoVHlMgPBwXWmoCg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmRMibM2WtJLbRYumshBN9v11sQ1gza7N5nI7uV4syeVPpw0amTGkPgLg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmroqsgOlTrzXS9Q36TSqH28afxIicAalC6typMwtGCYDlpwmUnAeibOPQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm6jgprrlddu0tfJNgab9zOkgM7icNo0Skpu4iaCsicTgOiabwhP8df8eb1Q/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmCkODINg0cBUaOlCmiauQR85WV7xOgTZXgUSUcy42r2jOtzicHicriaehiaw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmh0PZekwILXMy2tJ4oje2lw7zN2gicPkKfywY4uoDrLG81nyWcqN54BA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmK679Jiatk1ztYc5ickzg4icyJesfMdyFIoiaFMvicvUZic67XHzERGA32KxA/640?wx_fmt=jpeg" alt="img"></p>
+<hr>
+<p>早期中国影像：来华西方摄影师的行旅和照相馆业的兴起</p>
+<p>文 &#x2F; 徐家宁</p>
+<p>摄影术在中国的传播路径大抵是从南到北从沿海到内陆，在这一过程中，那些扎根当地的商业摄影师们扮演了重要的角色。</p>
+<p>虽然于勒·埃及尔（Jules Alphonse Eug ene lter）1844 年就在广州从事了摄影活动，但并没有在中国埋下摄影的种子，反而是耕耘在香港，这座在第一次鸦片战争后成为英国殖民地城市的摄影师首先点燃了传播的火种，其中的佼佼者就有英籍摄影师约翰·汤姆逊。他最初来到亚洲是在新加坡拍照，后游历东南亚最终落脚在香港经营了一家非常成功的照相馆。1870 - 1871 年放弃了红火的照相生意，开始游摄中国。随着香港照相业的饱和，大批摄影师移师广州开拓广阔的中国市场，比如美籍摄影师西尔维斯特·达顿（Sylvester Dutton）和文森特·迈克尔斯（Vincent Michaels），他们 1863 年抵达香港，接收了朋友弥尔顿·米勒（Milton Miller）的照相馆，同年就搬去广州。走类似路线的还有与汤姆逊同时期的威廉·普莱尔·弗洛伊德（William Pryor Floyd）和埃米尔·日斯菲尔特（Emil Risfeldt）等人。厦门作为最早开埠的城市之一，摄影术也于 1860 年代踏足，继而抵达台湾。这不得不提美籍摄影师圣·朱利安·休·爱德华兹（St Julian Hugh Edwards），他很有可能是最早去台湾从事拍摄活动的人。</p>
+<p>同样是开埠城市，上海以优越的地理位置成为当时中国最繁荣的口岸，木匠出身，1860 年来到上海的英国人威廉·桑德斯（William Saunders）硬是在照相馆业闯出一片天，留名中国摄影史。以上海为基地，外国摄影师将他们的活动范围拓展到江南，海关职员出身的亨利·坎米奇（Henry Charles Cammidge）在 1860 年代就拍摄了大量苏州、杭州、无锡、上海等地的风景照，美丽的江南风光一直吸引着外国摄影师前往，活跃在 1920 年代的英籍摄影师唐纳德·曼尼（Donald Mennie）就是其中翘楚，留下了诸多南方城市的照片名片。</p>
+<p>到 1860 年英法联军攻陷北京，这座古城终于出现在镜头之后，遗憾的是拍摄了未被烧毁前清漪园的英国随军摄影师费利茨·比托（Felice Beato）也很快便随军队离开，英国医学传教士德贞（John Dudgeon）接着就来到北京，成为首个常住这里的摄影师。他工作太忙了，要救死扶伤还要传播福音，尽管如此还是出版了介绍摄影术的《脱影奇观》一书。到了 1870 年，另一位英国摄影师托马斯·查尔德（Thomas Child）作为大清海关的英籍洋员开始了长达近二十年的北京生活，他不仅自己拍摄照片，还向中国的摄影爱好者们传授技术、售卖耗材。查尔德回国后至摄影术很普及的 1930 年代，几乎每十年就会有位外国摄影师专注拍摄北京，如山本赞七郎（Yamamoto Sanshichiro）佩克哈默（Heinz von Perckhammer LeMunyon）阿东照相馆（Hartung’s Studio）、海达·哈默（Hedda Hammer）等等。</p>
+<p>随着外国势力在中国地理上的深入，摄影术也逐渐传播到更深的内陆，比如法国在越南的殖民就推动了在云南、贵州的传播，日本对东北地区的入侵也带来了大量日本摄影师开设照相馆，这都助力了摄影术在中国传播的广度和深度。最后感谢三人行老照片馆为此次展览慷慨借出这批藏品。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmsSXWltibYP09lAFwUC9gyQD1Y02WZsMmicFRb5Z4U4hDEUrm2yE1nRMw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>上海的一家人</strong></p>
+<p>A family in Shanghai</p>
+<p>年轻的妈妈不仅要照顾三个孩子，还有洗衣服，而男主人则在一旁休闲地抽着烟。</p>
+<p>A young mother were taking care of three children while washing clothes, but the father was sitting aside, smoking.</p>
+<p>1870s</p>
+<p>威廉·桑德斯</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmM6nuGdk4uPhNhMlDdxncwdiaKsEfAByhdmXNrpibkMPEHIlRMTYta7ow/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>上海的剃头店</strong></p>
+<p>Barbershop in Shanghai</p>
+<p>上海郊外两名正在为客人服务的剃头匠</p>
+<p>Two barbers were cutting customers’ hair in Shanghai suburbs.</p>
+<p>1870s</p>
+<p>埃米尔·日斯菲尔特</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmFsKhG3OD1SklQw7yib7URhTRGaZDfjhZFmamY9GiaKN3TxxQBA3GFHTw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>读书的年轻人</strong></p>
+<p>Teenager Reading a Book</p>
+<p>炎炎夏日，这位读书的年轻人穿着一件凉爽的竹衣马甲，这种要竹篾做衣服的工艺早已不再使用。</p>
+<p>On a hot summer day, a teenager read a book, wearing a cool vest made from bamboo and this technology had already been lost.</p>
+<p>1870s</p>
+<p>威廉·桑德斯</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmV5VWIkSv64Mj7PiawJhrkSZYOls4rywP1FtnicST1s7QT6w5FaxBV0YA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>上海的苦力</strong></p>
+<p>Coolies in Shanghai</p>
+<p>三名苦力在照相馆内营造的场景中摆拍，展示他们平时等待雇主的状态</p>
+<p>Three coolies were posing in the setting of a photo studio, showing how they waited for employers as usual.</p>
+<p>1870s</p>
+<p>威廉·桑德斯</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmZ9XJibf6BnSEwLHwUy6HmkaFdtx05kibpIXzSCjKzbWmjzzMOPPzctCA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>上海的妇人</strong></p>
+<p>Married woman in Shanghai</p>
+<p>桑德斯有给自己作品上色的习惯，而且非常细致，人物立刻生动起来。</p>
+<p>Saunders used to color his works in an extremely meticulous way, making portraits painted vividly.</p>
+<p>1980s</p>
+<p>威廉·桑德斯</p>
+<p>蛋白银盐纸基 手工上色 Hand-Colored Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmtuVygXDLfCbpGCdOgMhnH7H699yYjdZbQvsdTU2rpKL3dO7qZTraQg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>上海的独轮车</strong></p>
+<p>Wheelbarrow in Shanghai</p>
+<p>在外国人的游记里，独轮车曾是上海最常见最价廉，既可运人也可运货的交通工具。</p>
+<p>In foreign travel notes. wheelbarrow used to be the most common and cheap transportation that could carry persons as well as good in Shanghai.</p>
+<p>1870s</p>
+<p>威廉·桑德斯</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmIO4sTQ22YxE1Toz71FVDHMxS5gabYEgy745W6qmBnk4YlJDtCl7kcg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>观象台</strong></p>
+<p>Observatory</p>
+<p>在城墙上看古观象台，台上精美的铜制天文仪器在后来经历的劫掠，重复后，如今仍原样保存在观象台上。</p>
+<p>Looking at the observatory from the wall. The delicate asthronomical instruments made from copper on the observatory still kept their original shape after being looted and reunited.</p>
+<p>1870s</p>
+<p>托马斯·查尔德</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm2X2eGoJ3ocU0DfuibIx6ibcvIQX8Xgd9JYwnT3EApY27ep4TyOuaEBsA/640?wx_fmt=jpeg" alt="img"></p>
+<p>明十三陵神道</p>
+<p>The Main Sacred Way of the Ming Tombs</p>
+<p>明十三陵有一条神道，两边整齐地排练着 24 座石兽和 12 座石人像。</p>
+<p>There was a sacred way in the Ming Tombs, and 24 stone carvings of animals and 12 stone humans lined along it.</p>
+<p>1870s</p>
+<p>托马斯·查尔德</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm59MM3M0yE7U4TibibyjanqTynDrib6ibJqUVja9r09ZicfewloJwQfDxTvg/640?wx_fmt=jpeg" alt="img"></p>
+<p>北京街头睡觉的小商人</p>
+<p>Small Businessman Sleeping on the Street in beijing</p>
+<p>街头时长一个卖布的商人正在午休，即使睡着了也不忘紧紧抓着自己的货物。</p>
+<p>A businessman who sold the cloth was taking a noon break at he street market and held his goods tightly when he fell asleep.</p>
+<p>1930s</p>
+<p>海达·哈默</p>
+<p>明胶银盐纸基 Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmibfkH26YHVQqS0lrXvEZ9JLltqITrcm8JgJgKMmVEYhx12G5MyI6Q8A/640?wx_fmt=jpeg" alt="img"></p>
+<p>古塔和驼队</p>
+<p>Ancient Pagoda and Camel Caravan</p>
+<p>骆驼在过去一直是沟通蒙古和中原的重要交通工具，照片中的小伙子正赶着他的驼队走在北京西郊的慈寿寺塔下。</p>
+<p>Camels used to be the important transportation to link mongolia and Central Plains. In this picture, a young man was driving his camel caravan under the Cishou Temple in the west suburb of Beijing.</p>
+<p>1920s</p>
+<p>阿东照相馆</p>
+<p>明胶银盐纸基 手工上色 Hand-Colored Gelatin Silver Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmJJ3JQicibyvR9EgqVyHYiaY55WImn1yVFzNevOQ9HX7AntIQTWg9mUpIQ/640?wx_fmt=jpeg" alt="img"></p>
+<p>甲午战争中的日军</p>
+<p>Japanese Troops in the Sino-Japanese War</p>
+<p>甲午战争期间，日军在营地前的合影。</p>
+<p>During the Sino-Japanese War. the portrait of Japanese troops in front of the camp.</p>
+<p>1894</p>
+<p>日军陆地测量部 Japanese land survey department</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmqx2XNicibYrc1HsgRHOsAztwFcnxMeKTfTfbP79zPjzVlOUcFM3vpLtw/640?wx_fmt=jpeg" alt="img"></p>
+<p>云南的囚犯</p>
+<p>Prisoners in Yunnan</p>
+<p>在衙门的大门旁，七名囚犯正在示众，其中五个人戴着枷板，两个人被锁在站笼里。</p>
+<p>Beside the judgement hall, seven prisoners where displayes to the public and five of them had cangues while the other two were locked in the cages, standing.</p>
+<p>1890s</p>
+<p>方苏雅</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmW8Wvp3U4ttoBIKInlBTA0QLMiaraK4qZ1oux8BwRIs5KP0wSeSkHnMQ/640?wx_fmt=jpeg" alt="img"></p>
+<p>官员坐相</p>
+<p>Portrait of a sitting officer</p>
+<p>一位官员手持折扇在照相馆内拍摄的肖像</p>
+<p>The portrait of an officer with a folding fan shot in a photo studio</p>
+<p>1900s</p>
+<p>山本赞七郎</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmBlEsYnJbFTGQnk1k4dZ71EIFdIy7bCycHXpEPBUBuia7glftujgSbTw/640?wx_fmt=jpeg" alt="img"></p>
+<p>女子坐相</p>
+<p>Portrait of a Sitting Girl</p>
+<p>一位年轻的女子在室外临时搭建的场景中留影，在早起中国人的肖像中这种侧脸、不看镜头的肖像很少见。</p>
+<p>A young girl took photo at an outdoor temporary set. iIt was seldom to have this kind of pose that was a side face without looking at camera in Chinese portraits during early period.</p>
+<p>1864</p>
+<p>保罗·尚皮翁</p>
+<p>蛋白银盐纸基 Albumen Print</p>
+<hr>
+<p>中国当代摄影书作品:纸上的叙事作品及其他</p>
+<p>文 &#x2F; 何伊宁</p>
+<p>摄影书籍不仅构成了画廊展览的另一种展示方式，它的形式也挑战了摄影的即时性，并允许艺术家借此探索摄影的叙事和语言。在全球摄影书制作和出版风潮的影响下，近些年来的中国摄影书制作和出版展现出了全新的活力。</p>
+<p>“中国当代摄影书：纸上的视觉叙事及其他” 将围绕着过去十年间的摄影书作品来呈现这一富有活力的领域。展览挑选了四十余本来自中国的摄影书作品、其中的内容几乎涵盖了当代摄影实践的所有类别；而在出版形式上则包含了从传统上同美术馆、画廊合作，到艺术家手工书（Artist’s handmade book），再到自出版（self-publishir），或与独立出版社（independent publisher）合作的多种可能。</p>
+<p>在考察中国当代摄影书的样貌之外，展览还包含了九位青年摄影实践者的摄影书及照片。无论是以书作为创作媒介而延伸的展呈；还是将照片与书籍融合在一起的展示；抑或是将书籍作为整体作品部分的实践，展览从侧面呈现了当代摄影实践中照片、书籍作品和展览之间的复杂关系。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmIspVqnfmStkVaszJL4V89bV92JanD0Z47TIEtUhc7ic6L1oFsIJObnA/640?wx_fmt=jpeg" alt="img"></p>
+<p>塔可,《诗山河考》</p>
+<p>尺寸：28.8cm x 17.25cm</p>
+<p>规格：105 页，108 幅黑白照片</p>
+<p>限量：700 本中国传统拉页精装</p>
+<p>前波画廊出版，2013 年</p>
+<p>塔可 1984 年在青岛出生，目前往返于北京和纽约两地生活和工作。他深受源自青铜器时期的诗集《诗经》的启发，自 2010 年起开始创作《诗山河考》这一摄影系列。为了筹备这个创作项目，塔可首先花了一年时间钻研《诗经》的文字以及大量的研究资料。他根据《诗经》中提到的地名作了一个路线计划，一个接一个地亲身造访了这些地点。但他没有刻意去记录诗歌原本的情境或阐释它们的意象，或步众多文人学者的后尘在三千年来对《诗经》的研究上添加更多的揣摩。造访这些地点时，塔可毫无拘束地运用了《诗经》的创作手法，而他模仿的不是这一诗集的具体内容而是其表现方式。</p>
+<p>《诗山河考》中的摄影作品并没有试图阐释《诗经》，而是通过另一种媒介来呼应《诗经》的创作手法。关于这一深奥的主题，塔可说道：“我希望建构一种稳定而又牢固的结构，同时与 ‘诗’ 本身的结构在某些层面可以形成互文，把文学性的意义推到一个遥远而又陌生的世界。使这些无形而神秘的东西进入现实之中，来剖析这个负载著无数可能性的范本。”</p>
+<p>《诗山河考》中的九组摄影作品《雅·颂》、《周南·召南》、《卫风》、《王风》、《郑风·桧风》、《唐风  魏风》、《齐风·曹风》、《秦风·豳风》以及《陈风》将首次同时展出。它们以严谨的构图和简练的形式引人注目。从无际的山川河流到意想不到的细节特写，这些作品题材各异。然而，塔可对铂盐及银盐印相的精湛运用将它们有机地结合，其对色调的掌控也不得不令人叹为观止。</p>
+<p>——前波画廊</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmTQ8BKjPukl7xZ22wkkUAHVjSOicVicAkq8RoV9bGxkeBRMVhtu5qIZog/640?wx_fmt=jpeg" alt="img"></p>
+<p>张晓，《他们》，2012</p>
+<p>尺寸：18.5cm x 26cm</p>
+<p>规格：64 页，54 幅彩色照片</p>
+<p>布面精装</p>
+<p>限量：500 本</p>
+<p>2012 年 12 月</p>
+<p>假杂志出版</p>
+<p>这是个并不真实的世界，我喜欢他们。他们在某个时刻的状态已经超越了现实的自己，像是在梦游。我拍照片时很少和他们对话，只是眼神的交流，更多的时候是迅速按下快门，快门声伴随着刺眼的闪光灯直射过去，他们这才如梦初醒地诧异地看着我，等他们回过神来，我已经匆匆离开。因为他们的眼神很多是我所不敢面对的。我像是在逃避，正如逃避镜子中的我自己。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmO7OoahwGaRGic9Y36D8ZqVzicIE1VxtjicEcISAKJtxLtYtn7wTzjvn8Q/640?wx_fmt=jpeg" alt="img"></p>
+<p>廖逸君，《实验性关系》，2018</p>
+<p>尺寸：168mm x 260mm</p>
+<p>规格：平装，160 页，77 张彩色照片</p>
+<p>印量：限量 500 本，2018 年第 2 版</p>
+<p>设计：廖逸君、程音和</p>
+<p>假杂志出版</p>
+<p>这本书主要是由 2007 年到 2017 年 “实验性关系” 作品中的照片组成。</p>
+<p>作为女性，我曾经以为我只能爱上一个比我更年长和更成熟的人、一个保护者、 一个良师益友， 直到我遇见了我现在的男友莫若。因为他比我小五岁，我理所当然的情侣关系彻底颠倒了。我变成了那个有更多权威和影响力的人。我的一位男性友人问我怎么可以用和他选女友一样的标准来挑选男友？我想，“对啊！这就是我在做的事情，为什么不呢？！”</p>
+<p>我开始认真思考起这段关系的重要意义，并用照片做起了实验。莫若让我认识到，男女关系并不需要一种固定模式。根据每个人的不同情况，任何两个人结合都会产生不一样的关系。即使这种关系和我们一般习惯的男女关系不同，也同样可以存在，并且有它自己的优势。做这个实验的目的是打破固有的模式以期达到新的平衡点。因为莫若是日本人，我是中国人，这个系列也描述了一种爱恨交织的关系。</p>
+<p>我打算只要我们还在一起就把这个作品一直拍下去。我希望这本书是一系列书中的第一本 。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmuVFJBuDI0RU1ibQf3h7YIEfCB0OeicXXN9uhBVEFtvyg9f2X393bLLkg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm1JFlj31icjTffwibs6ticycJFYAnKb8kLjg9IBTwhUrSrmWb3uZlQE73w/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmUIqGW7f4B0WkNUsVMYIzAe4iaalpjXP9mvScP2Buj02RXCsXf4n7Gmg/640?wx_fmt=jpeg" alt="img"></p>
+<p>木格，《回家》，2013</p>
+<p>尺寸：21.5cm × 27.6cm × 1.9cm</p>
+<p>规格：112 页，57 幅黑白照片，布面圆脊精装，配有护封</p>
+<p>限量：600 本</p>
+<p>2013 年 12 月</p>
+<p>假杂志出版</p>
+<p>木格的摄影作品《回家》，纪录了三峡大坝工程所带来的种种影响。婉转沉静的笔触，幽然地抒发胸臆的悲怀，而在颓圮杂沓、一切俱往的不可能处，你我意会诗意吊诡的重量。</p>
+<p>生长于重庆巫溪县，现居成都的木格，自 2005 年初，依沿返乡之路和大坝周边的城镇拍摄此一系列影像。尘封在脑海中的回乡路，沿途举目可见的「家常感」，因拆迁工程的启动而尘土飞扬。当一切灰飞烟灭、尘埃落定之后，心头多少一股昨是今非，触目凄凉之感。易，不易。世事变易的现代步伐，似乎跨得大而无当且无情。木格在情感与实践上的创作自觉，映现家常或日常景观的本来面目：无常。</p>
+<p>在如同长江水般流逝变化的时空中逆流而上，回溯故土中的故我，木格以影像遥接已然失落断裂的记忆连结。然而那些断垣残壁，终究淹没在平静的水面下，一切如常。《回家》凝聚成江底的一道记忆潜流，木格的逆旅宛若浩渺无波的江面上偶现的鱼跃。这个令人惊喜的发现，在水阔鱼沉之后，可以激起多大讨论的涟漪？抚慰多少人心的苦闷？</p>
+<p>历时五年，断续地往返徘徊於家园和大坝之间，木格以局中人的身份，透过摄影书写地貌与容貌的变迁。人和土地之间相互依存牵扯的微细关系，在《回家》中被赋予具体可辨的形象。现代工程的介入后，你我究竟该如何看待人与自然的新关系？或许是《回家》欲言又止的潜台词。</p>
+<p>—— 节选自台湾摄影评论家曹良宾评论文章《明明直照文章路》</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmkEIxldXn62qzfJca4HjgWtQKWcUYtRic8RQrEegXPtQJWKcQvyYL8ibQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmnQdoMM3GmwibILrV2ojfdtZ8icppRq28bwrCh25JYhHAtvEiaI7Wicr2LA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4X90vvy9Zk2KicibSWQHrs5z2jbNs89ibk4ZM8aVf4qniap3HGGibp9jib0w/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm3JDA33JNFQUWYtKHLND0oDzs3ozJUFqkouezLdhG8WpQU5poan2FRQ/640?wx_fmt=jpeg" alt="img"></p>
+<p>朱岚清，《负向的旅程》，2013</p>
+<p>尺寸：24cm x 16.5cm</p>
+<p>规格：40 页，82 幅彩色照片</p>
+<p>限量：20 本</p>
+<p>艺术家手工书，艺术纸</p>
+<p>2013 年出版</p>
+<p>照片拍摄于我的故乡东山岛，一座位于福建漳州南端的岛屿。现代化的城市发展常让离乡人患上失忆症，使人忘记这里曾经存在过什么。我只能追赶着它的脚步，用图象来 “对抗” 这些让人措手不及的变化。故乡从我出生起就在影响，塑造着我。就如同书的开始，我身着的是在阿嬷房间中寻找到的一件来自祖辈的衣服。故乡和我就这样互相作用着。我所看到的，也许正是它（故乡所希望我能看到的。拍摄故乡仿佛是走上一条通往幽暗的记忆与我们原初内心的负向的旅程。</p>
+<p>在作品中，我以 “八尺门”、“家”，“食物、土地、神”、“海” 作为我重构故乡的线索，将这些收集到的故乡记忆与现实的碎片组合成一本可以翻阅也可以被展示的书。通过这样的形式，仿佛能将这些空间、人、物件凝结在这些纸张上，并借由一层层地覆盖、展开，揭露出故乡之于我的意义。作品以手工书还原一个我对于故乡图鉴的再现，它将作为在城市化进程中已渐行渐远的故乡的截面，提供一个可供我们停顿下来触碰的故乡，以及我们每一个人应该去反思何为家乡的含义。</p>
+<hr>
+<p><strong>佚名照 —— 二十世纪下半叶中国人的日常生活图像</strong></p>
+<p><strong>佚名之名</strong></p>
+<p>文 &#x2F; 晋永权</p>
+<p>佚名照，指的是照片的拍摄者、被拍摄者及持有者，皆无名姓，准确地说是因为所得渠道 —— 被照片拥有者所放弃，购买于旧书、旧货市场，与上述人员阻隔，因而无以得到他们的准确信息。</p>
+<p>这意味着，此类照片的拍摄者身份信息不明，照片中的被拍摄者身份信息不明，以及照片的原持有者身份信息不明。</p>
+<p>展览通过佚落的日常生活照片，试图寻找出二十世纪下半叶 —— 这一特殊历史时期，中国人日常照相行为所建构起来的社会逻辑与历史逻辑。这些图像出人意料地呈现出这一时期中国人生活的表与里、现象与本质，既关乎过往，也预示未来。这是中国人现代精神成长史中的重要环节。二十世纪下半叶，指 1950 年代初期至 1990 年代初期，大约 40 年间的黑白影像时期。这一阶段，是中国社会主义计划经济体制由产生到鼎盛，再到逐步松动的时期，市场经济体制初步确立。无论是社会政治文化状况，还是基于物质、技术因素的大众日常生活摄影图像的生产、传播与价值标准都具有特殊性，形成独特的样貌文本多样，类型丰富，特征明显，成为这一特殊历史时期普通中国人文化道德状况及历史记忆的特殊载体。</p>
+<p>通过这些图片，可以观照出中国人日常照相行为的基本内涵与主要特征。其中，表演性、模仿性、符号性、实用性及互图性（互文性），是这一时期日常图像的先要特征。</p>
+<p>这不是基于既成的各种范畴，而是通过大量个案的分析比较，呈现出普通人生活照片历史化的面目 —— 拍摄主体日常实践活动中的主动性，无论是拍摄者，还是被拍摄者，对照相的认知、审美及行为模式。</p>
+<p>综观起来，观众不难体悟到，看似杂乱无序的日常生活照片，实则有着异乎寻常的理性秩序，它们无不是建构的产物，无不遵从于历史与现实的规定性。照片拍摄者、被拍摄者及拥有者信息逸散的状况，使得这类图像拥有了共同的身份特征：消弭了个案差异的社会历史建构之物。由个体、家庭及特殊人群的记忆载体，成为公共记忆的共享之物。</p>
+<p>“世界成为图像” 与 “人成为主体” —— 海德格尔将二者并称为对现代化的本质具有决定性意义的两大历史进程。上述二十世纪下半叶，中国人追寻现代化的征程上，无时不与图像 —— 现实与未来生活图景描绘，及作为新社会主体的社会主义新人形貌的建构密切相关。当然，无论是图像建构起来的世界，还是作为主体的个人或群体，其建构之时，便是遭逢解构的倒计时。当塑造这些像的主流价值体系失效时，这些图像便由新变做了旧。自由拍照、自主记录随性表达，作为梦想，也是现代中国人视觉文化心理形成的应有之义。</p>
+<p>普通中国人的日常生活照片，正是观察这一文化心理现象的重要文本。从这些日常照相行为建构起来的图像世界，也使得人们得以更直观、更感性地理解二十世纪的中国人。</p>
+<p><strong>表演</strong></p>
+<p>表演。拍照不就应该是这样吗？惟其如此，才能与凡俗而又琐碎的日常生活相区别。</p>
+<p>性别、身份、职业、阶级、立场、民族，审美取向，甚至体态语，等等，照相行为中表演无处不在，无时不有，几乎成为全民自觉自愿的下意识行为。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmzhzwFnc9m3ZqQabSScsibc6O3eDwBJ0jCRlkPia3GhkKrcbuISMetcjg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmCWDqbqCXSkCrZco450vVH9hnjGZY2wYQmMhs6zzibicjfdERDHwiaggyQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm7ux95UQzq2JXicXkFfRzPx975qPqme7fAp77ejHcw8er2PNe9GFpYnw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmYIYbpKfuGJYncWdGoIhc0cdRrG8Fy2TL9gfF3zgfK04NZ6lSpVwezw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmibHa446AgJey2L4aFScTPsBWiafS5HNg42ydx45IOdK1aoaKibVFSDlLQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmkwq6bHV1YiaZb17BmdADF37oc64mUPwQ2w0iaS8uaShjCiaVj0VnOhSdw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmLElianC0KfhBFey86xD5yz4hliaYFKP3PbP7flpr6p9rwkHY8GfboVgw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmHUP6DqH6fm62hsduILaV4PlxTYdCMtwiby7Hpvve8cGn6zI9UXVibbLw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4yuU90GncibQjVZULRURMrf5uVN97mia6ZWrRZhlem0lUubTw8tXtCew/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmrXFhnMWZUuWv4ukp8xK0gHykic0XGXgbpd9ob7W88Ld8ibAepFIzz6icw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmucRugvHEuBrxNB9VIpa2ibr5vUC8qicnvePyQ7wOjtUfFYsJrepwGbicw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>传统</strong></p>
+<p>传统戏剧人物及景观形象，显然与新时代易工农兵为主题的新人形象，及新的生产、生活场景样态不符。与执政党建设现代国家的文化理念也存在着冲突。</p>
+<p>新人形象的塑造与新的更新更美图画的描绘，与新时代相呼应的视觉文化的建构，这是时代使然。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm58TVR0SV4Rf5zDn1Cc5lDgsuQRThcLEibF8BHShL7NMsPPgaDeGQRicg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmjI6bapuvxe7NO2GGvmia4ia8fnyliaq8CHKUMj8duyVia5MKmAJtLEnt7Q/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>读书看报</strong></p>
+<p>这些图像产生于特殊的历史时期，有其特殊的语境。公共场合群体性的读书看报活动，通过照片及文字传播后，成为大众日常照相行为的重要模仿形式。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmfvPyHtCIyfOdcTDrfa8yLOzXoSpiaS5LndMpzzbPDs3cj4IxacIHmpA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>渎神</strong></p>
+<p>拍照渎神行为，这一东方古老帝国的现代祛魅方式，是从传统社会迈向现代社会的必要环节，而最终走向 “理性” 吗？诸神散去，还会出现有灵魂的心灵吗？</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmr9crTFFC3z2V5edJSf1MOEr5hbyQCFPm1FF8IlZSn0nmB2mL8Fk7WA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmxOD2597Pia1GnQrNgG0GgFwWJc30DuzJBUtdaPhljvMxTVfb6K9F9Dw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmLlwyhhs2SdJoNe2cVRlwzc6QCZ00UfCKOk5mySMLLDZRHydMr6gNug/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>三个自己</strong></p>
+<p>一位女青年，合成的照片。三个自己。面孔的隐喻。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmIxc8gy1yD3BoaRjHO0FnSCGKPxY8zh7Qr8WUWJTHuibQkcV8QnIXURA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmA4wECiawq5lcwGIAZBficgOl8z3JCqwZHgQpHQkFLpw7Y1oQqARuNL1Q/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>革命同志</strong></p>
+<p>同志间的合影，拒绝男女私谊，不同阶级之间也是壁垒森严不可逾越。不承认跨阶级的爱与友谊，那被当作不存在的。这时期的友谊是被严格界定的。</p>
+<p>这一时期的主流价值观认定，把 “义气“ 看作友谊，那是封建阶级的把戏；建立在利害关系、交换关系上的所谓友谊、那是资产阶级的把戏。合影照上的同志们之间，那是无产阶级和一切被压迫被剥削的劳动人民之间纯真、朴素而又坚定的友谊和感情。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmVdnzs5FmrH0UPYyvjdTkoTElsT6fH4OgbRicozUcf4GAlT3kY4WnVfQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmtnyLk2jLo7liaYicWIlnLWKwOgmnQhHzLtE0rjyBHuW4TA6pgo5y23ww/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>美丽新世界</strong></p>
+<p>未来 —— 愿景 —— 图像</p>
+<p>未来：共产主义是天堂，社会主义是桥梁</p>
+<p>愿景：行有小包车，住有大瓦房；楼上楼下，电灯电话；土豆加牛肉。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmHcicOWkoYLV1caSQdWAhicq9XQx5QXeaT45Oqywxg8lX9I0uqj5jAJmg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmnBu7wyWsh8jldnZiaKzIlfa5GMsL20vAJnQQkhIXIfJe6qDbAC4bS7g/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmAoQtKqQSp9so46yMdZIhmzxkicRAuLyic6Dn9q3ML1ia3WGWXB5l70k5g/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>人与动物</strong></p>
+<p>这一时期，日常照相行为中，人与动物的关系——特别是大量涌现的人与名胜古迹中动物塑像的关系，呈现出一种十分奇特的面貌，这在先前，或其后的照相行为中都很少见。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmIBjtagxoOY8HLp55BJucpGGPLdUNhiaDTwZA3rMuv4KZm4wGWcdkiboQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmZsWIrDlMbuXiaU2SibsIavuLWQFlP2d5Bq3YcgvB8oVePgSqqCEXUnJw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>三位男青年</strong></p>
+<p>共同的职业背景，相似的生活方式，一致或相近的着装，共同的价值理想，甚至审美趣味、个人癖好，人们生活在努力建构，或想象出来的公共体——集体大家庭中，成为其中合格的一员。照相机为此立据，不是以文字作为证据，而是以图像。照相行为既建构，又强化了这一切。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmUNXwHOQ2fXC0JfOAz7kFicXErkYiciasD5ibgib3pzDRzkzpLTQz9ic1ySUw/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmthmvvmjIgXh7NWXNy8ydtic6iagLD8X8YHhbiaCrgLDkQGaLALLHZaTjQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>三位女青年</strong></p>
+<p>很显然，为了照相，她们穿上了自己体面的衣服，精心做了发型，配了鞋子，操持着道具。很长时间，这次照相都会成为记忆中最美好的一刻。当然，这是开放以后的情形了。</p>
+<p>先前 ”女人形象“ 一直是个敏感问题。资产阶级欣赏玩赏的女人要有：曲线美，腿要比上身长，腰要很细很细的，瓜子脸，柳叶眉，樱桃口，蒜鼻子，眼睛要水滴滴的，皮肤白白嫩嫩的，手要似白玉和嫩藕。</p>
+<p>而劳动人民的审美观点只要五官端正，身体端正，能劳动就美。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmx3ZjvAB677mibjm3X4k05f7zI0wGlZ73etLoG4zqicn6DSs6HtUiaMhRQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmiaoyCczs44vVjUkiaqMDibaquwlsTwCiaDLQLSic3ibPwG1b4Z8F0pupexgA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>天津之恋</strong></p>
+<p>五十年代牵牵手，六十年代挎着走，七十年代搂着走，八十年代搂上了脖子。相声演员马季畅想二十世纪九十年代里，”女同志非骑男同志脖子上不可“。显然，作品描述的是城市市民阶层恋人们在室外——公开场合的亲昵行为，至于室内，特别是开放以后的都市青年恋人在室内的情形，那就另当别论了。此类照片稀缺，就是有，也是审慎而又有限度地记录下当时的情形。</p>
+<p>此组照片拍摄于 1982 年 10 月。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmFonORZZQqiatjdpFap3wq557n53PRmFrxT2YjK7flRZxK4gaHXkXwgg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmU9Uv5B2rS1q8GUj7VkFftTOtKEvfgHia1bvOamzAJeJyadTvAPWp7MQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmdRYh8icGZGmzLfeDnh3hf4aSPLFT3NtbSg2kzPHam9JbTmh9b4E0SMQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmXABC4ogww4KbiaHpaRkaeGu35uSQqPu8EnibbNwPicOPiah7LaQNWqnibGg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmzGyHQeVs9mYsc0ibepIzA4eZgavhV0eFEhTJkjoeKmgqwIwwxfWjaoQ/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmDV80zmgpaIrZqLtvaMZdVV7w9wezeLrtY96oyI7nDLaURabpQ1ltwg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmmicWM5XgDNZx0tfDelU8T6eLqQOMf6hh34HRiaTSI97AWYohvoIvRuGA/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm4XdXc4EKB2iaYiasW2zR4RibnDCj1fTgloRnSK0qGEml8hoKibnBU8TgHg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>鞍山照相</strong></p>
+<p>这些照片是鞍山多家照相馆在 1950 年至 1980 年间拍摄的。由于鞍山，特别是鞍钢，在辽宁、东北，甚至全国特殊的历史地位 —— 作为工业现代化先锋与样板的城市工人阶级与市民阶层生活照片，除了展现当年的照相技术、美学特征外，更是以特殊的方式，背景布的使用，呈现出一个时代的政治意识形态与商业美学样本，以及日常生活中，大众的精神面貌。</p>
+<p>这些背景布的内容包括，工业化场景、现代化生活场景、革命圣地面貌、名胜古迹、北国风光、南国风光等，时代的印记投射在照相馆这一日常影像的生产场所。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm1TMxOibOySIicvm4TJzhMwfYCnHjRHibXSHCyJicrPX5GPgQD7aYh5YjTg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>志同道合</strong></p>
+<p>爱人同志之间的浪漫合影，并不是在 1966 年中一夜之间被禁止、焚毁的。先前三四年间的讨论、争辩中，已经把此类照片定位于不符合新社会道德文化理想与新的生活方式的旧式图片。当 ”破四旧“ 来临，这些照片首当其冲，被付之一炬。文化大革命期间，照相馆的业务终归一类：只拍摄正面平光照片，所有照相饰品只规定为领袖书籍、政治符号与革命圣地或名胜古迹图像。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmFbbOzWib8xAnibqH1JBwSPtpZE3MvT60sILrAfBcGzdgLuCbXY8JmicVA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>闲暇</strong></p>
+<p>几十年，国人缺乏休闲条件，对大多数为生计奔波的人来说，在自然中生存、索取，却视自然为敌。照相行为中，人与自然关系的时代特征显露无疑。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmacjx76obeFUAic4j376KfLFictwc4thtGXoOxVUEa3ia4n2ldGw04ujgg/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>指</strong></p>
+<p>指引，这一照相体态语与特定的历史阶段密切相联。普通人照相行为中的这一动作，从视觉来源上看，或直接模仿公开出版物、舞台上（样板戏），屏幕上的人物造型动作；还有一种来源，那就是传播广泛的 “领袖指引我前进” 这样表述的视觉化。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxmFX1DOjrOL7oPvEKghTrwLEGsjHBruFH9TU1Hz1YoIM6f6ic9J5FaOAw/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>站</strong></p>
+<p>站要有站样、坐要有坐相。后革命时代， “站如松、坐如钟” 这样的口号喊得越来越少了，大众照相行为中紧绷着的身体也日益放松下来。几十年颠来倒去，世俗社会对日常行为身体的规制、仪轨、礼俗，此时也已经完全陌生。失范与乱相，应时而生。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxm2NqF7lj4y6whNEub0JMHS2Jd8WrGk5kbXL6zYFaHXfxg2c0pUwjg7g/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong>卧</strong></p>
+<p>在草地上照相的种种姿态，国人的发明创造。这种现象存在于文革后期，持续大约 20 年间吧。后来，就消失了。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VLpxmJ1QPljFqSpNvxSlTBzGsOw5QJxms7Gygnfatqyl2p7goStXo665CBRU3H5ahrIPRPzNb4tWae7Vma3u9A/640?wx_fmt=jpeg" alt="img"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2019/05/%E7%BC%96%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%83%BD%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F%E5%90%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E7%94%9F%E6%B4%BB/2019/05/%E7%BC%96%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%83%BD%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F%E5%90%97/" class="post-title-link" itemprop="url">编程真的能改变人的思维方式吗?</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-12 18:38:35" itemprop="dateCreated datePublished" datetime="2019-05-12T18:38:35Z">2019-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E7%94%9F%E6%B4%BB/2019/05/%E7%BC%96%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%83%BD%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F%E5%90%97/" class="post-meta-item leancloud_visitors" data-flag-title="编程真的能改变人的思维方式吗?" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>于我一个秃子而言。</p>
+<p>编程能提升人的抽象思维能力。代码中常常需要各种抽象，结构上的、行为上的、同类问题的、同类业务的。以至于善于抽象的程序员遇到任何问题都更倾向于探寻事物本质，寻找根本解决方法，企图一劳永逸。这样看来，说程序员是哲学家范畴似乎也没啥毛病。</p>
+<p>惯性的抽象思维让程序员的生活更加简单。程序员的衣柜里都是清一色的格子衫；他们总是选择周五的晚上看一部电影，然后在周六睡个懒觉，以便能支撑他们在周日的户外扫街（996 例外）。 这样的描述有些偏激，但反映出程序员有自己的一套生活模式，这得益于他们对自己生活的抽象—衣服&#x3D;&#x3D;&#x3D;格子。因此生活中遇到的同类问题，程序员往往会按同样的套路出牌，这大概也是为什么他们稍显“呆板”的原因，你找他们推荐电脑，他们总是告诉你 mac；你找他们去逛街，他们总是直奔格子专柜。这样对他们来说的确能简化生活。</p>
+<p>抽象思维让程序员在社交上形格势禁。不同于技术问题或生活问题。社交中的问题要复杂得多，毕竟人就是一个最复杂的存在。光是想与人坦诚的沟通就非常难了，如果按照程序员的“套路”，用既定的话术或模式去试图从另一个人那里获取信息，他们往往会碰壁。杰克·韦尔奇在《赢》中揭示“当你探索坦诚的含义时，你实际上是在设法了解人类的本质。数百年来，无数的心理学家和社会学家都在研究，为什么人们所说的与他们真正所指的存在区别；而哲学家思考同样的问题已经有数千年的时间了。最终，你会认识到人们之所以不说出自己的想法，是因为这会给自己带来更多的便利。”所以你看，与计算机的信息交换和与人的信息交换是两种复杂度截然不同的命题，用算法的术语来看前者复杂度是O(1)，你给计算机一个输入它给你一个输出；而后者复杂度是O(2^n)，你给人一个输入，她不光不一定会给你一个输出甚至会引发新的爆炸问题 。所以人们常说程序员情商低，不好沟通是有一定道理的，他们可能太执着于用统一的方式解决人的问题了，人最应该具体问题具体对待了，过度抽象反而适得其反。基于这点，你所见到的“情商低”的程序员可能往往技术不错，事实上业界确实有许多技术大佬他们不善社交，譬如林纳斯 。其实人的问题也是可以抽象的，不过那是心理学家、社会学家和哲学家的命题。程序员不应该执着于此，还是区分好工作、生活和社交，做个有情趣的程序员最好。</p>
+<p>总而言之，抽象思维只是编程带给我诸多裨益中的一项。每天令我心存狂喜不觉无聊的是我知道世界上存在着只有编程才能以其特殊的手段给予我的感受。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2019/04/%E9%85%8D%E7%BD%AE-Linux-apt-get-%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2019/04/%E9%85%8D%E7%BD%AE-Linux-apt-get-%E6%BA%90/" class="post-title-link" itemprop="url">配置 Linux apt-get 源</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-18 11:45:45" itemprop="dateCreated datePublished" datetime="2019-04-18T11:45:45Z">2019-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2019/04/%E9%85%8D%E7%BD%AE-Linux-apt-get-%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="配置 Linux apt-get 源" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb cdrom:[Ubuntu 18.04.1 LTS _Bionic Beaver_ - Release amd64 (20180725)]/ bionic main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">See http://help.ubuntu.com/community/UpgradeNotes <span class="keyword">for</span> how to upgrade to</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">newer versions of the distribution.</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Major bug fix updates produced after the final release of the</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># distribution.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># team. Also, please note that software in universe WILL NOT receive any</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># review or updates from the Ubuntu security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic universe</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates universe</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># team, and may not be under a free licence. Please satisfy yourself as to</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># your rights to use the software. Also, please note that software in</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># multiverse WILL NOT receive any review or updates from the Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic multiverse</span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates multiverse</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># N.B. software from this repository may not have been tested as</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># extensively as that contained in the main release, although it includes</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># newer versions of some applications which may provide useful features.</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Also, please note that software in backports WILL NOT receive any review</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># or updates from the Ubuntu security team.</span></span></span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Uncomment the following two lines to add software from Canonical&#x27;s</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># &#x27;partner&#x27; repository.</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># This software is not part of Ubuntu, but is offered by Canonical and the</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># respective vendors as a service to Ubuntu users.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb http://archive.canonical.com/ubuntu bionic partner</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://archive.canonical.com/ubuntu bionic partner</span></span><br><span class="line"></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security main restricted</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security main restricted</span></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security universe</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security universe</span></span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src http://security.ubuntu.com/ubuntu bionic-security multiverse</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

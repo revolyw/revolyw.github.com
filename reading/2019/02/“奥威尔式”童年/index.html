@@ -1,38 +1,391 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="连日阴雨的杭州今天终于放晴一天，本来晒着太阳准备开始读一读乔治·奥威尔的《一九八四》，看到译者序部分推荐应该把同是出自奥威尔之手的《如此欢乐的童年》和《一九八四》放在一起来读，于是抱着能更加全面了解后者的目的先看了一遍前者，当然也有一部分原因是前者书名成功引起了我的兴趣。但《如此欢乐的童年》书名其实是反讽，内容描述了奥威尔在一九一五年左右在预备学校圣塞浦里安学校饱受凌辱的残酷童年，对于他自身的心理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“奥威尔式”童年">
+<meta property="og:url" content="http://blog.willowspace.cn/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="连日阴雨的杭州今天终于放晴一天，本来晒着太阳准备开始读一读乔治·奥威尔的《一九八四》，看到译者序部分推荐应该把同是出自奥威尔之手的《如此欢乐的童年》和《一九八四》放在一起来读，于是抱着能更加全面了解后者的目的先看了一遍前者，当然也有一部分原因是前者书名成功引起了我的兴趣。但《如此欢乐的童年》书名其实是反讽，内容描述了奥威尔在一九一五年左右在预备学校圣塞浦里安学校饱受凌辱的残酷童年，对于他自身的心理">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-24T12:51:45.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.882Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="奥威尔">
+<meta property="article:tag" content="我为什么要写作">
+<meta property="article:tag" content="如此欢乐的童年">
+<meta property="article:tag" content="童年">
+<meta property="article:tag" content="教育">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/","path":"reading/2019/02/“奥威尔式”童年/","title":"“奥威尔式”童年"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>“奥威尔式”童年 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="“奥威尔式”童年 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          “奥威尔式”童年
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-24 12:51:45" itemprop="dateCreated datePublished" datetime="2019-02-24T12:51:45Z">2019-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/reading/" itemprop="url" rel="index"><span itemprop="name">reading</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/" class="post-meta-item leancloud_visitors" data-flag-title="“奥威尔式”童年" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>连日阴雨的杭州今天终于放晴一天，本来晒着太阳准备开始读一读乔治·奥威尔的《一九八四》，看到译者序部分推荐应该把同是出自奥威尔之手的《如此欢乐的童年》和《一九八四》放在一起来读，于是抱着能更加全面了解后者的目的先看了一遍前者，当然也有一部分原因是前者书名成功引起了我的兴趣。但《如此欢乐的童年》书名其实是反讽，内容描述了奥威尔在一九一五年左右在预备学校圣塞浦里安学校饱受凌辱的残酷童年，对于他自身的心理感受的描写跳跃闪回于他的成年和少年时期，从不同时空的不同视角描述一个童年不幸孩子的生活和心路历程（当然他没有抛开当时一系列的社会、阶级、宗教、金钱崇拜等因素）。最后他对童年的思考和尝鼎一脔的社会洞见我深有感触，下面是摘选的一部分。</p>
+<blockquote>
+<p>怎么知道孩子自己的真实感受和想法？一个表面看来好像很快活的孩子可能在事实上遭到了他不能也不愿泄露的可怕的事。他生活在一种陌生的水底世界里，我们只能用记忆或猜想来探明。我们的主要线索是，我们自己曾经是孩子，但是许多人似乎完全忘记了他们自己童年时代的气氛。比如想一想把孩子送回学校去时让他穿着花纹不对的衣服而且不肯看到这对他来说是一件事关紧要的事，这样做对孩子造成的不必要的苦恼!在这样的问题上，有时孩子会表示抗议，但是在大多数的情况下，他的态度是隐忍不发。不向成年人表露自己真实的感情从七八岁起似乎成了一种本能。甚至你对孩子的爱，你想要保护和珍视他的愿望，也会成为误会的原因。也许，你能够比爱成人那样更加爱一个孩子，但是不能由此就仓促断定孩子会对你有任何爱的回报。我回顾自己的童年，在婴孩时代过去以后，我认为我对任何成人都没有感到过爱，除了我母亲，而且即使对她，我也不是信任的，理由是羞怯使我对她掩藏了许多真实感情。爱，那种自发的，没有条件的感情，我只能对年轻的人感到。对于那些年老的人——要记住对一个孩子来说，三十岁以上，或者甚至二十五岁以上就算“年老”了——我可以有敬畏、尊重、钦佩或者惭愧的感情，但是似乎有一层由害怕和羞怯夹杂着人体上的厌恶织成的薄纱把我同他们隔绝开来。人们太容易忘记孩子是不愿同成人发生身体上接触的了。成人那么大的个子，他们的笨拙僵硬的身体，他们的粗糙多皱的皮肤，他们的厚厚松弛的眼皮，他们的发黄的牙齿，他们的发霉衣服、汗水、啤酒、烟草交杂的气味动不动就从他们身上散发出来!在孩子的心目中成人之所以丑陋，一部分是由于孩子往往得抬头看他们所造成的，很少脸孔从下往上看时是处在最佳状态的。此外，在皮肤、牙齿和脸色上，由于自己很稚嫩白净，因此孩子对这方面有高得难以达到的标准。但是最大的障碍是孩子对年龄的错误概念。孩子很难设想三十岁以后的生活，因此在判断别人的年龄时会犯很荒唐的错误。他会把二十五岁的人看作四十岁，把四十岁的人看作六十五岁，依此类推。例如，我爱上爱尔西时正把她看作是个大人。我再见到她时，我十三岁，她大概才二十三岁；可是她在我看来好像已是个中年妇女了，过了她的最佳年华。而且孩子把年龄增长看成是几乎到了令人憎厌程度的灾难，而由于某种神秘的原因，这是永远不会发生到自己身上的。所有过了三十岁的人都是一点没有乐趣的怪物，总是咋呼着没有重要意义的事情，为了不值得活的原因——从孩子方面来看——而活着。只有孩子的生活才是真正的生活。自以为受到学生爱戴和信任的老师事实上背后是受到他们的学样和嘲笑的。一个成人如果不显得危险，那就几乎总是显得可笑的。</p>
+<p>我的这些概括都是以我记忆所及的自己童年时代的看法为根据的。记忆虽然靠不住，但是在我看来，它似乎是我们要弄清孩子是怎么想的主要手段。只有唤起我们自己的记忆，我们才能认识孩子对世界的看法是怎么的扭曲，甚至到了不可相信的程度。例如，如果我按现在这个年龄回到圣塞浦里安去看它在一九一五年的情况，在我的心目中，圣塞浦里安会是怎么一个样子呢？对傻包和翻脸这两个可怕的权力无比的妖魔，我会有什么想法呢？我会把他们看成是一对愚蠢、浅薄、无足轻重的夫妇，一心一意要在社会阶梯上向上爬，而任何一个有头脑的人都可以看到这个阶梯快要垮了。我不会再害怕他们，就像我不会害怕睡鼠一样。此外，在那些日子里，我觉得他们已经十分老了，而我想——虽然我没有十分把握——他们大概比我如今还年轻一些。而那个胳膊像个铁匠，满脸讥嘲的强尼·哈尔又会是什么样子呢？只不过是个邋遢的小孩子，与其他成百上千的邋遢的小孩子没有什么区别。这两套事实可以并存在我的脑海里，因为这都是我自己的记忆。但是我很难用其他孩子的眼光来看，除非借助于想象，但这是可能把我引入歧途的。孩子和大人生活在不同的世界里。如果是这样，我们就不能有把握说，学校，至少是寄宿学校，对许多孩子来说，不像过去那样可怕了。撇开上帝、拉丁文、教鞭、阶级差别和性的禁忌不谈，恐惧、憎恨、势利和误解可能仍都留在那里。必须看到，我自己的主要问题是完全缺乏任何的比例感或概率感。这使我接受和相信荒诞，为了实际上毫不重要的事情感到痛苦。光是说我“傻”，说我“应该聪明些”是不够的。回顾你自己的童年时代，想一想你曾经相信的胡说八道和能使你痛苦的琐事。当然，我自己的情况有我个人特有的细微差别。但是基本上这也是无数其他孩子的情况。孩子的弱点是他是以一张白纸开始的。他既不理解也不怀疑他所生活的社会，由于他的轻信，别人可以影响他，使他有自卑感，使他害怕违反神秘的可怕的准则。也许，我在圣塞浦里安遇到的一切，在最“开明”的学校里也可能发生，虽然可能在形式上含蓄一些。但是，有一件事情我是感到相当有把握的，那就是寄宿学校比走读学校更糟糕。一个孩子就近有自己的家当避难所，他的境遇就会好一些。我认为英国上层和中层阶级的特有的缺点可能一部分是由于孩子八九岁甚至七岁的时候就离家到寄宿学校去，这种做法直到如今才不那么普遍。</p>
+<p>我从来没有回到圣塞浦里安去过。校友重逢、校友聚餐等等这种活动，即使在我记忆是友好的时候，使我感到的反应也不仅仅是冷淡而已。我甚至从来没有去过伊顿，在那里的时候，我还是比较快活的。有一次，在一九三三年，我曾经经过那里，我很有兴趣地注意到，似乎什么都没有变，除了商店如今在出售收音机了。至于圣塞浦里安，多年之中我憎厌这个名字到了这么深的程度，以至我不能以足够超然的态度来看我在那里遇到的事情的意义。可以说，只是在过去的十年中，我才真正地想过我的学生时代，尽管它的生动记忆一直浮现在我的脑际。我相信，如今我如再去看那地方，如果它还存在的话，它不会对我造成什么影响了。（我记得几年前传说它已被烧毁了。)如果我要路过伊斯特布恩，我是不会故意绕过不去那学校的；如果我正好经过学校，我甚至可能会在它的低低的砖墙（墙边有一条很陡的河岸)旁驻足，望过平坦的操场，看一眼那丑陋的校舍和它前面铺有沥青的广场。而且如果我进去，重新闻到那间大教室的霉味，教室里的松香，澡堂的浊水味和冰凉的厕所的尿臊味，我想我只会感到你在重访童年时代任何情景时都会有的感觉：一切都变小了，而我自己又是老得多么厉害!但是事实是，多年来我没有再看它一眼的心情。除非出于十分不得已的必要，我是不会再踏上伊斯特布恩这地方的。我甚至对苏塞克斯也形成了偏见，因为它是圣塞浦里安所在的那个郡，长大以后我只到过苏塞克斯一次，作短期访问。但是，如今，这个地方已永远对我不再有任何影响了。它的魔力已不再灵了。我甚至对它再也没有足够的敌意而希望翻脸和傻包早死，或者学校被烧毁的传说是确实的。</p>
+<p>写于一九四七年五月；刊于一九五二年</p>
+<p>九至十月号《党见评论》</p>
+</blockquote>
+<blockquote>
+<p>摘自：《我为什么要写作》第二篇收录《如此欢乐的童年》 — 〔英〕乔治·奥威尔。 本作品由上海译文出版社授权豆瓣阅读全球范围内电子版制作与发行。</p>
+</blockquote>
+<p>一百多年过去了，这样的问题谁敢说现在不是依然严峻。在社会大环境上，看似在向积极正确的价值观上引导孩子，但是沦落到局部—学校或家族—依然输出的是利益导向的价值观，而受到这样环境而不自知的孩子比比皆是（我的弟弟就是一例，近几年我眼看着他的价值观被环境所扭曲，而我能给他的帮助有限，我很无奈）。而在家庭环境中家长们正在焦虑怎样给孩子落户，让孩子上最好的学校—就连富裕的家庭也在为此争先恐后—而忽略了孩子的真实感受和想法，这固然需要更多的时间和精力成本，甚至我会以为家长们极力去为孩子争取物质上的优越条件是为了逃避这个问题，但事实是大部分家庭没有意识到或忽略了这个问题。而这个问题处理不好会给孩子带来的影响不确定性太大，你完全无法预测这种影响究竟会走向积极，抑或是走向另一个极端，像奥威尔这样最终能积极自省觉悟拥有独立思维的案例毕竟在少数，即便如此他在少时也曾有诸多困惑与局限，更不用说大部分家庭的情况，谁又敢说社会上诸多不稳定因素和可怕的事件与此无关呢。 </p>
+<p>家庭环境的影响是问题的根源，但也恰恰是解决问题的关键所在（撇开文中国家、宗教、阶级等因素不谈）。我不喜欢现在身边大人哄孩子的方式，他们会用小孩的口吻去和小孩互动，但这样孩子就能理解吗？他们无非笑或哭；如果用大人的思维去与之交流，同样是不理解，但对他们来说是有潜移默化的影响—和学语言一样。只有产生了真正有效的沟通，才不至于让孩子心存困惑，留下伤痛，产生对事物的错误的看法。倘若我养育一个孩子，我会留心他对上学第一天穿着花纹不对的看法；会直接询问其感受；凡事同意或反对皆告知其真实理由，这虽不可谓不耿直，但和让他做正确的事情比起来，我耿直反倒是好事。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A5%A5%E5%A8%81%E5%B0%94/" rel="tag"># 奥威尔</a>
+              <a href="/tags/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E4%BD%9C/" rel="tag"># 我为什么要写作</a>
+              <a href="/tags/%E5%A6%82%E6%AD%A4%E6%AC%A2%E4%B9%90%E7%9A%84%E7%AB%A5%E5%B9%B4/" rel="tag"># 如此欢乐的童年</a>
+              <a href="/tags/%E7%AB%A5%E5%B9%B4/" rel="tag"># 童年</a>
+              <a href="/tags/%E6%95%99%E8%82%B2/" rel="tag"># 教育</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/" rel="prev" title="《看不见的旋律》—— 脑回路跟不上的曲折情节">
+                  <i class="fa fa-angle-left"></i> 《看不见的旋律》—— 脑回路跟不上的曲折情节
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/" rel="next" title="一个撩妹故事认清流行音乐流派">
+                  一个撩妹故事认清流行音乐流派 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

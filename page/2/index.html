@@ -1,23 +1,979 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
-{% block title %} {{ config.title }} {% endblock %}
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
 
-{% block page_class %}
-  {% if is_home() %} page-home {% endif %}
-{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="捉虫子的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Willow&#39;s blog">
+<meta property="og:url" content="http://blog.willowspace.cn/page/2/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="捉虫子的人">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="杨威">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://blog.willowspace.cn/page/2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"page/2/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Willow's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/" class="post-title-link" itemprop="url">一个撩妹故事认清流行音乐流派</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-14 02:38:44" itemprop="dateCreated datePublished" datetime="2019-04-14T02:38:44Z">2019-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/music/" itemprop="url" rel="index"><span itemprop="name">music</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/" class="post-meta-item leancloud_visitors" data-flag-title="一个撩妹故事认清流行音乐流派" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>路易斯·阿姆斯特朗（Louis Armstrong）。他是提及爵士音乐，人们最先联想到的人，他以新奥尔良爵士乐风格，在迪克西兰爵士乐配曲下，演奏结构简单、富有戏剧性的作品。他是爵士乐坛无人不知、无人不晓的大人物。每一本关于爵士乐的书，都会提及他的名字。他对于爵士乐的重要意义，就好像古典音乐的巴赫，摇滚乐的猫王。<br>现场交响乐版本《爱乐之城》<a href="https://v.qq.com/x/page/v05187jdzk2.html">https://v.qq.com/x/page/v05187jdzk2.html</a><br>《《爱乐之城》斯坦尼康→摇臂一镜到底演示 the someone in the crowd》<a href="https://v.qq.com/x/page/l0376vuvlav.html">https://v.qq.com/x/page/l0376vuvlav.html</a><br>《爱与之城-你不知道的 25 件事》<a href="https://v.qq.com/x/page/a03773bb8o3.html">https://v.qq.com/x/page/a03773bb8o3.html</a></p>
+<p>爵士（Jazz）<br>Louis Armstrong《What a wonderful world》 <a href="https://v.qq.com/x/page/m0160bikj70.html">https://v.qq.com/x/page/m0160bikj70.html</a><br>Louis Armstrong《La Vie En Rose》<br>高司令《爱乐之城》酒吧愤弹曲目：<a href="https://v.qq.com/x/page/x0760o4qsh3.html">https://v.qq.com/x/page/x0760o4qsh3.html</a><br>高司令《爱乐之城》最后一曲：<a href="https://v.qq.com/x/page/i0394wlm16j.html">https://v.qq.com/x/page/i0394wlm16j.html</a><br>一百年（上个世纪 20 年代），在新奥尔良的小酒馆里，有一个非常擅长撩妹的人，他吹一吹小号美女的脸就红了，他能读懂每一个人的心事，他的名字叫作爵士（Jazz）。</p>
+<p>放克（Funk）<br>Funk 《<a href="https://v.qq.com/x/page/r0839ow23j4.html%E3%80%8B">https://v.qq.com/x/page/r0839ow23j4.html》</a><br>Jazz 很快结婚了，婚后生了个儿子。儿子从小很崇拜他爸，也想成为撩妹高手，但他长大后爱上了蹦迪，他摸索出了自己的撩妹心得，于是他就跟他爸说，你的泡妞方式早就过时了，现在年轻妹子都喜欢有节奏的人，听起来就像这样（咚、嗒、咚、嗒）他这个儿子就叫放克（Funk）。</p>
+<p>嘻哈（Hiphop）<br><a href="https://v.qq.com/x/page/a0341tf4qdo.html">https://v.qq.com/x/page/a0341tf4qdo.html</a><br>Funk 想把兴趣发展成事业，他说不拿着天使轮，今年过年不回家。于是在他开了一家公司叫 嘻哈（Hiphop），有个年轻人叫 DJ Kool Herc，他是真的很酷，被誉为 Hiphop 之父，他是第一个把两台唱机玩起来的 DJ，可以说没有他就没有 Hiphop，他的音乐就是舞者们的兴奋剂。</p>
+<p>新式嘻哈（New School Hiphop）<br><a href="https://v.qq.com/x/page/n1426a3p2r6.html">https://v.qq.com/x/page/n1426a3p2r6.html</a><br>随着 Hiphop 的事业发展如日中天，Hiphop 的员工划分成两个阵营。一类觉得以前的泡妞方法早过时了，现在没个房没个车啊，只能做单身狗啊，于是他们带上金灿灿的假牙，金灿灿的大金链子，金灿灿的金钱，很明显，这部分人是属于外向的。</p>
+<p>旧式嘻哈（Old School Hiphop）<br><a href="https://v.qq.com/x/page/t0537qrpcb5.html">https://v.qq.com/x/page/t0537qrpcb5.html</a><br>那还有一部分是内向的人怎么办呢？难道就不能愉快的泡妞了吗？</p>
+<p>爵士嘻哈（Jazz Hiphop）<br>《点星 Point The Star》<br>Nujabes - 《混沌武士（Samurai Champloo）》-《battlecry》<br>Nujabes - 《混沌武士（Samurai Champloo）》<a href="https://v.qq.com/x/page/c0817f8p1ks.html">https://v.qq.com/x/page/c0817f8p1ks.html</a><br>Nujabes - 《混沌武士（Samurai Champloo）》-《aruarian dance》<br><a href="https://v.qq.com/x/page/a0187s80vah.html">https://v.qq.com/x/page/a0187s80vah.html</a><br>《不是Jazz，不是HipHop，是Jazz-HipHop》<a href="https://mp.weixin.qq.com/s/jlmg0YHj13sU_1tj-K5ZOQ">https://mp.weixin.qq.com/s/jlmg0YHj13sU_1tj-K5ZOQ</a><br>天无绝人之路啊，一次从美国 Hiphop 总部派来的员工和日本的 Hiphop 分公司员工会面了，他们这一见真是相见恨晚，商讨出许多创新泡妞心得，他们发现人是感性的，在老祖宗 Jazz 那里，感性的东西很多，他究其一生都在用不怎么花哨的乐器做出不同的情绪，用旋律获得姑娘的芳心，于是美日合璧创造出了爵士嘻哈（Jazz Hiphop）。他既有老 Jazz 的钢琴采样，或其他 Jazz 器乐的采样，又有最酷的 Hiphop 鼓点节奏。</p>
+<p>低保真嘻哈（Lofi Hiphop）<br>《nagashi》<br><a href="https://v.qq.com/x/page/d06388mk33w.html">https://v.qq.com/x/page/d06388mk33w.html</a><br><a href="https://v.qq.com/x/page/e06387xfl4v.html">https://v.qq.com/x/page/e06387xfl4v.html</a><br>可是好景不长，慢慢的他们发现，就算是内向的人也是需要分类的。有一部分内向的人喜欢宅在家里，刷剧，吃零食，一个人在自己的小世界里玩游戏，看书，一个人久了也会不由自主的丧起来，他们是年轻人但是也很怀旧，为了满足这部分人 Hiphop 总部决定创作出低保真嘻哈（Lofi Hiphop），因为它是由 Jazz Hiphop 衍生的，所以形式上基本都是 Jazz Hiphop ，唯一不同的是，他更像是室内的音乐（因为宅嘛），所以 Lofi Hiphop 听起来一般都很安静，而且比较容易引起人感情上的共鸣，它的鼓点听起来闷闷的，就像小盒子里发出来的声音，最重要的是它会有滋啦啦~滋啦啦的声音夹杂其中，这样听起来才复古嘛，像 80 年代的磁带和碟发出来的一样，旧旧的，这个滋啦啦就是 Lofi，是一种让影音失真的技术，这也是为什么 Lofi Hiphop 叫低保真嘻哈的原因。</p>
+<p>休闲嘻哈（Chillhop）<br>Bonus Points 《Shaka Brah》<br><a href="https://v.qq.com/x/page/t0561ox6b9q.html">https://v.qq.com/x/page/t0561ox6b9q.html</a><br>相较于宅的这类内向的人，另外一种内向的人就很不一样了。他们虽然也有宅懒病，但是却喜欢在户外葛优躺。为了满足这部分人 Hiphop 总部创作出了休闲嘻哈（Chillhop）。因为是在户外，所以 Chillhop 听起来很空旷，绝对没有 Lofi Hiphop 那种闷闷的声音，感觉很立体很环绕，而且感觉上跟假日密不可分——沙滩椰子树，坐北朝南，海边大别墅，海岛之声。还有就是 Chillhop 里的吉他都很出彩，超级好听。</p>
+<p>的士高（Disco）<br>《快乐崇拜》<a href="https://v.qq.com/x/page/y0322efln5k.html">https://v.qq.com/x/page/y0322efln5k.html</a><br>Funk 除了 Hiphop 之外还有另一个儿子叫的士高（Disco），《快乐崇拜》就是大家非常熟悉的一首 Disco 了。的士高，一听这名字就想跳舞对不对，不然早年酒吧怎么叫迪厅呢。</p>
+<p>蒸汽波（Vaporwave）<br><a href="https://v.qq.com/x/page/j0515fjl5si.html">https://v.qq.com/x/page/j0515fjl5si.html</a><br>而同期中国都在流行什么音乐呢？《卡拉 OK 金曲一百首》。这些歌也是蒸汽波（Vaporwave）经常采样的， Vaporwave 是一种艺术风格，在视觉设计上和 Vaporwave 相关的封面看起来都挺土酷复古的，一张图里有全世界最让人眼瞎的颜色，赛博朋克的影视作品中常常可以见到蒸汽波的影子，作为这种风格在音乐领域的体现，蒸汽波音乐既不是采样 Hiphop 也不采样 Jazz，它一般采样的是 Jazz 已经流行过去，Hiphop 还像个小婴儿那个时期的流行音乐，像 Funk（咚、嗒、咚、嗒的强烈骤停节奏很适合 Popper 跳舞），或是采样爸爸妈妈辈儿年轻时候听的经典老歌，然后使用各种夸张的滤波器，在 DJ 键盘上的那种旋钮，也是《lala land》里小塞皮笑肉不笑拨弄的那种按钮，制造出忽高忽低，或者控制它音高的效果，让它听起来呜呜哇哇的。</p>
+<p>画张图吧<br><a href="https://processon.com/diagraming/5ca9cc16e4b0cfb73429fc69">https://processon.com/diagraming/5ca9cc16e4b0cfb73429fc69</a><br>最开始的音乐流派很少，往往是巴赫、贝多芬、莫扎特这些音乐家的歌，到后来有布鲁斯（Blues）、灵魂乐（Soul）、爵士（Jazz）、摇滚（Rock）。爵士（Jazz） 衍生出了放克（Funk），放克（Funk）又衍生出了 的士高（Disco）、嘻哈（Hiphop）、蒸汽波（Vaporwave） 等。 Hiphop 代表着嘻哈文化，拥有丰富的艺术形式，像街舞、涂鸦、打碟、饶舌（Rap）等等。Hiphop 的音乐流派也有很多，真是一言难尽，Jazz Hiphop 是其中一支不太一样的分类，它更注重旋律及氛围，也更包容，不像其他 Hiphop 一样吵吵闹闹，它属于一部分安静的人。其中 Lofi 是一种让影音失真的技术，俗称滋拉拉，只要 Lofi 一下，很多歌就会自带 Lofi 前缀了。Chillhop 空旷立体，让人心旷神怡。这些音乐流派发展到今天，真是盘根错节，各自发展，又相互融合。可最令人动容的还是他们的老祖宗爵士 Jazz，最后欣赏一段爵士交响乐《Mia &amp; Sebastian’s Theme》吧。</p>
+<p>音乐的分类是无穷无尽的，就连蒸汽波（Vaporwave）都已经衍生出很多风格，比如 Future Funk 等等，但不管这些枝叶繁茂的流派到底衍生出多少，他们最初的形态都是那个站在山谷里，望着大自然，伴着河流，用石头敲出的声响，那是人类的第一首音乐。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/" class="post-title-link" itemprop="url">“奥威尔式”童年</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-24 12:51:45" itemprop="dateCreated datePublished" datetime="2019-02-24T12:51:45Z">2019-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/reading/" itemprop="url" rel="index"><span itemprop="name">reading</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/" class="post-meta-item leancloud_visitors" data-flag-title="“奥威尔式”童年" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>连日阴雨的杭州今天终于放晴一天，本来晒着太阳准备开始读一读乔治·奥威尔的《一九八四》，看到译者序部分推荐应该把同是出自奥威尔之手的《如此欢乐的童年》和《一九八四》放在一起来读，于是抱着能更加全面了解后者的目的先看了一遍前者，当然也有一部分原因是前者书名成功引起了我的兴趣。但《如此欢乐的童年》书名其实是反讽，内容描述了奥威尔在一九一五年左右在预备学校圣塞浦里安学校饱受凌辱的残酷童年，对于他自身的心理感受的描写跳跃闪回于他的成年和少年时期，从不同时空的不同视角描述一个童年不幸孩子的生活和心路历程（当然他没有抛开当时一系列的社会、阶级、宗教、金钱崇拜等因素）。最后他对童年的思考和尝鼎一脔的社会洞见我深有感触，下面是摘选的一部分。</p>
+<blockquote>
+<p>怎么知道孩子自己的真实感受和想法？一个表面看来好像很快活的孩子可能在事实上遭到了他不能也不愿泄露的可怕的事。他生活在一种陌生的水底世界里，我们只能用记忆或猜想来探明。我们的主要线索是，我们自己曾经是孩子，但是许多人似乎完全忘记了他们自己童年时代的气氛。比如想一想把孩子送回学校去时让他穿着花纹不对的衣服而且不肯看到这对他来说是一件事关紧要的事，这样做对孩子造成的不必要的苦恼!在这样的问题上，有时孩子会表示抗议，但是在大多数的情况下，他的态度是隐忍不发。不向成年人表露自己真实的感情从七八岁起似乎成了一种本能。甚至你对孩子的爱，你想要保护和珍视他的愿望，也会成为误会的原因。也许，你能够比爱成人那样更加爱一个孩子，但是不能由此就仓促断定孩子会对你有任何爱的回报。我回顾自己的童年，在婴孩时代过去以后，我认为我对任何成人都没有感到过爱，除了我母亲，而且即使对她，我也不是信任的，理由是羞怯使我对她掩藏了许多真实感情。爱，那种自发的，没有条件的感情，我只能对年轻的人感到。对于那些年老的人——要记住对一个孩子来说，三十岁以上，或者甚至二十五岁以上就算“年老”了——我可以有敬畏、尊重、钦佩或者惭愧的感情，但是似乎有一层由害怕和羞怯夹杂着人体上的厌恶织成的薄纱把我同他们隔绝开来。人们太容易忘记孩子是不愿同成人发生身体上接触的了。成人那么大的个子，他们的笨拙僵硬的身体，他们的粗糙多皱的皮肤，他们的厚厚松弛的眼皮，他们的发黄的牙齿，他们的发霉衣服、汗水、啤酒、烟草交杂的气味动不动就从他们身上散发出来!在孩子的心目中成人之所以丑陋，一部分是由于孩子往往得抬头看他们所造成的，很少脸孔从下往上看时是处在最佳状态的。此外，在皮肤、牙齿和脸色上，由于自己很稚嫩白净，因此孩子对这方面有高得难以达到的标准。但是最大的障碍是孩子对年龄的错误概念。孩子很难设想三十岁以后的生活，因此在判断别人的年龄时会犯很荒唐的错误。他会把二十五岁的人看作四十岁，把四十岁的人看作六十五岁，依此类推。例如，我爱上爱尔西时正把她看作是个大人。我再见到她时，我十三岁，她大概才二十三岁；可是她在我看来好像已是个中年妇女了，过了她的最佳年华。而且孩子把年龄增长看成是几乎到了令人憎厌程度的灾难，而由于某种神秘的原因，这是永远不会发生到自己身上的。所有过了三十岁的人都是一点没有乐趣的怪物，总是咋呼着没有重要意义的事情，为了不值得活的原因——从孩子方面来看——而活着。只有孩子的生活才是真正的生活。自以为受到学生爱戴和信任的老师事实上背后是受到他们的学样和嘲笑的。一个成人如果不显得危险，那就几乎总是显得可笑的。</p>
+<p>我的这些概括都是以我记忆所及的自己童年时代的看法为根据的。记忆虽然靠不住，但是在我看来，它似乎是我们要弄清孩子是怎么想的主要手段。只有唤起我们自己的记忆，我们才能认识孩子对世界的看法是怎么的扭曲，甚至到了不可相信的程度。例如，如果我按现在这个年龄回到圣塞浦里安去看它在一九一五年的情况，在我的心目中，圣塞浦里安会是怎么一个样子呢？对傻包和翻脸这两个可怕的权力无比的妖魔，我会有什么想法呢？我会把他们看成是一对愚蠢、浅薄、无足轻重的夫妇，一心一意要在社会阶梯上向上爬，而任何一个有头脑的人都可以看到这个阶梯快要垮了。我不会再害怕他们，就像我不会害怕睡鼠一样。此外，在那些日子里，我觉得他们已经十分老了，而我想——虽然我没有十分把握——他们大概比我如今还年轻一些。而那个胳膊像个铁匠，满脸讥嘲的强尼·哈尔又会是什么样子呢？只不过是个邋遢的小孩子，与其他成百上千的邋遢的小孩子没有什么区别。这两套事实可以并存在我的脑海里，因为这都是我自己的记忆。但是我很难用其他孩子的眼光来看，除非借助于想象，但这是可能把我引入歧途的。孩子和大人生活在不同的世界里。如果是这样，我们就不能有把握说，学校，至少是寄宿学校，对许多孩子来说，不像过去那样可怕了。撇开上帝、拉丁文、教鞭、阶级差别和性的禁忌不谈，恐惧、憎恨、势利和误解可能仍都留在那里。必须看到，我自己的主要问题是完全缺乏任何的比例感或概率感。这使我接受和相信荒诞，为了实际上毫不重要的事情感到痛苦。光是说我“傻”，说我“应该聪明些”是不够的。回顾你自己的童年时代，想一想你曾经相信的胡说八道和能使你痛苦的琐事。当然，我自己的情况有我个人特有的细微差别。但是基本上这也是无数其他孩子的情况。孩子的弱点是他是以一张白纸开始的。他既不理解也不怀疑他所生活的社会，由于他的轻信，别人可以影响他，使他有自卑感，使他害怕违反神秘的可怕的准则。也许，我在圣塞浦里安遇到的一切，在最“开明”的学校里也可能发生，虽然可能在形式上含蓄一些。但是，有一件事情我是感到相当有把握的，那就是寄宿学校比走读学校更糟糕。一个孩子就近有自己的家当避难所，他的境遇就会好一些。我认为英国上层和中层阶级的特有的缺点可能一部分是由于孩子八九岁甚至七岁的时候就离家到寄宿学校去，这种做法直到如今才不那么普遍。</p>
+<p>我从来没有回到圣塞浦里安去过。校友重逢、校友聚餐等等这种活动，即使在我记忆是友好的时候，使我感到的反应也不仅仅是冷淡而已。我甚至从来没有去过伊顿，在那里的时候，我还是比较快活的。有一次，在一九三三年，我曾经经过那里，我很有兴趣地注意到，似乎什么都没有变，除了商店如今在出售收音机了。至于圣塞浦里安，多年之中我憎厌这个名字到了这么深的程度，以至我不能以足够超然的态度来看我在那里遇到的事情的意义。可以说，只是在过去的十年中，我才真正地想过我的学生时代，尽管它的生动记忆一直浮现在我的脑际。我相信，如今我如再去看那地方，如果它还存在的话，它不会对我造成什么影响了。（我记得几年前传说它已被烧毁了。)如果我要路过伊斯特布恩，我是不会故意绕过不去那学校的；如果我正好经过学校，我甚至可能会在它的低低的砖墙（墙边有一条很陡的河岸)旁驻足，望过平坦的操场，看一眼那丑陋的校舍和它前面铺有沥青的广场。而且如果我进去，重新闻到那间大教室的霉味，教室里的松香，澡堂的浊水味和冰凉的厕所的尿臊味，我想我只会感到你在重访童年时代任何情景时都会有的感觉：一切都变小了，而我自己又是老得多么厉害!但是事实是，多年来我没有再看它一眼的心情。除非出于十分不得已的必要，我是不会再踏上伊斯特布恩这地方的。我甚至对苏塞克斯也形成了偏见，因为它是圣塞浦里安所在的那个郡，长大以后我只到过苏塞克斯一次，作短期访问。但是，如今，这个地方已永远对我不再有任何影响了。它的魔力已不再灵了。我甚至对它再也没有足够的敌意而希望翻脸和傻包早死，或者学校被烧毁的传说是确实的。</p>
+<p>写于一九四七年五月；刊于一九五二年</p>
+<p>九至十月号《党见评论》</p>
+</blockquote>
+<blockquote>
+<p>摘自：《我为什么要写作》第二篇收录《如此欢乐的童年》 — 〔英〕乔治·奥威尔。 本作品由上海译文出版社授权豆瓣阅读全球范围内电子版制作与发行。</p>
+</blockquote>
+<p>一百多年过去了，这样的问题谁敢说现在不是依然严峻。在社会大环境上，看似在向积极正确的价值观上引导孩子，但是沦落到局部—学校或家族—依然输出的是利益导向的价值观，而受到这样环境而不自知的孩子比比皆是（我的弟弟就是一例，近几年我眼看着他的价值观被环境所扭曲，而我能给他的帮助有限，我很无奈）。而在家庭环境中家长们正在焦虑怎样给孩子落户，让孩子上最好的学校—就连富裕的家庭也在为此争先恐后—而忽略了孩子的真实感受和想法，这固然需要更多的时间和精力成本，甚至我会以为家长们极力去为孩子争取物质上的优越条件是为了逃避这个问题，但事实是大部分家庭没有意识到或忽略了这个问题。而这个问题处理不好会给孩子带来的影响不确定性太大，你完全无法预测这种影响究竟会走向积极，抑或是走向另一个极端，像奥威尔这样最终能积极自省觉悟拥有独立思维的案例毕竟在少数，即便如此他在少时也曾有诸多困惑与局限，更不用说大部分家庭的情况，谁又敢说社会上诸多不稳定因素和可怕的事件与此无关呢。 </p>
+<p>家庭环境的影响是问题的根源，但也恰恰是解决问题的关键所在（撇开文中国家、宗教、阶级等因素不谈）。我不喜欢现在身边大人哄孩子的方式，他们会用小孩的口吻去和小孩互动，但这样孩子就能理解吗？他们无非笑或哭；如果用大人的思维去与之交流，同样是不理解，但对他们来说是有潜移默化的影响—和学语言一样。只有产生了真正有效的沟通，才不至于让孩子心存困惑，留下伤痛，产生对事物的错误的看法。倘若我养育一个孩子，我会留心他对上学第一天穿着花纹不对的看法；会直接询问其感受；凡事同意或反对皆告知其真实理由，这虽不可谓不耿直，但和让他做正确的事情比起来，我耿直反倒是好事。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/" class="post-title-link" itemprop="url">《看不见的旋律》—— 脑回路跟不上的曲折情节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-22 23:44:11" itemprop="dateCreated datePublished" datetime="2019-02-22T23:44:11Z">2019-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/film/" itemprop="url" rel="index"><span itemprop="name">film</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/" class="post-meta-item leancloud_visitors" data-flag-title="《看不见的旋律》—— 脑回路跟不上的曲折情节" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今晚放映了🎥 《看不见的旋律》&#x2F;《The Blind Melody》，着实被惊艳了一番，想不到印度拍悬疑犯罪片能到这个水平（主要是和之前看的印度片有反差），不枉我苦苦寻此片源。</p>
+<p>该片极尽情节化、戏剧化之能事。全片塞满精巧设计的情节这点相当大胆，但由于伴随情节的伏笔和神转折（还有部分蒙太奇满足强迫症需要）比比皆是，所以大量的情节设置非但没让人感到冗余，反而引人入胜，甚至有点想笑 。顺序加插叙的叙事结构和首尾呼应的叙事技巧更是给人惊喜和回味（让人回味起《低俗小说》）。</p>
+<p>至于影片的视听语言、镜头运用以及剪辑也相当吸引眼球，里面的歌曲填词很耿直也很搞笑（看了你就知道），不过这些和剧情之曲折离奇相比没有那么引人注目，也就不多说剧透了，自己去观赏吧。只是有一幕让我个人印象深刻：女主两年后在欧洲街头看到 A-KASH 在一个地下酒吧演出，镜头跟随女主进入地下酒吧听完了 A-KASH 的演奏（曲目是其专门为女主谱写）。这一幕让我想起《La La Land》里米娅走进小塞的爵士酒馆听完《Mia &amp;  Sebastian‘s Theme》以及小塞没有落下的那最后一个音符，相信同样喜欢这两部电影的朋友一定会和我有同样的联想吧（有的话欢迎来聊骚）。</p>
+<p>此片院线上映必火，我说的 </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2019/02/%E6%82%BC%E5%BF%B5%E6%88%91%E7%9A%84%E5%A4%96%E5%85%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E7%94%9F%E6%B4%BB/2019/02/%E6%82%BC%E5%BF%B5%E6%88%91%E7%9A%84%E5%A4%96%E5%85%AC/" class="post-title-link" itemprop="url">悼念我的外公</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-19 00:02:49" itemprop="dateCreated datePublished" datetime="2019-02-19T00:02:49Z">2019-02-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E7%94%9F%E6%B4%BB/2019/02/%E6%82%BC%E5%BF%B5%E6%88%91%E7%9A%84%E5%A4%96%E5%85%AC/" class="post-meta-item leancloud_visitors" data-flag-title="悼念我的外公" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我的外公，我叫他大爹（方言，外婆称作细爹）。</p>
+<p>2019年大年初七，是我在老家过完春节返杭工作，也是大爹去世的日子。下午细爹还平静地打电话问候我返杭归途是否顺利（这是我唯一一次没有在电话里问起大爹），不料晚上就收到大爹突然去世的噩耗。</p>
+<p>没想到正月初二不经意间一个告别就成了永别，回想起来恍然如梦，不知所措——临走那天只是出门前草草一句“大爹，我走了”，总想着这次的告别实在是太草率了。 这是大爹唯一一次没有出来目送我。大爹啊：您是这世上最关心我的人，如果可以，我多希望我可以再多叫您几声大爹；陪您看看电视、打打牌。可惜没有如果，您今后就成了我的回忆了。</p>
+<p>大爹是个农民，和他们那个年代每一个农民一样，勤劳周转，有做不完的农活和家事。他一生最重要的事情就是养育了三个孩子（我的母亲和两位舅舅），现在他老人家去世成了他的三个孩子最悲痛的事情。</p>
+<p>大爹他还是一位赤脚医生，家里来看病的乡亲常常络绎不绝，格外热闹；外出去问诊的时候总是面带笑意，精神抖擞。大家都亲切地叫他李医师。他老人家是突发心肌梗塞抢救无效去世的，之前还中过风，都说医者不能自医，但他是知道自己身体情况的，但就是怕身边的人担心，所以不说，连最后细爹要去找舅舅抢救时他都试图阻止。宅心仁厚的李医师离开了，来送他的人七天不断。</p>
+<p>大爹是我见过最聪明坚韧却又最谦逊亲和而无私的人。他曾带我在田间种豆，一罐豆种，一把小锄头，松土，下种，流汗；带我割猪草，一刀一刀切碎，混着菜叶剩饭和糠喂给猪猡；教我认中草药，亲手挑选小片的甘草给我试吃；带我熏腊肉，厨房里的火灶，干柴塞进去，火苗闪耀，松枝和灌木发出噼啪脆裂声音，干柴烧完后的灶灰还有着热力，这时把收好的红薯和糯米罐子深埋进灶灰里，焐一个晚上。早上取出红薯和陶罐，红薯烂熟而糯米糊温热黏稠，纷纷经过喉咙落入胃里，绵密妥帖，我最爱吃；辛苦几十天熏好的腊肉会在春节分发给亲戚，大家都爱吃，只要是大家爱吃的，他就不辞辛劳地为大家争取。</p>
+<p>花开到尽头就要谢下来，但来年还会复活。人死去之后，会有轮回。按照佛教的说法，叶缘流转，哪怕我们自己不愿意，都还是要再回到另一个躯体里重新做人。而能否得到人身尚且还是一件极不易的事。这是为了让我们对生命有敬畏。世间上的缘分因果相续，任何事情都有回报。生命不是能够为所欲为的事，它也不由我们控制。</p>
+<p>任何人都只能陪我们走一段路，因此这一段路我们更要加倍珍惜、慎重对待。大爹匆匆离世让我不得不重新审视在杭工作是否妥帖。都说子欲孝而亲不在，如果在外赚钱是为了孝敬父母；是为了有能力去关心亲爱的人，那在物理距离上远离他们难道不是一种南辕北辙的做法？起码我们确实少了许多陪伴亲人的时间，而时间是沉没成本（流失了就再也无法回收），逻辑上看来，的确是得不偿失！虽然现阶段我还不能马上回到家乡，但我仍须要坚持做正确的事情——常回家看看。</p>
+<p>最后，大爹：那些您骑着二八大杠带着我，我坐在杠上去闻诊的春天；那些您脚踩淤泥为我和妹妹采莲蓬的夏天；那些和您一起用连枷打谷的秋天；那些您站在路边翘首期盼我寒假归来的冬天；我还有好多话想和您细说，却只能止笔于此。我最敬爱的大爹，我会常回来看细爹的，虽然不能像您一样和她拌嘴；我会照顾好妈妈，就像您百般疼爱她一样（您要是还在，一定会叫她改改臭脾气，对家人多些包容，她只听您的，而您是希望家人和睦团结的，对吧？希望她看到这多想想您，想想您的期望）。大爹，您安心地走吧，我们会好好生活的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/music/2018/12/%E7%88%B5%E5%A3%AB%E5%94%B1%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/music/2018/12/%E7%88%B5%E5%A3%AB%E5%94%B1%E6%B3%95/" class="post-title-link" itemprop="url">爵士唱法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-20 00:30:07" itemprop="dateCreated datePublished" datetime="2018-12-20T00:30:07Z">2018-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/music/" itemprop="url" rel="index"><span itemprop="name">music</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/music/2018/12/%E7%88%B5%E5%A3%AB%E5%94%B1%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="爵士唱法" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>#爵士唱法</p>
+<p>爵士唱法诞生于19世纪末，从开始出现，便很快被国际乐坛所接受，爵士乐以复杂的即兴，丰富的节奏而闻名，其唱法也没有太明显的框架，只要声音自然，一切方法都可以为其所用。</p>
+<p>爵士唱法分为标准爵士和流行爵士两种类型。标准爵士唱法讲究即兴，广泛运用__切分音__。并经常运用衬词来即兴演唱，由于这种唱法具有较高难度，而且即兴后歌曲旋律性也不强，所以很少被中国歌手所采用，但在欧美真正称得上是爵士大家的，大部分都是标准爵士唱法的歌手。</p>
+<p>流行爵士唱法是指运用一些__切分节奏__，并且有一些设计好的旋律变化，但切分和即兴的成分都不是很多，不过经常能体现出__摇摆__的特征，这种唱法极具有爵士乐的高雅性，又具有一定的旋律性，因此流行爵士唱法比较受观众的欢迎。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">Chrome信任自签数字证书</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-09-30 17:17:17" itemprop="dateCreated datePublished" datetime="2018-09-30T17:17:17Z">2018-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2018/10/Chrome%E4%BF%A1%E4%BB%BB%E8%87%AA%E7%AD%BE%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6/" class="post-meta-item leancloud_visitors" data-flag-title="Chrome信任自签数字证书" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Chrome信任自签数字证书"><a href="#Chrome信任自签数字证书" class="headerlink" title="Chrome信任自签数字证书"></a>Chrome信任自签数字证书</h1><h2 id="如何自签一个CA证书和一个子证书"><a href="#如何自签一个CA证书和一个子证书" class="headerlink" title="如何自签一个CA证书和一个子证书"></a>如何自签一个CA证书和一个子证书</h2><ol>
+<li>创建CA配置文件</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">touch localhost_ca.cnf</span><br><span class="line"></span><br><span class="line">[ req ]</span><br><span class="line">distinguished_name  = req_distinguished_name</span><br><span class="line">x509_extensions     = root_ca</span><br><span class="line"></span><br><span class="line">[ req_distinguished_name ]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下内容可随意填写</span></span><br><span class="line">countryName             = CN (2 letter code)</span><br><span class="line">countryName_min         = 2</span><br><span class="line">countryName_max         = 2</span><br><span class="line">stateOrProvinceName     = ZheJiang</span><br><span class="line">localityName            = HangZhou</span><br><span class="line">organizationName        = Dxy</span><br><span class="line">organizationalUnitName  = technology</span><br><span class="line">commonName              = develop</span><br><span class="line">commonName_max          = 64</span><br><span class="line">emailAddress            = yangw@dxy.cn</span><br><span class="line">emailAddress_max        = 64</span><br><span class="line"></span><br><span class="line">[ root_ca ]</span><br><span class="line">basicConstraints        = critical, CA:true</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建扩展配置文件</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">touch localhost_ca.ext</span><br><span class="line"></span><br><span class="line">subjectAltName = @alt_names</span><br><span class="line">extendedKeyUsage = serverAuth</span><br><span class="line"></span><br><span class="line">[alt_names]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">域名，如有多个用DNS.2,DNS.3…来增加</span></span><br><span class="line">DNS.1 = a.domain.cn</span><br><span class="line">DNS.2 = b.domain.cn</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">IP地址</span></span><br><span class="line">IP.1 = 192.168.0.1</span><br><span class="line">IP.2 = 127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建CA证书私钥及CA证书</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj &quot;/CN=$CA_CER_NAME&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>创建子证书私钥</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>创建子证书</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以做成脚本以便复用</p>
+</blockquote>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/zsh</span></span><br><span class="line">CA_CER_NAME=localhost_ca</span><br><span class="line">CA_KEY_NAME=localhost_ca</span><br><span class="line">CA_CNF_FILE=./localhost_ca.cnf</span><br><span class="line">CA_EXT_FILE=./localhost_ca.ext</span><br><span class="line"></span><br><span class="line">CER_NAME=localhost</span><br><span class="line">KEY_NAME=localhost</span><br><span class="line"></span><br><span class="line">openssl req -x509 -newkey rsa:2048 -out $CA_CER_NAME.cer -outform PEM -keyout $CA_KEY_NAME.pvk -days 10000 -verbose -config $CA_CNF_FILE -nodes -sha256 -subj &quot;/CN=$CA_CER_NAME&quot;</span><br><span class="line"></span><br><span class="line">openssl req -newkey rsa:2048 -keyout $KEY_NAME.pvk -out $CER_NAME.req -subj /CN=$CA_CER_NAME -sha256 -nodes</span><br><span class="line"></span><br><span class="line">openssl x509 -req -CA $CA_CER_NAME.cer -CAkey $CA_KEY_NAME.pvk -in $CER_NAME.req -out $CER_NAME.cer -days 10000 -extfile $CA_EXT_FILE -sha256 -set_serial 0x1111</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Chrome如何信任自签证书"><a href="#Chrome如何信任自签证书" class="headerlink" title="Chrome如何信任自签证书"></a>Chrome如何信任自签证书</h2><ol>
+<li>chrome:&#x2F;&#x2F;settings进入Chrome设置界面,搜索certificate,找到并点击Manage certificates将进入系统Keychain Access</li>
+<li>将生成CA(.cer)证书导入</li>
+<li>将导入后的CA证书设置成always trust</li>
+</ol>
+<h2 id="一些证书使用场景"><a href="#一些证书使用场景" class="headerlink" title="一些证书使用场景"></a>一些证书使用场景</h2><h3 id="pem格式转cer格式"><a href="#pem格式转cer格式" class="headerlink" title="pem格式转cer格式"></a>pem格式转cer格式</h3>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -inform PEM -in cacert.pem -outform DER -out certificate.cer</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看jdk证书"><a href="#查看jdk证书" class="headerlink" title="查看jdk证书"></a>查看jdk证书</h3>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -list -keystore &quot;%JAVA_HOME%/jre/lib/security/cacerts&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jdk密钥库操作"><a href="#jdk密钥库操作" class="headerlink" title="jdk密钥库操作"></a>jdk密钥库操作</h3><p><strong>修改密码</strong></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -storepasswd -keystore &quot;%JAVA_HOME%/jre/lib/security/cacerts&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>导入证书</strong></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -noprompt -trustcacerts -alias &lt;AliasName&gt; -file   &lt;certificate&gt; -keystore &lt;KeystoreFile&gt; -storepass &lt;Password&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除证书</strong></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -delete -alias &lt;keyAlias&gt; -keystore &lt;keystore-name&gt; -storepass &lt;password&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="cocos-creator中打包原生android应用时，使用android-studio中的证书"><a href="#cocos-creator中打包原生android应用时，使用android-studio中的证书" class="headerlink" title="cocos creator中打包原生android应用时，使用android studio中的证书"></a>cocos creator中打包原生android应用时，使用android studio中的证书</h3><p>找到构建好的原生android项目，修改其中gradle.properties文件，添加：</p>
+  <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">systemProp.javax.net.ssl.trustStore</span>=<span class="string">&#123;your-android-studio-directory&#125;\\jre\\jre\\lib\\security\\cacerts</span></span><br><span class="line"><span class="attr">systemProp.javax.net.ssl.trustStorePassword</span>=<span class="string">changeit</span></span><br></pre></td></tr></table></figure>
+<p>这将让cocos使用android studio的证书，然后在android studio中配置证书：Preference-&gt;Tools-&gt;Server Certification中添加证书</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2018/07/ArchSummit%E6%97%A5%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2018/07/ArchSummit%E6%97%A5%E7%A8%8B/" class="post-title-link" itemprop="url">ArchSummit日程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-07-05 10:13:29" itemprop="dateCreated datePublished" datetime="2018-07-05T10:13:29Z">2018-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2018/07/ArchSummit%E6%97%A5%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="ArchSummit日程" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a href="https://sz2018.archsummit.com/schedule">ArchSummit 全球架构师峰会日程</a></p>
+</blockquote>
+<h1 id="会议-·-第一天-2018-07-06-周五"><a href="#会议-·-第一天-2018-07-06-周五" class="headerlink" title="会议 · 第一天(2018&#x2F;07&#x2F;06 周五)"></a>会议 · 第一天(2018&#x2F;07&#x2F;06 周五)</h1><h2 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h2><ul>
+<li><code>09:15-10:00</code> <code>巴塞罗那厅</code> <a href="https://sz2018.archsummit.com/presentation/704">演讲：微服务——构建持续交付与DevOps架构</a> 陈连平 &#x2F; 独立研究员、顾问</li>
+<li><code>10:00-10:45</code> <code>马德里5号厅</code> <a href="https://sz2018.archsummit.com/presentation/750">演讲：基于容器化CI&#x2F;CD平台的持续集成和部署实践</a> 宫静 七牛云 &#x2F; 技术专家</li>
+<li><code>10:45-11:30</code> <code>马德里5号厅</code> <a href="https://sz2018.archsummit.com/presentation/752">面向机器学习数据平台的设计与搭建</a> 袁凯 个推 &#x2F; 首席数据架构师</li>
+<li><code>11:30-12:15</code> <code>巴塞罗那厅</code> <a href="https://sz2018.archsummit.com/presentation/761">谷歌云全球分布式系统架构设计在游戏产业的实践</a> James Wu Google Cloud &#x2F; Customer Engineer</li>
+</ul>
+<h2 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h2><ul>
+<li><code>13:45-14:30</code> <code>大宴会厅1</code> <a href="https://sz2018.archsummit.com/presentation/500">Istio-构造、守护、监控微服务的守护神 (英语演讲)</a> Lin Sun IBM &#x2F; Senior Technical Staff Member </li>
+<li><code>14:40-15:25</code>  <code>大宴会厅1</code> <a href="https://sz2018.archsummit.com/presentation/697">玩转Envoy 落地自研Service Mesh</a> 殷湘 思源 &#x2F; 高级架构专家 </li>
+<li><code>15:40-16:25</code> <code>大宴会厅1</code> <a href="https://sz2018.archsummit.com/presentation/404">贝聊微服务架构实战历程</a> 杨钦民 贝聊 &#x2F; 技术顾问</li>
+<li><code>16:35-17:20</code> <code>大宴会厅1</code> <a href="https://sz2018.archsummit.com/presentation/487">微服务架构下的效率提升实践</a> 王汶东 51信用卡 &#x2F; 研发技术总监</li>
+<li><code>18:30-21:00</code> <code>巴塞罗那厅</code> <a href="https://www.bagevent.com/event/1559589?bag_track=AS">ArchSummit特色晚场｜UCloud UCan技术夜——新生代特别之夜</a> </li>
+<li><code>18:30-21:00</code> <code>大宴会厅2</code> <a href="https://www.bagevent.com/event/1590965?bag_track=web">ArchSummit技术晚场 | 蚂蚁金服围炉夜话：云原生架构探讨</a></li>
+</ul>
+<h1 id="会议-·-第二天-2018-07-07-周六"><a href="#会议-·-第二天-2018-07-07-周六" class="headerlink" title="会议 · 第二天(2018&#x2F;07&#x2F;07 周六)"></a>会议 · 第二天(2018&#x2F;07&#x2F;07 周六)</h1><h2 id="上午-1"><a href="#上午-1" class="headerlink" title="上午"></a>上午</h2><ul>
+<li><code>09:00-09:45</code> <code>巴塞罗那厅</code> <a href="https://sz2018.archsummit.com/presentation/452">深度学习在大规模推荐系统中的应用</a> Dekun Zou Google &#x2F; 资深研发工程师 </li>
+<li><code>10:00-10:45</code> <code>马德里3号厅</code> <a href="https://sz2018.archsummit.com/presentation/625">余额宝大规模服务化的技术创新</a> 李鑫 天弘基金（余额宝） &#x2F; 移动平台技术总监 &amp; 首席架构师</li>
+<li><code>11:00-11:45</code> <code>马德里3号厅 </code> <a href="https://sz2018.archsummit.com/presentation/711">陆金所互金平台异步消息系统实践</a> 李貌 陆金所 &#x2F; 架构师</li>
+</ul>
+<h2 id="下午-1"><a href="#下午-1" class="headerlink" title="下午"></a>下午</h2><ul>
+<li><code>13:30-14:15</code> <code>大宴会厅2 </code> <a href="https://sz2018.archsummit.com/presentation/391">机器学习技术在安全性和完整性方面的探索</a> 徐斌 Facebook &#x2F; Software Engineer Manager</li>
+<li><code>14:30-15:15</code> <code>大宴会厅1</code> <a href="https://sz2018.archsummit.com/presentation/554">大道至简 - 严选售后服务架构演变实践</a> 马超 网易 &#x2F; 严选技术经理 </li>
+<li><code>15:35-16:20</code> <code>大宴会厅1</code> <a href="https://sz2018.archsummit.com/presentation/522">全球跨域RPC架构</a> 高良 菜鸟网络 &#x2F; 互联平台&#x2F;技术主管</li>
+<li><code>16:35-17:20</code> <code>巴塞罗那厅 </code> <a href="https://sz2018.archsummit.com/presentation/611">下一代分布式体系架构的理念与演进</a> 黄浩 菜鸟网络 &#x2F; 资深技术专家</li>
+</ul>
+<h1 id="培训-2018-07-08-09-周日-周一"><a href="#培训-2018-07-08-09-周日-周一" class="headerlink" title="培训(2018&#x2F;07&#x2F;08-09 周日 &#x2F; 周一)"></a>培训(2018&#x2F;07&#x2F;08-09 周日 &#x2F; 周一)</h1><blockquote>
+<p>  无法逗留记得找事后关注资料</p>
+</blockquote>
+<ul>
+<li><code>07月09日 上午</code> <code>深圳·华侨城洲际酒店 马德里3</code> <a href="https://sz2018.archsummit.com/training/641">微服务治理的探索与实践</a> 李鑫 天弘基金（余额宝） &#x2F; 移动平台技术总监 &amp; 首席架构师</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

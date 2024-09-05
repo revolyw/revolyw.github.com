@@ -1,23 +1,992 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
-{% block title %} {{ config.title }} {% endblock %}
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
 
-{% block page_class %}
-  {% if is_home() %} page-home {% endif %}
-{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="捉虫子的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Willow&#39;s blog">
+<meta property="og:url" content="http://blog.willowspace.cn/page/4/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="捉虫子的人">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="杨威">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://blog.willowspace.cn/page/4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"page/4/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Willow's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/09/nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/09/nginx/" class="post-title-link" itemprop="url">nginx</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-09-10 13:41:46" itemprop="dateCreated datePublished" datetime="2017-09-10T13:41:46Z">2017-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/09/nginx/" class="post-meta-item leancloud_visitors" data-flag-title="nginx" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一、nginx安装"><a href="#一、nginx安装" class="headerlink" title="一、nginx安装"></a>一、nginx安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装依赖</span></span><br><span class="line">sudo apt-get install openssl zlib1g-dev libssl-dev gcc libpcre3 libpcre3-dev</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置</span></span><br><span class="line">./configure --prefix=/srv/nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gzip_static_module --with-mail --with-mail_ssl_module</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">设置nginx环境变量(软链接)</span></span><br><span class="line">sudo ln -s /srv/nginx/sbin/nginx /usr/local/sbin/nginx</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、nginx模块管理"><a href="#二、nginx模块管理" class="headerlink" title="二、nginx模块管理"></a>二、nginx模块管理</h1><h2 id="查看已安装的模块"><a href="#查看已安装的模块" class="headerlink" title="查看已安装的模块"></a>查看已安装的模块</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -V</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加编译模块"><a href="#添加编译模块" class="headerlink" title="添加编译模块"></a>添加编译模块</h2><ol>
+<li><p>查看已安装的模块</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nginx -V</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复制configure arguments后的模块</span></span><br><span class="line">configure arguments: --prefix=/srv/nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gzip_static_module --with-mail --with-mail_ssl_module</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新配置编译选项并追加新增的某块</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/srv/nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gzip_static_module --with-mail --with-mail_ssl_module </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>make</p>
+<p><strong>切勿执行make install，否则将覆盖已安装的nginx</strong> </p>
+</li>
+<li><p>备份已安装的nginx二进制文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/sbin/nginx /usr/local/sbin/nginx.bak</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换重新编译的er禁止文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">源码目录中</span></span><br><span class="line">cp ./objs/nginx /usr/local/sbin/nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试无误后删除备份</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /usr/local/nginx/sbin/nginx.bak</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="三、nginx基本配置"><a href="#三、nginx基本配置" class="headerlink" title="三、nginx基本配置"></a>三、nginx基本配置</h1><h2 id="代理转发"><a href="#代理转发" class="headerlink" title="代理转发"></a>代理转发</h2><h3 id="http代理转发"><a href="#http代理转发" class="headerlink" title="http代理转发"></a>http代理转发</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将域名为x.domain.com的请求代理至localhost的8080端口</span></span><br><span class="line">server&#123;</span><br><span class="line">    <span class="attribute">listen</span>  <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> x.domain.com;</span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">       <span class="attribute">proxy_pass</span>  http://localhost:8080/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="https代理转发"><a href="#https代理转发" class="headerlink" title="https代理转发"></a>https代理转发</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认https使用443端口</span></span><br><span class="line"><span class="comment"># 将从443端口进入且域名为x.domain.com的请求代理至localhost的8080端口</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">   <span class="attribute">listen</span>       <span class="number">443</span> ssl;</span><br><span class="line">   <span class="attribute">server_name</span>  x.domain.com;</span><br><span class="line"></span><br><span class="line">   <span class="attribute">ssl</span> <span class="literal">on</span>;</span><br><span class="line">   <span class="attribute">ssl_certificate</span>      <span class="variable">$&#123;cert_path&#125;</span>/x.pem;</span><br><span class="line">   <span class="attribute">ssl_certificate_key</span>  <span class="variable">$&#123;cert_path&#125;</span>/x.key;</span><br><span class="line">   <span class="attribute">ssl_session_timeout</span>  <span class="number">5m</span>;</span><br><span class="line">   <span class="attribute">ssl_ciphers</span>  ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">   <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line">   <span class="attribute">ssl_prefer_server_ciphers</span>  <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">   <span class="section">location</span> / &#123;</span><br><span class="line">       <span class="attribute">proxy_pass</span>  http://localhost:8080/;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="http强转https"><a href="#http强转https" class="headerlink" title="http强转https"></a>http强转https</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将域名为x.domain.com的请求301重定向为https协议请求</span></span><br><span class="line">server&#123;</span><br><span class="line">    <span class="attribute">listen</span>  <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> x.domain.com;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">return</span> <span class="number">301</span> https://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="禁止ip直接访问"><a href="#禁止ip直接访问" class="headerlink" title="禁止ip直接访问"></a>禁止ip直接访问</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#禁止ip直接访问80端口</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">   <span class="attribute">listen</span> <span class="number">80</span> default_server;</span><br><span class="line">   <span class="attribute">server_name</span> _;</span><br><span class="line">   <span class="attribute">return</span> <span class="number">444</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#禁止ip直接访问443端口</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">   <span class="attribute">listen</span>       <span class="number">443</span> ssl default_server;</span><br><span class="line">   <span class="attribute">server_name</span>  _;</span><br><span class="line"></span><br><span class="line">   <span class="attribute">ssl</span> <span class="literal">on</span>;</span><br><span class="line">   <span class="attribute">ssl_certificate</span>      <span class="variable">$&#123;pem_file&#125;</span>;</span><br><span class="line">   <span class="attribute">ssl_certificate_key</span>  <span class="variable">$&#123;key_file&#125;</span>;</span><br><span class="line">   <span class="attribute">ssl_session_timeout</span>  <span class="number">5m</span>;</span><br><span class="line">   <span class="attribute">ssl_ciphers</span>  <span class="variable">$&#123;ssl_ciphers_string&#125;</span>;</span><br><span class="line">   <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line">   <span class="attribute">ssl_prefer_server_ciphers</span>  <span class="literal">on</span>;</span><br><span class="line">   <span class="attribute">return</span> <span class="number">444</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、nginx开源模块"><a href="#四、nginx开源模块" class="headerlink" title="四、nginx开源模块"></a>四、nginx开源模块</h1><h2 id="上游节点健康检测"><a href="#上游节点健康检测" class="headerlink" title="上游节点健康检测"></a>上游节点健康检测</h2><p>健康检测选用淘宝团队开发的<a href="https://github.com/yaoweibin/nginx_upstream_check_module">nginx_upstream_check_module</a>模块</p>
+<ol>
+<li>安装nginx_upstream_check_module</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入nginx源码目录</span></span><br><span class="line">cd /srv/nginx-1.12.1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载check模块</span></span><br><span class="line">wget -O nginx_upstream_check_module.zip &#x27;https://codeload.github.com/yaoweibin/nginx_upstream_check_module/zip/master&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压</span></span><br><span class="line">unzip nginx_upstream_check_module.zip</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打补丁</span></span><br><span class="line">patch -p1 &lt; ./nginx_upstream_check_module-master/check_1.12.1+.patch</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加check模块(参考上面添加编译模块的方法)</span></span><br><span class="line">./configure $&#123;origin_params&#125; --add-module=./nginx_upstream_check_module-master/</span><br><span class="line">make (注意：此处只make，编译参数需要和之前的一样)</span><br><span class="line">mv /usr/local/sbin/nginx /usr/local/sbin/nginx-1.21.1.bak</span><br><span class="line">cp ./objs/nginx /usr/local/sbin/nginx</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检测是否成功</span></span><br><span class="line">/usr/local/sbin/nginx -t</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置健康检测</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置上游服务器健康检测</span></span><br><span class="line">upstream tomcat-cluster-2 &#123;</span><br><span class="line">    server 127.0.0.1:8082; #上游服务器地址及端口</span><br><span class="line">    check interval=1800000 rise=2 fall=5 timeout=1000 type=http; #检测规则</span><br><span class="line">    check_http_send &quot;GET /health HTTP/1.0\r\n\r\n&quot;; #健康检测接口，将按检测规则进行轮询</span><br><span class="line">    check_http_expect_alive http_2xx http_3xx; #规定健康检测接口的成功返回状态码</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置服务器</span></span><br><span class="line">server&#123;</span><br><span class="line">    listen  80;</span><br><span class="line">    server_name x.domain.cn;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://tomcat-cluster-2/;</span><br><span class="line">    &#125;</span><br><span class="line">    # 开启健康状态页面路由</span><br><span class="line">    location /status &#123;</span><br><span class="line">            check_status html; #健康状态页面，默认以html格式展现，可选html、json、csv</span><br><span class="line">            access_log   off; #不记录access_log</span><br><span class="line">            #allow all;</span><br><span class="line">            #deny all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>查看健康状态</li>
+</ol>
+<p>按照如上配置，访问x.domain.cn&#x2F;status可以看到健康状态<img src="http://img.willowspace.cn/willowspace_2016/1505020882341.png"></p>
+<p>其中<code>number</code>代表上游服务器节点个数，<code>generation</code>为健康检测本身load的次数(nginx重启或者reload都会导致<code>generation</code>增加)</p>
+<p>更多健康检测模块配置参考<a href="http://tengine.taobao.org/document_cn/http_upstream_check_cn.html">配置文档</a></p>
+<h2 id="sticky"><a href="#sticky" class="headerlink" title="sticky"></a>sticky</h2><p>官方收费版，参考<a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html#sticky">nginx stciky</a>模块</p>
+<p>开源版，参考<a href="https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng">https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng</a></p>
+<h1 id="五、更多配置"><a href="#五、更多配置" class="headerlink" title="五、更多配置"></a>五、更多配置</h1><h2 id="413-Request-Entity-Too-Large-Error"><a href="#413-Request-Entity-Too-Large-Error" class="headerlink" title="413 Request Entity Too Large Error"></a>413 Request Entity Too Large Error</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http, server 或 location节点中添加</span></span><br><span class="line"><span class="attribute">client_max_body_size</span> <span class="number">10M</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/09/%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84http%E8%AF%B7%E6%B1%82%E7%BB%8F%E5%8E%86%E4%BA%86%E6%80%8E%E6%A0%B7%E7%9A%84%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/09/%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84http%E8%AF%B7%E6%B1%82%E7%BB%8F%E5%8E%86%E4%BA%86%E6%80%8E%E6%A0%B7%E7%9A%84%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">一次完整的http请求经历了怎样的过程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-09-06 00:47:06" itemprop="dateCreated datePublished" datetime="2017-09-06T00:47:06Z">2017-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/09/%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84http%E8%AF%B7%E6%B1%82%E7%BB%8F%E5%8E%86%E4%BA%86%E6%80%8E%E6%A0%B7%E7%9A%84%E8%BF%87%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="一次完整的http请求经历了怎样的过程" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>本文将介绍完整的http请求过程。</p>
+</blockquote>
+<h1 id="http请求的完整过程"><a href="#http请求的完整过程" class="headerlink" title="http请求的完整过程"></a>http请求的完整过程</h1><p><img src="http://img.willowspace.cn/willowspace_2016/1504634741775.png"></p>
+<h1 id="TIPS"><a href="#TIPS" class="headerlink" title="TIPS"></a>TIPS</h1><h2 id="查看chrome客户端DNS"><a href="#查看chrome客户端DNS" class="headerlink" title="查看chrome客户端DNS"></a>查看chrome客户端DNS</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome://net-internals/#sdch</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用mtr命令显示链路传输状况"><a href="#使用mtr命令显示链路传输状况" class="headerlink" title="使用mtr命令显示链路传输状况"></a>使用<code>mtr</code>命令显示链路传输状况</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mtr $domain</span><br><span class="line">mtr $ip</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1504632218689.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/09/Linux%E7%94%A8%E6%88%B7-%E7%BB%84-%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/09/Linux%E7%94%A8%E6%88%B7-%E7%BB%84-%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Linux用户(组)及权限管理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-09-06 00:36:01" itemprop="dateCreated datePublished" datetime="2017-09-06T00:36:01Z">2017-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/09/Linux%E7%94%A8%E6%88%B7-%E7%BB%84-%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="Linux用户(组)及权限管理" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="用户-组-管理"><a href="#用户-组-管理" class="headerlink" title="用户(组)管理"></a>用户(组)管理</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新增用户</span></span><br><span class="line">useradd -s /bin/zsh -d /home/$user -m $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改用户密码</span></span><br><span class="line">passwd $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用户添加到新组</span></span><br><span class="line">usermod -a -G $newGroup $user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看用户信息信息</span></span><br><span class="line">id $user</span><br><span class="line">uid=1001($user) gid=1001($user) groups=1001($user),33(www-data)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给用户分配组</span></span><br><span class="line">gpasswd -a $user $group</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看用户所属组情况</span></span><br><span class="line">groups $userName</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">把用户从组删除</span></span><br><span class="line">gpasswd -d $user $group</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除用户</span></span><br><span class="line">userdel -r $user</span><br></pre></td></tr></table></figure>
+
+<h1 id="用户-组-权限管理"><a href="#用户-组-权限管理" class="headerlink" title="用户(组)权限管理"></a>用户(组)权限管理</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给目录指定所属用户及所属用户组</span></span><br><span class="line">chown -R $user:$group $directory</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给目录指定同组用户的权限</span></span><br><span class="line">chmod -R g+wrx $directory</span><br><span class="line">chmod -R g-wrx $directory</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/09/Linux%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/09/Linux%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Linux虚拟内存管理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-09-05 22:53:11" itemprop="dateCreated datePublished" datetime="2017-09-05T22:53:11Z">2017-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/09/Linux%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="Linux虚拟内存管理" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="管理虚拟内存"><a href="#管理虚拟内存" class="headerlink" title="管理虚拟内存"></a>管理虚拟内存</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先看一下当前内分分布</span></span><br><span class="line">free -m </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开始分配虚拟内存</span></span><br><span class="line">mkdir /usr/img/ </span><br><span class="line">rm -rf /usr/img/swap</span><br><span class="line">dd if=/dev/zero of=/usr/img/swap bs=1024 count=2048000</span><br><span class="line">mkswap /usr/img/swap</span><br><span class="line">swapon /usr/img/swap</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看分配虚拟内存后的内存分布</span></span><br><span class="line">free -m</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用完干掉虚拟内存</span></span><br><span class="line">swapoff /usr/img/swap</span><br><span class="line">rm -f /usr/img/swap</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/Java-CLI%E6%9E%84%E5%BB%BAweb%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/Java-CLI%E6%9E%84%E5%BB%BAweb%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">Java-CLI构建web程序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-31 00:18:43" itemprop="dateCreated datePublished" datetime="2017-08-31T00:18:43Z">2017-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/Java-CLI%E6%9E%84%E5%BB%BAweb%E7%A8%8B%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Java-CLI构建web程序" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文将介绍如何使用Java原生命令打包构建一个java web项目。</p>
+<p>虽说现在有ant、maven、gradle等打包构建工具，可以很方便的完成打包构建目标，但是不妨看看他们是如何封装jdk命令完成打包构建的。</p>
+<p>另一方面，古老的项目，没有使用高级的打包构建工具也没有IDE的情况下，也只能自己通过脚本来完成原生的打包任务了。</p>
+<p>再者，java9来了，jdk更新了许多新的命令，重新回忆下传统命令也是好的。<img src="http://img.willowspace.cn/willowspace_2016/1504185367239.png"></p>
+<h1 id="一、项目结构"><a href="#一、项目结构" class="headerlink" title="一、项目结构"></a>一、项目结构</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">project</span><br><span class="line">├── README.md</span><br><span class="line">├── lib #jar包目录</span><br><span class="line">│   ├── a.jar</span><br><span class="line">│   └── *.jar</span><br><span class="line">├── src #源码目录</span><br><span class="line">│   ├── package1</span><br><span class="line">│   └── package*</span><br><span class="line">└── web #web资源目录</span><br><span class="line">    ├── WEB-INF</span><br><span class="line">    │   └── web.xml</span><br><span class="line">    ├── js</span><br><span class="line">    ├── css    </span><br><span class="line">    └── index.html</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、编译源文件"><a href="#二、编译源文件" class="headerlink" title="二、编译源文件"></a>二、编译源文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd project</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建out目录，out目录下创建classes目录</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">out存放所有需要被打进war包的文件；out/classes存放所有编译好的字节码文件</span></span><br><span class="line">mkdir -p out/classes</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开始编译源文件</span></span><br><span class="line">javac -g -cp &quot;./lib/*&quot; -d ./out/classes -encoding UTF8 $(find ./src -name &quot;*.java&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>javac为源文件的编译命令,其使用格式为：<code>javac &lt;options&gt; &lt;source files&gt;</code></p>
+<p><code>-g</code> 默认情况下 <code>javac</code> 只生成行号和源文件信息，添加<code>g</code>参数将生成所有的debug信息，其中包括本地变量(spring参数注解等)。</p>
+<p><code>-cp</code> 全拼是-classpath，可以指定源文件依赖的jar包或字节码文件</p>
+<p><code>-d</code> 可以指定字节码文件的输出目录</p>
+<p><code>$(find ./src -name &quot;*.java&quot;)</code> 指定的是待编译的源文件，这里使用了系统的find命令来进行通配src目录下的所有java文件</p>
+<blockquote>
+<p>更多javac命令细节参考<a href="http://docs.oracle.com/javase/8/docs/technotes/tools/windows/javac.html">java8 javac docs</a></p>
+</blockquote>
+<h1 id="三、按J2EE规范组织资源"><a href="#三、按J2EE规范组织资源" class="headerlink" title="三、按J2EE规范组织资源"></a>三、按J2EE规范组织资源</h1><p><a href="https://docs.oracle.com/cd/E13222_01/wls/docs90/webapp/configurewebapp.html">J2EE规范</a>规定了web资源文件、jar包文件、字节码文件等的组织结构如下，这也是最终war内部的目录结构</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">project/out</span><br><span class="line">├── WEB-INF</span><br><span class="line">│   ├── classes</span><br><span class="line">│   ├── lib</span><br><span class="line">│   └── web.xml</span><br><span class="line">├── js</span><br><span class="line">├── css    </span><br><span class="line">└── index.html</span><br></pre></td></tr></table></figure>
+
+<p>开始按这个结构调整目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd project</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复制web资源目录、jar包目录至out目录</span></span><br><span class="line">cp -r lib web/* out/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将字节码文件和jar包文件复制至WEB-INF目录下</span></span><br><span class="line">cd out</span><br><span class="line">mv lib classes WEB-INF/</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、打war包"><a href="#四、打war包" class="headerlink" title="四、打war包"></a>四、打war包</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd project/out</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打war包</span></span><br><span class="line">jar cvf ./project.war ./*</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>更多jar命令细节，参考<a href="http://docs.oracle.com/javase/8/docs/technotes/tools/windows/jar.html">java8 jar docs</a></p>
+</blockquote>
+<h1 id="五、FAQ"><a href="#五、FAQ" class="headerlink" title="五、FAQ"></a>五、FAQ</h1><h2 id="字节码文件目录中的文件找不到"><a href="#字节码文件目录中的文件找不到" class="headerlink" title="字节码文件目录中的文件找不到"></a>字节码文件目录中的文件找不到</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>war包部署到web服务器启动时报文件(字节码文件目录中)找不到，这常常是由于源码目录中存放了非java文件，而我们上面说的步骤只是对源码目录进行了编译，没有处理这些非java文件，而这些文件确实被依赖，所以项目自然无法启动。</p>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>举个实际场景如:使用mybatis时常会把ORM映射关系文件(xml)放在源码目录，如果不将映射文件移动到打包目录，打出来的war包就无法正常部署。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">project/src</span><br><span class="line">├── package1</span><br><span class="line">│   ├── mapping1.xml</span><br><span class="line">│   └── mapping*.xml   </span><br><span class="line">└── package*</span><br><span class="line">    └── *.java</span><br></pre></td></tr></table></figure>
+
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>将非java文件从源码目录移至WEB-INF&#x2F;classes对应位置即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mv project/src/package1/* project/out/WEB-INF/classes/package1/</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">移动后的结构</span></span><br><span class="line">project</span><br><span class="line">├── src #源码目录</span><br><span class="line">│   ├── package1</span><br><span class="line">│   |	├── mapping1.xml</span><br><span class="line">│   |	└── mapping*.xml </span><br><span class="line">│   └── package*</span><br><span class="line">│   	└── *.java</span><br><span class="line">└── out #打包目录</span><br><span class="line">    ├── package1</span><br><span class="line">    |	├── mapping1.xml</span><br><span class="line">    |	└── mapping*.xml </span><br><span class="line">    └── package*</span><br><span class="line">    	└── *.class	</span><br></pre></td></tr></table></figure>
+
+<h2 id="spring注解的参数无法解析"><a href="#spring注解的参数无法解析" class="headerlink" title="spring注解的参数无法解析"></a>spring注解的参数无法解析</h2><h3 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h3><p><code>javac</code>命令编译源文件的时候没有启了<code>g</code>参数，如果没有开启，spring的注解将被忽略</p>
+<p>参考<a href="https://salonegupta.wordpress.com/2014/04/01/spring-annotations-and-javac-debug-mode/#more-5">Spring annotations and Javac debug mode</a></p>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>开启<code>g</code>参数来编译源文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -g ...</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/gitlab%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/gitlab%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">gitlab版本管理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-27 16:57:23" itemprop="dateCreated datePublished" datetime="2017-08-27T16:57:23Z">2017-08-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/gitlab%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="gitlab版本管理" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><p>安装环境为：<code>ubuntu</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装并配置必须的依赖</span></span><br><span class="line">sudo apt-get install -y curl openssh-server ca-certificates</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加gitlab包及服务并安装gitlab包</span></span><br><span class="line">curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置并启动gitlab</span></span><br><span class="line">sudo gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、配置gitlab访问域名及端口"><a href="#二、配置gitlab访问域名及端口" class="headerlink" title="二、配置gitlab访问域名及端口"></a>二、配置gitlab访问域名及端口</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开gitlab配置文件</span></span><br><span class="line">vim /etc/gitlab/gitlab.rb</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改访问入口项</span></span><br><span class="line">external_url &#x27;http://code.domain.com:$&#123;port&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、访问并设置初始密码"><a href="#三、访问并设置初始密码" class="headerlink" title="三、访问并设置初始密码"></a>三、访问并设置初始密码</h1><p>初始账号为root，第一次访问时会要求重置密码</p>
+<h1 id="四、初始化项目"><a href="#四、初始化项目" class="headerlink" title="四、初始化项目"></a>四、初始化项目</h1><h5 id="Git-global-setup"><a href="#Git-global-setup" class="headerlink" title="Git global setup"></a>Git global setup</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;willow&quot;</span><br><span class="line">git config --global user.email &quot;admin@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Create-a-new-repository"><a href="#Create-a-new-repository" class="headerlink" title="Create a new repository"></a>Create a new repository</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone git@code.willowspace.cn:root/willow.git</span><br><span class="line">cd willow</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;add README&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h5 id="Existing-folder"><a href="#Existing-folder" class="headerlink" title="Existing folder"></a>Existing folder</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd existing_folder</span><br><span class="line">git init</span><br><span class="line">git remote add origin git@code.willowspace.cn:root/willow.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h5 id="Existing-Git-repository"><a href="#Existing-Git-repository" class="headerlink" title="Existing Git repository"></a>Existing Git repository</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd existing_repo</span><br><span class="line">git remote add origin git@code.willowspace.cn:root/willow.git</span><br><span class="line">git push -u origin --all</span><br><span class="line">git push -u origin --tags</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、常规维护"><a href="#五、常规维护" class="headerlink" title="五、常规维护"></a>五、常规维护</h1><h2 id="启停"><a href="#启停" class="headerlink" title="启停"></a>启停</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动Gitlab所有组件</span></span><br><span class="line">sudo gitlab-ctl start</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止Gitlab所有组件</span></span><br><span class="line">sudo gitlab-ctl stop</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启Gitlab所有组件</span></span><br><span class="line">sudo gitlab-ctl restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="备份配置"><a href="#备份配置" class="headerlink" title="备份配置"></a>备份配置</h2><p>打包<code>/etc/gitlab/</code>下所有文件</p>
+<h2 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-rake gitlab:backup:create</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">产生的备份包名形如下</span></span><br><span class="line">1490183942_2017_03_22_gitlab_backup.tar</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">备份文件位于/var/opt/gitlab/backups路径下</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="恢复数据"><a href="#恢复数据" class="headerlink" title="恢复数据"></a>恢复数据</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-ctl stop unicorn</span><br><span class="line">sudo gitlab-ctl stop sidekiq</span><br><span class="line">sudo gitlab-ctl status</span><br><span class="line">sudo gitlab-rake gitlab:backup:restore BACKUP=1490183942_2017_03_22</span><br></pre></td></tr></table></figure>
+
+<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-ctl stop</span><br><span class="line">sudo gitlab-ctl uninstall</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除所有gitlab文件，在根目录下find -name gitlab*，找到所有相关文件，然后执行删除。</span></span><br><span class="line">find -name gitlab*</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E4%B8%9A%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E4%B8%9A%E5%8A%A1/" class="post-title-link" itemprop="url">短信验证码业务</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-26 03:02:32" itemprop="dateCreated datePublished" datetime="2017-08-26T03:02:32Z">2017-08-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E4%B8%9A%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="短信验证码业务" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="短信验证码业务介绍"><a href="#短信验证码业务介绍" class="headerlink" title="短信验证码业务介绍"></a>短信验证码业务介绍</h1><p>短信验证码是通过将验证因子置于短信息中，通过手机传达给用户，以此验证因子作为凭证达到服务端校验客户端身份的目的。短信信道相对于网络信道较安全，因此许多需要身份验证的业务（e.g. 注册、登录、找回密码等）常使用短信验证码来作为身份校验。</p>
+<h1 id="短信验证码业务流程"><a href="#短信验证码业务流程" class="headerlink" title="短信验证码业务流程"></a>短信验证码业务流程<img src="http://img.willowspace.cn/willowspace_2016/1503687828140.png"></h1><h1 id="短信平台接入"><a href="#短信平台接入" class="headerlink" title="短信平台接入"></a>短信平台接入</h1><p>短信平台可以和第三方短信通道运营商签约自行搭建。也可以直接接入第三方短信平台。下面推荐一个短信平台。</p>
+<h2 id="云之讯短信平台"><a href="#云之讯短信平台" class="headerlink" title="云之讯短信平台"></a>云之讯短信平台</h2><p>详细的接入流程参考<a href="http://www.ucpaas.com/">云之讯官网</a>上的文档</p>
+<p>云之讯官方的SDK不太友好，可结合官方SDK自行开发。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

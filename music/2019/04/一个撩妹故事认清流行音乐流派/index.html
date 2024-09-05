@@ -1,38 +1,383 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="路易斯·阿姆斯特朗（Louis Armstrong）。他是提及爵士音乐，人们最先联想到的人，他以新奥尔良爵士乐风格，在迪克西兰爵士乐配曲下，演奏结构简单、富有戏剧性的作品。他是爵士乐坛无人不知、无人不晓的大人物。每一本关于爵士乐的书，都会提及他的名字。他对于爵士乐的重要意义，就好像古典音乐的巴赫，摇滚乐的猫王。现场交响乐版本《爱乐之城》https:&#x2F;&#x2F;v.qq.com&#x2F;x&#x2F;page&#x2F;v05187j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个撩妹故事认清流行音乐流派">
+<meta property="og:url" content="http://blog.willowspace.cn/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="路易斯·阿姆斯特朗（Louis Armstrong）。他是提及爵士音乐，人们最先联想到的人，他以新奥尔良爵士乐风格，在迪克西兰爵士乐配曲下，演奏结构简单、富有戏剧性的作品。他是爵士乐坛无人不知、无人不晓的大人物。每一本关于爵士乐的书，都会提及他的名字。他对于爵士乐的重要意义，就好像古典音乐的巴赫，摇滚乐的猫王。现场交响乐版本《爱乐之城》https:&#x2F;&#x2F;v.qq.com&#x2F;x&#x2F;page&#x2F;v05187j">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-04-14T02:38:44.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.882Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="jazz,soul,hiphop,音乐流派">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/","path":"music/2019/04/一个撩妹故事认清流行音乐流派/","title":"一个撩妹故事认清流行音乐流派"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一个撩妹故事认清流行音乐流派 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一个撩妹故事认清流行音乐流派 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一个撩妹故事认清流行音乐流派
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-14 02:38:44" itemprop="dateCreated datePublished" datetime="2019-04-14T02:38:44Z">2019-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/music/" itemprop="url" rel="index"><span itemprop="name">music</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/music/2019/04/%E4%B8%80%E4%B8%AA%E6%92%A9%E5%A6%B9%E6%95%85%E4%BA%8B%E8%AE%A4%E6%B8%85%E6%B5%81%E8%A1%8C%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/" class="post-meta-item leancloud_visitors" data-flag-title="一个撩妹故事认清流行音乐流派" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>路易斯·阿姆斯特朗（Louis Armstrong）。他是提及爵士音乐，人们最先联想到的人，他以新奥尔良爵士乐风格，在迪克西兰爵士乐配曲下，演奏结构简单、富有戏剧性的作品。他是爵士乐坛无人不知、无人不晓的大人物。每一本关于爵士乐的书，都会提及他的名字。他对于爵士乐的重要意义，就好像古典音乐的巴赫，摇滚乐的猫王。<br>现场交响乐版本《爱乐之城》<a href="https://v.qq.com/x/page/v05187jdzk2.html">https://v.qq.com/x/page/v05187jdzk2.html</a><br>《《爱乐之城》斯坦尼康→摇臂一镜到底演示 the someone in the crowd》<a href="https://v.qq.com/x/page/l0376vuvlav.html">https://v.qq.com/x/page/l0376vuvlav.html</a><br>《爱与之城-你不知道的 25 件事》<a href="https://v.qq.com/x/page/a03773bb8o3.html">https://v.qq.com/x/page/a03773bb8o3.html</a></p>
+<p>爵士（Jazz）<br>Louis Armstrong《What a wonderful world》 <a href="https://v.qq.com/x/page/m0160bikj70.html">https://v.qq.com/x/page/m0160bikj70.html</a><br>Louis Armstrong《La Vie En Rose》<br>高司令《爱乐之城》酒吧愤弹曲目：<a href="https://v.qq.com/x/page/x0760o4qsh3.html">https://v.qq.com/x/page/x0760o4qsh3.html</a><br>高司令《爱乐之城》最后一曲：<a href="https://v.qq.com/x/page/i0394wlm16j.html">https://v.qq.com/x/page/i0394wlm16j.html</a><br>一百年（上个世纪 20 年代），在新奥尔良的小酒馆里，有一个非常擅长撩妹的人，他吹一吹小号美女的脸就红了，他能读懂每一个人的心事，他的名字叫作爵士（Jazz）。</p>
+<p>放克（Funk）<br>Funk 《<a href="https://v.qq.com/x/page/r0839ow23j4.html%E3%80%8B">https://v.qq.com/x/page/r0839ow23j4.html》</a><br>Jazz 很快结婚了，婚后生了个儿子。儿子从小很崇拜他爸，也想成为撩妹高手，但他长大后爱上了蹦迪，他摸索出了自己的撩妹心得，于是他就跟他爸说，你的泡妞方式早就过时了，现在年轻妹子都喜欢有节奏的人，听起来就像这样（咚、嗒、咚、嗒）他这个儿子就叫放克（Funk）。</p>
+<p>嘻哈（Hiphop）<br><a href="https://v.qq.com/x/page/a0341tf4qdo.html">https://v.qq.com/x/page/a0341tf4qdo.html</a><br>Funk 想把兴趣发展成事业，他说不拿着天使轮，今年过年不回家。于是在他开了一家公司叫 嘻哈（Hiphop），有个年轻人叫 DJ Kool Herc，他是真的很酷，被誉为 Hiphop 之父，他是第一个把两台唱机玩起来的 DJ，可以说没有他就没有 Hiphop，他的音乐就是舞者们的兴奋剂。</p>
+<p>新式嘻哈（New School Hiphop）<br><a href="https://v.qq.com/x/page/n1426a3p2r6.html">https://v.qq.com/x/page/n1426a3p2r6.html</a><br>随着 Hiphop 的事业发展如日中天，Hiphop 的员工划分成两个阵营。一类觉得以前的泡妞方法早过时了，现在没个房没个车啊，只能做单身狗啊，于是他们带上金灿灿的假牙，金灿灿的大金链子，金灿灿的金钱，很明显，这部分人是属于外向的。</p>
+<p>旧式嘻哈（Old School Hiphop）<br><a href="https://v.qq.com/x/page/t0537qrpcb5.html">https://v.qq.com/x/page/t0537qrpcb5.html</a><br>那还有一部分是内向的人怎么办呢？难道就不能愉快的泡妞了吗？</p>
+<p>爵士嘻哈（Jazz Hiphop）<br>《点星 Point The Star》<br>Nujabes - 《混沌武士（Samurai Champloo）》-《battlecry》<br>Nujabes - 《混沌武士（Samurai Champloo）》<a href="https://v.qq.com/x/page/c0817f8p1ks.html">https://v.qq.com/x/page/c0817f8p1ks.html</a><br>Nujabes - 《混沌武士（Samurai Champloo）》-《aruarian dance》<br><a href="https://v.qq.com/x/page/a0187s80vah.html">https://v.qq.com/x/page/a0187s80vah.html</a><br>《不是Jazz，不是HipHop，是Jazz-HipHop》<a href="https://mp.weixin.qq.com/s/jlmg0YHj13sU_1tj-K5ZOQ">https://mp.weixin.qq.com/s/jlmg0YHj13sU_1tj-K5ZOQ</a><br>天无绝人之路啊，一次从美国 Hiphop 总部派来的员工和日本的 Hiphop 分公司员工会面了，他们这一见真是相见恨晚，商讨出许多创新泡妞心得，他们发现人是感性的，在老祖宗 Jazz 那里，感性的东西很多，他究其一生都在用不怎么花哨的乐器做出不同的情绪，用旋律获得姑娘的芳心，于是美日合璧创造出了爵士嘻哈（Jazz Hiphop）。他既有老 Jazz 的钢琴采样，或其他 Jazz 器乐的采样，又有最酷的 Hiphop 鼓点节奏。</p>
+<p>低保真嘻哈（Lofi Hiphop）<br>《nagashi》<br><a href="https://v.qq.com/x/page/d06388mk33w.html">https://v.qq.com/x/page/d06388mk33w.html</a><br><a href="https://v.qq.com/x/page/e06387xfl4v.html">https://v.qq.com/x/page/e06387xfl4v.html</a><br>可是好景不长，慢慢的他们发现，就算是内向的人也是需要分类的。有一部分内向的人喜欢宅在家里，刷剧，吃零食，一个人在自己的小世界里玩游戏，看书，一个人久了也会不由自主的丧起来，他们是年轻人但是也很怀旧，为了满足这部分人 Hiphop 总部决定创作出低保真嘻哈（Lofi Hiphop），因为它是由 Jazz Hiphop 衍生的，所以形式上基本都是 Jazz Hiphop ，唯一不同的是，他更像是室内的音乐（因为宅嘛），所以 Lofi Hiphop 听起来一般都很安静，而且比较容易引起人感情上的共鸣，它的鼓点听起来闷闷的，就像小盒子里发出来的声音，最重要的是它会有滋啦啦~滋啦啦的声音夹杂其中，这样听起来才复古嘛，像 80 年代的磁带和碟发出来的一样，旧旧的，这个滋啦啦就是 Lofi，是一种让影音失真的技术，这也是为什么 Lofi Hiphop 叫低保真嘻哈的原因。</p>
+<p>休闲嘻哈（Chillhop）<br>Bonus Points 《Shaka Brah》<br><a href="https://v.qq.com/x/page/t0561ox6b9q.html">https://v.qq.com/x/page/t0561ox6b9q.html</a><br>相较于宅的这类内向的人，另外一种内向的人就很不一样了。他们虽然也有宅懒病，但是却喜欢在户外葛优躺。为了满足这部分人 Hiphop 总部创作出了休闲嘻哈（Chillhop）。因为是在户外，所以 Chillhop 听起来很空旷，绝对没有 Lofi Hiphop 那种闷闷的声音，感觉很立体很环绕，而且感觉上跟假日密不可分——沙滩椰子树，坐北朝南，海边大别墅，海岛之声。还有就是 Chillhop 里的吉他都很出彩，超级好听。</p>
+<p>的士高（Disco）<br>《快乐崇拜》<a href="https://v.qq.com/x/page/y0322efln5k.html">https://v.qq.com/x/page/y0322efln5k.html</a><br>Funk 除了 Hiphop 之外还有另一个儿子叫的士高（Disco），《快乐崇拜》就是大家非常熟悉的一首 Disco 了。的士高，一听这名字就想跳舞对不对，不然早年酒吧怎么叫迪厅呢。</p>
+<p>蒸汽波（Vaporwave）<br><a href="https://v.qq.com/x/page/j0515fjl5si.html">https://v.qq.com/x/page/j0515fjl5si.html</a><br>而同期中国都在流行什么音乐呢？《卡拉 OK 金曲一百首》。这些歌也是蒸汽波（Vaporwave）经常采样的， Vaporwave 是一种艺术风格，在视觉设计上和 Vaporwave 相关的封面看起来都挺土酷复古的，一张图里有全世界最让人眼瞎的颜色，赛博朋克的影视作品中常常可以见到蒸汽波的影子，作为这种风格在音乐领域的体现，蒸汽波音乐既不是采样 Hiphop 也不采样 Jazz，它一般采样的是 Jazz 已经流行过去，Hiphop 还像个小婴儿那个时期的流行音乐，像 Funk（咚、嗒、咚、嗒的强烈骤停节奏很适合 Popper 跳舞），或是采样爸爸妈妈辈儿年轻时候听的经典老歌，然后使用各种夸张的滤波器，在 DJ 键盘上的那种旋钮，也是《lala land》里小塞皮笑肉不笑拨弄的那种按钮，制造出忽高忽低，或者控制它音高的效果，让它听起来呜呜哇哇的。</p>
+<p>画张图吧<br><a href="https://processon.com/diagraming/5ca9cc16e4b0cfb73429fc69">https://processon.com/diagraming/5ca9cc16e4b0cfb73429fc69</a><br>最开始的音乐流派很少，往往是巴赫、贝多芬、莫扎特这些音乐家的歌，到后来有布鲁斯（Blues）、灵魂乐（Soul）、爵士（Jazz）、摇滚（Rock）。爵士（Jazz） 衍生出了放克（Funk），放克（Funk）又衍生出了 的士高（Disco）、嘻哈（Hiphop）、蒸汽波（Vaporwave） 等。 Hiphop 代表着嘻哈文化，拥有丰富的艺术形式，像街舞、涂鸦、打碟、饶舌（Rap）等等。Hiphop 的音乐流派也有很多，真是一言难尽，Jazz Hiphop 是其中一支不太一样的分类，它更注重旋律及氛围，也更包容，不像其他 Hiphop 一样吵吵闹闹，它属于一部分安静的人。其中 Lofi 是一种让影音失真的技术，俗称滋拉拉，只要 Lofi 一下，很多歌就会自带 Lofi 前缀了。Chillhop 空旷立体，让人心旷神怡。这些音乐流派发展到今天，真是盘根错节，各自发展，又相互融合。可最令人动容的还是他们的老祖宗爵士 Jazz，最后欣赏一段爵士交响乐《Mia &amp; Sebastian’s Theme》吧。</p>
+<p>音乐的分类是无穷无尽的，就连蒸汽波（Vaporwave）都已经衍生出很多风格，比如 Future Funk 等等，但不管这些枝叶繁茂的流派到底衍生出多少，他们最初的形态都是那个站在山谷里，望着大自然，伴着河流，用石头敲出的声响，那是人类的第一首音乐。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jazz-soul-hiphop-%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE/" rel="tag"># jazz,soul,hiphop,音乐流派</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/" rel="prev" title="“奥威尔式”童年">
+                  <i class="fa fa-angle-left"></i> “奥威尔式”童年
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2019/04/%E9%85%8D%E7%BD%AE-Linux-apt-get-%E6%BA%90/" rel="next" title="配置 Linux apt-get 源">
+                  配置 Linux apt-get 源 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

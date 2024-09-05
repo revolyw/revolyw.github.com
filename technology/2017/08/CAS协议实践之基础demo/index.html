@@ -1,38 +1,429 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="资源下载  CAS server CAS client 一、CAS server1. 生成证书生成一个别名为castest的证书。 此处需要特别注意口令（后续导入导出证书、CAS服务器端均要用到此口令）和“名字与姓氏”（为CAS跳转域名，否则会报错） 1keytool -genkey -alias castest -keyalg RSA -keystore &#123;certificate_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAS协议实践之基础demo">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2017/08/CAS%E5%8D%8F%E8%AE%AE%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%9F%BA%E7%A1%80demo/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="资源下载  CAS server CAS client 一、CAS server1. 生成证书生成一个别名为castest的证书。 此处需要特别注意口令（后续导入导出证书、CAS服务器端均要用到此口令）和“名字与姓氏”（为CAS跳转域名，否则会报错） 1keytool -genkey -alias castest -keyalg RSA -keystore &#123;certificate_">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1491722131911.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1491722611795.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1491724570498.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1491725915837.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1491727396249.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1491750286473.png">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1491750718948.png">
+<meta property="article:published_time" content="2017-08-04T12:00:03.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.879Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="sso">
+<meta property="article:tag" content="cas">
+<meta property="article:tag" content="架构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.willowspace.cn/willowspace_2016/1491722131911.png">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2017/08/CAS%E5%8D%8F%E8%AE%AE%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%9F%BA%E7%A1%80demo/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2017/08/CAS%E5%8D%8F%E8%AE%AE%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%9F%BA%E7%A1%80demo/","path":"technology/2017/08/CAS协议实践之基础demo/","title":"CAS协议实践之基础demo"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CAS协议实践之基础demo | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81CAS-server"><span class="nav-number">1.</span> <span class="nav-text">一、CAS server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6"><span class="nav-number">1.1.</span> <span class="nav-text">1. 生成证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AF%BC%E5%87%BA%E8%AF%81%E4%B9%A6"><span class="nav-number">1.2.</span> <span class="nav-text">2. 导出证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6"><span class="nav-number">1.3.</span> <span class="nav-text">3. 安装证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%85%8D%E7%BD%AEtomcat"><span class="nav-number">1.4.</span> <span class="nav-text">4. 配置tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%B5%8B%E8%AF%95%E8%AF%81%E4%B9%A6"><span class="nav-number">1.5.</span> <span class="nav-text">5. 测试证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E9%83%A8%E7%BD%B2CAS-server"><span class="nav-number">1.6.</span> <span class="nav-text">6. 部署CAS server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%B5%8B%E8%AF%95CAS-server"><span class="nav-number">1.7.</span> <span class="nav-text">7. 测试CAS server</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81CAS-client"><span class="nav-number">2.</span> <span class="nav-text">二、CAS client</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B7%BB%E5%8A%A0%E8%AF%81%E4%B9%A6%E6%98%A0%E5%B0%84%E5%9F%9F%E5%90%8D"><span class="nav-number">2.1.</span> <span class="nav-text">1. 添加证书映射域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BACAS-client%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.2.</span> <span class="nav-text">2. 创建CAS client项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AF%BC%E5%85%A5CAS-client%E6%A0%B8%E5%BF%83jar%E5%8C%85"><span class="nav-number">2.3.</span> <span class="nav-text">2. 导入CAS client核心jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B5%8B%E8%AF%95CAS-client"><span class="nav-number">2.4.</span> <span class="nav-text">3. 测试CAS client</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%85%B6%E4%BB%96%E8%AE%A4%E8%AF%81%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">三、其他认证方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FAQ"><span class="nav-number">4.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-service%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84"><span class="nav-number">4.1.</span> <span class="nav-text">1. service是如何存储的</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/CAS%E5%8D%8F%E8%AE%AE%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%9F%BA%E7%A1%80demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CAS协议实践之基础demo | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CAS协议实践之基础demo
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-04 12:00:03" itemprop="dateCreated datePublished" datetime="2017-08-04T12:00:03Z">2017-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/CAS%E5%8D%8F%E8%AE%AE%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%9F%BA%E7%A1%80demo/" class="post-meta-item leancloud_visitors" data-flag-title="CAS协议实践之基础demo" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p> 资源下载</p>
+</blockquote>
+<p><a href="http://developer.jasig.org/cas/">CAS server</a></p>
+<p><a href="http://developer.jasig.org/cas-clients/">CAS client</a></p>
+<h2 id="一、CAS-server"><a href="#一、CAS-server" class="headerlink" title="一、CAS server"></a>一、CAS server</h2><h3 id="1-生成证书"><a href="#1-生成证书" class="headerlink" title="1. 生成证书"></a>1. 生成证书</h3><p>生成一个别名为castest的证书。</p>
+<p>此处需要特别注意口令（后续导入导出证书、CAS服务器端均要用到此口令）和“名字与姓氏”（为CAS跳转域名，否则会报错）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -alias castest -keyalg RSA -keystore &#123;certificate_path&#125;/&#123;certificate_name&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491722131911.png"></p>
+<h3 id="2-导出证书"><a href="#2-导出证书" class="headerlink" title="2. 导出证书"></a>2. 导出证书</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -export -file &#123;certificate_path&#125;/&#123;certificate_name&#125;.crt -alias castest -keystore &#123;certificate_path&#125;/&#123;certificate_name&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491722611795.png"></p>
+<h3 id="3-安装证书"><a href="#3-安装证书" class="headerlink" title="3. 安装证书"></a>3. 安装证书</h3><p>将证书导入到客户端JRE中（注意、是导入JRE中），如果security中已经存在cacerts，需要先将其删除。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -keystore &quot;&#123;jdk_path&#125;\jre\lib\security\cacerts&quot; -file &#123;certificate_path&#125;/cas-test.crt -alias cas-test</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491724570498.png"></p>
+<h3 id="4-配置tomcat"><a href="#4-配置tomcat" class="headerlink" title="4. 配置tomcat"></a>4. 配置tomcat</h3><p>修改%TOMCAT_HOME%&#x2F;conf&#x2F;server.xml文件，支持https证书访问</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">SSLEnabled</span>=<span class="string">&quot;true&quot;</span> <span class="attr">clientAuth</span>=<span class="string">&quot;false&quot;</span> <span class="attr">keystoreFile</span>=<span class="string">&quot;&#123;certificate_path&#125;/&#123;certificate_name&#125;&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">keystorePass</span>=<span class="string">&quot;&#123;certificate_password&#125;&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">maxThreads</span>=<span class="string">&quot;150&quot;</span> <span class="attr">port</span>=<span class="string">&quot;8443&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;org.apache.coyote.http11.Http11Protocol&quot;</span> <span class="attr">scheme</span>=<span class="string">&quot;https&quot;</span> <span class="attr">secure</span>=<span class="string">&quot;true&quot;</span> <span class="attr">sslProtocol</span>=<span class="string">&quot;TLS&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491725915837.png"></p>
+<h3 id="5-测试证书"><a href="#5-测试证书" class="headerlink" title="5. 测试证书"></a>5. 测试证书</h3><p>访问<a href="https://localhost:8443/%EF%BC%8C%E6%88%90%E5%8A%9F%E5%88%99%E8%AF%B4%E6%98%8E%E9%85%8D%E7%BD%AE%E8%AF%81%E4%B9%A6%E6%88%90%E5%8A%9F">https://localhost:8443/，成功则说明配置证书成功</a></p>
+<h3 id="6-部署CAS-server"><a href="#6-部署CAS-server" class="headerlink" title="6. 部署CAS server"></a>6. 部署CAS server</h3><p>从<a href="http://developer.jasig.org/cas/%E4%B8%8A%E4%B8%8B%E8%BD%BDcas%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFcas-server-4.0.0-release.zip%EF%BC%8C%E5%9C%A8modules%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%BE%E5%88%B0cas-server-webapp-4.0.0.war%EF%BC%8C%E5%B0%86%E5%85%B6%E5%A4%8D%E5%88%B6%E5%88%B0%TOMCAT_HOME%/webapps%E4%B8%8B%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%90%8D%E7%A7%B0%E6%94%B9%E4%B8%BAcas.war">http://developer.jasig.org/cas/上下载cas服务器端cas-server-4.0.0-release.zip，在modules目录下找到cas-server-webapp-4.0.0.war，将其复制到%TOMCAT_HOME%\webapps下，并将名称改为cas.war</a></p>
+<h3 id="7-测试CAS-server"><a href="#7-测试CAS-server" class="headerlink" title="7. 测试CAS server"></a>7. 测试CAS server</h3><p>输入账号和密码</p>
+<ul>
+<li>casuser</li>
+<li>Mellon</li>
+</ul>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491727396249.png"></p>
+<p>登录成功则说明CAS server配置成功，可通过<a href="https://localhost:8443/logout%E9%80%80%E5%87%BA%E7%99%BB%E5%BD%95">https://localhost:8443/logout退出登录</a></p>
+<h2 id="二、CAS-client"><a href="#二、CAS-client" class="headerlink" title="二、CAS client"></a>二、CAS client</h2><h3 id="1-添加证书映射域名"><a href="#1-添加证书映射域名" class="headerlink" title="1. 添加证书映射域名"></a>1. 添加证书映射域名</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">127.0.0.1</span> <span class="string">sso.cas.com</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-创建CAS-client项目"><a href="#2-创建CAS-client项目" class="headerlink" title="2. 创建CAS client项目"></a>2. 创建CAS client项目</h3><p>配置web.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Archetype Created Web Application<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 用于单点退出，该过滤器用于实现单点登出功能，可选配置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.jasig.cas.client.session.SingleSignOutHttpSessionListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 该过滤器用于实现单点登出功能，可选配置。 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Single Sign Out Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.jasig.cas.client.session.SingleSignOutFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Single Sign Out Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 该过滤器负责用户的认证工作，必须启用它 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CASFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.jasig.cas.client.authentication.AuthenticationFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>casServerLoginUrl<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>https://sso.cas.com:8443/cas-server-webapp-4.0.0/login<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--这里的server是服务端的IP--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>serverName<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>http://localhost:8081<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CASFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 该过滤器负责对Ticket的校验工作，必须启用它 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Validation Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span></span><br><span class="line">            org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter</span><br><span class="line">        <span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>casServerUrlPrefix<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>https://sso.cas.com:8443/cas-server-webapp-4.0.0/</span><br><span class="line">            <span class="tag">&lt;/<span class="name">param-value</span>&gt;</span><span class="comment">&lt;!-- 此处必须为登录url/cas/，带有任何其它路径都会报错，如“https://sso.castest.com:8443/cas/login”,这样也会报错。 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>serverName<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>http://localhost:8081<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Validation Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            该过滤器负责实现HttpServletRequest请求的包裹，</span></span><br><span class="line"><span class="comment">            比如允许开发者通过HttpServletRequest的getRemoteUser()方法获得SSO登录用户的登录名，可选配置。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS HttpServletRequest Wrapper Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span></span><br><span class="line">            org.jasig.cas.client.util.HttpServletRequestWrapperFilter</span><br><span class="line">        <span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS HttpServletRequest Wrapper Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            该过滤器使得开发者可以通过org.jasig.cas.client.util.AssertionHolder来获取用户的登录名。</span></span><br><span class="line"><span class="comment">            比如AssertionHolder.getAssertion().getPrincipal().getName()。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Assertion Thread Local Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.jasig.cas.client.util.AssertionThreadLocalFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Assertion Thread Local Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- session超时定义,单位为分钟 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>2<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-导入CAS-client核心jar包"><a href="#2-导入CAS-client核心jar包" class="headerlink" title="2. 导入CAS client核心jar包"></a>2. 导入CAS client核心jar包</h3><p>从<a href="http://developer.jasig.org/cas-clients/%E4%B8%8A%E4%B8%8B%E8%BD%BDcas-client-3.1.12-release.zip%EF%BC%8C%E5%9C%A8modules%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%BE%E5%88%B0cas-client-core-3.1.12.jar%E3%80%81commons-collections-3.2.jar%E3%80%81commons-logging-1.1.jar%E5%A4%8D%E5%88%B6%E5%88%B0%E9%A1%B9%E7%9B%AEWEB-INF/lib%E4%B8%8B">http://developer.jasig.org/cas-clients/上下载cas-client-3.1.12-release.zip，在modules目录下找到cas-client-core-3.1.12.jar、commons-collections-3.2.jar、commons-logging-1.1.jar复制到项目WEB-INF/lib下</a></p>
+<h3 id="3-测试CAS-client"><a href="#3-测试CAS-client" class="headerlink" title="3. 测试CAS client"></a>3. 测试CAS client</h3><p>配置好web容器后，启动cas client，访问<a href="http://localhost:8081/index.jsp%EF%BC%8C%E9%87%8D%E5%AE%9A%E5%90%91%E8%87%B3cas">http://localhost:8081/index.jsp，重定向至cas</a> server(<a href="https://sso.cas.com:8443)认证页面，输入用户名casuser及密码Mellon，认证成功后跳回访问页。同时可以在CAS">https://sso.cas.com:8443)认证页面，输入用户名casuser及密码Mellon，认证成功后跳回访问页。同时可以在CAS</a> server日志上看到如下的验证信息</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491750286473.png"></p>
+<p>访问<a href="https://sso.cas.com:8443/cas-server-webapp-4.0.0/logout%E5%8F%AF%E4%BB%A5%E9%80%80%E5%87%BA%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95">https://sso.cas.com:8443/cas-server-webapp-4.0.0/logout可以退出单点登录</a></p>
+<h2 id="三、其他认证方式"><a href="#三、其他认证方式" class="headerlink" title="三、其他认证方式"></a>三、其他认证方式</h2><p>以上验证的用户名和密码是配置在{CAS_server}&#x2F;webapp&#x2F;WEB-INF&#x2F;deployerConfigContext.xml中的</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491750718948.png"></p>
+<p>实际生产中用户认证信息往往配置在数据库中，下面介绍利用数据库配置认证方式</p>
+<p><a href="http://www.cnblogs.com/rwxwsblog/p/4954843.html">配置数据库认证方式</a></p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="1-service是如何存储的"><a href="#1-service是如何存储的" class="headerlink" title="1. service是如何存储的"></a>1. service是如何存储的</h3><p><a href="https://wiki.jasig.org/display/casc/configuring+the+jasig+cas+client+for+java+in+the+web.xml">Configuring CAS client for java in the web.xml</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/sso/" rel="tag"># sso</a>
+              <a href="/tags/cas/" rel="tag"># cas</a>
+              <a href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag"># 架构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2017/07/Php-Storm%E8%BF%9B%E8%A1%8C%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/" rel="prev" title="Php Storm进行断点调试">
+                  <i class="fa fa-angle-left"></i> Php Storm进行断点调试
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2017/08/jenkins-ci-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="next" title="jenkins ci 环境搭建">
+                  jenkins ci 环境搭建 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

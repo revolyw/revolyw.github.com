@@ -1,38 +1,377 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="于我一个秃子而言。 编程能提升人的抽象思维能力。代码中常常需要各种抽象，结构上的、行为上的、同类问题的、同类业务的。以至于善于抽象的程序员遇到任何问题都更倾向于探寻事物本质，寻找根本解决方法，企图一劳永逸。这样看来，说程序员是哲学家范畴似乎也没啥毛病。 惯性的抽象思维让程序员的生活更加简单。程序员的衣柜里都是清一色的格子衫；他们总是选择周五的晚上看一部电影，然后在周六睡个懒觉，以便能支撑他们在周日">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程真的能改变人的思维方式吗?">
+<meta property="og:url" content="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2019/05/%E7%BC%96%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%83%BD%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F%E5%90%97/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="于我一个秃子而言。 编程能提升人的抽象思维能力。代码中常常需要各种抽象，结构上的、行为上的、同类问题的、同类业务的。以至于善于抽象的程序员遇到任何问题都更倾向于探寻事物本质，寻找根本解决方法，企图一劳永逸。这样看来，说程序员是哲学家范畴似乎也没啥毛病。 惯性的抽象思维让程序员的生活更加简单。程序员的衣柜里都是清一色的格子衫；他们总是选择周五的晚上看一部电影，然后在周六睡个懒觉，以便能支撑他们在周日">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-12T18:38:35.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.885Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="编程哲学">
+<meta property="article:tag" content="抽象思维">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2019/05/%E7%BC%96%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%83%BD%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F%E5%90%97/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2019/05/%E7%BC%96%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%83%BD%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F%E5%90%97/","path":"生活/2019/05/编程真的能改变人的思维方式吗/","title":"编程真的能改变人的思维方式吗?"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>编程真的能改变人的思维方式吗? | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/%E7%94%9F%E6%B4%BB/2019/05/%E7%BC%96%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%83%BD%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F%E5%90%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="编程真的能改变人的思维方式吗? | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编程真的能改变人的思维方式吗?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-12 18:38:35" itemprop="dateCreated datePublished" datetime="2019-05-12T18:38:35Z">2019-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E7%94%9F%E6%B4%BB/2019/05/%E7%BC%96%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%83%BD%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F%E5%90%97/" class="post-meta-item leancloud_visitors" data-flag-title="编程真的能改变人的思维方式吗?" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>于我一个秃子而言。</p>
+<p>编程能提升人的抽象思维能力。代码中常常需要各种抽象，结构上的、行为上的、同类问题的、同类业务的。以至于善于抽象的程序员遇到任何问题都更倾向于探寻事物本质，寻找根本解决方法，企图一劳永逸。这样看来，说程序员是哲学家范畴似乎也没啥毛病。</p>
+<p>惯性的抽象思维让程序员的生活更加简单。程序员的衣柜里都是清一色的格子衫；他们总是选择周五的晚上看一部电影，然后在周六睡个懒觉，以便能支撑他们在周日的户外扫街（996 例外）。 这样的描述有些偏激，但反映出程序员有自己的一套生活模式，这得益于他们对自己生活的抽象—衣服&#x3D;&#x3D;&#x3D;格子。因此生活中遇到的同类问题，程序员往往会按同样的套路出牌，这大概也是为什么他们稍显“呆板”的原因，你找他们推荐电脑，他们总是告诉你 mac；你找他们去逛街，他们总是直奔格子专柜。这样对他们来说的确能简化生活。</p>
+<p>抽象思维让程序员在社交上形格势禁。不同于技术问题或生活问题。社交中的问题要复杂得多，毕竟人就是一个最复杂的存在。光是想与人坦诚的沟通就非常难了，如果按照程序员的“套路”，用既定的话术或模式去试图从另一个人那里获取信息，他们往往会碰壁。杰克·韦尔奇在《赢》中揭示“当你探索坦诚的含义时，你实际上是在设法了解人类的本质。数百年来，无数的心理学家和社会学家都在研究，为什么人们所说的与他们真正所指的存在区别；而哲学家思考同样的问题已经有数千年的时间了。最终，你会认识到人们之所以不说出自己的想法，是因为这会给自己带来更多的便利。”所以你看，与计算机的信息交换和与人的信息交换是两种复杂度截然不同的命题，用算法的术语来看前者复杂度是O(1)，你给计算机一个输入它给你一个输出；而后者复杂度是O(2^n)，你给人一个输入，她不光不一定会给你一个输出甚至会引发新的爆炸问题 。所以人们常说程序员情商低，不好沟通是有一定道理的，他们可能太执着于用统一的方式解决人的问题了，人最应该具体问题具体对待了，过度抽象反而适得其反。基于这点，你所见到的“情商低”的程序员可能往往技术不错，事实上业界确实有许多技术大佬他们不善社交，譬如林纳斯 。其实人的问题也是可以抽象的，不过那是心理学家、社会学家和哲学家的命题。程序员不应该执着于此，还是区分好工作、生活和社交，做个有情趣的程序员最好。</p>
+<p>总而言之，抽象思维只是编程带给我诸多裨益中的一项。每天令我心存狂喜不觉无聊的是我知道世界上存在着只有编程才能以其特殊的手段给予我的感受。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E5%93%B2%E5%AD%A6/" rel="tag"># 编程哲学</a>
+              <a href="/tags/%E6%8A%BD%E8%B1%A1%E6%80%9D%E7%BB%B4/" rel="tag"># 抽象思维</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2019/04/%E9%85%8D%E7%BD%AE-Linux-apt-get-%E6%BA%90/" rel="prev" title="配置 Linux apt-get 源">
+                  <i class="fa fa-angle-left"></i> 配置 Linux apt-get 源
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/photography/2019/07/%E6%91%84%E5%BD%B1%E6%9C%AF%E4%BC%A0%E5%85%A5%E8%87%B3%E4%BB%8A%E7%9A%84%E4%B8%AD%E5%9B%BD%E6%91%84%E5%BD%B1%E4%B9%A6%E5%86%991/" rel="next" title="摄影术传入至今的中国摄影书写1">
+                  摄影术传入至今的中国摄影书写1 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

@@ -1,38 +1,396 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、问题描述使用hibernate管理ORM时，如果某个映射实体字段为null保存时会报column ‘xx’ cannot be null之类的异常，导致存库失败，为解决这个问题，hibernate提供了动态SQL的机制。 二、解决方案在实体关系配置时，加入dynamic-insert &#x2F; dynamic-update （对应JPA中的@DynamicInsert&#x2F; @Dyn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hibernate的动态SQL机制">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2017/12/hibernate%E7%9A%84%E5%8A%A8%E6%80%81SQL%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="一、问题描述使用hibernate管理ORM时，如果某个映射实体字段为null保存时会报column ‘xx’ cannot be null之类的异常，导致存库失败，为解决这个问题，hibernate提供了动态SQL的机制。 二、解决方案在实体关系配置时，加入dynamic-insert &#x2F; dynamic-update （对应JPA中的@DynamicInsert&#x2F; @Dyn">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-09T01:29:52.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.881Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="hibernate">
+<meta property="article:tag" content="JPA">
+<meta property="article:tag" content="transaction">
+<meta property="article:tag" content="sql">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2017/12/hibernate%E7%9A%84%E5%8A%A8%E6%80%81SQL%E6%9C%BA%E5%88%B6/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2017/12/hibernate%E7%9A%84%E5%8A%A8%E6%80%81SQL%E6%9C%BA%E5%88%B6/","path":"technology/2017/12/hibernate的动态SQL机制/","title":"hibernate的动态SQL机制"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>hibernate的动态SQL机制 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">二、解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81Bonus"><span class="nav-number">3.</span> <span class="nav-text">三、Bonus</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81SQL%E7%9A%84%E5%89%8D%E6%8F%90"><span class="nav-number">3.1.</span> <span class="nav-text">使用动态SQL的前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81SQL%E7%9A%84%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6%EF%BC%9A%E5%90%8C%E4%B8%80%E4%B8%AASession"><span class="nav-number">3.2.</span> <span class="nav-text">动态SQL的使用限制：同一个Session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%EF%BC%81"><span class="nav-number">3.3.</span> <span class="nav-text">性能！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E5%8F%82%E8%80%83%EF%BC%9A"><span class="nav-number">3.4.</span> <span class="nav-text">文档参考：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/12/hibernate%E7%9A%84%E5%8A%A8%E6%80%81SQL%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="hibernate的动态SQL机制 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hibernate的动态SQL机制
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-09 01:29:52" itemprop="dateCreated datePublished" datetime="2017-12-09T01:29:52Z">2017-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/12/hibernate%E7%9A%84%E5%8A%A8%E6%80%81SQL%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="hibernate的动态SQL机制" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p>使用hibernate管理ORM时，如果某个映射实体字段为null保存时会报column ‘xx’ cannot be null之类的异常，导致存库失败，为解决这个问题，hibernate提供了动态SQL的机制。</p>
+<h1 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h1><p>在实体关系配置时，加入<code>dynamic-insert</code> &#x2F; <code>dynamic-update</code> （对应JPA中的<code>@DynamicInsert</code>&#x2F; <code>@DynamicUpdate</code>）会在执行插入或更新时动态判断字段是否为null（或是否有更新），如果为null（或没有更新）则不更新这类字段，也就不会产生异常。它的原理是在实体被加载到session中时会保存一份快照，如果在后续的更新操作检测到有更新，则动态生成更新部分涉及到的字段的sql。</p>
+<h1 id="三、Bonus"><a href="#三、Bonus" class="headerlink" title="三、Bonus"></a>三、Bonus</h1><h2 id="使用动态SQL的前提"><a href="#使用动态SQL的前提" class="headerlink" title="使用动态SQL的前提"></a>使用动态SQL的前提</h2><p>就算使用了动态SQL机制，但如果字段在DDL中没有声明默认值，那么当实体字段为null时进行更新，依然会由db层面报出异常。因此要规范DDL，并结合动态SQL机制来避免业务代码出现实体保存时的空值异常。 案例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># java code</span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">session.save(user);</span><br><span class="line"></span><br><span class="line"># exception</span><br><span class="line">org.hibernate.PropertyValueException: not-<span class="literal">null</span> property references a <span class="literal">null</span> or <span class="keyword">transient</span> value: User.avatar</span><br><span class="line"></span><br><span class="line"># hibernate mapping</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="title class_">name</span>=<span class="string">&quot;User&quot;</span> table=<span class="string">&quot;user&quot;</span> dynamic-insert=<span class="string">&quot;true&quot;</span> dynamic-update=<span class="string">&quot;true&quot;</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;avatarId&quot;</span> column=<span class="string">&quot;avatar_id&quot;</span> type=<span class="string">&quot;integer&quot;</span> not-<span class="literal">null</span>=<span class="string">&quot;true&quot;</span>&gt;</span><br><span class="line">&lt;/class&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># table DDL 没有设置默认值，如果实体值为<span class="literal">null</span>依然会由db报异常</span><br><span class="line">CREATE TABLE `user` (</span><br><span class="line">  `avatar_id` <span class="type">int</span>(<span class="number">11</span>) NOT NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="动态SQL的使用限制：同一个Session"><a href="#动态SQL的使用限制：同一个Session" class="headerlink" title="动态SQL的使用限制：同一个Session"></a>动态SQL的使用限制：同一个Session</h2><p>动态SQL的使用是有前提条件的：需要在同一个Session中操作实体才能生效。 前面提到动态SQL的原理是在实体加载到Session中时保留了一份快照，后续操作时比对快照生成正确的sql操作，那么如果一个实体加载和回写使用的Session是不同的，那么自然无法进行快照比对，那么动态SQL的机制也就无法实施，hibernate只好按照默认规则更新全字段。</p>
+<p>看个例子：如果我们在Controller层去写业务逻辑（__生产中请务必不要这么干！__）就极有可能会导致<code>@DynamicUpdate</code>失效，比如下面这段代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/queryAndUpdate&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">queryAndUpdate</span><span class="params">(Http http)</span> &#123;</span><br><span class="line">	<span class="comment">//Controller层写业务逻辑</span></span><br><span class="line">	<span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> <span class="number">1</span>; </span><br><span class="line">	<span class="comment">//using session1</span></span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> services.getDaos().getUserDao().findById(id);</span><br><span class="line">	<span class="comment">//using session2 user中加载有没有映射到的关联实体 更新时抛出异常</span></span><br><span class="line">    lecturer = services.getUserService().updateUser(user);</span><br><span class="line">    <span class="keyword">return</span> Result.success().setBean(user);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实体</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@DynamicInsert</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="meta">@Table(name = &quot;user&quot;)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@Column(name = &quot;id&quot;)</span></span><br><span class="line">	<span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@NotFound(action = NotFoundAction.IGNORE)</span></span><br><span class="line">	<span class="meta">@OneToOne(targetEntity = File.class,cascade = CascadeType.REFRESH)</span></span><br><span class="line">	<span class="meta">@JoinColumn(name = &quot;avatar_id&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> File avatar;  <span class="comment">//未加载的关联实体</span></span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原因是我们一般会把事务控制在Service层，那么在Controller层的业务逻辑加载完一个对象，当对象返回到Controller层其实就已经穿透了事务边界，事务结束，hibernate默认会关闭Session；那么下面再次进入Service层更新这个对象就会开启新的事务，由新的Session来进行执行。</p>
+<p>所以我们要想解决上述问题，目标很明确，在Controller中不会因为穿透了Service层而加载新的Session。</p>
+<p>Spring为我们提供了<code>OpenSessionInViewFilter</code>这个过滤器可以轻松的达到上述目的，它将开启一个Session绑定到当前请求线程，这个线程上的Session将会被<code>TransactionManager</code>利用，因此事务结束(Service层穿透)也不会关闭Session，而是在整个请求周期中复用同一个Session。具体参考_<a href="https://docs.spring.io/spring/docs/4.3.0.RC1/javadoc-api//org/springframework/orm/hibernate3/support/OpenSessionInViewFilter.html">Spring文档</a>_，这里不展开。</p>
+<p>至此，动态SQL在整个请求周期内可以正常运行。</p>
+<h2 id="性能！"><a href="#性能！" class="headerlink" title="性能！"></a>性能！</h2><p>另外值得注意的是动态SQL打开了以后，不同对象的sql语句会不一样，如果一次更新多条记录，hibernate将不能使用 executeBatch进行批量更新，这样效率将大打折扣。在这种情况下，多条sql意味着数据库要编译多次sql语句。 </p>
+<p>因此有批量更新的特殊场景时，建议单独使用hql或者sql进行操作。</p>
+<h2 id="文档参考："><a href="#文档参考：" class="headerlink" title="文档参考："></a>文档参考：</h2><p><em><a href="http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#annotations-hibernate-dynamicupdate">annotations-hibernate-dynamicupdate</a></em></p>
+<p><em><a href="http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#pc-managed-state-dynamic-update">pc-managed-state-dynamic-update</a></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/hibernate/" rel="tag"># hibernate</a>
+              <a href="/tags/JPA/" rel="tag"># JPA</a>
+              <a href="/tags/transaction/" rel="tag"># transaction</a>
+              <a href="/tags/sql/" rel="tag"># sql</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2017/11/%E4%BD%BF%E7%94%A8gitmoji%E8%A7%84%E8%8C%83git-commit/" rel="prev" title="使用gitmoji规范git-commit">
+                  <i class="fa fa-angle-left"></i> 使用gitmoji规范git-commit
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2017/12/mysql/" rel="next" title="mysql">
+                  mysql <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

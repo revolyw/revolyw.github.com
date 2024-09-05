@@ -1,38 +1,424 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本文将介绍如何使用Java原生命令打包构建一个java web项目。 虽说现在有ant、maven、gradle等打包构建工具，可以很方便的完成打包构建目标，但是不妨看看他们是如何封装jdk命令完成打包构建的。 另一方面，古老的项目，没有使用高级的打包构建工具也没有IDE的情况下，也只能自己通过脚本来完成原生的打包任务了。 再者，java9来了，jdk更新了许多新的命令，重新回忆下传统命令也是好的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java-CLI构建web程序">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2017/08/Java-CLI%E6%9E%84%E5%BB%BAweb%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="本文将介绍如何使用Java原生命令打包构建一个java web项目。 虽说现在有ant、maven、gradle等打包构建工具，可以很方便的完成打包构建目标，但是不妨看看他们是如何封装jdk命令完成打包构建的。 另一方面，古老的项目，没有使用高级的打包构建工具也没有IDE的情况下，也只能自己通过脚本来完成原生的打包任务了。 再者，java9来了，jdk更新了许多新的命令，重新回忆下传统命令也是好的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1504185367239.png">
+<meta property="article:published_time" content="2017-08-31T00:18:43.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.879Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="build">
+<meta property="article:tag" content="package">
+<meta property="article:tag" content="java web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.willowspace.cn/willowspace_2016/1504185367239.png">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2017/08/Java-CLI%E6%9E%84%E5%BB%BAweb%E7%A8%8B%E5%BA%8F/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2017/08/Java-CLI%E6%9E%84%E5%BB%BAweb%E7%A8%8B%E5%BA%8F/","path":"technology/2017/08/Java-CLI构建web程序/","title":"Java-CLI构建web程序"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java-CLI构建web程序 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">一、项目结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BC%96%E8%AF%91%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">二、编译源文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%8C%89J2EE%E8%A7%84%E8%8C%83%E7%BB%84%E7%BB%87%E8%B5%84%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">三、按J2EE规范组织资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%89%93war%E5%8C%85"><span class="nav-number">4.</span> <span class="nav-text">四、打war包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81FAQ"><span class="nav-number">5.</span> <span class="nav-text">五、FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0"><span class="nav-number">5.1.</span> <span class="nav-text">字节码文件目录中的文件找不到</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">5.1.1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF"><span class="nav-number">5.1.2.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">5.1.3.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8F%82%E6%95%B0%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90"><span class="nav-number">5.2.</span> <span class="nav-text">spring注解的参数无法解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-1"><span class="nav-number">5.2.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/Java-CLI%E6%9E%84%E5%BB%BAweb%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java-CLI构建web程序 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java-CLI构建web程序
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-31 00:18:43" itemprop="dateCreated datePublished" datetime="2017-08-31T00:18:43Z">2017-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/Java-CLI%E6%9E%84%E5%BB%BAweb%E7%A8%8B%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Java-CLI构建web程序" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>本文将介绍如何使用Java原生命令打包构建一个java web项目。</p>
+<p>虽说现在有ant、maven、gradle等打包构建工具，可以很方便的完成打包构建目标，但是不妨看看他们是如何封装jdk命令完成打包构建的。</p>
+<p>另一方面，古老的项目，没有使用高级的打包构建工具也没有IDE的情况下，也只能自己通过脚本来完成原生的打包任务了。</p>
+<p>再者，java9来了，jdk更新了许多新的命令，重新回忆下传统命令也是好的。<img src="http://img.willowspace.cn/willowspace_2016/1504185367239.png"></p>
+<h1 id="一、项目结构"><a href="#一、项目结构" class="headerlink" title="一、项目结构"></a>一、项目结构</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">project</span><br><span class="line">├── README.md</span><br><span class="line">├── lib #jar包目录</span><br><span class="line">│   ├── a.jar</span><br><span class="line">│   └── *.jar</span><br><span class="line">├── src #源码目录</span><br><span class="line">│   ├── package1</span><br><span class="line">│   └── package*</span><br><span class="line">└── web #web资源目录</span><br><span class="line">    ├── WEB-INF</span><br><span class="line">    │   └── web.xml</span><br><span class="line">    ├── js</span><br><span class="line">    ├── css    </span><br><span class="line">    └── index.html</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、编译源文件"><a href="#二、编译源文件" class="headerlink" title="二、编译源文件"></a>二、编译源文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd project</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建out目录，out目录下创建classes目录</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">out存放所有需要被打进war包的文件；out/classes存放所有编译好的字节码文件</span></span><br><span class="line">mkdir -p out/classes</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开始编译源文件</span></span><br><span class="line">javac -g -cp &quot;./lib/*&quot; -d ./out/classes -encoding UTF8 $(find ./src -name &quot;*.java&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>javac为源文件的编译命令,其使用格式为：<code>javac &lt;options&gt; &lt;source files&gt;</code></p>
+<p><code>-g</code> 默认情况下 <code>javac</code> 只生成行号和源文件信息，添加<code>g</code>参数将生成所有的debug信息，其中包括本地变量(spring参数注解等)。</p>
+<p><code>-cp</code> 全拼是-classpath，可以指定源文件依赖的jar包或字节码文件</p>
+<p><code>-d</code> 可以指定字节码文件的输出目录</p>
+<p><code>$(find ./src -name &quot;*.java&quot;)</code> 指定的是待编译的源文件，这里使用了系统的find命令来进行通配src目录下的所有java文件</p>
+<blockquote>
+<p>更多javac命令细节参考<a href="http://docs.oracle.com/javase/8/docs/technotes/tools/windows/javac.html">java8 javac docs</a></p>
+</blockquote>
+<h1 id="三、按J2EE规范组织资源"><a href="#三、按J2EE规范组织资源" class="headerlink" title="三、按J2EE规范组织资源"></a>三、按J2EE规范组织资源</h1><p><a href="https://docs.oracle.com/cd/E13222_01/wls/docs90/webapp/configurewebapp.html">J2EE规范</a>规定了web资源文件、jar包文件、字节码文件等的组织结构如下，这也是最终war内部的目录结构</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">project/out</span><br><span class="line">├── WEB-INF</span><br><span class="line">│   ├── classes</span><br><span class="line">│   ├── lib</span><br><span class="line">│   └── web.xml</span><br><span class="line">├── js</span><br><span class="line">├── css    </span><br><span class="line">└── index.html</span><br></pre></td></tr></table></figure>
+
+<p>开始按这个结构调整目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd project</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复制web资源目录、jar包目录至out目录</span></span><br><span class="line">cp -r lib web/* out/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将字节码文件和jar包文件复制至WEB-INF目录下</span></span><br><span class="line">cd out</span><br><span class="line">mv lib classes WEB-INF/</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、打war包"><a href="#四、打war包" class="headerlink" title="四、打war包"></a>四、打war包</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd project/out</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打war包</span></span><br><span class="line">jar cvf ./project.war ./*</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>更多jar命令细节，参考<a href="http://docs.oracle.com/javase/8/docs/technotes/tools/windows/jar.html">java8 jar docs</a></p>
+</blockquote>
+<h1 id="五、FAQ"><a href="#五、FAQ" class="headerlink" title="五、FAQ"></a>五、FAQ</h1><h2 id="字节码文件目录中的文件找不到"><a href="#字节码文件目录中的文件找不到" class="headerlink" title="字节码文件目录中的文件找不到"></a>字节码文件目录中的文件找不到</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>war包部署到web服务器启动时报文件(字节码文件目录中)找不到，这常常是由于源码目录中存放了非java文件，而我们上面说的步骤只是对源码目录进行了编译，没有处理这些非java文件，而这些文件确实被依赖，所以项目自然无法启动。</p>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>举个实际场景如:使用mybatis时常会把ORM映射关系文件(xml)放在源码目录，如果不将映射文件移动到打包目录，打出来的war包就无法正常部署。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">project/src</span><br><span class="line">├── package1</span><br><span class="line">│   ├── mapping1.xml</span><br><span class="line">│   └── mapping*.xml   </span><br><span class="line">└── package*</span><br><span class="line">    └── *.java</span><br></pre></td></tr></table></figure>
+
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>将非java文件从源码目录移至WEB-INF&#x2F;classes对应位置即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mv project/src/package1/* project/out/WEB-INF/classes/package1/</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">移动后的结构</span></span><br><span class="line">project</span><br><span class="line">├── src #源码目录</span><br><span class="line">│   ├── package1</span><br><span class="line">│   |	├── mapping1.xml</span><br><span class="line">│   |	└── mapping*.xml </span><br><span class="line">│   └── package*</span><br><span class="line">│   	└── *.java</span><br><span class="line">└── out #打包目录</span><br><span class="line">    ├── package1</span><br><span class="line">    |	├── mapping1.xml</span><br><span class="line">    |	└── mapping*.xml </span><br><span class="line">    └── package*</span><br><span class="line">    	└── *.class	</span><br></pre></td></tr></table></figure>
+
+<h2 id="spring注解的参数无法解析"><a href="#spring注解的参数无法解析" class="headerlink" title="spring注解的参数无法解析"></a>spring注解的参数无法解析</h2><h3 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h3><p><code>javac</code>命令编译源文件的时候没有启了<code>g</code>参数，如果没有开启，spring的注解将被忽略</p>
+<p>参考<a href="https://salonegupta.wordpress.com/2014/04/01/spring-annotations-and-javac-debug-mode/#more-5">Spring annotations and Javac debug mode</a></p>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>开启<code>g</code>参数来编译源文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -g ...</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/build/" rel="tag"># build</a>
+              <a href="/tags/package/" rel="tag"># package</a>
+              <a href="/tags/java-web/" rel="tag"># java web</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2017/08/gitlab%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="prev" title="gitlab版本管理">
+                  <i class="fa fa-angle-left"></i> gitlab版本管理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2017/09/Linux%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="next" title="Linux虚拟内存管理">
+                  Linux虚拟内存管理 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

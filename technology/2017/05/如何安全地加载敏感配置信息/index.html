@@ -1,38 +1,428 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本文介绍的是配置信息的__动静态__加载，这里的动静态加载可以类比程序的编译时加载和运行时加载的概念，本文将举例说明静态加载配置的缺点、为了避免这些缺点引入动态加载配置的概念，并给出实际操作的方法。 静态加载配置我们常常会将配置文件存放在项目上下文环境中，例如classpath下，或者项目某个目录下，启动时去读这个文件，这样的配置可以称之为静态加载配置。静态加载配置不够集中灵活，因为在项目打包的时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何安全地加载敏感配置信息">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2017/05/%E5%A6%82%E4%BD%95%E5%AE%89%E5%85%A8%E5%9C%B0%E5%8A%A0%E8%BD%BD%E6%95%8F%E6%84%9F%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="本文介绍的是配置信息的__动静态__加载，这里的动静态加载可以类比程序的编译时加载和运行时加载的概念，本文将举例说明静态加载配置的缺点、为了避免这些缺点引入动态加载配置的概念，并给出实际操作的方法。 静态加载配置我们常常会将配置文件存放在项目上下文环境中，例如classpath下，或者项目某个目录下，启动时去读这个文件，这样的配置可以称之为静态加载配置。静态加载配置不够集中灵活，因为在项目打包的时">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.willowspace.cn/willowspace_2016/1495594711464.png?imageMogr2/thumbnail/300">
+<meta property="article:published_time" content="2017-05-24T11:19:41.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.883Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="架构">
+<meta property="article:tag" content="ops">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="web安全">
+<meta property="article:tag" content="分布式">
+<meta property="article:tag" content="配置中心">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.willowspace.cn/willowspace_2016/1495594711464.png?imageMogr2/thumbnail/300">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2017/05/%E5%A6%82%E4%BD%95%E5%AE%89%E5%85%A8%E5%9C%B0%E5%8A%A0%E8%BD%BD%E6%95%8F%E6%84%9F%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2017/05/%E5%A6%82%E4%BD%95%E5%AE%89%E5%85%A8%E5%9C%B0%E5%8A%A0%E8%BD%BD%E6%95%8F%E6%84%9F%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF/","path":"technology/2017/05/如何安全地加载敏感配置信息/","title":"如何安全地加载敏感配置信息"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何安全地加载敏感配置信息 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">静态加载配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">动态加载配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83-cc%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.1.</span> <span class="nav-text">配置中心:cc项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cc%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%8F%90%E4%BE%9B%E6%95%8F%E6%84%9F%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.2.</span> <span class="nav-text">cc项目中提供敏感配置信息的接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E9%A1%B9%E7%9B%AE%E5%8A%A0%E8%BD%BD%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">2.3.</span> <span class="nav-text">业务项目加载敏感信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/05/%E5%A6%82%E4%BD%95%E5%AE%89%E5%85%A8%E5%9C%B0%E5%8A%A0%E8%BD%BD%E6%95%8F%E6%84%9F%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何安全地加载敏感配置信息 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何安全地加载敏感配置信息
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-05-24 11:19:41" itemprop="dateCreated datePublished" datetime="2017-05-24T11:19:41Z">2017-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/05/%E5%A6%82%E4%BD%95%E5%AE%89%E5%85%A8%E5%9C%B0%E5%8A%A0%E8%BD%BD%E6%95%8F%E6%84%9F%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF/" class="post-meta-item leancloud_visitors" data-flag-title="如何安全地加载敏感配置信息" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>本文介绍的是配置信息的__动静态__加载，这里的动静态加载可以类比程序的编译时加载和运行时加载的概念，本文将举例说明静态加载配置的缺点、为了避免这些缺点引入动态加载配置的概念，并给出实际操作的方法。</p>
+<h2 id="静态加载配置"><a href="#静态加载配置" class="headerlink" title="静态加载配置"></a>静态加载配置</h2><p>我们常常会将配置文件存放在项目上下文环境中，例如classpath下，或者项目某个目录下，启动时去读这个文件，这样的配置可以称之为静态加载配置。静态加载配置不够集中灵活，因为在项目打包的时候就决定了配置信息内容；最重要的是，这种配置方式不够安全，因为配置信息跟随代码，当我们将代码上传到github等开源的代码版本管理平台，那么一些敏感的配置（e.g. 数据库账号密码等）就暴露了。</p>
+<p>拿jdbc的配置信息举例。</p>
+<p>下面这行xml配置代码是使用jdbc配置数据库连接时在datasource.xml文件中的配置项。它包含一个location属性，该属性告诉了程序该去哪里加载配置信息，值中包含classpath说明这个配置存在于项目上下文中。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- datasource.xml --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--可以将数据库连接池的配置文件单独放在另一个properties中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">&quot;classpath:conf/db.properties&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以下是上面location指明的db.properties文件中的内容，存储了数据库连接地址、用户名、密码，注意到这些都是敏感配置，很明显存在前面提到的静态加载配置的弊端:不安全，敏感信息暴露无遗。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># db.properties</span></span><br><span class="line"><span class="attr">jdbc_url</span>=<span class="string">jdbc:mysql://localhost:3306/db?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</span></span><br><span class="line"><span class="attr">jdbc_user</span>=<span class="string">username</span></span><br><span class="line"><span class="attr">jdbc_password</span>=<span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="动态加载配置"><a href="#动态加载配置" class="headerlink" title="动态加载配置"></a>动态加载配置</h2><p>为了避免静态加载配置的缺点，我们很自然的想到需要干掉上面的db.properties以及datasource.xml中关于db.properties的配置信息。为了说明动态加载配置，我们将当前这个项目叫做业务项目。</p>
+<p>基本思路是将db.properties中的信息放到一个独立于业务项目的地方存放。然后在业务项目启动加载datasource时动态的去这个独立的地方拿db.properties的信息并加载。这样就干掉了db.properties及datasource.xml中的敏感配置项，这就是本文要介绍的__动态加载配置__。上文提到的<code>独立的地方</code>可以是一个独立的项目，如了方便说明实际操作，这里我给这个项目取名为cc项目，取Configuration Center（配置中心）之意。</p>
+<p>大致的示意图如下</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1495594711464.png?imageMogr2/thumbnail/300"></p>
+<p>下面就来看看具体如何操作</p>
+<h3 id="配置中心-cc项目"><a href="#配置中心-cc项目" class="headerlink" title="配置中心:cc项目"></a>配置中心:cc项目</h3><p>cc项目非常容易构建，如果只是为了独立数据库连接配置，那么可以只提供一个接口，在业务项目启动时，请求这个接口来获得数据库连接的敏感配置信息即可。</p>
+<h3 id="cc项目中提供敏感配置信息的接口"><a href="#cc项目中提供敏感配置信息的接口" class="headerlink" title="cc项目中提供敏感配置信息的接口"></a>cc项目中提供敏感配置信息的接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConfigurationController</span> &#123;</span><br><span class="line">  	<span class="comment">//内网配置过访问权限的目录，该目录存放各业务项目的敏感配置</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PREFIX</span> <span class="operator">=</span> <span class="string">&quot;/var/www/cc&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/jdbc&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getPropertiesByProject</span><span class="params">(Cgi cgi)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">project</span> <span class="operator">=</span> cgi.getString(<span class="string">&quot;project&quot;</span>, <span class="string">&quot;&quot;</span>); <span class="comment">//调用方业务项目名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> cgi.getString(<span class="string">&quot;token&quot;</span>, <span class="string">&quot;&quot;</span>); <span class="comment">//接口调用凭证token</span></span><br><span class="line">        <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(PREFIX + <span class="string">&quot;/&quot;</span> + project + <span class="string">&quot;.properties&quot;</span>);</span><br><span class="line">        properties.load(inputStream);</span><br><span class="line">        <span class="keyword">if</span> (properties.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;get properties error&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">savedCipher</span> <span class="operator">=</span> properties.getProperty(<span class="string">&quot;cipher&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (cipher.isEmpty() || savedCipher.isEmpty() || !cipher.equals(savedCipher)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;authentication is failed&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">jdbc_url</span> <span class="operator">=</span> properties.getProperty(<span class="string">&quot;jdbc_url&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">jdbc_user</span> <span class="operator">=</span> properties.getProperty(<span class="string">&quot;jdbc_user&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">jdbc_password</span> <span class="operator">=</span> properties.getProperty(<span class="string">&quot;jdbc_password&quot;</span>);</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">propertiesJson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">        propertiesJson.put(<span class="string">&quot;jdbc_url&quot;</span>, jdbc_url);</span><br><span class="line">        propertiesJson.put(<span class="string">&quot;jdbc_user&quot;</span>, jdbc_user);</span><br><span class="line">        propertiesJson.put(<span class="string">&quot;jdbc_password&quot;</span>, jdbc_password);</span><br><span class="line">        System.out.println(propertiesJson.toString());</span><br><span class="line">        inputStream.close();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> propertiesJson.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># $&#123;project&#125;.properties 这里的$&#123;project&#125;根据调用的业务系统传入的project参数配置不同读取对应的properties文件</span></span><br><span class="line"><span class="comment"># 内网存储系统(配置过访问权限)中存储的某业务项目的敏感配置信息</span></span><br><span class="line"><span class="attr">token</span>=<span class="string">2^$&gt;[[.34337,8@4</span></span><br><span class="line"><span class="attr">jdbc_url</span>=<span class="string">jdbc:mysql://localhost:3306/db?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</span></span><br><span class="line"><span class="attr">jdbc_user</span>=<span class="string">username</span></span><br><span class="line"><span class="attr">jdbc_password</span>=<span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="业务项目加载敏感信息"><a href="#业务项目加载敏感信息" class="headerlink" title="业务项目加载敏感信息"></a>业务项目加载敏感信息</h3><p>业务项目获取敏感信息分两步：1.配置cc项目的接口及参数信息 2.启动时从cc接口加载敏感信息。</p>
+<p>还是以加载jdbc数据源为例说明</p>
+<ul>
+<li>1.配置cc项目的接口及参数信息</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- datasource.xml 配置cc项目提供敏感配置的接口及所需参数信息 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 原加载配置的方式 &lt;context:property-placeholder location=&quot;classpath:conf/db.properties&quot;/&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 现在注入用于从cc项目拉取配置的类--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;configurationCenterHolder&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;framework.ConfigurationCenterHolder&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;locations&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>classpath:conf/cc.properties<span class="tag">&lt;/<span class="name">value</span>&gt;</span><span class="comment">&lt;!-- 配置cc提供配置的接口信息 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.demo.DataSource&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 基本属性 url、user、password，使用了形如$&#123;key&#125;的占位符，从cc获取敏感配置后将替换成实际值 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc_url&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc_user&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc_password&#125;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cc.properties</span></span><br><span class="line"><span class="comment"># 这里的cc已经不存在可供外网访问的路由、用户名、密码等敏感信息,所以可以放心配置在项目中</span></span><br><span class="line"><span class="attr">jdbc_url</span>=<span class="string">http\://localhost\:8110/jdbc</span></span><br><span class="line"><span class="attr">project</span>=<span class="string">javavirtual</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.启动时从cc接口加载敏感信息</li>
+</ul>
+<p>使用第1步中配置的<code>framework.ConfigurationCenterHolder</code>类，该类继承了spring的<code>PropertyPlaceholderConfigurer</code>类，这是spring中的一个bean工厂后置处理器，重载其processProperties方法可以在程序运行时替换bean配置文件(xml)中用${key}占位的配置项。于是，我们可以结合cc的接口如下来实现动态加载敏感配置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConfigurationCenterHolder</span> <span class="keyword">extends</span> <span class="title class_">PropertyPlaceholderConfigurer</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">JDBC_URL</span> <span class="operator">=</span> <span class="string">&quot;jdbc_url&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PROJECT</span> <span class="operator">=</span> <span class="string">&quot;project&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">processProperties</span><span class="params">(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props)</span> <span class="keyword">throws</span> BeansException &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//读取cc接口配置</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">jdbcUrl</span> <span class="operator">=</span> props.getProperty(JDBC_URL);</span><br><span class="line">            <span class="type">String</span> <span class="variable">project</span> <span class="operator">=</span> props.getProperty(PROJECT);</span><br><span class="line">            <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> initCipher(project);</span><br><span class="line">          	<span class="comment">//请求cc接口获取敏感配置</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">urlStr</span> <span class="operator">=</span> jdbcUrl + <span class="string">&quot;?token=&quot;</span> + URLEncoder.encode(token, <span class="string">&quot;UTF-8&quot;</span>) + <span class="string">&quot;&amp;project=&quot;</span> + project;</span><br><span class="line">            <span class="type">String</span> <span class="variable">responseString</span> <span class="operator">=</span> HttpClientUtil.request(urlStr);</span><br><span class="line">            <span class="type">JSONObject</span> <span class="variable">json</span> <span class="operator">=</span> JSONObject.parseObject(responseString);</span><br><span class="line">            <span class="comment">//动态加载获取到的敏感配置信息，并填充占位符$&#123;key&#125;</span></span><br><span class="line">            props.setProperty(<span class="string">&quot;jdbc_url&quot;</span>, json.isEmpty() ? <span class="string">&quot;&quot;</span> : (String) json.get(<span class="string">&quot;jdbc_url&quot;</span>));</span><br><span class="line">            props.setProperty(<span class="string">&quot;jdbc_user&quot;</span>, json.isEmpty() ? <span class="string">&quot;&quot;</span> : (String) json.get(<span class="string">&quot;jdbc_user&quot;</span>));</span><br><span class="line">            props.setProperty(<span class="string">&quot;jdbc_password&quot;</span>, json.isEmpty() ? <span class="string">&quot;&quot;</span> : (String) json.get(<span class="string">&quot;jdbc_password&quot;</span>));</span><br><span class="line">            LoggerUtil.info(<span class="string">&quot;init datasource success&quot;</span>);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            LoggerUtil.error(<span class="string">&quot;init datasource error&quot;</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">super</span>.processProperties(beanFactoryToProcess, props);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//从内网存储系统(配置过访问权限)获取cc接口认证token参数</span></span><br><span class="line">    <span class="keyword">private</span> String <span class="title function_">initCipher</span><span class="params">(String project)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">cipherFile</span> <span class="operator">=</span> (SysConfig.DEV ? <span class="string">&quot;/Users/.&quot;</span> : <span class="string">&quot;/home/.&quot;</span>) + project;</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(cipherFile)), <span class="string">&quot;utf-8&quot;</span>));</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (line.trim().length() == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> line.trim().replaceAll(<span class="string">&quot;\\s+&quot;</span>, <span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> token;</span><br><span class="line">        &#125;</span><br><span class="line">        reader.close();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .$&#123;project&#125; 与业务项目名对应的文件，用于存储调用cc接口的token</span></span><br><span class="line"><span class="comment"># 该token与cc接口读取的$&#123;project&#125;.properties文件中的token一致方可通过cc接口认证，成功拿到敏感配置</span></span><br><span class="line"><span class="attr">2^$&gt;[[.34337,8@4</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<ul>
+<li>1.cc项目应该和业务项目部署在同一个内网环境中，并且屏蔽外网对cc项目的访问。这样就完全隔绝的敏感配置信息与外网环境，就算业务项目代码泄漏也不会直接泄漏敏感配置信息。另外敏感信息以及cc接口认证的信息要配置在内网中配置了访问权限的文件中，这样保证了在内网中的只有对应的用户可以访问到对应的敏感文件。</li>
+<li>2.这里提供的token认证只是一个示例，实际生产环境汇总可以给cc项目获取敏感配置信息的接口增加一些其他的安全措施来进一步确保安全(e.g. 接口签名)。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>至此，我们就从业务项目中剔除了敏感配置信息，并且可以从cc接口动态加载配置。另外，cc项目的代码中也不存在敏感信息，所以，业务项目和cc项目都是可以公开暴露的，我们只需要在确保内网不能访问cc的接口并且保证内网中存储的敏感配置有权限控制，这样的动态加载配置保证了敏感配置信息是私密的、安全的。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.jobbole.com/111412/">应用敏感信息的 6 个配置原则</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag"># 架构</a>
+              <a href="/tags/ops/" rel="tag"># ops</a>
+              <a href="/tags/spring/" rel="tag"># spring</a>
+              <a href="/tags/web%E5%AE%89%E5%85%A8/" rel="tag"># web安全</a>
+              <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag"># 分布式</a>
+              <a href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" rel="tag"># 配置中心</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2017/05/%E8%BF%87%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E5%8F%8D%E5%BC%B9shell/" rel="prev" title="通过远程命令反弹shell">
+                  <i class="fa fa-angle-left"></i> 通过远程命令反弹shell
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2017/05/JavaDoc%E5%B8%B8%E7%94%A8%E6%B3%A8%E9%87%8A/" rel="next" title="JavaDoc">
+                  JavaDoc <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

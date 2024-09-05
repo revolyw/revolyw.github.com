@@ -1,38 +1,384 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今晚放映了🎥 《看不见的旋律》&#x2F;《The Blind Melody》，着实被惊艳了一番，想不到印度拍悬疑犯罪片能到这个水平（主要是和之前看的印度片有反差），不枉我苦苦寻此片源。 该片极尽情节化、戏剧化之能事。全片塞满精巧设计的情节这点相当大胆，但由于伴随情节的伏笔和神转折（还有部分蒙太奇满足强迫症需要）比比皆是，所以大量的情节设置非但没让人感到冗余，反而引人入胜，甚至有点想笑 。顺序加">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《看不见的旋律》—— 脑回路跟不上的曲折情节">
+<meta property="og:url" content="http://blog.willowspace.cn/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="今晚放映了🎥 《看不见的旋律》&#x2F;《The Blind Melody》，着实被惊艳了一番，想不到印度拍悬疑犯罪片能到这个水平（主要是和之前看的印度片有反差），不枉我苦苦寻此片源。 该片极尽情节化、戏剧化之能事。全片塞满精巧设计的情节这点相当大胆，但由于伴随情节的伏笔和神转折（还有部分蒙太奇满足强迫症需要）比比皆是，所以大量的情节设置非但没让人感到冗余，反而引人入胜，甚至有点想笑 。顺序加">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-22T23:44:11.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.882Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="视听语言">
+<meta property="article:tag" content="剪辑">
+<meta property="article:tag" content="叙事结构">
+<meta property="article:tag" content="叙事手法">
+<meta property="article:tag" content="镜头运用">
+<meta property="article:tag" content="情节">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/","path":"film/2019/02/《看不见的旋律》——-脑回路跟不上的曲折情节/","title":"《看不见的旋律》—— 脑回路跟不上的曲折情节"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>《看不见的旋律》—— 脑回路跟不上的曲折情节 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="《看不见的旋律》—— 脑回路跟不上的曲折情节 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《看不见的旋律》—— 脑回路跟不上的曲折情节
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-22 23:44:11" itemprop="dateCreated datePublished" datetime="2019-02-22T23:44:11Z">2019-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/film/" itemprop="url" rel="index"><span itemprop="name">film</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/film/2019/02/%E3%80%8A%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%97%8B%E5%BE%8B%E3%80%8B%E2%80%94%E2%80%94-%E8%84%91%E5%9B%9E%E8%B7%AF%E8%B7%9F%E4%B8%8D%E4%B8%8A%E7%9A%84%E6%9B%B2%E6%8A%98%E6%83%85%E8%8A%82/" class="post-meta-item leancloud_visitors" data-flag-title="《看不见的旋律》—— 脑回路跟不上的曲折情节" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>今晚放映了🎥 《看不见的旋律》&#x2F;《The Blind Melody》，着实被惊艳了一番，想不到印度拍悬疑犯罪片能到这个水平（主要是和之前看的印度片有反差），不枉我苦苦寻此片源。</p>
+<p>该片极尽情节化、戏剧化之能事。全片塞满精巧设计的情节这点相当大胆，但由于伴随情节的伏笔和神转折（还有部分蒙太奇满足强迫症需要）比比皆是，所以大量的情节设置非但没让人感到冗余，反而引人入胜，甚至有点想笑 。顺序加插叙的叙事结构和首尾呼应的叙事技巧更是给人惊喜和回味（让人回味起《低俗小说》）。</p>
+<p>至于影片的视听语言、镜头运用以及剪辑也相当吸引眼球，里面的歌曲填词很耿直也很搞笑（看了你就知道），不过这些和剧情之曲折离奇相比没有那么引人注目，也就不多说剧透了，自己去观赏吧。只是有一幕让我个人印象深刻：女主两年后在欧洲街头看到 A-KASH 在一个地下酒吧演出，镜头跟随女主进入地下酒吧听完了 A-KASH 的演奏（曲目是其专门为女主谱写）。这一幕让我想起《La La Land》里米娅走进小塞的爵士酒馆听完《Mia &amp;  Sebastian‘s Theme》以及小塞没有落下的那最后一个音符，相信同样喜欢这两部电影的朋友一定会和我有同样的联想吧（有的话欢迎来聊骚）。</p>
+<p>此片院线上映必火，我说的 </p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%A7%86%E5%90%AC%E8%AF%AD%E8%A8%80/" rel="tag"># 视听语言</a>
+              <a href="/tags/%E5%89%AA%E8%BE%91/" rel="tag"># 剪辑</a>
+              <a href="/tags/%E5%8F%99%E4%BA%8B%E7%BB%93%E6%9E%84/" rel="tag"># 叙事结构</a>
+              <a href="/tags/%E5%8F%99%E4%BA%8B%E6%89%8B%E6%B3%95/" rel="tag"># 叙事手法</a>
+              <a href="/tags/%E9%95%9C%E5%A4%B4%E8%BF%90%E7%94%A8/" rel="tag"># 镜头运用</a>
+              <a href="/tags/%E6%83%85%E8%8A%82/" rel="tag"># 情节</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E7%94%9F%E6%B4%BB/2019/02/%E6%82%BC%E5%BF%B5%E6%88%91%E7%9A%84%E5%A4%96%E5%85%AC/" rel="prev" title="悼念我的外公">
+                  <i class="fa fa-angle-left"></i> 悼念我的外公
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/reading/2019/02/%E2%80%9C%E5%A5%A5%E5%A8%81%E5%B0%94%E5%BC%8F%E2%80%9D%E7%AB%A5%E5%B9%B4/" rel="next" title="“奥威尔式”童年">
+                  “奥威尔式”童年 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

@@ -1,23 +1,1048 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
-{% block title %} {{ config.title }} {% endblock %}
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
 
-{% block page_class %}
-  {% if is_home() %} page-home {% endif %}
-{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="捉虫子的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Willow&#39;s blog">
+<meta property="og:url" content="http://blog.willowspace.cn/page/5/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="捉虫子的人">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="杨威">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://blog.willowspace.cn/page/5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"page/5/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Willow's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/" class="post-title-link" itemprop="url">Java Method Breakpoints are evil</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-20 04:53:02" itemprop="dateCreated datePublished" datetime="2017-08-20T04:53:02Z">2017-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/Java%20Method%20Breakpoints%20are%20evil/" class="post-meta-item leancloud_visitors" data-flag-title="Java Method Breakpoints are evil" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="问题以及解决方案"><a href="#问题以及解决方案" class="headerlink" title="问题以及解决方案"></a>问题以及解决方案</h1><p>今天使用Intellj IDEA部署web项目时，spring web容器上下文(ContextLoader)加载非常慢，慢到完全启动一个项目需要耗时20分钟左右。</p>
+<p>打开debug日志发现不停的加载注入的各种类，并且还有打印类中方法的详细信息。</p>
+<p>最终定位问题是因为打开了<code>Java Method Breakpoints</code>（如下图），将其取消即可快速启动项目。<img src="http://img.willowspace.cn/willowspace_2016/1503176081426.png?imageMogr2/thumbnail/400" alt="img"></p>
+<h1 id="探究原因"><a href="#探究原因" class="headerlink" title="探究原因"></a>探究原因</h1><p>Google上找到同样的<a href="https://blogs.sourceallies.com/2013/04/java-method-breakpoints-are-evil/">JAVA METHOD BREAKPOINTS ARE EVIL</a>（借用了这篇文章的标题，因为这个标题太符合<code>Java Method Breakpoints</code>了，就是邪恶），从其中找到了jetbrains team在jetbrains官网上给出的针对这个问题的回应参考<a href="https://intellij-support.jetbrains.com/hc/en-us/articles/206544799-Java-slow-performance-or-hangups-when-starting-debugger-and-stepping">原链接</a> (链接加载略慢)</p>
+<p>然后继续查了几个搜索结果发现各大IDE厂商的bug list里都有报类似问题，参考<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=20869">NetBeans Bug</a>、<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=20869">Eclipse Bug</a></p>
+<p>他们基本都说明了一点：这个问题的产生和<strong>JVM的设计</strong>有关系。</p>
+<p>具体是指的JVM规定了虚拟机必须支持一组标准的调试API，这组标准的调试API指的是<a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jpda/">JPDA</a> (Java Platform Debugger Architecture)，JDPA是一组精心设计的接口与协议，所有的IDE基于JPDA进行封装，提供友好的用户调试接口。</p>
+<p>当你设置断点时，IDE告诉<em>JVM’s Tool Interface</em>（JDPA的一部分）断点所属的源文件和行号，JVM找到这个断点在源文件中位置对应的编译后class文件中的位置，当JVM运行到一个断点，它将会中断当前执行的线程并且告诉IDE这个断点的源文件和行号，然后由IDE呈现定位给用户。</p>
+<p>这是基本的行断点调试的机制，而<code>Java Method Breakpoints</code>是方法断点调试，它的机制与行断点调试略有不同，它将给方法注册进入&#x2F;退出事件，需要用到<code>MethodEntryRequest</code>这个类来进行注册。</p>
+<p>然后我在JAVA官方找到了关于<a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6176614">JPDA性能问题的BUG清单</a>，其中有如下这样一段描述涉及到了<code>MethodEntryRequest</code>及其带来的性能问题</p>
+<p><em>MethodEntryRequest and MethodExitRequest unreasonably slow down whole</em><br><em>performance. We use them to track calls to method in a particular class</em><br><em>or to any overriding methods. But it seems the performance slows down</em><br><em>for any method calls, not even to that particular class.</em></p>
+<p>大致的意思就是说当用<code>MethodEntryRequest</code>来追踪方法调用时(可以理解为方法断点调试)，它将会让任何方法的调用性能都下降，而不只是特定的类(打了方法断点的那个类)。</p>
+<p>找到这里基本上明了了，因为我打了一个方法断点没有放开，spring web context在进行依赖注入时构造各种各样的类需要调用大量的方法(构造方法、静态方法、解析方法等等)，每个方法的调用性能都下降了，所以整个项目加载起来自然就非常慢了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">一次解决jar包依赖冲突问题的过程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-18 19:01:58" itemprop="dateCreated datePublished" datetime="2017-08-18T19:01:58Z">2017-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3jar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="一次解决jar包依赖冲突问题的过程" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="案发背景"><a href="#案发背景" class="headerlink" title="案发背景"></a>案发背景</h1><p>同事最近在对项目的hibernate框架进行升级，从<code>3.6.10.Final</code>升级至<code>5.2.10.Final</code>。升级期间出现了配置文件(xml)解析报错。主要报错堆栈如下</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">19</span>:<span class="number">07</span>:<span class="number">41</span> ERROR - Context initialization failed x org<span class="variable">.springframework</span><span class="variable">.beans</span><span class="variable">.factory</span><span class="variable">.BeanCreationException</span>: Error creating bean <span class="keyword">with</span> name &#x27;serviceManager&#x27; defined in <span class="keyword">class</span> path resource [spring/applicationContext<span class="variable">.xml</span>]: Cannot resolve reference to bean &#x27;xService&#x27; <span class="keyword">while</span> setting bean <span class="keyword">property</span> &#x27;xSerivce&#x27;; nested exception is org<span class="variable">.springframework</span><span class="variable">.beans</span><span class="variable">.factory</span><span class="variable">.BeanCreationException</span>: Error creating bean <span class="keyword">with</span> name &#x27;xService&#x27; defined in <span class="keyword">class</span> path resource [spring/dao<span class="variable">.xml</span>]: Cannot resolve reference to bean &#x27;transactionManager&#x27; <span class="keyword">while</span> setting bean <span class="keyword">property</span> &#x27;transactionManager&#x27;; nested exception is org<span class="variable">.springframework</span><span class="variable">.beans</span><span class="variable">.factory</span><span class="variable">.BeanCreationException</span>: Error creating bean <span class="keyword">with</span> name &#x27;transactionManager&#x27; defined in <span class="keyword">class</span> path resource [spring/dataSource-common<span class="variable">.xml</span>]: Cannot resolve reference to bean &#x27;sessionFactory&#x27; <span class="keyword">while</span> setting bean <span class="keyword">property</span> &#x27;sessionFactory&#x27;; nested exception is org<span class="variable">.springframework</span><span class="variable">.beans</span><span class="variable">.factory</span><span class="variable">.BeanCreationException</span>: Error creating bean <span class="keyword">with</span> name &#x27;sessionFactory&#x27; defined in <span class="keyword">class</span> path resource [spring/dataSource-common<span class="variable">.xml</span>]: Invocation of init method failed; nested exception is</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">java<span class="variable">.lang</span><span class="variable">.NoSuchMethodError</span>:org<span class="variable">.apache</span><span class="variable">.xerces</span><span class="variable">.impl</span><span class="variable">.xs</span><span class="variable">.XMLSchemaLoader</span><span class="variable">.loadGrammar</span>([Lorg/apache/xerces/xni/parser/XMLInputSource;)V</span><br></pre></td></tr></table></figure>
+
+<h1 id="寻找线索"><a href="#寻找线索" class="headerlink" title="寻找线索"></a>寻找线索</h1><p>可以看到最后的一段日志<code>java.lang.NoSuchMethodError:org.apache.xerces.impl.xs.XMLSchemaLoader.loadGrammar([Lorg/apache/xerces/xni/parser/XMLInputSource;)V</code></p>
+<p>说明<code>XMLSchemaLoader</code>类的<code>loadGrammar</code>方法没有找到，这个方法的特征(L)是有一个数组<code>XMLInputSource</code>类型的数组参数。</p>
+<h1 id="寻找第一案发现场"><a href="#寻找第一案发现场" class="headerlink" title="寻找第一案发现场"></a>寻找第一案发现场</h1><p>顺着这个线索我们来看下找一下这个方法。</p>
+<p>搜索源文件发现有两个jar包(见下图)都包含<code>XMLSchemaLoader#loadGrammar</code><img src="http://img.willowspace.cn/willowspace_2016/1503061978595.png"></p>
+<p>两者的<code>XMLSchemaLoader</code>类都有<code>loadGrammar</code>方法。__重点来了__，不同的是前者没有参数为<code>XMLInputSource</code>数组的<code>loadGrammar</code>方法，而后者有。这与报错堆栈完全吻合，可见这就是第一案发现场。</p>
+<h1 id="寻找真凶"><a href="#寻找真凶" class="headerlink" title="寻找真凶"></a>寻找真凶</h1><p>有了上面的线索，很自然想要去<a href="http://mvnrepository.com/">maven仓库</a>中看看是不是<code>xerces</code>包太老需要升级，搜索<code>xerces</code>后发现的确有问题，<code>xerces</code>已经建议使用<code>xercesImpl</code>替换了，看来真凶就是这个<code>xerces</code>包。</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1503062212136.png"></p>
+<p>于是回到项目中去掉<code>xerces:2.4.0</code>的依赖，重启启动项目，依旧报错。</p>
+<p>这时考虑是不是有其他jar包也存在对该包的引用，去生成的依赖库中一看，果然，<code>xerces</code>的依赖版本从<code>2.4.0</code>变为了<code>2.0.2</code>依然存在于依赖之中</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1503062472355.png"></p>
+<p>这时基本可以断定就是其他包依赖了<code>xerces</code>，于是使用<code>gradle</code>的命令查看jar包依赖关系</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看gradle依赖关系</span></span><br><span class="line">gradle dependencies</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1503062716227.png"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1503063619467.png"></p>
+<p>从依赖关系从看到<code>commons-dbcp:1.2.1``commons-pool:1.2</code>这两个包依赖了<code>xerces:xerces:2.0.2</code>包，导致依旧引入了<code>xerces</code>依赖。去除<code>commons-dbcp:1.2.1</code>并升级<code>commons-pool:1.2</code>至<code>commons-pool:1.6</code>后刷新，<code>xerces</code>包依赖完全被去除。重启项目，一切顺畅，问题得以解决。</p>
+<h1 id="结案"><a href="#结案" class="headerlink" title="结案"></a>结案</h1><p>这次问题的本质就是jar包冲突，只不过冲突的jar包依赖关系藏得较为隐蔽。</p>
+<p>解决的手段其实较为简单，就是调和冲突的jar包（删除、升级、替换等）。</p>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p>上面我们为了解决jar包冲突直接删除了<code>commons-dbcp</code>依赖，这是因为我的项目已经不需要用到这个包了，但如果这个依赖包不能删除，如何单独删除其中冲突的jar包依赖呢？</p>
+<p>这里提供一种<code>gradle</code>具体的调和手段</p>
+<p>可以使用<code>exclude</code>去除jar包对第三方jar包的依赖，从而达到解决冲突的目的，具体写法如下。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">	compile(<span class="string">&#x27;commons-dbcp:commons-dbcp:1.2.1&#x27;</span>) &#123;</span><br><span class="line">    	exclude <span class="attr">module:</span> <span class="string">&#x27;xerces&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/%E6%94%AF%E4%BB%98%E5%AE%9DAPP%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/%E6%94%AF%E4%BB%98%E5%AE%9DAPP%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">支付宝APP支付流程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-14 03:32:20" itemprop="dateCreated datePublished" datetime="2017-08-14T03:32:20Z">2017-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/%E6%94%AF%E4%BB%98%E5%AE%9DAPP%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="支付宝APP支付流程" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="支付能力申请流程"><a href="#支付能力申请流程" class="headerlink" title="支付能力申请流程"></a>支付能力申请流程</h1><h2 id="一、注册支付宝开放平台"><a href="#一、注册支付宝开放平台" class="headerlink" title="一、注册支付宝开放平台"></a>一、注册支付宝开放平台</h2><p>支付宝开放平台使用支付宝账号。</p>
+<p>如果是支付能力开发商，建议使用企业邮箱注册。</p>
+<p>如果是个人开发者，不能直接在支付宝开放平台开通支付能力，可使用第三方平台接入，如<a href="https://www.pingxx.com/">ping++</a></p>
+<h2 id="二、创建支付应用、开发配置"><a href="#二、创建支付应用、开发配置" class="headerlink" title="二、创建支付应用、开发配置"></a>二、创建支付应用、开发配置</h2><ol>
+<li><p><strong>创建应用</strong> </p>
+</li>
+<li><p><strong>设置基础环境</strong> 获取支付宝网关、设置应用网关(己方)、设置授权回调地址</p>
+<blockquote>
+<p>注意</p>
+<p>蚂蚁金服开放平台将对您填写的授权回调地址进行安全扫描，扫描结果请在1个小时后，前往“开发者中心-安全中心”查看。另外，请如实、准确填写授权回调网址，否则所有责任（包括但不限于赔偿损失）概由您负责。</p>
+</blockquote>
+</li>
+<li><p><strong>设置接口加签方式</strong> RSA2(SHA256)密钥(推荐)</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1506222807933.png?imageMogr2/thumbnail/800"></p>
+<blockquote>
+<p><a href="http://p.tb.cn/rmsportal_6680_secret_key_tools_RSA_macosx.zip">MAC_OSX_RSA密钥生成工具</a> </p>
+<p><a href="https://docs.open.alipay.com/291/105971">密钥生成工具使用方式</a></p>
+</blockquote>
+</li>
+<li><p><strong>开发测试</strong></p>
+</li>
+</ol>
+<h2 id="三、上线前签约"><a href="#三、上线前签约" class="headerlink" title="三、上线前签约"></a>三、上线前签约</h2><p>上线前签约<a href="https://docs.open.alipay.com/204">APP支付</a>能力，即可在线上调用开发好的APP支付功能</p>
+<ol>
+<li><strong>资料审核</strong> 填写企业信息、经营信息、银行账户等信息，上传相关证件。资料提交后，审核将在3个工作日内完成。</li>
+<li><strong>验证账户</strong> 核实您提交的银行账户信息，以验证账户。</li>
+<li><strong>签署产品协议</strong> 在线签署产品协议，完成签约。</li>
+</ol>
+<h1 id="支付开发流程"><a href="#支付开发流程" class="headerlink" title="支付开发流程"></a>支付开发流程</h1><p><img src="http://img01.taobaocdn.com/top/i1/LB1gqXQOVXXXXbdXXXXXXXXXXXX"></p>
+<h1 id="服务端接口"><a href="#服务端接口" class="headerlink" title="服务端接口"></a>服务端接口</h1><h2 id="一、签名下单接口"><a href="#一、签名下单接口" class="headerlink" title="一、签名下单接口"></a>一、签名下单接口</h2><h2 id="二、支付成功的验签接口"><a href="#二、支付成功的验签接口" class="headerlink" title="二、支付成功的验签接口"></a>二、支付成功的验签接口</h2><h2 id="三、接收异步支付结果通知的接口"><a href="#三、接收异步支付结果通知的接口" class="headerlink" title="三、接收异步支付结果通知的接口"></a>三、接收异步支付结果通知的接口</h2><h2 id="四、查询支付结果的接口"><a href="#四、查询支付结果的接口" class="headerlink" title="四、查询支付结果的接口"></a>四、查询支付结果的接口</h2><h1 id="服务端支付DEMO"><a href="#服务端支付DEMO" class="headerlink" title="服务端支付DEMO"></a>服务端支付DEMO</h1><p><a href="https://openhome.alipay.com/doc/sdkDownload.resource?sdkType=JAVA">SDK1.5</a> 适用于Java语言、jdk版本1.5及以上的开发环境</p>
+<p>代码示例仅供参考和测试，实际请根据业务来处理。异步通知处理过程中请对信息做确认，例如：订单号是否在商户您的系统中存在，订单金额是否匹配</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/%E5%BE%AE%E4%BF%A1APP%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/%E5%BE%AE%E4%BF%A1APP%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">微信APP支付流程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-14 02:00:47" itemprop="dateCreated datePublished" datetime="2017-08-14T02:00:47Z">2017-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/%E5%BE%AE%E4%BF%A1APP%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="微信APP支付流程" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="支付流程"><a href="#支付流程" class="headerlink" title="支付流程"></a>支付流程</h1><blockquote>
+<p>流程涉及微信公众平台、微信商户平台、微信开放平台三大平台</p>
+</blockquote>
+<p><img src="https://pay.weixin.qq.com/wiki/doc/api/img/chapter8_3_1.png"></p>
+<h1 id="服务端需要开发三个接口"><a href="#服务端需要开发三个接口" class="headerlink" title="服务端需要开发三个接口"></a>服务端需要开发三个接口</h1><h2 id="一、统一下单接口"><a href="#一、统一下单接口" class="headerlink" title="一、统一下单接口"></a>一、统一下单接口</h2><p>商户后台收到用户支付单，调用微信支付统一下单接口。参见【<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1">统一下单API</a>】</p>
+<h2 id="二、接收支付通知接口"><a href="#二、接收支付通知接口" class="headerlink" title="二、接收支付通知接口"></a>二、接收支付通知接口</h2><p>商户后台接收支付通知。api参见【<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_7">支付结果通知API</a>】</p>
+<h2 id="三、查询支付结果的接口"><a href="#三、查询支付结果的接口" class="headerlink" title="三、查询支付结果的接口"></a>三、查询支付结果的接口</h2><p>商户后台查询支付结果。api参见【<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_2">查询订单API</a>】</p>
+<blockquote>
+<p> 参考github项目<a href="https://github.com/Seanid/wechatPay">https://github.com/Seanid/wechatPay</a></p>
+</blockquote>
+<h1 id="APP端主要开发调起微信支付的接口"><a href="#APP端主要开发调起微信支付的接口" class="headerlink" title="APP端主要开发调起微信支付的接口"></a>APP端主要开发调起微信支付的接口</h1><p>商户APP调起微信支付。api参见本章节【<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_5">app端开发步骤说明</a>】</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/jenkins-ci-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/jenkins-ci-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">jenkins ci 环境搭建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-13 21:56:47" itemprop="dateCreated datePublished" datetime="2017-08-13T21:56:47Z">2017-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/jenkins-ci-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-meta-item leancloud_visitors" data-flag-title="jenkins ci 环境搭建" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>简介</p>
+</blockquote>
+<p>jenkins是一个持续集成(CI)工具，使用java编写</p>
+<p><code>CI</code> <strong>continuous integration</strong> 持续集成</p>
+<p><code>SCM</code> <strong>source code management</strong> 源码管理</p>
+<h1 id="下载jenkins"><a href="#下载jenkins" class="headerlink" title="下载jenkins"></a>下载jenkins</h1><p>有多种安装方式，我们选择war包部署，war包下载地址 <a href="https://jenkins.io/download/">https://jenkins.io/download/</a></p>
+<p>下载的war包为<code>jenkins.war</code></p>
+<h1 id="部署至tomcat"><a href="#部署至tomcat" class="headerlink" title="部署至tomcat"></a>部署至tomcat</h1><p>这里采用一台单独的tomcat部署jenkins</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">因为此tomcat只用来部署jenkins，所以先删除webapps下其他应用</span></span><br><span class="line">rm -rf $&#123;tomcat_path&#125;/webapps/*</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">部署jenkins的war包</span></span><br><span class="line">mv $&#123;download_path&#125;/jenkins.war $&#123;tomcat_path&#125;/webapps/ROOT.war</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定jenkins工作目录(如有必要)，默认为~/.jenkins</span></span><br><span class="line">vim $&#123;download_path&#125;/bin/catalina.sh</span><br><span class="line">CATALINA_OPTS=&quot;-DJENKINS_HOME=~/jenkins-cluster-1/&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或</span></span><br><span class="line">vim $&#123;download_path&#125;/conf/context.xml</span><br><span class="line">&lt;Context ...&gt;</span><br><span class="line">  &lt;Environment name=&quot;JENKINS_HOME&quot; value=&quot;~/jenkins-cluster-1/&quot; type=&quot;java.lang.String&quot;/&gt;</span><br><span class="line">&lt;/Context&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置jenkins"><a href="#配置jenkins" class="headerlink" title="配置jenkins"></a>配置jenkins</h1><p>tomcat部署启动完jenkins后，访问对应端口可以看到如下jenkins的初始界面</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1487009258517.png"></p>
+<p>查看<code>/root/.jenkins/secrets/initialAdminPassword</code>文件可以获得管理员密码，输入后可以解锁Jenkins，开始使用。</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>初始化界面会提示我们安装插件，我们选择推荐插件</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1487009586270.png"></p>
+<p>推荐的插件如下图所示</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1504010997582.png"></p>
+<p>我们主要需要<code>身份认证</code> <code>源码管理</code> <code>打包构建</code> <code>管道命令</code> 几个方面的插件</p>
+<h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h3><p><code>ssh plugin</code> <code>SSH Slaves plugin</code> <code>Credentials Binding Plugin</code> </p>
+<h3 id="源码管理"><a href="#源码管理" class="headerlink" title="源码管理"></a>源码管理</h3><p><code>git plugin</code> <code>github plugin</code> <code>GitHub Branch Source Plugin</code> <code>gitlab plugin</code> <code>subversion Plug-in</code> </p>
+<h3 id="打包构建"><a href="#打包构建" class="headerlink" title="打包构建"></a>打包构建</h3><p><code>Gradle Plugin</code></p>
+<h3 id="管道命令"><a href="#管道命令" class="headerlink" title="管道命令"></a>管道命令</h3><p><code>Pipeline</code>   <code>Pipeline:State View Plugin</code></p>
+<p><a href="https://my.oschina.net/ghm7753/blog/371954?p=1">pipeline构建参考</a></p>
+<h3 id="其它插件"><a href="#其它插件" class="headerlink" title="其它插件"></a>其它插件</h3><p><code>Role-based Authorization Strategy</code>基于角色的的用户权限控制</p>
+<h2 id="设置全局工具"><a href="#设置全局工具" class="headerlink" title="设置全局工具"></a>设置全局工具</h2><p>系统设置-&gt;Global Tool Configuration-&gt;JDK、Git、Maven</p>
+<p>系统设置-&gt;Shell-&gt;Shell executable-&gt;<code>/bin/zsh</code></p>
+<h2 id="Jenkins内部shell-UTF-8-编码设置"><a href="#Jenkins内部shell-UTF-8-编码设置" class="headerlink" title="Jenkins内部shell UTF-8 编码设置"></a>Jenkins内部shell UTF-8 编码设置</h2><p><img src="http://img.willowspace.cn/willowspace_2016/1487125834004.png"></p>
+<h2 id="参数化构建"><a href="#参数化构建" class="headerlink" title="参数化构建"></a>参数化构建</h2><p><img src="http://img.willowspace.cn/willowspace_2016/1487126266497.png"></p>
+<h3 id="Pipeline构建"><a href="#Pipeline构建" class="headerlink" title="Pipeline构建"></a>Pipeline构建</h3><p>创建一个新任务，任务类型选择pipeline</p>
+<h4 id="拉取源码"><a href="#拉取源码" class="headerlink" title="拉取源码"></a>拉取源码</h4><p>勾选<code>GitHub hook trigger for GITScm polling</code> 参考<a href="https://www.fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github">Trigger Jenkins builds by pushing to Github</a></p>
+<ol>
+<li>在jenkins所在服务器上生成ssh key</li>
+<li>在gitlab的Deploy Key中添加public key</li>
+<li>在jenkins创建项目，添加gitlab的项目地址，选择添加Credential，填入private key</li>
+</ol>
+<h4 id="编写构建打包部署的pipeline脚本"><a href="#编写构建打包部署的pipeline脚本" class="headerlink" title="编写构建打包部署的pipeline脚本"></a>编写构建打包部署的pipeline脚本</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">node &#123;</span><br><span class="line">    stage(<span class="string">&#x27;checkout&#x27;</span>) &#123;</span><br><span class="line">        checkout([<span class="attr">$class:</span> <span class="string">&#x27;GitSCM&#x27;</span>, <span class="attr">branches:</span> [[<span class="attr">name:</span> <span class="string">&#x27;*/master&#x27;</span>]], <span class="attr">doGenerateSubmoduleConfigurations:</span> <span class="literal">false</span>, <span class="attr">extensions:</span> [], <span class="attr">submoduleCfg:</span> [], <span class="attr">userRemoteConfigs:</span> [[<span class="attr">credentialsId:</span> <span class="string">&#x27;&#123;git_credentialsId&#125;&#x27;</span>, <span class="attr">url:</span> <span class="string">&#x27;&#123;git_url&#125;&#x27;</span>]]])</span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">&#x27;build&#x27;</span>) &#123;</span><br><span class="line">        sh <span class="string">&#x27;mvn clean package&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">&#x27;send war to server&#x27;</span>) &#123;</span><br><span class="line">      sh <span class="string">&#x27;scp &#123;user_root_path&#125;/.jenkins/workspace/&#123;you_project_name&#125;/target/&#123;you_project_packaged_name&#125;.war &#123;user&#125;@&#123;server_ip&#125;:&#123;tomcat_path&#125;/webapps/javavirtual.war&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">&#x27;restart tomcat server&#x27;</span>)&#123;</span><br><span class="line">        sh <span class="string">&#x27;echo &quot;wait restart shell&quot;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="基于角色的任务访问控制"><a href="#基于角色的任务访问控制" class="headerlink" title="基于角色的任务访问控制"></a>基于角色的任务访问控制</h2><ol>
+<li>系统管理-&gt;管理插件-&gt;安装<a href="https://plugins.jenkins.io/role-strategy">Role-based Authorization Strategy</a>插件</li>
+<li>系统管理-&gt;<code>Configure Global Security</code>-&gt;访问控制-&gt;授权策略-&gt;Role-Based Strategy-&gt;保存</li>
+<li>系统管理-&gt;Manage and Assign Roles-&gt;Manage Roles-&gt;Global roles-&gt;在admin角色外创建其他角色分配Overall&#x2F;Read权限</li>
+<li><strong>指定角色访问特定项目</strong></li>
+</ol>
+<p>系统管理-&gt;Manage and Assign Roles-&gt;Manage Roles-&gt;Project roles-&gt;添加一个角色,然后指定项目Pattern(注意：patter不是正则表达式,其中<code>*</code>要用<code>.*</code>代替)</p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="pipeline使用nohup命令启动后台进程无效"><a href="#pipeline使用nohup命令启动后台进程无效" class="headerlink" title="pipeline使用nohup命令启动后台进程无效"></a>pipeline使用nohup命令启动后台进程无效</h3><p><a href="https://wiki.jenkins.io/display/JENKINS/ProcessTreeKiller">参考ProcessTreeKiller</a></p>
+<h3 id="使用Boolean类型参数化构建时，参数逻辑判断总是true"><a href="#使用Boolean类型参数化构建时，参数逻辑判断总是true" class="headerlink" title="使用Boolean类型参数化构建时，参数逻辑判断总是true"></a>使用Boolean类型参数化构建时，参数逻辑判断总是true</h3><p>jenkins传入groovy的boolean parameter是对象类型，非null总是true，所以判断总为true，进行一次类型转换就好</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> booleanParameter = Boolean.valueOf(jenkinsBooleanParameter);</span><br></pre></td></tr></table></figure>
+
+<h3 id="容器的编码问题"><a href="#容器的编码问题" class="headerlink" title="容器的编码问题"></a>容器的编码问题</h3><blockquote>
+<p>Your container doesn’t use UTF-8 to decode URLs. If you use non-ASCII characters as a job name etc, this will cause problems. See <a href="http://wiki.jenkins-ci.org/display/JENKINS/Containers">Containers</a> and <a href="http://wiki.jenkins-ci.org/display/JENKINS/Tomcat#Tomcat-i18n">Tomcat i18n</a> for more details.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/08/CAS%E5%8D%8F%E8%AE%AE%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%9F%BA%E7%A1%80demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/08/CAS%E5%8D%8F%E8%AE%AE%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%9F%BA%E7%A1%80demo/" class="post-title-link" itemprop="url">CAS协议实践之基础demo</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-04 12:00:03" itemprop="dateCreated datePublished" datetime="2017-08-04T12:00:03Z">2017-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/08/CAS%E5%8D%8F%E8%AE%AE%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%9F%BA%E7%A1%80demo/" class="post-meta-item leancloud_visitors" data-flag-title="CAS协议实践之基础demo" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p> 资源下载</p>
+</blockquote>
+<p><a href="http://developer.jasig.org/cas/">CAS server</a></p>
+<p><a href="http://developer.jasig.org/cas-clients/">CAS client</a></p>
+<h2 id="一、CAS-server"><a href="#一、CAS-server" class="headerlink" title="一、CAS server"></a>一、CAS server</h2><h3 id="1-生成证书"><a href="#1-生成证书" class="headerlink" title="1. 生成证书"></a>1. 生成证书</h3><p>生成一个别名为castest的证书。</p>
+<p>此处需要特别注意口令（后续导入导出证书、CAS服务器端均要用到此口令）和“名字与姓氏”（为CAS跳转域名，否则会报错）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -alias castest -keyalg RSA -keystore &#123;certificate_path&#125;/&#123;certificate_name&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491722131911.png"></p>
+<h3 id="2-导出证书"><a href="#2-导出证书" class="headerlink" title="2. 导出证书"></a>2. 导出证书</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -export -file &#123;certificate_path&#125;/&#123;certificate_name&#125;.crt -alias castest -keystore &#123;certificate_path&#125;/&#123;certificate_name&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491722611795.png"></p>
+<h3 id="3-安装证书"><a href="#3-安装证书" class="headerlink" title="3. 安装证书"></a>3. 安装证书</h3><p>将证书导入到客户端JRE中（注意、是导入JRE中），如果security中已经存在cacerts，需要先将其删除。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -keystore &quot;&#123;jdk_path&#125;\jre\lib\security\cacerts&quot; -file &#123;certificate_path&#125;/cas-test.crt -alias cas-test</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491724570498.png"></p>
+<h3 id="4-配置tomcat"><a href="#4-配置tomcat" class="headerlink" title="4. 配置tomcat"></a>4. 配置tomcat</h3><p>修改%TOMCAT_HOME%&#x2F;conf&#x2F;server.xml文件，支持https证书访问</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">SSLEnabled</span>=<span class="string">&quot;true&quot;</span> <span class="attr">clientAuth</span>=<span class="string">&quot;false&quot;</span> <span class="attr">keystoreFile</span>=<span class="string">&quot;&#123;certificate_path&#125;/&#123;certificate_name&#125;&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">keystorePass</span>=<span class="string">&quot;&#123;certificate_password&#125;&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">maxThreads</span>=<span class="string">&quot;150&quot;</span> <span class="attr">port</span>=<span class="string">&quot;8443&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;org.apache.coyote.http11.Http11Protocol&quot;</span> <span class="attr">scheme</span>=<span class="string">&quot;https&quot;</span> <span class="attr">secure</span>=<span class="string">&quot;true&quot;</span> <span class="attr">sslProtocol</span>=<span class="string">&quot;TLS&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491725915837.png"></p>
+<h3 id="5-测试证书"><a href="#5-测试证书" class="headerlink" title="5. 测试证书"></a>5. 测试证书</h3><p>访问<a href="https://localhost:8443/%EF%BC%8C%E6%88%90%E5%8A%9F%E5%88%99%E8%AF%B4%E6%98%8E%E9%85%8D%E7%BD%AE%E8%AF%81%E4%B9%A6%E6%88%90%E5%8A%9F">https://localhost:8443/，成功则说明配置证书成功</a></p>
+<h3 id="6-部署CAS-server"><a href="#6-部署CAS-server" class="headerlink" title="6. 部署CAS server"></a>6. 部署CAS server</h3><p>从<a href="http://developer.jasig.org/cas/%E4%B8%8A%E4%B8%8B%E8%BD%BDcas%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFcas-server-4.0.0-release.zip%EF%BC%8C%E5%9C%A8modules%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%BE%E5%88%B0cas-server-webapp-4.0.0.war%EF%BC%8C%E5%B0%86%E5%85%B6%E5%A4%8D%E5%88%B6%E5%88%B0%TOMCAT_HOME%/webapps%E4%B8%8B%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%90%8D%E7%A7%B0%E6%94%B9%E4%B8%BAcas.war">http://developer.jasig.org/cas/上下载cas服务器端cas-server-4.0.0-release.zip，在modules目录下找到cas-server-webapp-4.0.0.war，将其复制到%TOMCAT_HOME%\webapps下，并将名称改为cas.war</a></p>
+<h3 id="7-测试CAS-server"><a href="#7-测试CAS-server" class="headerlink" title="7. 测试CAS server"></a>7. 测试CAS server</h3><p>输入账号和密码</p>
+<ul>
+<li>casuser</li>
+<li>Mellon</li>
+</ul>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491727396249.png"></p>
+<p>登录成功则说明CAS server配置成功，可通过<a href="https://localhost:8443/logout%E9%80%80%E5%87%BA%E7%99%BB%E5%BD%95">https://localhost:8443/logout退出登录</a></p>
+<h2 id="二、CAS-client"><a href="#二、CAS-client" class="headerlink" title="二、CAS client"></a>二、CAS client</h2><h3 id="1-添加证书映射域名"><a href="#1-添加证书映射域名" class="headerlink" title="1. 添加证书映射域名"></a>1. 添加证书映射域名</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">127.0.0.1</span> <span class="string">sso.cas.com</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-创建CAS-client项目"><a href="#2-创建CAS-client项目" class="headerlink" title="2. 创建CAS client项目"></a>2. 创建CAS client项目</h3><p>配置web.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Archetype Created Web Application<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 用于单点退出，该过滤器用于实现单点登出功能，可选配置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.jasig.cas.client.session.SingleSignOutHttpSessionListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 该过滤器用于实现单点登出功能，可选配置。 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Single Sign Out Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.jasig.cas.client.session.SingleSignOutFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Single Sign Out Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 该过滤器负责用户的认证工作，必须启用它 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CASFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.jasig.cas.client.authentication.AuthenticationFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>casServerLoginUrl<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>https://sso.cas.com:8443/cas-server-webapp-4.0.0/login<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--这里的server是服务端的IP--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>serverName<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>http://localhost:8081<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CASFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 该过滤器负责对Ticket的校验工作，必须启用它 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Validation Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span></span><br><span class="line">            org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter</span><br><span class="line">        <span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>casServerUrlPrefix<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>https://sso.cas.com:8443/cas-server-webapp-4.0.0/</span><br><span class="line">            <span class="tag">&lt;/<span class="name">param-value</span>&gt;</span><span class="comment">&lt;!-- 此处必须为登录url/cas/，带有任何其它路径都会报错，如“https://sso.castest.com:8443/cas/login”,这样也会报错。 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>serverName<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>http://localhost:8081<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Validation Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            该过滤器负责实现HttpServletRequest请求的包裹，</span></span><br><span class="line"><span class="comment">            比如允许开发者通过HttpServletRequest的getRemoteUser()方法获得SSO登录用户的登录名，可选配置。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS HttpServletRequest Wrapper Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span></span><br><span class="line">            org.jasig.cas.client.util.HttpServletRequestWrapperFilter</span><br><span class="line">        <span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS HttpServletRequest Wrapper Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            该过滤器使得开发者可以通过org.jasig.cas.client.util.AssertionHolder来获取用户的登录名。</span></span><br><span class="line"><span class="comment">            比如AssertionHolder.getAssertion().getPrincipal().getName()。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Assertion Thread Local Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.jasig.cas.client.util.AssertionThreadLocalFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CAS Assertion Thread Local Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- session超时定义,单位为分钟 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>2<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-导入CAS-client核心jar包"><a href="#2-导入CAS-client核心jar包" class="headerlink" title="2. 导入CAS client核心jar包"></a>2. 导入CAS client核心jar包</h3><p>从<a href="http://developer.jasig.org/cas-clients/%E4%B8%8A%E4%B8%8B%E8%BD%BDcas-client-3.1.12-release.zip%EF%BC%8C%E5%9C%A8modules%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%BE%E5%88%B0cas-client-core-3.1.12.jar%E3%80%81commons-collections-3.2.jar%E3%80%81commons-logging-1.1.jar%E5%A4%8D%E5%88%B6%E5%88%B0%E9%A1%B9%E7%9B%AEWEB-INF/lib%E4%B8%8B">http://developer.jasig.org/cas-clients/上下载cas-client-3.1.12-release.zip，在modules目录下找到cas-client-core-3.1.12.jar、commons-collections-3.2.jar、commons-logging-1.1.jar复制到项目WEB-INF/lib下</a></p>
+<h3 id="3-测试CAS-client"><a href="#3-测试CAS-client" class="headerlink" title="3. 测试CAS client"></a>3. 测试CAS client</h3><p>配置好web容器后，启动cas client，访问<a href="http://localhost:8081/index.jsp%EF%BC%8C%E9%87%8D%E5%AE%9A%E5%90%91%E8%87%B3cas">http://localhost:8081/index.jsp，重定向至cas</a> server(<a href="https://sso.cas.com:8443)认证页面，输入用户名casuser及密码Mellon，认证成功后跳回访问页。同时可以在CAS">https://sso.cas.com:8443)认证页面，输入用户名casuser及密码Mellon，认证成功后跳回访问页。同时可以在CAS</a> server日志上看到如下的验证信息</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491750286473.png"></p>
+<p>访问<a href="https://sso.cas.com:8443/cas-server-webapp-4.0.0/logout%E5%8F%AF%E4%BB%A5%E9%80%80%E5%87%BA%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95">https://sso.cas.com:8443/cas-server-webapp-4.0.0/logout可以退出单点登录</a></p>
+<h2 id="三、其他认证方式"><a href="#三、其他认证方式" class="headerlink" title="三、其他认证方式"></a>三、其他认证方式</h2><p>以上验证的用户名和密码是配置在{CAS_server}&#x2F;webapp&#x2F;WEB-INF&#x2F;deployerConfigContext.xml中的</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1491750718948.png"></p>
+<p>实际生产中用户认证信息往往配置在数据库中，下面介绍利用数据库配置认证方式</p>
+<p><a href="http://www.cnblogs.com/rwxwsblog/p/4954843.html">配置数据库认证方式</a></p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="1-service是如何存储的"><a href="#1-service是如何存储的" class="headerlink" title="1. service是如何存储的"></a>1. service是如何存储的</h3><p><a href="https://wiki.jasig.org/display/casc/configuring+the+jasig+cas+client+for+java+in+the+web.xml">Configuring CAS client for java in the web.xml</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/07/Php-Storm%E8%BF%9B%E8%A1%8C%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/technology/2017/07/Php-Storm%E8%BF%9B%E8%A1%8C%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/" class="post-title-link" itemprop="url">Php Storm进行断点调试</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-07-24 21:38:53" itemprop="dateCreated datePublished" datetime="2017-07-24T21:38:53Z">2017-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/07/Php-Storm%E8%BF%9B%E8%A1%8C%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="Php Storm进行断点调试" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文介绍使用在php storm上进行断点调试</p>
+<h3 id="安装xdebug"><a href="#安装xdebug" class="headerlink" title="安装xdebug"></a>安装xdebug</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装xdebug</span></span><br><span class="line">brew install php56-xdebug</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看安装结果</span></span><br><span class="line">php -i</span><br></pre></td></tr></table></figure>
+
+<h3 id="php-storm设置"><a href="#php-storm设置" class="headerlink" title="php storm设置"></a>php storm设置</h3><ol>
+<li><p>配置debug环境,注意端口号要与php.ini中配置的相同（下图为9000端口）</p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1500902696029.png"></p>
+</li>
+<li><p>设置PHP Web Application</p>
+<p>注意要设置下图中的Absolute path on the server</p>
+</li>
+</ol>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1500902961165.png"></p>
+<p><img src="http://img.willowspace.cn/willowspace_2016/1500903034350.png"></p>
+<p>开始使用断点</p>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><p><strong>Q1：断点进入时出现了Remote file path is not mapped to any file path in project</strong></p>
+<p>这是由于PhpStorm不能确定哪个本地文件与debug监听的文件对应，应该不能定位本地的断点。</p>
+<p>可以点击__Click to set up path mappings__按钮设置上文提到的Absolute path on the server，设置完毕即可解决该问题</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

@@ -1,38 +1,418 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+  <meta name="baidu-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.willowspace.cn","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&#x2F; 文件系统的入口，最高一级目录；  &#x2F;usr 系统存放程序的目录，比如命令、帮助文件等。这个目录下有很多的文件和目录。当我们安装一个__Linux发行版官方提供的软件包__时，大多安装在这里。如果有涉及服务器配置文件的，会把配置文件安装在&#x2F;etc目录中。  &#x2F;var 这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，__&#x2F;var&#x2F;log 这是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux目录结构及惯例用法">
+<meta property="og:url" content="http://blog.willowspace.cn/technology/2017/05/linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%8F%8A%E6%83%AF%E4%BE%8B%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:site_name" content="Willow&#39;s blog">
+<meta property="og:description" content="&#x2F; 文件系统的入口，最高一级目录；  &#x2F;usr 系统存放程序的目录，比如命令、帮助文件等。这个目录下有很多的文件和目录。当我们安装一个__Linux发行版官方提供的软件包__时，大多安装在这里。如果有涉及服务器配置文件的，会把配置文件安装在&#x2F;etc目录中。  &#x2F;var 这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，__&#x2F;var&#x2F;log 这是">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-05-30T00:30:39.000Z">
+<meta property="article:modified_time" content="2024-09-03T09:51:02.881Z">
+<meta property="article:author" content="杨威">
+<meta property="article:tag" content="ops">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://blog.willowspace.cn/technology/2017/05/linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%8F%8A%E6%83%AF%E4%BE%8B%E7%94%A8%E6%B3%95/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.willowspace.cn/technology/2017/05/linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%8F%8A%E6%83%AF%E4%BE%8B%E7%94%A8%E6%B3%95/","path":"technology/2017/05/linux目录结构及惯例用法/","title":"linux目录结构及惯例用法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>linux目录结构及惯例用法 | Willow's blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?244558d220e72839afa5633c6c823d79"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Willow's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Writing</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="http://blog.willowspace.cn/" rel="section">Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section">Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨威</p>
+  <div class="site-description" itemprop="description">捉虫子的人</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/revolyw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;revolyw" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/revolyw" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;revolyw" rel="noopener me" target="_blank">Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://willowspace.cn/" title="http:&#x2F;&#x2F;willowspace.cn" rel="noopener" target="_blank">Willow's space</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chrisp7.github.io/" title="https:&#x2F;&#x2F;Chrisp7.github.io" rel="noopener" target="_blank">Chrisp's blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://kenneth-hao.github.io/" title="http:&#x2F;&#x2F;kenneth-hao.github.io" rel="noopener" target="_blank">Yuewen's Note</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.willowspace.cn/technology/2017/05/linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%8F%8A%E6%83%AF%E4%BE%8B%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨威">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willow's blog">
+      <meta itemprop="description" content="捉虫子的人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="linux目录结构及惯例用法 | Willow's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux目录结构及惯例用法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-05-30 00:30:39" itemprop="dateCreated datePublished" datetime="2017-05-30T00:30:39Z">2017-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/technology/2017/05/linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%8F%8A%E6%83%AF%E4%BE%8B%E7%94%A8%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="linux目录结构及惯例用法" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ol>
+<li><p><code>/</code> 文件系统的入口，最高一级目录；</p>
+</li>
+<li><p><code>/usr</code> 系统存放程序的目录，比如命令、帮助文件等。这个目录下有很多的文件和目录。当我们安装一个__Linux发行版官方提供的软件包__时，大多安装在这里。如果有涉及服务器配置文件的，会把配置文件安装在&#x2F;etc目录中。</p>
+</li>
+<li><p><code>/var</code> 这个目录的内容是经常变动的，看名字就知道，我们可以理解为vary的缩写，__&#x2F;var&#x2F;log 这是用来存放系统日志的目录__；__&#x2F;var&#x2F;www目录是定义Apache服务器站点存放目录__；__&#x2F;var&#x2F;lib 用来存放一些库文件__，比如MySQL，以及MySQL数据库的的存放地；&#x2F;var&#x2F;spool 打印机、邮件、代理服务器等假脱机目录；</p>
+</li>
+<li><p><code>/srv</code> 主要用来存储本机或本服务器提供的服务或数据。（用户主动生产、对外提供服务）__服务器被用作Web开发时，静态资源文件更应该被放在&#x2F;srv&#x2F;www下，而不是&#x2F;var&#x2F;www下__（因为&#x2F;srv目录是新标准中才出现的，而且Apache将其设为了web默认目录，所以现在绝大多数人都把web文件放在这里）。如ftp、流媒体服务等也应该被放在&#x2F;srv对应的目录下。如果对应目录太大，应该另外挂载分区。</p>
+</li>
+<li><p><code>/opt</code> Optional application software packages ，也就是__自定义软件包__，有些我们自己编译的软件包，就可以安装在这个目录中；通过源码包安装的软件，可以通过 .&#x2F;configure –prefix&#x3D;&#x2F;opt&#x2F;，将软件安装到opt目录。这个目录包含所有默认系统安装之外的软件和添加的包。</p>
+</li>
+<li><p>&#x2F;etc&#96; Editable Text Configuration 存放__系统__程序或者一般工具的配置文件。__如安装了apache2之后，配置文件在&#x2F;etc&#x2F;apache2&#x2F;目录下__。&#x2F;etc&#x2F;init.d 这个目录是用来存放系统或服务器以System V模式启动的脚本，这在以System V模式启动或初始化的系统中常见。如apache2的&#x2F;etc&#x2F;init.d apache2 start|stop|restart MySQL为&#x2F;etc&#x2F;init.d mysql start|stop|restart </p>
+</li>
+<li><p><code>/mnt</code> 一般是用于存放挂载储存设备的挂载目录的，比如有cdrom 等目录。有时我们可以把让系统开机自动挂载文件系统，把挂载点放在这里也是可以的。比如光驱可以挂载到&#x2F;mnt&#x2F;cdrom 。这是一个普通的加载目录，在这里你可以加载你的文件系统或设备。加载是使一个文件系统对于系统可用的过程。在加载后你的文件可以在加载目录下访问。这个目录通常包含加载目录或用于加载软驱和光驱的子目录。如果需要，你也可以在这里建立其它的加载目录。对于加载目录的位置并没有强制性的要求，你可以在系统的任意位置建立加载目录。建立 &#x2F;mnt 只是为了使系统更工整的惯例。 </p>
+</li>
+<li><p><code>/tmp</code> 临时文件目录，有时__用户__运行程序的时候，会产生临时文件。 &#x2F;tmp就用来存放临时文件的。&#x2F;var&#x2F;tmp目录和这个目录相似。许多程序在这里建立lock文件和存储临时数据。有些系统会在启动或关机时清空此目录。</p>
+</li>
+<li><p><code>/boot</code> 包含Linux内核及系统引导程序所需要的文件，比如 vmlinuz initrd.img 文件都位于这个目录中。在一般情况下，GRUB或LILO系统引导管理器也位于这个目录；</p>
+</li>
+<li><p><code>/root</code> Linux超级权限用户root的家目录；</p>
+</li>
+<li><p><code>/bin</code> __基础系统__所需要的命令位于此目录，是最小系统所需要的命令，如：ls, cp, mkdir等。<br>   这个目录中的文件都是可执行的，一般的用户都可以使用。</p>
+</li>
+<li><p><code>/sbin</code> 大多是涉及__系统管理__的命令的存放，是超级权限用户__root__的可执行命令存放地，普通用户无权限执行这个目录下的命令；这个目录和&#x2F;usr&#x2F;sbin; &#x2F;usr&#x2F;X11R6&#x2F;sbin或&#x2F;usr&#x2F;local&#x2F;sbin 目录是相似的； 我们记住就行了，凡是目录sbin中包含的都是root权限才能执行的。</p>
+</li>
+<li><p><code>/dev</code> 设备文件存储目录，比如声卡、磁盘… … 这是一个非常有趣的目录，是Linux文件系统的一个闪亮的特性 - 所有对象都是文件或目录。仔细观察这个目录你会发现hda1, hda2等, 它们代表系统主硬盘的不同分区。</p>
+<p>&#x2F;dev&#x2F;cdrom和&#x2F;dev&#x2F;fd0代表你的CDROM驱动器和floppy驱动器。看上去可能有些奇怪，但比较文件和硬件的特性这却是十分合理的。它们都可以读出和写入。例如&#x2F;dev&#x2F;dsp，这个文件代表你的扬声器。那么写入这个文件的数据都回传送到喇叭。试一试 ‘cat &#x2F;etc&#x2F;lilo.conf &gt; &#x2F;dev&#x2F;dsp’ 你会听到一些声音。这是你的 lilo.conf 文件的声音！同样，向&#x2F;dev&#x2F;ttyS0 ( COM 1 ) 读出或写入数据你可以和接到上面的设备进行通讯。</p>
+</li>
+<li><p><code>/home</code> 普通用户默认存放目录 Linux 是多用户环境，所以每一个用户都有一个只有自己可以访问的目录（当然管理员也可以访问）。它们以 &#x2F;home&#x2F;username 的方式存在。这个目录也__保存一些应用对于这个用户的配置__，比如 IRC, X 等。</p>
+</li>
+<li><p><code>/lib</code>或<code>lib32</code>或<code>/lib64</code> 库文件存放目录这里包含了__系统__程序所需要的所有共享库文件，类似于 Windows 的共享库 DLL 文件。</p>
+</li>
+<li><p><code>/lost+found</code> 在ext2或ext3文件系统中，当系统意外崩溃或机器意外关机，而产生一些文件碎片放在这里。当系统启动的过程中fsck工具会检查这里，并修复已经损坏的文件系统。 有时系统发生问题，有很多的文件被移到这个目录中，可能会用手工的方式来修复，或移到文件到原来的位置上。<br>Linux 应该正确的关机。但有时你的系统也可能崩溃掉或突然断电使系统意外关机。那么启动的时候 fsck 将会进行长时间的文件系统检查。Fsck 会检测并试图恢复所发现的不正确的文件。被恢复的文件会放置在这个目录中。所恢复的文件也许并不完整或并不合理，但毕竟提供了一些恢复数据的机会。</p>
+</li>
+<li><p><code>/media</code> 即插即用型存储设备的挂载点自动在这个目录下创建，比如USB盘系统自动挂载后，会在这个目录下产生一个目录 ；CDROM&#x2F;DVD自动挂载后，也会在这个目录中创建一个目录，类似cdrom 的目录。这个只有在最新的发行套件上才有. </p>
+</li>
+<li><p><code>/proc</code> 虚拟文件系统。该目录中的数据并不是保存在硬盘中，而是保存在内存当中。主要用来保存操作系统运行时进程、外部设备、内核（比如cpu、硬盘分区、内存信息等）等信息。如 &#x2F;proc&#x2F;cpuinfo 保存的是CPU信息，&#x2F;proc&#x2F;devices 保存的是设备驱动信息列表。</p>
+</li>
+<li><p><code>/sys</code> 虚拟文件系统。和 &#x2F;proc 目录相似，里面的数据也是保存在内存中的，它主要用来保存__内核的相关信息__。</p>
+</li>
+<li><p><code>/run</code> 这个目录和&#x2F;var&#x2F;run是类似的，存储了一些系统启动引导时的运行时信息</p>
+<p>​</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ops/" rel="tag"># ops</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/technology/2017/05/JavaDoc%E5%B8%B8%E7%94%A8%E6%B3%A8%E9%87%8A/" rel="prev" title="JavaDoc">
+                  <i class="fa fa-angle-left"></i> JavaDoc
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/technology/2017/05/linux%E9%98%B2%E7%81%AB%E5%A2%99%E5%BF%AB%E9%80%9F%E5%AE%9E%E8%B7%B5/" rel="next" title="linux防火墙快速实践">
+                  linux防火墙快速实践 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">杨威</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"5HtGGz1WISMWSihCmLXJYHIr-gzGzoHsz","app_key":"zN9Kms6uMb8IdIzbYbfVPuo0","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>
